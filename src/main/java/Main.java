@@ -7,14 +7,14 @@
  *
  * @author misterfocusth
  */
-import forms.LoginForm;
+import forms.NewLoginForm;
 
 public class Main {
     
     public static void main(String[] args) {
         System.out.println("Hello, World!");
         
-        LoginForm loginForm = new LoginForm();
-        loginForm.setVisible(true);
+        NewLoginForm newLoginForm = new NewLoginForm();
+        newLoginForm.setVisible(true);
     }
 }
