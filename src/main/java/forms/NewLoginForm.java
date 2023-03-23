@@ -61,20 +61,20 @@ public class NewLoginForm extends javax.swing.JFrame {
 
         jDesktopPane1.setBackground(new java.awt.Color(242, 242, 242));
 
-        jLabel10.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("คณะเทคโนโลยีสารสนเทศ");
 
-        jLabel9.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง");
 
-        jLabel11.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 102, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText(" ระบบสารสนเทศนักศึกษา @IT, KMITL");
 
-        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 102, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("ห้องฟ้าออนไลน์ (HongFah Online)");
@@ -113,16 +113,21 @@ public class NewLoginForm extends javax.swing.JFrame {
 
         jDesktopPane2.setBackground(new java.awt.Color(242, 242, 242));
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel2.setText("รหัสนักศึกษา / ชื่อผู้ใข้งาน");
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel3.setText("โปรดกรอกรหัสนักศึกษา (ไม่ต้องใส่ @KMITL.AC.TH) หรือชื่อผู้ใช้");
 
-        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        usernameTextField.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel4.setText("รหัสผ่าน");
 
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel5.setText("โปรดกรอกรหัสผ่านเพื่อดำเนินการต่อ");
+
+        passwordField.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
 
         jDesktopPane2.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -166,6 +171,7 @@ public class NewLoginForm extends javax.swing.JFrame {
 
         jDesktopPane3.setBackground(new java.awt.Color(242, 242, 242));
 
+        closeButton.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         closeButton.setText("ยกเลิก / ปิดโปรเเกรม");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,7 +179,13 @@ public class NewLoginForm extends javax.swing.JFrame {
             }
         });
 
+        loginButton.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         loginButton.setText("เข้าสู่ระบบ");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
 
         jDesktopPane3.setLayer(closeButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(loginButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -201,11 +213,11 @@ public class NewLoginForm extends javax.swing.JFrame {
 
         jDesktopPane4.setBackground(new java.awt.Color(242, 242, 242));
 
-        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel6.setText("นักศึกษาใหม่ / มีปัญหาในการเข้าสู่ระบบ ?");
 
         registerLabel.setBackground(new java.awt.Color(0, 102, 255));
-        registerLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        registerLabel.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         registerLabel.setForeground(new java.awt.Color(0, 102, 255));
         registerLabel.setText("- ลงทะเบียนเข้าใช้งานระบบสารสนเทศ (สำหรับนักศึกษาใหม่)");
         registerLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -214,11 +226,11 @@ public class NewLoginForm extends javax.swing.JFrame {
             }
         });
 
-        aboutLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        aboutLabel.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         aboutLabel.setForeground(new java.awt.Color(0, 102, 255));
         aboutLabel.setText("- เกี่ยวกับโปรเเกรมเเละติดต่อผู้พัฒนา");
 
-        showAdminAddLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        showAdminAddLabel.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         showAdminAddLabel.setForeground(new java.awt.Color(0, 102, 255));
         showAdminAddLabel.setText("- เข้าสู่ระบบสารสนเทศสำหรับเจ้าหน้าที่ เเละ/หรือ อาจารย์");
 
@@ -295,11 +307,18 @@ public class NewLoginForm extends javax.swing.JFrame {
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_closeButtonActionPerformed
-    
+
     private void registerLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerLabelMouseClicked
         RegisterForm registerForm = new RegisterForm();
         registerForm.setVisible(true);
     }//GEN-LAST:event_registerLabelMouseClicked
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        String username = usernameTextField.getText();
+        char[] password = passwordField.getPassword();
+        System.out.println(username);
+        System.out.println(password);
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,7 +350,6 @@ public class NewLoginForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewLoginForm().setVisible(true);
             }
         });
     }

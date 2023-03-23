@@ -2,19 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package user;
 
 /**
  *
  * @author misterfocusth
  */
-import forms.NewLoginForm;
+public class AuthUser {
 
-public class Main {
+    private static User authUser;
 
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-
-        NewLoginForm newLoginForm = new NewLoginForm();
-        newLoginForm.setVisible(true);
+    public static User getAuthUser() {
+        return authUser;
     }
+
+    public static void setAuthUser(User AuthUser) {
+        authUser = AuthUser;
+    }
+
 }
