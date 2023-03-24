@@ -282,7 +282,7 @@ public class NewLoginForm extends javax.swing.JFrame {
                     .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jDesktopPane3)
                     .addComponent(jDesktopPane4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,8 +309,8 @@ public class NewLoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void registerLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerLabelMouseClicked
-        RegisterForm registerForm = new RegisterForm();
-        registerForm.setVisible(true);
+        NewRegisterForm newRegisterForm = new NewRegisterForm();
+        newRegisterForm.setVisible(true);
     }//GEN-LAST:event_registerLabelMouseClicked
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
