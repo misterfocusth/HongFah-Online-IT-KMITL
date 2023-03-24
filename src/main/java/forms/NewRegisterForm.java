@@ -112,16 +112,16 @@ public class NewRegisterForm extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("ในการเข้าใช้งานระบบฯ ครั้งเเรก โปรดสมัครสมาชิกบันทึกข้อมูลเข้าระบบ เพื่อดำเนินการต่อ...");
 
-        jLabel12.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("คำเเนะนำในการสมัครเข้าใช้งาน !");
 
-        jLabel13.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("- โปรดกรอกข้อมูล เเละตรวจสอบให้ถูกต้อง ก่อนทำการบันทึกข้อมูล");
 
-        jLabel14.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setText("- โปรดจำข้อมูลที่ใช้ในการเข้าสู่ระบบ เพราะต้องใช้ในการเข้าถึงระบบฯ");
 
-        jLabel15.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setText("- หากมีปัญหาในการสมัครเข้าใช้งานระบบฯ โปรดติดต่อผู้พัฒนา");
 
         jScrollPane1.setBorder(null);
