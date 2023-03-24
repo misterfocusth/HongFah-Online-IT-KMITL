@@ -113,7 +113,7 @@ public class NewLoginForm extends javax.swing.JFrame {
 
         jDesktopPane2.setBackground(new java.awt.Color(242, 242, 242));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("รหัสนักศึกษา / ชื่อผู้ใข้งาน");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -121,7 +121,7 @@ public class NewLoginForm extends javax.swing.JFrame {
 
         usernameTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("รหัสผ่าน");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
