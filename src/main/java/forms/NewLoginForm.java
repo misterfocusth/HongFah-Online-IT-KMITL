@@ -172,6 +172,7 @@ public class NewLoginForm extends javax.swing.JFrame {
         jDesktopPane3.setBackground(new java.awt.Color(242, 242, 242));
 
         closeButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        closeButton.setForeground(new java.awt.Color(255, 0, 0));
         closeButton.setText("ยกเลิก / ปิดโปรเเกรม");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,6 +311,7 @@ public class NewLoginForm extends javax.swing.JFrame {
 
     private void registerLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerLabelMouseClicked
         NewRegisterForm newRegisterForm = new NewRegisterForm();
+        newRegisterForm.setLocationRelativeTo(null);
         newRegisterForm.setVisible(true);
     }//GEN-LAST:event_registerLabelMouseClicked
 
