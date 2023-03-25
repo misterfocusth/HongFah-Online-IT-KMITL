@@ -26,7 +26,6 @@ public class Firebase {
     public static Firestore db = null;
 
     public static void initFirebase() throws FileNotFoundException, IOException, URISyntaxException {
-        System.out.println(new Firebase().getServiceAccount());
         InputStream serviceAccount = new FileInputStream(new Firebase().getServiceAccount());
         GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
         FirebaseOptions options = new FirebaseOptions.Builder()
@@ -39,12 +38,10 @@ public class Firebase {
     public File getServiceAccount() throws URISyntaxException {
         ClassLoader classLoader = getClass().getClassLoader();
         URL resource = classLoader.getResource("firebase/hongfah-online-it-kmitl-firebase-adminsdk-wbpdq-20d971f595.json");
-
         if (resource == null) {
             throw new IllegalArgumentException("File not found!" + resource.toURI());
         } else {
             return new File(resource.toURI());
         }
-
     }
 }

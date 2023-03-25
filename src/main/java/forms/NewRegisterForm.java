@@ -585,9 +585,6 @@ public class NewRegisterForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        System.out.println(selectedBirthMonthBox.getSelectedIndex());
-        System.out.println(selectedBirthMonthBox.getSelectedItem().toString());
-
         registerButton.setText("กำลังบันทึกข้อมูล โปรดรอสักครู่...");
         registerButton.setEnabled(false);
 
@@ -639,7 +636,6 @@ public class NewRegisterForm extends javax.swing.JFrame {
                 Thread.sleep(2500);
             }
             result = future.get();
-            System.out.println(result);
         } catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
         } finally {
