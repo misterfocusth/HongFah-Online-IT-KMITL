@@ -4,6 +4,16 @@
  */
 package forms;
 
+import database.StudentDatabase;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author misterfocusth
@@ -40,13 +50,13 @@ public class NewRegisterForm extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        selectedThNameTitleBox = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         thFirstNameTextField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         thLastNameTextField = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        selectedEnNameTitleBox = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         enFirstNameTextField = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -70,14 +80,14 @@ public class NewRegisterForm extends javax.swing.JFrame {
         selectedStudentYearBox = new javax.swing.JComboBox<>();
         jLabel24 = new javax.swing.JLabel();
         itGenerationTextField = new javax.swing.JTextField();
-        jComboBox7 = new javax.swing.JComboBox<>();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        selectedSchoolNameBox = new javax.swing.JComboBox<>();
+        selectedProgrameBox = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         majorTextField = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        jComboBox9 = new javax.swing.JComboBox<>();
+        campusBox = new javax.swing.JComboBox<>();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -133,54 +143,62 @@ public class NewRegisterForm extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("คำนำหน้า");
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "นาย", "นางสาว" }));
+        selectedThNameTitleBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        selectedThNameTitleBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "นาย", "นางสาว" }));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("ชื่อจริง (ภาษาไทย)");
 
         thFirstNameTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        thFirstNameTextField.setText("12345");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("นามสกุล (ภาษาไทย)");
 
         thLastNameTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        thLastNameTextField.setText("12345");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("คำนำหน้า");
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mr.", "Mrs." }));
+        selectedEnNameTitleBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        selectedEnNameTitleBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mr.", "Mrs." }));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("ชื่อจริง (ภาษาอังกฤษ)");
 
         enFirstNameTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        enFirstNameTextField.setText("12345");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("นามสกุล (ภาษาอังกฤษ)");
 
         enLastNameTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        enLastNameTextField.setText("12345");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("อีเมล");
 
         emailTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emailTextField.setText("12345");
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setText("เบอร์โทรศัพท์");
 
         phoneNumberTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        phoneNumberTextField.setText("12345");
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel18.setText("เลขบัตรประจำตัวประชาชน");
 
         identificationNumTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        identificationNumTextField.setText("12345");
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel19.setText("รหัสประจำตัวนักศึกษา");
 
         studentIdTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        studentIdTextField.setText("12345");
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel20.setText("วัน / เดือน / ปี (พ.ศ.) เกิด");
@@ -192,6 +210,7 @@ public class NewRegisterForm extends javax.swing.JFrame {
         selectedBirthMonthBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม" }));
 
         birthYearTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        birthYearTextField.setText("12345");
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel21.setText("เพศ");
@@ -212,13 +231,14 @@ public class NewRegisterForm extends javax.swing.JFrame {
         jLabel24.setText("รุ่น");
 
         itGenerationTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        itGenerationTextField.setText("12345");
 
-        jComboBox7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "คณะเทคโนโลยีสารสนเทศ" }));
-        jComboBox7.setEnabled(false);
+        selectedSchoolNameBox.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        selectedSchoolNameBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "คณะเทคโนโลยีสารสนเทศ" }));
+        selectedSchoolNameBox.setEnabled(false);
 
-        jComboBox8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "สาขาวิชาเทคโนโลยีสารสนเทศ", "สาขาวิชาวิทยาการข้อมูลและการวิเคราะห์เชิงธุรกิจ", "สาขาเทคโนโลยีสารสนเทศทางธุรกิจ (หลักสูตรนานาชาติ)" }));
+        selectedProgrameBox.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        selectedProgrameBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "สาขาวิชาเทคโนโลยีสารสนเทศ", "สาขาวิชาวิทยาการข้อมูลและการวิเคราะห์เชิงธุรกิจ", "สาขาเทคโนโลยีสารสนเทศทางธุรกิจ (หลักสูตรนานาชาติ)" }));
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel25.setText("คณะ / วิทยาลัย");
@@ -230,13 +250,14 @@ public class NewRegisterForm extends javax.swing.JFrame {
         jLabel27.setText("เเขวงวิชา");
 
         majorTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        majorTextField.setText("12345");
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel28.setText("วิทยาเขต");
 
-        jComboBox9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง วิทยาเขตหลัก (ลาดกระบัง)" }));
-        jComboBox9.setEnabled(false);
+        campusBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        campusBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง วิทยาเขตหลัก (ลาดกระบัง)" }));
+        campusBox.setEnabled(false);
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel29.setText("ส่วนที่ 3 - ข้อมูลในการติดต่อ");
@@ -249,6 +270,7 @@ public class NewRegisterForm extends javax.swing.JFrame {
         addressTextArea.setLineWrap(true);
         addressTextArea.setRows(5);
         addressTextArea.setTabSize(5);
+        addressTextArea.setText("12345");
         jScrollPane2.setViewportView(addressTextArea);
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -261,8 +283,10 @@ public class NewRegisterForm extends javax.swing.JFrame {
         jLabel36.setText("ยืนยันรหัสผ่าน");
 
         passwordField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        passwordField.setText("12345");
 
         confirmPasswordField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        confirmPasswordField.setText("12345");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -303,19 +327,19 @@ public class NewRegisterForm extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(selectedSchoolNameBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel25))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel26)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jComboBox8, 0, 0, Short.MAX_VALUE)
+                                                .addComponent(selectedProgrameBox, 0, 0, Short.MAX_VALUE)
                                                 .addGap(18, 18, 18))))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel28)
                                         .addContainerGap())
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(campusBox, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,7 +347,7 @@ public class NewRegisterForm extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel9)
-                                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(selectedEnNameTitleBox, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGap(18, 18, 18)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel10)
@@ -359,7 +383,7 @@ public class NewRegisterForm extends javax.swing.JFrame {
                                                 .addComponent(selectedGenderBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(selectedThNameTitleBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jLabel6))
                                             .addGap(18, 18, 18)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -391,7 +415,7 @@ public class NewRegisterForm extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(selectedThNameTitleBox, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(thFirstNameTextField)
                     .addComponent(thLastNameTextField))
                 .addGap(18, 18, 18)
@@ -401,7 +425,7 @@ public class NewRegisterForm extends javax.swing.JFrame {
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(selectedEnNameTitleBox, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(enFirstNameTextField)
                     .addComponent(enLastNameTextField))
                 .addGap(18, 18, 18)
@@ -441,8 +465,8 @@ public class NewRegisterForm extends javax.swing.JFrame {
                     .addComponent(jLabel26))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox8)
-                    .addComponent(jComboBox7)
+                    .addComponent(selectedProgrameBox)
+                    .addComponent(selectedSchoolNameBox)
                     .addComponent(itGenerationTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(selectedStudentYearBox))
                 .addGap(18, 18, 18)
@@ -451,7 +475,7 @@ public class NewRegisterForm extends javax.swing.JFrame {
                     .addComponent(jLabel28))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox9)
+                    .addComponent(campusBox)
                     .addComponent(majorTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
                 .addGap(24, 24, 24)
                 .addComponent(jLabel29)
@@ -563,6 +587,74 @@ public class NewRegisterForm extends javax.swing.JFrame {
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         System.out.println(selectedBirthMonthBox.getSelectedIndex());
         System.out.println(selectedBirthMonthBox.getSelectedItem().toString());
+
+        registerButton.setText("กำลังบันทึกข้อมูล โปรดรอสักครู่...");
+        registerButton.setEnabled(false);
+
+        HashMap<String, String> studentData = new HashMap<>();
+
+        // Personal Data
+        studentData.put("thNameTitle", selectedThNameTitleBox.getSelectedItem().toString());
+        studentData.put("thFirstName", thFirstNameTextField.getText());
+        studentData.put("thLastName", thLastNameTextField.getText());
+        studentData.put("enNameTitle", selectedEnNameTitleBox.getSelectedItem().toString());
+        studentData.put("enFirstName", enFirstNameTextField.getText());
+        studentData.put("enLastName", enLastNameTextField.getText());
+        studentData.put("identificationNumber", identificationNumTextField.getText());
+        studentData.put("email", emailTextField.getText());
+        studentData.put("phoneNumber", phoneNumberTextField.getText());
+        studentData.put("contactAddress", addressTextArea.getText());
+        studentData.put("dobData", selectedBirthDayBox.getSelectedItem().toString());
+        studentData.put("dobMonth", selectedBirthMonthBox.getSelectedItem().toString());
+        studentData.put("dobYear", birthYearTextField.getText());
+        studentData.put("gender", selectedGenderBox.getSelectedItem().toString());
+
+        // Education Data
+        studentData.put("studentId", studentIdTextField.getText());
+        studentData.put("classYear", selectedStudentYearBox.getSelectedItem().toString());
+        studentData.put("generation", itGenerationTextField.getText().toString());
+        studentData.put("schoolName", selectedSchoolNameBox.getSelectedItem().toString());
+        studentData.put("campusName", campusBox.getSelectedItem().toString());
+        studentData.put("majorName", selectedProgrameBox.getSelectedItem().toString());
+        studentData.put("programeName", majorTextField.getText());
+
+        // Login Data
+        studentData.put("username", studentIdTextField.getText());
+        char[] password = passwordField.getPassword();
+        studentData.put("password", Arrays.toString(password));
+
+        System.out.println(studentData.toString());
+
+        StudentDatabase db = new StudentDatabase();
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        boolean result = false;
+
+        try {
+            Callable<Boolean> callable = () -> {
+                return db.addNewStudent(studentData);
+            };
+            Future<Boolean> future = executorService.submit(callable);
+            while (!future.isDone() && !future.isCancelled()) {
+                Thread.sleep(2500);
+            }
+            result = future.get();
+            System.out.println(result);
+        } catch (InterruptedException | ExecutionException ex) {
+            ex.printStackTrace();
+        } finally {
+            executorService.shutdown();
+        }
+
+        if (result) {
+            JOptionPane.showMessageDialog(null, "สมัครเข้าใช้งานระบบสารสนเทศ สำเร็จ ! - สามารถล็อกอินเพื่อเข้าใช้งาน ด้วย รหัสนักศึกษา (6507XXXX) และรหัสผ่าน ที่ได้ทำการลงทะเบียนเอาไว้");
+            this.setVisible(false);
+        } else {
+            registerButton.setText("สมัครสมาชิก");
+            registerButton.setEnabled(true);
+            JOptionPane.showMessageDialog(null, "สมัครสมาชิกเข้าใช้งานระบบสารสนเทศ ไม่สำเร็จ ! - โปรดติดต่อผู้พัฒนา เพื่อดำเนินการต่อ...");
+        }
+
     }//GEN-LAST:event_registerButtonActionPerformed
 
     /**
@@ -604,6 +696,7 @@ public class NewRegisterForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea addressTextArea;
     private javax.swing.JTextField birthYearTextField;
+    private javax.swing.JComboBox<String> campusBox;
     private javax.swing.JButton cancelButton;
     private javax.swing.JPasswordField confirmPasswordField;
     private javax.swing.JTextField emailTextField;
@@ -611,11 +704,6 @@ public class NewRegisterForm extends javax.swing.JFrame {
     private javax.swing.JTextField enLastNameTextField;
     private javax.swing.JTextField identificationNumTextField;
     private javax.swing.JTextField itGenerationTextField;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
-    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -663,8 +751,12 @@ public class NewRegisterForm extends javax.swing.JFrame {
     private javax.swing.JButton registerButton;
     private javax.swing.JComboBox<String> selectedBirthDayBox;
     private javax.swing.JComboBox<String> selectedBirthMonthBox;
+    private javax.swing.JComboBox<String> selectedEnNameTitleBox;
     private javax.swing.JComboBox<String> selectedGenderBox;
+    private javax.swing.JComboBox<String> selectedProgrameBox;
+    private javax.swing.JComboBox<String> selectedSchoolNameBox;
     private javax.swing.JComboBox<String> selectedStudentYearBox;
+    private javax.swing.JComboBox<String> selectedThNameTitleBox;
     private javax.swing.JTextField studentIdTextField;
     private javax.swing.JTextField thFirstNameTextField;
     private javax.swing.JTextField thLastNameTextField;
