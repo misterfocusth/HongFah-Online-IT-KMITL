@@ -7,13 +7,14 @@ package database;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.WriteResult;
-import static firebase.Firebase.db;
-import java.util.HashMap;
-import java.util.Map;
 import user.Student;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static firebase.Firebase.db;
+
 /**
- *
  * @author misterfocusth
  */
 public class StudentDatabase {
@@ -46,7 +47,7 @@ public class StudentDatabase {
         String schoolName = studentData.get("schoolName");
         String campusName = studentData.get("campusName");
         String majorName = studentData.get("majorName");
-        String programeName = studentData.get("programeName");
+        String programName = studentData.get("programName");
 
         DocumentReference docRef = db.collection("student").document(studentId);
         Map<String, Object> data = new HashMap<>();
@@ -71,7 +72,7 @@ public class StudentDatabase {
         data.put("schoolName", schoolName);
         data.put("campusName", campusName);
         data.put("majorName", majorName);
-        data.put("programeName", programeName);
+        data.put("programName", programName);
 
         ApiFuture<WriteResult> result = docRef.set(data);
 

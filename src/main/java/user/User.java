@@ -5,13 +5,12 @@
 package user;
 
 /**
- *
  * @author misterfocusth
  */
 public class User {
 
     private String username;
-    private String thNameTitile, enNameTitle;
+    private String thNameTitle, enNameTitle;
     private String thFirstName, thLastName;
     private String enFirstName, enLastName;
     private String identificationNumber;
@@ -27,12 +26,12 @@ public class User {
         this.username = username;
     }
 
-    public String getThNameTitile() {
-        return thNameTitile;
+    public String getThNameTitle() {
+        return thNameTitle;
     }
 
-    public void setThNameTitile(String thNameTitile) {
-        this.thNameTitile = thNameTitile;
+    public void setThNameTitle(String thNameTitle) {
+        this.thNameTitle = thNameTitle;
     }
 
     public String getEnNameTitle() {

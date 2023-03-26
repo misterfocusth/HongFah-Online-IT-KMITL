@@ -5,7 +5,6 @@
 package user;
 
 /**
- *
  * @author misterfocusth
  */
 public class Student extends User {
@@ -15,7 +14,7 @@ public class Student extends User {
     private String schoolName;
     private String campusName;
     private String majorName;
-    private String programeName;
+    private String programName;
     private String studentId;
 
     public String getClassYear() {
@@ -58,12 +57,12 @@ public class Student extends User {
         this.majorName = majorName;
     }
 
-    public String getProgrameName() {
-        return programeName;
+    public String getProgramName() {
+        return programName;
     }
 
-    public void setProgrameName(String programeName) {
-        this.programeName = programeName;
+    public void setProgramName(String programName) {
+        this.programName = programName;
     }
 
     public String getStudentId() {
