@@ -814,9 +814,9 @@
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="&#xe2a;&#xe32;&#xe02;&#xe32;&#xe27;&#xe34;&#xe0a;&#xe32;&#xe40;&#xe17;&#xe04;&#xe42;&#xe19;&#xe42;&#xe25;&#xe22;&#xe35;&#xe2a;&#xe32;&#xe23;&#xe2a;&#xe19;&#xe40;&#xe17;&#xe28;"/>
-                    <StringItem index="1" value="&#xe2a;&#xe32;&#xe02;&#xe32;&#xe27;&#xe34;&#xe0a;&#xe32;&#xe27;&#xe34;&#xe17;&#xe22;&#xe32;&#xe01;&#xe32;&#xe23;&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe41;&#xe25;&#xe30;&#xe01;&#xe32;&#xe23;&#xe27;&#xe34;&#xe40;&#xe04;&#xe23;&#xe32;&#xe30;&#xe2b;&#xe4c;&#xe40;&#xe0a;&#xe34;&#xe07;&#xe18;&#xe38;&#xe23;&#xe01;&#xe34;&#xe08;"/>
-                    <StringItem index="2" value="&#xe2a;&#xe32;&#xe02;&#xe32;&#xe40;&#xe17;&#xe04;&#xe42;&#xe19;&#xe42;&#xe25;&#xe22;&#xe35;&#xe2a;&#xe32;&#xe23;&#xe2a;&#xe19;&#xe40;&#xe17;&#xe28;&#xe17;&#xe32;&#xe07;&#xe18;&#xe38;&#xe23;&#xe01;&#xe34;&#xe08; (&#xe2b;&#xe25;&#xe31;&#xe01;&#xe2a;&#xe39;&#xe15;&#xe23;&#xe19;&#xe32;&#xe19;&#xe32;&#xe0a;&#xe32;&#xe15;&#xe34;)"/>
+                    <StringItem index="0" value="&#xe40;&#xe17;&#xe04;&#xe42;&#xe19;&#xe42;&#xe25;&#xe22;&#xe35;&#xe2a;&#xe32;&#xe23;&#xe2a;&#xe19;&#xe40;&#xe17;&#xe28;"/>
+                    <StringItem index="1" value="&#xe27;&#xe34;&#xe17;&#xe22;&#xe32;&#xe01;&#xe32;&#xe23;&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe41;&#xe25;&#xe30;&#xe01;&#xe32;&#xe23;&#xe27;&#xe34;&#xe40;&#xe04;&#xe23;&#xe32;&#xe30;&#xe2b;&#xe4c;&#xe40;&#xe0a;&#xe34;&#xe07;&#xe18;&#xe38;&#xe23;&#xe01;&#xe34;&#xe08;"/>
+                    <StringItem index="2" value="&#xe40;&#xe17;&#xe04;&#xe42;&#xe19;&#xe42;&#xe25;&#xe22;&#xe35;&#xe2a;&#xe32;&#xe23;&#xe2a;&#xe19;&#xe40;&#xe17;&#xe28;&#xe17;&#xe32;&#xe07;&#xe18;&#xe38;&#xe23;&#xe01;&#xe34;&#xe08; (&#xe2b;&#xe25;&#xe31;&#xe01;&#xe2a;&#xe39;&#xe15;&#xe23;&#xe19;&#xe32;&#xe19;&#xe32;&#xe0a;&#xe32;&#xe15;&#xe34;)"/>
                   </StringArray>
                 </Property>
               </Properties>
