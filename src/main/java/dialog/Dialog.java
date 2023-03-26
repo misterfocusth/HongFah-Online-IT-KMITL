@@ -1,15 +1,16 @@
 package dialog;
 
+import javax.swing.*;
 import java.awt.*;
 
 public abstract class Dialog {
-    private Label message;
+    private JLabel message;
     private String dialogTitle;
     private final Font font;
     private Component parentComponent;
 
     public Dialog(Component parentComponent, String dialogTitle, String message) {
-        this.message = new Label(message);
+        this.message = new JLabel(message);
         this.dialogTitle = dialogTitle;
         this.parentComponent = parentComponent;
 
@@ -25,11 +26,11 @@ public abstract class Dialog {
         this(null, null, null);
     }
 
-    public Label getMessage() {
+    public JLabel getMessage() {
         return message;
     }
 
-    public void setMessage(Label message) {
+    public void setMessage(JLabel message) {
         this.message = message;
     }
 

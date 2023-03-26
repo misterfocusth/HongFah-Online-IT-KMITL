@@ -19,7 +19,7 @@ public class InfoDialog extends Dialog {
 
     @Override
     public void show() {
-        Label message = this.getMessage();
+        JLabel message = this.getMessage();
         String dialogTitle = this.getDialogTitle();
         Component parentComponent = this.getParentComponent();
         JOptionPane.showMessageDialog(parentComponent, message, dialogTitle, JOptionPane.INFORMATION_MESSAGE);
