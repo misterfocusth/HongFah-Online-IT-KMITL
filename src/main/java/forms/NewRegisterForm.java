@@ -5,6 +5,7 @@
 package forms;
 
 import database.StudentDatabase;
+import java.awt.Font;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.concurrent.Callable;
@@ -12,6 +13,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -642,13 +644,16 @@ public class NewRegisterForm extends javax.swing.JFrame {
             executorService.shutdown();
         }
 
+        JLabel label = new JLabel("สมัครเข้าใช้งานระบบสารสนเทศ สำเร็จ ! - สามารถล็อกอินเพื่อเข้าใช้งาน ด้วย รหัสนักศึกษา(6507XXXX) และรหัสผ่าน ที่ได้ทำการลงทะเบียนเอาไว้");
+        label.setFont(new Font("Tahoma", Font.BOLD, 14));
+
         if (result) {
-            JOptionPane.showMessageDialog(null, "สมัครเข้าใช้งานระบบสารสนเทศ สำเร็จ ! - สามารถล็อกอินเพื่อเข้าใช้งาน ด้วย รหัสนักศึกษา (6507XXXX) และรหัสผ่าน ที่ได้ทำการลงทะเบียนเอาไว้");
+            JOptionPane.showMessageDialog(null, label, "สมัครเข้าใช้งานระบบฯ สำเร็จ", JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
         } else {
             registerButton.setText("สมัครสมาชิก");
             registerButton.setEnabled(true);
-            JOptionPane.showMessageDialog(null, "สมัครสมาชิกเข้าใช้งานระบบสารสนเทศ ไม่สำเร็จ ! - โปรดติดต่อผู้พัฒนา เพื่อดำเนินการต่อ...");
+            JOptionPane.showMessageDialog(null, label, "สมัครสมาชิกเข้าใช้งานระบบสารสนเทศ ไม่สำเร็จ ! - โปรดติดต่อผู้พัฒนา เพื่อดำเนินการต่อ...", JOptionPane.INFORMATION_MESSAGE);
         }
 
     }//GEN-LAST:event_registerButtonActionPerformed

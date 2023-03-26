@@ -985,11 +985,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
-          <Properties>
-            <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[100, 10]"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="registerButton">
           <Properties>
