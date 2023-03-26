@@ -61,6 +61,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/forms/student/register" />
+      <recent name="$PROJECT_DIR$/src/main/java/forms/student/login" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -99,7 +105,7 @@
       <workItem from="1679760331591" duration="913000" />
       <workItem from="1679761371319" duration="886000" />
       <workItem from="1679764112746" duration="2036000" />
-      <workItem from="1679796821724" duration="14291000" />
+      <workItem from="1679796821724" duration="14520000" />
     </task>
     <servers />
   </component>

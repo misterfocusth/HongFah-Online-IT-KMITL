@@ -2,9 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package forms;
+package forms.student.login;
 
 import dialog.InfoDialog;
+import forms.MainForm;
+import forms.student.register.NewRegisterForm;
 import handlers.LoginHandler;
 import user.AuthUser;
 import user.Student;

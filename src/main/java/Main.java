@@ -4,11 +4,12 @@
  */
 
 /**
- *
  * @author misterfocusth
  */
+
 import firebase.Firebase;
-import forms.NewLoginForm;
+import forms.student.login.NewLoginForm;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
