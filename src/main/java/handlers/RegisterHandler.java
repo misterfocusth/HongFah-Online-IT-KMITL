@@ -1,10 +1,16 @@
 package handlers;
 
+import database.StudentDatabase;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.*;
 
 public class RegisterHandler {
 
-    public static boolean validateUserInput(HashMap<String, String> studentData) {
+    public static Boolean validateUserInput(HashMap<String, String> studentData) {
+        ArrayList<String> emptyList = new ArrayList<>();
+
         // Personal Data
         String thNameTitle = studentData.get("thNameTitle");
         String thFirstName = studentData.get("thFirstName");
@@ -31,9 +37,32 @@ public class RegisterHandler {
         String programName = studentData.get("programName");
 
         studentData.forEach((k, v) -> {
-            System.out.println(k + " : " + v);
+            if (v.isEmpty()) {
+                System.out.println("Prohibited : " + k + " is empty !");
+                emptyList.add(k);
+            }
         });
 
-        return true;
+        return emptyList.isEmpty();
+    }
+
+    public static boolean handlerRegister(HashMap<String, String> studentData) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        boolean result = false;
+        try {
+            Callable<Boolean> callable = () -> {
+                return StudentDatabase.addNewStudent(studentData);
+            };
+            Future<Boolean> future = executorService.submit(callable);
+            while (!future.isDone() && !future.isCancelled()) {
+                Thread.sleep(1000);
+            }
+            result = future.get();
+        } catch (InterruptedException | ExecutionException ex) {
+            ex.printStackTrace();
+        } finally {
+            executorService.shutdown();
+        }
+        return result;
     }
 }

@@ -23,7 +23,7 @@ public class StudentDatabase {
         return null;
     }
 
-    public synchronized boolean addNewStudent(HashMap<String, String> studentData) {
+    public static synchronized boolean addNewStudent(HashMap<String, String> studentData) {
         // Personal Data
         String thNameTitle = studentData.get("thNameTitle");
         String thFirstName = studentData.get("thFirstName");

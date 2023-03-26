@@ -10,7 +10,6 @@ import handlers.RegisterHandler;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.concurrent.*;
 
 /**
  * @author misterfocusth
@@ -654,28 +653,10 @@ public class NewRegisterForm extends javax.swing.JFrame {
         StudentDatabase db = new StudentDatabase();
 
         if (!RegisterHandler.validateUserInput(studentData)) {
-
+            new InfoDialog("ข้อมูลนักศึกษาไม่ถูกต้อง", "โปรดกรอกข้อมูลให้ครบ ก่อนดำเนินการสมัครเข้าใช้งาน !").show();
         }
 
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
-        boolean result = false;
-
-        try {
-            Callable<Boolean> callable = () -> {
-                return db.addNewStudent(studentData);
-            };
-            Future<Boolean> future = executorService.submit(callable);
-            while (!future.isDone() && !future.isCancelled()) {
-                Thread.sleep(2500);
-            }
-            result = future.get();
-        } catch (InterruptedException | ExecutionException ex) {
-            ex.printStackTrace();
-        } finally {
-            executorService.shutdown();
-        }
-
-        if (result) {
+        if (RegisterHandler.handlerRegister(studentData)) {
             new InfoDialog("สมัครเข้าใช้งานระบบสารสนเทศ สำเร็จ", "สมัครเข้าใช้งานระบบสารสนเทศ สำเร็จ ! - สามารถล็อกอินเพื่อเข้าใช้งาน ด้วย รหัสนักศึกษา(6507XXXX) และรหัสผ่าน ที่ได้ทำการลงทะเบียนเอาไว้").show();
             this.setVisible(false);
         } else {
