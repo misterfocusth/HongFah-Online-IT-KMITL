@@ -228,7 +228,7 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                                                   <Group type="102" attributes="0">
-                                                      <Component id="selectedProgrameBox" pref="0" max="32767" attributes="0"/>
+                                                      <Component id="selectedProgramBox" pref="0" max="32767" attributes="0"/>
                                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
@@ -405,7 +405,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="selectedProgrameBox" max="32767" attributes="0"/>
+                          <Component id="selectedProgramBox" max="32767" attributes="0"/>
                           <Component id="selectedSchoolNameBox" max="32767" attributes="0"/>
                           <Component id="itGenerationTextField" pref="35" max="32767" attributes="0"/>
                           <Component id="selectedStudentYearBox" max="32767" attributes="0"/>
@@ -807,7 +807,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="selectedProgrameBox">
+            <Component class="javax.swing.JComboBox" name="selectedProgramBox">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
