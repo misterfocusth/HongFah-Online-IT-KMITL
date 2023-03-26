@@ -6,11 +6,12 @@ package database;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.WriteResult;
-import user.Student;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 import static firebase.Firebase.db;
 
@@ -19,8 +20,15 @@ import static firebase.Firebase.db;
  */
 public class StudentDatabase {
 
-    public Student getStudentById(int studentId) {
-        return null;
+    public static synchronized HashMap<String, Object> getStudentById(String studentId) throws ExecutionException, InterruptedException {
+        DocumentReference docRef = db.collection("students").document(studentId);
+        ApiFuture<DocumentSnapshot> future = docRef.get();
+        DocumentSnapshot document = future.get();
+        if (!document.exists()) {
+            return null;
+        }
+        System.out.println((HashMap<String, Object>) document.getData());
+        return (HashMap<String, Object>) document.getData();
     }
 
     public static synchronized boolean addNewStudent(HashMap<String, String> studentData) {
@@ -49,7 +57,11 @@ public class StudentDatabase {
         String majorName = studentData.get("majorName");
         String programName = studentData.get("programName");
 
-        DocumentReference docRef = db.collection("student").document(studentId);
+        // Login Data
+        String username = studentData.get("username");
+        String password = studentData.get("password");
+
+        DocumentReference docRef = db.collection("students").document(studentId);
         Map<String, Object> data = new HashMap<>();
 
         data.put("studentId", studentId);
@@ -73,6 +85,8 @@ public class StudentDatabase {
         data.put("campusName", campusName);
         data.put("majorName", majorName);
         data.put("programName", programName);
+        data.put("username", username);
+        data.put("password", password);
 
         ApiFuture<WriteResult> result = docRef.set(data);
 

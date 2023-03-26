@@ -5,7 +5,6 @@
 package user;
 
 /**
- *
  * @author misterfocusth
  */
 public class Admin extends User {

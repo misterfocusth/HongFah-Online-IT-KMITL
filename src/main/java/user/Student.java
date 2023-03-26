@@ -17,6 +17,33 @@ public class Student extends User {
     private String programName;
     private String studentId;
 
+    public Student(String username, String thNameTitle, String enNameTitle, String thFirstName, String thLastName, String enFirstName, String enLastName, String identificationNumber, String email, String phoneNumber, String contactAddress, String dobDate, String dobMonth, String dobYear, String gender, String classYear, String generation, String schoolName, String campusName, String majorName, String programName, String studentId) {
+        super(
+                username,
+                thNameTitle,
+                enNameTitle,
+                thFirstName,
+                thLastName,
+                enFirstName,
+                enLastName,
+                identificationNumber,
+                email,
+                phoneNumber,
+                contactAddress,
+                dobDate,
+                dobMonth,
+                dobYear,
+                gender
+        );
+        this.classYear = classYear;
+        this.generation = generation;
+        this.schoolName = schoolName;
+        this.campusName = campusName;
+        this.majorName = majorName;
+        this.programName = programName;
+        this.studentId = studentId;
+    }
+
     public String getClassYear() {
         return classYear;
     }
@@ -72,5 +99,4 @@ public class Student extends User {
     public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
-
 }

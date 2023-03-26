@@ -18,6 +18,28 @@ public class User {
     private String dobDate, dobMonth, dobYear;
     private String gender;
 
+    public User() {
+        
+    }
+
+    public User(String username, String thNameTitle, String enNameTitle, String thFirstName, String thLastName, String enFirstName, String enLastName, String identificationNumber, String email, String phoneNumber, String contactAddress, String dobDate, String dobMonth, String dobYear, String gender) {
+        this.username = username;
+        this.thNameTitle = thNameTitle;
+        this.enNameTitle = enNameTitle;
+        this.thFirstName = thFirstName;
+        this.thLastName = thLastName;
+        this.enFirstName = enFirstName;
+        this.enLastName = enLastName;
+        this.identificationNumber = identificationNumber;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.contactAddress = contactAddress;
+        this.dobDate = dobDate;
+        this.dobMonth = dobMonth;
+        this.dobYear = dobYear;
+        this.gender = gender;
+    }
+
     public String getUsername() {
         return username;
     }
