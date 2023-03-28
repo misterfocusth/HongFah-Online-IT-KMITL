@@ -1,9 +1,10 @@
 package dialog;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 public abstract class Dialog {
+
     private JLabel message;
     private String dialogTitle;
     private final Font font;

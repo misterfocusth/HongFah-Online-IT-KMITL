@@ -18,13 +18,11 @@ import java.util.logging.Logger;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        System.out.println("[INFO] : Started Application !");
 
         try {
             Firebase.initFirebase();
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (URISyntaxException ex) {
+        } catch (IOException | URISyntaxException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
 
