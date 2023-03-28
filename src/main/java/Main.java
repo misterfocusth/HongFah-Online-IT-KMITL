@@ -28,6 +28,7 @@ public class Main {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+
         NewLoginForm newLoginForm = new NewLoginForm();
         newLoginForm.setLocationRelativeTo(null);
         newLoginForm.setVisible(true);

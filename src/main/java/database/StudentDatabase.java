@@ -28,6 +28,7 @@ public class StudentDatabase {
             return null;
         }
         System.out.println((HashMap<String, Object>) document.getData());
+
         return (HashMap<String, Object>) document.getData();
     }
 

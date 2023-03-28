@@ -6,11 +6,13 @@ package forms.student.login;
 
 import dialog.InfoDialog;
 import forms.MainForm;
+import forms.student.home.HomeForm;
 import forms.student.register.NewRegisterForm;
 import handlers.LoginHandler;
 import user.AuthUser;
 import user.Student;
 
+import javax.swing.*;
 import java.util.Arrays;
 
 /**
@@ -128,6 +130,7 @@ public class NewLoginForm extends javax.swing.JFrame {
         jLabel3.setText("โปรดกรอกรหัสนักศึกษา (ไม่ต้องใส่ @KMITL.AC.TH) หรือชื่อผู้ใช้");
 
         usernameTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        usernameTextField.setText("65070219");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("รหัสผ่าน");
@@ -136,6 +139,7 @@ public class NewLoginForm extends javax.swing.JFrame {
         jLabel5.setText("โปรดกรอกรหัสผ่านเพื่อดำเนินการต่อ");
 
         passwordField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        passwordField.setText("65070219");
 
         jDesktopPane2.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -334,13 +338,18 @@ public class NewLoginForm extends javax.swing.JFrame {
                 new InfoDialog("ข้อมูลการเข้าสู่ระบบไม่ถูกต้อง", "ไม่สามารถเข้าสู่ระบบได้ เนื่องจากข้อมูลการเข้าสู่ระบบไม่ถูกต้อง !").show();
             } else {
                 AuthUser.setAuthUser(student);
+
+                HomeForm homeForm = new HomeForm();
                 MainForm mainForm = new MainForm();
-                mainForm.setVisible(true);
+                mainForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 mainForm.setLocationRelativeTo(null);
+                mainForm.setVisible(true);
+                mainForm.getMainDesktopPane().add(homeForm);
+                homeForm.setVisible(true);
                 this.setVisible(false);
+                this.dispose();
             }
         }
-
 
     }//GEN-LAST:event_loginButtonActionPerformed
 

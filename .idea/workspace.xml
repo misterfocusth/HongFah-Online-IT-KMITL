@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf0c9c8-9ce9-4f1e-9658-6b26b94a186f" name="Changes" comment="" />
+    <list default="true" id="5cf0c9c8-9ce9-4f1e-9658-6b26b94a186f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/StudentDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/StudentDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/MainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/MainForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/MainForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +65,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -105,7 +113,12 @@
       <workItem from="1679760331591" duration="913000" />
       <workItem from="1679761371319" duration="886000" />
       <workItem from="1679764112746" duration="2036000" />
-      <workItem from="1679796821724" duration="14520000" />
+      <workItem from="1679796821724" duration="15567000" />
+      <workItem from="1679896303136" duration="249000" />
+      <workItem from="1679896586923" duration="1044000" />
+      <workItem from="1679971030860" duration="324000" />
+      <workItem from="1679971667282" duration="102000" />
+      <workItem from="1679971785798" duration="3626000" />
     </task>
     <servers />
   </component>
