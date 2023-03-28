@@ -6,8 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="5cf0c9c8-9ce9-4f1e-9658-6b26b94a186f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/StudentDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/StudentDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dialog/Dialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dialog/Dialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/forms/MainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/MainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/forms/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/MainForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/home/HomeForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/home/HomeForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/home/HomeForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/home/HomeForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/register/NewRegisterForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/register/NewRegisterForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,12 +121,23 @@
       <workItem from="1679896586923" duration="1044000" />
       <workItem from="1679971030860" duration="324000" />
       <workItem from="1679971667282" duration="102000" />
-      <workItem from="1679971785798" duration="4230000" />
+      <workItem from="1679971785798" duration="10697000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

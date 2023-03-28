@@ -338,7 +338,6 @@ public class NewLoginForm extends javax.swing.JFrame {
                 new InfoDialog("ข้อมูลการเข้าสู่ระบบไม่ถูกต้อง", "ไม่สามารถเข้าสู่ระบบได้ เนื่องจากข้อมูลการเข้าสู่ระบบไม่ถูกต้อง !").show();
             } else {
                 AuthUser.setAuthUser(student);
-
                 HomeForm homeForm = new HomeForm();
                 MainForm mainForm = new MainForm();
                 mainForm.setExtendedState(JFrame.MAXIMIZED_BOTH);

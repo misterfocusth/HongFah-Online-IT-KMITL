@@ -632,7 +632,7 @@ public class NewRegisterForm extends javax.swing.JFrame {
         studentData.put("email", emailTextField.getText());
         studentData.put("phoneNumber", phoneNumberTextField.getText());
         studentData.put("contactAddress", addressTextArea.getText());
-        studentData.put("dobData", selectedBirthDayBox.getSelectedItem().toString());
+        studentData.put("dobDate", selectedBirthDayBox.getSelectedItem().toString());
         studentData.put("dobMonth", selectedBirthMonthBox.getSelectedItem().toString());
         studentData.put("dobYear", birthYearTextField.getText());
         studentData.put("gender", selectedGenderBox.getSelectedItem().toString());
