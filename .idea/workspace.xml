@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5cf0c9c8-9ce9-4f1e-9658-6b26b94a186f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/StudentDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/StudentDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/forms/MainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/MainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/forms/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/MainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +114,7 @@
       <workItem from="1679896586923" duration="1044000" />
       <workItem from="1679971030860" duration="324000" />
       <workItem from="1679971667282" duration="102000" />
-      <workItem from="1679971785798" duration="3626000" />
+      <workItem from="1679971785798" duration="4230000" />
     </task>
     <servers />
   </component>

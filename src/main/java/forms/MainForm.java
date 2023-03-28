@@ -45,23 +45,23 @@ public class MainForm extends javax.swing.JFrame {
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
         jDialog1Layout.setHorizontalGroup(
-                jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 400, Short.MAX_VALUE)
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         jDialog1Layout.setVerticalGroup(
-                jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 300, Short.MAX_VALUE)
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
         jDialog2.getContentPane().setLayout(jDialog2Layout);
         jDialog2Layout.setHorizontalGroup(
-                jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 400, Short.MAX_VALUE)
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         jDialog2Layout.setVerticalGroup(
-                jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 300, Short.MAX_VALUE)
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         jRadioButtonMenuItem1.setSelected(true);
@@ -77,33 +77,41 @@ public class MainForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        mainDesktopPane.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout mainDesktopPaneLayout = new javax.swing.GroupLayout(mainDesktopPane);
         mainDesktopPane.setLayout(mainDesktopPaneLayout);
         mainDesktopPaneLayout.setHorizontalGroup(
-                mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 890, Short.MAX_VALUE)
+            mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 890, Short.MAX_VALUE)
         );
         mainDesktopPaneLayout.setVerticalGroup(
-                mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 776, Short.MAX_VALUE)
+            mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 777, Short.MAX_VALUE)
         );
 
         jMenu4.setText("เกี่ยวกับโปรเเกรม");
+        jMenu4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jMenuBar2.add(jMenu4);
 
         jMenu5.setText("ข้อมูลนักศึกษา");
+        jMenu5.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jMenuBar2.add(jMenu5);
 
         jMenu6.setText("เอกสารเเละคำร้องทางการศึกษา");
+        jMenu6.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jMenuBar2.add(jMenu6);
 
         jMenu7.setText("ถามตอบห้องฟ้า");
+        jMenu7.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jMenuBar2.add(jMenu7);
 
         jMenu9.setText("เช็คชื่อเข้าชั้นเรียน");
+        jMenu9.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jMenuBar2.add(jMenu9);
 
         jMenu8.setText("ออกจากระบบ เเละปิดโปรเเกรม");
+        jMenu8.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jMenuBar2.add(jMenu8);
 
         setJMenuBar(jMenuBar2);
@@ -111,12 +119,12 @@ public class MainForm extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(mainDesktopPane)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainDesktopPane)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(mainDesktopPane)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainDesktopPane)
         );
 
         pack();
@@ -156,7 +164,6 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
     }
-
 
     public JDesktopPane getMainDesktopPane() {
         return mainDesktopPane;
