@@ -44,7 +44,7 @@ public class StudentDatabase {
         String email = studentData.get("email");
         String phoneNumber = studentData.get("phoneNumber");
         String contactAddress = studentData.get("contactAddress");
-        String dobData = studentData.get("dobData");
+        String dobDate = studentData.get("dobDate");
         String dobMonth = studentData.get("dobMonth");
         String dobYear = studentData.get("dobYear");
         String gender = studentData.get("gender");
@@ -76,7 +76,7 @@ public class StudentDatabase {
         data.put("email", email);
         data.put("phoneNumber", phoneNumber);
         data.put("contactAddress", contactAddress);
-        data.put("dobData", dobData);
+        data.put("dobDate", dobDate);
         data.put("dobMonth", dobMonth);
         data.put("dobYear", dobYear);
         data.put("gender", gender);
