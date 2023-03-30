@@ -9,11 +9,10 @@ import forms.MainForm;
 import forms.student.home.HomeForm;
 import forms.student.register.NewRegisterForm;
 import handlers.LoginHandler;
+import java.util.Arrays;
+import javax.swing.*;
 import user.AuthUser;
 import user.Student;
-
-import javax.swing.*;
-import java.util.Arrays;
 
 /**
  * @author misterfocusth
@@ -338,15 +337,23 @@ public class NewLoginForm extends javax.swing.JFrame {
                 new InfoDialog("ข้อมูลการเข้าสู่ระบบไม่ถูกต้อง", "ไม่สามารถเข้าสู่ระบบได้ เนื่องจากข้อมูลการเข้าสู่ระบบไม่ถูกต้อง !").show();
             } else {
                 AuthUser.setAuthUser(student);
-                HomeForm homeForm = new HomeForm();
-                MainForm mainForm = new MainForm();
-                mainForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                mainForm.setLocationRelativeTo(null);
-                mainForm.setVisible(true);
-                mainForm.getMainDesktopPane().add(homeForm);
-                homeForm.setVisible(true);
-                this.setVisible(false);
-                this.dispose();
+                try {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                SwingUtilities.invokeLater(() -> {
+                    HomeForm homeForm = new HomeForm();
+                    MainForm mainForm = new MainForm();
+                    mainForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                    mainForm.setLocationRelativeTo(null);
+                    mainForm.setVisible(true);
+                    mainForm.getMainDesktopPane().add(homeForm);
+                    homeForm.setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();
+                });
+
             }
         }
 

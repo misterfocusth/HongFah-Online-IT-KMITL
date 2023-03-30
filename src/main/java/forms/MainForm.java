@@ -6,9 +6,8 @@ package forms;
 
 import dialog.OptionDialog;
 import forms.student.login.NewLoginForm;
-import user.AuthUser;
-
 import javax.swing.*;
+import user.AuthUser;
 
 /**
  * @author misterfocusth
@@ -212,12 +211,6 @@ public class MainForm extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException |
-                 IllegalAccessException ex) {
-            ex.printStackTrace();
-        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -225,7 +218,6 @@ public class MainForm extends javax.swing.JFrame {
                 new MainForm().setVisible(true);
             }
         });
-
 
     }
 
