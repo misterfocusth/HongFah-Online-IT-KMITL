@@ -37,10 +37,13 @@ public class MainForm extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        jMenu1 = new javax.swing.JMenu();
         mainDesktopPane = new javax.swing.JDesktopPane();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
@@ -79,8 +82,11 @@ public class MainForm extends javax.swing.JFrame {
         jCheckBoxMenuItem2.setSelected(true);
         jCheckBoxMenuItem2.setText("jCheckBoxMenuItem2");
 
+        jMenu1.setText("jMenu1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        mainDesktopPane.setBackground(new java.awt.Color(153, 204, 255));
         mainDesktopPane.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout mainDesktopPaneLayout = new javax.swing.GroupLayout(mainDesktopPane);
@@ -91,8 +97,10 @@ public class MainForm extends javax.swing.JFrame {
         );
         mainDesktopPaneLayout.setVerticalGroup(
                 mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 777, Short.MAX_VALUE)
+                        .addGap(0, 765, Short.MAX_VALUE)
         );
+
+        jMenuBar2.setPreferredSize(new java.awt.Dimension(690, 35));
 
         jMenu4.setText("เกี่ยวกับโปรเเกรม");
         jMenu4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -100,6 +108,23 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenu5.setText("ข้อมูลนักศึกษา");
         jMenu5.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+
+        jMenuItem1.setText("ข้อมูลนึกศึกษา");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem1);
+
+        jMenuItem2.setText("แก้ไขข้อมูล");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem2);
+
         jMenuBar2.add(jMenu5);
 
         jMenu6.setText("เอกสารเเละคำร้องทางการศึกษา");
@@ -152,6 +177,14 @@ public class MainForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenu8MouseClicked
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -179,12 +212,21 @@ public class MainForm extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException |
+                 IllegalAccessException ex) {
+            ex.printStackTrace();
+        }
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainForm().setVisible(true);
             }
         });
+
+
     }
 
     public JDesktopPane getMainDesktopPane() {
@@ -196,6 +238,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
@@ -204,6 +247,8 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JDesktopPane mainDesktopPane;
     // End of variables declaration//GEN-END:variables

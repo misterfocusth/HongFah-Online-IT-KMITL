@@ -307,7 +307,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel16" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="schoolNameLabel" pref="256" max="32767" attributes="0"/>
+                          <Component id="schoolNameLabel" pref="262" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jLabel19" min="-2" pref="150" max="-2" attributes="0"/>
@@ -320,13 +320,14 @@
                           <Component id="majorNameLabel" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel30" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jLabel30" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="classYearLabel" min="-2" pref="125" max="-2" attributes="0"/>
+                          <Component id="classYearLabel" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel14" min="-2" pref="75" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="generationLabel" max="32767" attributes="0"/>
+                          <Component id="jLabel14" min="-2" pref="40" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="generationLabel" min="-2" pref="46" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>

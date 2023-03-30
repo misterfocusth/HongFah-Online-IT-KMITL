@@ -643,8 +643,8 @@ public class NewRegisterForm extends javax.swing.JFrame {
         studentData.put("generation", itGenerationTextField.getText().toString());
         studentData.put("schoolName", selectedSchoolNameBox.getSelectedItem().toString());
         studentData.put("campusName", campusBox.getSelectedItem().toString());
-        studentData.put("majorName", selectedProgramBox.getSelectedItem().toString());
-        studentData.put("programName", majorTextField.getText());
+        studentData.put("programName", selectedProgramBox.getSelectedItem().toString());
+        studentData.put("majorName", majorTextField.getText());
 
         // Login Data
         studentData.put("username", studentIdTextField.getText());

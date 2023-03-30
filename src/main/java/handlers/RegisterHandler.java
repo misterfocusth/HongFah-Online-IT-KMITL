@@ -13,11 +13,9 @@ public class RegisterHandler {
 
         studentData.forEach((k, v) -> {
             if (v.isEmpty()) {
-                System.out.println("Prohibited : " + k + " is empty !");
                 emptyList.add(k);
             }
         });
-
         return emptyList.isEmpty();
     }
 
