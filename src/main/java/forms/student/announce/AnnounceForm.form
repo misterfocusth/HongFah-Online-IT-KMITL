@@ -28,7 +28,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel4" min="-2" pref="458" max="-2" attributes="0"/>
+                          <Component id="announceTitle" min="-2" pref="458" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -41,12 +41,12 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel5" min="-2" pref="452" max="-2" attributes="0"/>
-                          <Component id="jLabel6" min="-2" pref="458" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" pref="458" max="-2" attributes="0"/>
-                          <Component id="jLabel8" min="-2" pref="458" max="-2" attributes="0"/>
-                          <Component id="jLabel9" min="-2" pref="458" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="announceLine2" pref="458" max="32767" attributes="0"/>
+                          <Component id="announceLin3" pref="458" max="32767" attributes="0"/>
+                          <Component id="announceLine4" pref="458" max="32767" attributes="0"/>
+                          <Component id="announceLine5" pref="458" max="32767" attributes="0"/>
+                          <Component id="announceLine1" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -67,17 +67,17 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+              <Component id="announceTitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+              <Component id="announceLine1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+              <Component id="announceLine2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+              <Component id="announceLin3" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+              <Component id="announceLine4" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+              <Component id="announceLine5" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -107,7 +107,7 @@
         <Property name="text" type="java.lang.String" value="&#xe2a;&#xe33;&#xe2b;&#xe23;&#xe31;&#xe1a;&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32;&#xe04;&#xe13;&#xe30;&#xe40;&#xe17;&#xe04;&#xe42;&#xe19;&#xe42;&#xe25;&#xe22;&#xe35;&#xe2a;&#xe32;&#xe23;&#xe2a;&#xe19;&#xe40;&#xe17;&#xe28;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="announceTitle">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="13" style="1"/>
@@ -115,7 +115,7 @@
         <Property name="text" type="java.lang.String" value="&#xe2b;&#xe31;&#xe27;&#xe40;&#xe23;&#xe37;&#xe48;&#xe2d;&#xe07;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="announceLine1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="13" style="0"/>
@@ -123,7 +123,7 @@
         <Property name="text" type="java.lang.String" value="&#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;&#xe1a;&#xe23;&#xe23;&#xe17;&#xe31;&#xe14;&#xe17;&#xe35;&#xe48; 1     &#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;&#xe1a;&#xe23;&#xe23;&#xe17;&#xe31;&#xe14;&#xe17;&#xe35;&#xe48; 1     &#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;&#xe1a;&#xe23;&#xe23;&#xe17;&#xe31;&#xe14;&#xe17;&#xe35;&#xe48; 1    "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="announceLine2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="13" style="0"/>
@@ -131,7 +131,7 @@
         <Property name="text" type="java.lang.String" value="&#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;&#xe1a;&#xe23;&#xe23;&#xe17;&#xe31;&#xe14;&#xe17;&#xe35;&#xe48; 2     &#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;&#xe1a;&#xe23;&#xe23;&#xe17;&#xe31;&#xe14;&#xe17;&#xe35;&#xe48; 2     &#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;&#xe1a;&#xe23;&#xe23;&#xe17;&#xe31;&#xe14;&#xe17;&#xe35;&#xe48; 2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
+    <Component class="javax.swing.JLabel" name="announceLin3">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="13" style="0"/>
@@ -139,7 +139,7 @@
         <Property name="text" type="java.lang.String" value="&#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;&#xe1a;&#xe23;&#xe23;&#xe17;&#xe31;&#xe14;&#xe17;&#xe35;&#xe48; 3     &#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;&#xe1a;&#xe23;&#xe23;&#xe17;&#xe31;&#xe14;&#xe17;&#xe35;&#xe48; 3     &#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;&#xe1a;&#xe23;&#xe23;&#xe17;&#xe31;&#xe14;&#xe17;&#xe35;&#xe48; 3"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
+    <Component class="javax.swing.JLabel" name="announceLine4">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="13" style="0"/>
@@ -147,7 +147,7 @@
         <Property name="text" type="java.lang.String" value="&#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;&#xe1a;&#xe23;&#xe23;&#xe17;&#xe31;&#xe14;&#xe17;&#xe35;&#xe48; 4     &#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;&#xe1a;&#xe23;&#xe23;&#xe17;&#xe31;&#xe14;&#xe17;&#xe35;&#xe48; 4     &#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;&#xe1a;&#xe23;&#xe23;&#xe17;&#xe31;&#xe14;&#xe17;&#xe35;&#xe48; 4"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
+    <Component class="javax.swing.JLabel" name="announceLine5">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="13" style="0"/>

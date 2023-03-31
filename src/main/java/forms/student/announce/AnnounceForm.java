@@ -29,12 +29,12 @@ public class AnnounceForm extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        announceTitle = new javax.swing.JLabel();
+        announceLine1 = new javax.swing.JLabel();
+        announceLine2 = new javax.swing.JLabel();
+        announceLin3 = new javax.swing.JLabel();
+        announceLine4 = new javax.swing.JLabel();
+        announceLine5 = new javax.swing.JLabel();
 
         setIconifiable(true);
         setTitle("ข่าวประกาศ / ประชาสัมพันธ์");
@@ -47,23 +47,23 @@ public class AnnounceForm extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("สำหรับนักศึกษาคณะเทคโนโลยีสารสนเทศ");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel4.setText("หัวเรื่องประกาศ");
+        announceTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        announceTitle.setText("หัวเรื่องประกาศ");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel5.setText("ประกาศบรรทัดที่ 1     ประกาศบรรทัดที่ 1     ประกาศบรรทัดที่ 1    ");
+        announceLine1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        announceLine1.setText("ประกาศบรรทัดที่ 1     ประกาศบรรทัดที่ 1     ประกาศบรรทัดที่ 1    ");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel6.setText("ประกาศบรรทัดที่ 2     ประกาศบรรทัดที่ 2     ประกาศบรรทัดที่ 2");
+        announceLine2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        announceLine2.setText("ประกาศบรรทัดที่ 2     ประกาศบรรทัดที่ 2     ประกาศบรรทัดที่ 2");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel7.setText("ประกาศบรรทัดที่ 3     ประกาศบรรทัดที่ 3     ประกาศบรรทัดที่ 3");
+        announceLin3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        announceLin3.setText("ประกาศบรรทัดที่ 3     ประกาศบรรทัดที่ 3     ประกาศบรรทัดที่ 3");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel8.setText("ประกาศบรรทัดที่ 4     ประกาศบรรทัดที่ 4     ประกาศบรรทัดที่ 4");
+        announceLine4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        announceLine4.setText("ประกาศบรรทัดที่ 4     ประกาศบรรทัดที่ 4     ประกาศบรรทัดที่ 4");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel9.setText("ประกาศบรรทัดที่ 5     ประกาศบรรทัดที่ 5     ประกาศบรรทัดที่ 5");
+        announceLine5.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        announceLine5.setText("ประกาศบรรทัดที่ 5     ประกาศบรรทัดที่ 5     ประกาศบรรทัดที่ 5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,7 +74,7 @@ public class AnnounceForm extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(announceTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
@@ -83,12 +83,12 @@ public class AnnounceForm extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel3)))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(announceLine2, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                            .addComponent(announceLin3, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                            .addComponent(announceLine4, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                            .addComponent(announceLine5, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                            .addComponent(announceLine1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(12, 12, 12))
         );
         layout.setVerticalGroup(
@@ -102,17 +102,17 @@ public class AnnounceForm extends javax.swing.JInternalFrame {
                         .addComponent(jLabel3))
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(announceTitle)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel5)
+                .addComponent(announceLine1)
                 .addGap(12, 12, 12)
-                .addComponent(jLabel6)
+                .addComponent(announceLine2)
                 .addGap(12, 12, 12)
-                .addComponent(jLabel7)
+                .addComponent(announceLin3)
                 .addGap(12, 12, 12)
-                .addComponent(jLabel8)
+                .addComponent(announceLine4)
                 .addGap(12, 12, 12)
-                .addComponent(jLabel9)
+                .addComponent(announceLine5)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -120,14 +120,14 @@ public class AnnounceForm extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel announceLin3;
+    private javax.swing.JLabel announceLine1;
+    private javax.swing.JLabel announceLine2;
+    private javax.swing.JLabel announceLine4;
+    private javax.swing.JLabel announceLine5;
+    private javax.swing.JLabel announceTitle;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
