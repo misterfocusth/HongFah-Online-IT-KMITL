@@ -5,10 +5,10 @@
 package forms;
 
 import dialog.OptionDialog;
+import forms.student.about.AboutForm;
 import forms.student.login.NewLoginForm;
-import user.AuthUser;
-
 import javax.swing.*;
+import user.AuthUser;
 
 /**
  * @author misterfocusth
@@ -38,12 +38,14 @@ public class MainForm extends javax.swing.JFrame {
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         mainDesktopPane = new javax.swing.JDesktopPane();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
@@ -52,23 +54,23 @@ public class MainForm extends javax.swing.JFrame {
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
         jDialog1Layout.setHorizontalGroup(
-                jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 400, Short.MAX_VALUE)
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         jDialog1Layout.setVerticalGroup(
-                jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 300, Short.MAX_VALUE)
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
         jDialog2.getContentPane().setLayout(jDialog2Layout);
         jDialog2Layout.setHorizontalGroup(
-                jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 400, Short.MAX_VALUE)
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         jDialog2Layout.setVerticalGroup(
-                jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 300, Short.MAX_VALUE)
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         jRadioButtonMenuItem1.setSelected(true);
@@ -84,31 +86,41 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenu1.setText("jMenu1");
 
+        jMenuItem3.setText("jMenuItem3");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        mainDesktopPane.setBackground(new java.awt.Color(153, 204, 255));
+        mainDesktopPane.setBackground(new java.awt.Color(19, 169, 240));
         mainDesktopPane.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout mainDesktopPaneLayout = new javax.swing.GroupLayout(mainDesktopPane);
         mainDesktopPane.setLayout(mainDesktopPaneLayout);
         mainDesktopPaneLayout.setHorizontalGroup(
-                mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 890, Short.MAX_VALUE)
+            mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1003, Short.MAX_VALUE)
         );
         mainDesktopPaneLayout.setVerticalGroup(
-                mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 765, Short.MAX_VALUE)
+            mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 765, Short.MAX_VALUE)
         );
 
         jMenuBar2.setPreferredSize(new java.awt.Dimension(690, 35));
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-info-28.png"))); // NOI18N
         jMenu4.setText("เกี่ยวกับโปรเเกรม");
-        jMenu4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jMenu4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
         jMenuBar2.add(jMenu4);
 
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-male-user-28.png"))); // NOI18N
         jMenu5.setText("ข้อมูลนักศึกษา");
-        jMenu5.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jMenu5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
 
+        jMenuItem1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jMenuItem1.setText("ข้อมูลนึกศึกษา");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,31 +128,37 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
         jMenu5.add(jMenuItem1);
+        jMenu5.add(jSeparator1);
 
-        jMenuItem2.setText("แก้ไขข้อมูล");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jMenuItem4.setText("เเก้ไขข้อมูลส่วนตัว");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem2);
+        jMenu5.add(jMenuItem4);
 
         jMenuBar2.add(jMenu5);
 
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-documents-28.png"))); // NOI18N
         jMenu6.setText("เอกสารเเละคำร้องทางการศึกษา");
-        jMenu6.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jMenu6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenuBar2.add(jMenu6);
 
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-faq-28.png"))); // NOI18N
         jMenu7.setText("ถามตอบห้องฟ้า");
-        jMenu7.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jMenu7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenuBar2.add(jMenu7);
 
+        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-today-28.png"))); // NOI18N
         jMenu9.setText("เช็คชื่อเข้าชั้นเรียน");
-        jMenu9.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jMenu9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenuBar2.add(jMenu9);
 
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-logout-28.png"))); // NOI18N
         jMenu8.setText("ออกจากระบบ");
-        jMenu8.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jMenu8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu8MouseClicked(evt);
@@ -153,12 +171,12 @@ public class MainForm extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(mainDesktopPane)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainDesktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(mainDesktopPane)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainDesktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -181,9 +199,16 @@ public class MainForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+        AboutForm aboutForm = new AboutForm();
+        aboutForm.setLocationRelativeTo(null);
+        aboutForm.setVisible(true);
+    }//GEN-LAST:event_jMenu4MouseClicked
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,8 +266,10 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JDesktopPane mainDesktopPane;
     // End of variables declaration//GEN-END:variables
 }

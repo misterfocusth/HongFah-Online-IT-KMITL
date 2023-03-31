@@ -143,7 +143,7 @@
                       <Group type="102" attributes="0">
                           <Component id="jLabel12" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="genderlabel" max="32767" attributes="0"/>
+                          <Component id="genderLabel" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -181,7 +181,7 @@
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="genderlabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="genderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
@@ -277,7 +277,7 @@
             <Property name="text" type="java.lang.String" value="&#xe40;&#xe1e;&#xe28;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="genderlabel">
+        <Component class="javax.swing.JLabel" name="genderLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
@@ -307,7 +307,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel16" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="schoolNameLabel" pref="262" max="32767" attributes="0"/>
+                          <Component id="schoolNameLabel" pref="256" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jLabel19" min="-2" pref="150" max="-2" attributes="0"/>
@@ -327,7 +327,6 @@
                           <Component id="jLabel14" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="generationLabel" min="-2" pref="46" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>

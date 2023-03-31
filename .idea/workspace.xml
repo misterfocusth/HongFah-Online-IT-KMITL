@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="5cf0c9c8-9ce9-4f1e-9658-6b26b94a186f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/MainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/MainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/forms/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/MainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/register/NewRegisterForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/register/NewRegisterForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/about/AboutForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/about/AboutForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/about/AboutForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/about/AboutForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/home/HomeForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/home/HomeForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/home/HomeForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/home/HomeForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +130,7 @@
       <workItem from="1680065088885" duration="1232000" />
       <workItem from="1680081303719" duration="2008000" />
       <workItem from="1680152653122" duration="2393000" />
-      <workItem from="1680232869701" duration="2293000" />
+      <workItem from="1680232869701" duration="5833000" />
     </task>
     <servers />
   </component>

@@ -398,6 +398,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="- &#xe40;&#xe01;&#xe35;&#xe48;&#xe22;&#xe27;&#xe01;&#xe31;&#xe1a;&#xe42;&#xe1b;&#xe23;&#xe40;&#xe40;&#xe01;&#xe23;&#xe21;&#xe40;&#xe40;&#xe25;&#xe30;&#xe15;&#xe34;&#xe14;&#xe15;&#xe48;&#xe2d;&#xe1c;&#xe39;&#xe49;&#xe1e;&#xe31;&#xe12;&#xe19;&#xe32;"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="aboutLabelMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="showAdminAddLabel">
           <Properties>

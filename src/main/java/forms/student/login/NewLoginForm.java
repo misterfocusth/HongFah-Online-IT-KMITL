@@ -6,13 +6,17 @@ package forms.student.login;
 
 import dialog.InfoDialog;
 import forms.MainForm;
-import forms.student.home.HomeForm;
+import forms.student.about.AboutForm;
+import forms.student.announce.AnnounceForm;
+import forms.student.home.NewHomeForm;
 import forms.student.register.NewRegisterForm;
 import handlers.LoginHandler;
-import java.util.Arrays;
-import javax.swing.*;
 import user.AuthUser;
 import user.Student;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.Arrays;
 
 /**
  * @author misterfocusth
@@ -241,6 +245,11 @@ public class NewLoginForm extends javax.swing.JFrame {
         aboutLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         aboutLabel.setForeground(new java.awt.Color(0, 102, 255));
         aboutLabel.setText("- เกี่ยวกับโปรเเกรมเเละติดต่อผู้พัฒนา");
+        aboutLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aboutLabelMouseClicked(evt);
+            }
+        });
 
         showAdminAddLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         showAdminAddLabel.setForeground(new java.awt.Color(0, 102, 255));
@@ -343,13 +352,29 @@ public class NewLoginForm extends javax.swing.JFrame {
                     e.printStackTrace();
                 }
                 SwingUtilities.invokeLater(() -> {
-                    HomeForm homeForm = new HomeForm();
+                    // HomeForm homeForm = new HomeForm();
+                    NewHomeForm homeForm = new NewHomeForm();
+                    AnnounceForm announceForm = new AnnounceForm();
                     MainForm mainForm = new MainForm();
+
                     mainForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     mainForm.setLocationRelativeTo(null);
                     mainForm.setVisible(true);
+
+                    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+                    double width = screenSize.getWidth();
+                    double height = screenSize.getHeight();
+                    Dimension homeFormSize = homeForm.getSize();
+                    double x = (width - homeFormSize.width) / 2;
+                    double y = (height - homeFormSize.height) / 2;
+                    homeForm.setLocation((int) x, (int) y);
+
+                    mainForm.getMainDesktopPane().add(announceForm);
                     mainForm.getMainDesktopPane().add(homeForm);
+                    
+                    announceForm.setVisible(true);
                     homeForm.setVisible(true);
+
                     this.setVisible(false);
                     this.dispose();
                 });
@@ -358,6 +383,13 @@ public class NewLoginForm extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void aboutLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutLabelMouseClicked
+        // TODO add your handling code here:
+        AboutForm aboutForm = new AboutForm();
+        aboutForm.setLocationRelativeTo(null);
+        aboutForm.setVisible(true);
+    }//GEN-LAST:event_aboutLabelMouseClicked
 
     /**
      * @param args the command line arguments
