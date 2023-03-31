@@ -656,6 +656,9 @@ public class NewRegisterForm extends javax.swing.JFrame {
 
         if (!RegisterHandler.validateUserInput(studentData)) {
             new InfoDialog("ข้อมูลนักศึกษาไม่ถูกต้อง", "โปรดกรอกข้อมูลให้ครบ ก่อนดำเนินการสมัครเข้าใช้งาน !").show();
+            registerButton.setText("สมัครสมาชิก");
+            registerButton.setEnabled(true);
+            return;
         }
 
         if (RegisterHandler.handlerRegister(studentData)) {

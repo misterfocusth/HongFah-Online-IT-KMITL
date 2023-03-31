@@ -6,8 +6,9 @@ package forms;
 
 import dialog.OptionDialog;
 import forms.student.login.NewLoginForm;
-import javax.swing.*;
 import user.AuthUser;
+
+import javax.swing.*;
 
 /**
  * @author misterfocusth
