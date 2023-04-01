@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5cf0c9c8-9ce9-4f1e-9658-6b26b94a186f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/announce/AnnounceForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/announce/AnnounceForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/announce/AnnounceForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/announce/AnnounceForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/home/NewHomeForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/home/NewHomeForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/home/NewHomeForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/home/NewHomeForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,11 +34,6 @@
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
@@ -52,26 +43,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/misterfocusth/Desktop/HongFah-Online-IT-KMITL&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/misterfocusth/Desktop/HongFah-Online-IT-KMITL",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.sync",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;exasol&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "exasol"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/forms/student/register" />
@@ -127,6 +119,10 @@
       <workItem from="1680081303719" duration="2008000" />
       <workItem from="1680152653122" duration="2393000" />
       <workItem from="1680232869701" duration="7347000" />
+      <workItem from="1680264991598" duration="75000" />
+      <workItem from="1680265077391" duration="32000" />
+      <workItem from="1680265119852" duration="129000" />
+      <workItem from="1680265302830" duration="752000" />
     </task>
     <servers />
   </component>

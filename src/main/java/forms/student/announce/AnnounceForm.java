@@ -47,7 +47,7 @@ public class AnnounceForm extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("สำหรับนักศึกษาคณะเทคโนโลยีสารสนเทศ");
 
-        announceTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        announceTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         announceTitle.setText("หัวเรื่องประกาศ");
 
         announceLine1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -113,7 +113,7 @@ public class AnnounceForm extends javax.swing.JInternalFrame {
                 .addComponent(announceLine4)
                 .addGap(12, 12, 12)
                 .addComponent(announceLine5)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();

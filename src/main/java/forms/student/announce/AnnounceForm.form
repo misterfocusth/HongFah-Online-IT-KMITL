@@ -78,7 +78,7 @@
               <Component id="announceLine4" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Component id="announceLine5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -110,7 +110,7 @@
     <Component class="javax.swing.JLabel" name="announceTitle">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="13" style="1"/>
+          <Font name="Tahoma" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&#xe2b;&#xe31;&#xe27;&#xe40;&#xe23;&#xe37;&#xe48;&#xe2d;&#xe07;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;"/>
       </Properties>
