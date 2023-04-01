@@ -92,33 +92,33 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        docHistoryTable = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
+        generalReqFormMenu = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
+        leaveReqFormMenu = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
+        showDocHistoryMenu = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        refreshLabel = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
+        contactStaffMenu = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
+        classAttendMenu = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        jPanel15 = new javax.swing.JPanel();
+        editStudentProfileMenu = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
@@ -416,27 +416,45 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
                 .addGap(0, 0, 0))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        docHistoryTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        docHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {"ABCD05", "31/03/2566", "คำร้องทั่วไป", "กำลังตรวจสอบ"},
+                {"ABCD04", "31/03/2566", "คำร้องทั่วไป", "กำลังตรวจสอบ"},
+                {"ABCD03", "31/03/2566", "ลาเรียน", "เสร็จสิ้น"},
+                {"ABCD02", "31/03/2566", "ลาเรียน", "ไม่อนุญาติ"},
+                {"ABCD01", "31/03/2566", "ลาเรียน", "เสร็จสิ้น"}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "เลขที่เอกสาร", "ยื่นเอกสารเมื่อ", "ประเภทเอกสาร", "สถานะเอกสาร"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setShowGrid(false);
-        jScrollPane1.setViewportView(jTable1);
+        docHistoryTable.setRowHeight(35);
+        docHistoryTable.setSelectionForeground(new java.awt.Color(230, 234, 237));
+        docHistoryTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        docHistoryTable.setShowGrid(true);
+        jScrollPane1.setViewportView(docHistoryTable);
+        if (docHistoryTable.getColumnModel().getColumnCount() > 0) {
+            docHistoryTable.getColumnModel().getColumn(0).setResizable(false);
+            docHistoryTable.getColumnModel().getColumn(1).setResizable(false);
+            docHistoryTable.getColumnModel().getColumn(2).setResizable(false);
+            docHistoryTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jPanel5.setBackground(new java.awt.Color(242, 103, 33));
         jPanel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -454,8 +472,8 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        generalReqFormMenu.setBackground(new java.awt.Color(255, 255, 255));
+        generalReqFormMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-document-48.png"))); // NOI18N
 
@@ -465,25 +483,25 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setText("คำร้องทั่วไปเพื่อให้อาจารย์ หรือเจ้าหน้าที่พิจารณา");
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        javax.swing.GroupLayout generalReqFormMenuLayout = new javax.swing.GroupLayout(generalReqFormMenu);
+        generalReqFormMenu.setLayout(generalReqFormMenuLayout);
+        generalReqFormMenuLayout.setHorizontalGroup(
+            generalReqFormMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(generalReqFormMenuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(generalReqFormMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
                     .addComponent(jLabel15))
                 .addGap(12, 12, 12))
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        generalReqFormMenuLayout.setVerticalGroup(
+            generalReqFormMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(generalReqFormMenuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(generalReqFormMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(generalReqFormMenuLayout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addGap(6, 6, 6)
                         .addComponent(jLabel15))
@@ -491,8 +509,8 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        leaveReqFormMenu.setBackground(new java.awt.Color(255, 255, 255));
+        leaveReqFormMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-document-48.png"))); // NOI18N
 
@@ -502,25 +520,25 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel20.setText("คำร้องลาเรียนสำหรับนักศึกษา");
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
+        javax.swing.GroupLayout leaveReqFormMenuLayout = new javax.swing.GroupLayout(leaveReqFormMenu);
+        leaveReqFormMenu.setLayout(leaveReqFormMenuLayout);
+        leaveReqFormMenuLayout.setHorizontalGroup(
+            leaveReqFormMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(leaveReqFormMenuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(leaveReqFormMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18)
                     .addComponent(jLabel20))
                 .addGap(12, 12, 12))
         );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
+        leaveReqFormMenuLayout.setVerticalGroup(
+            leaveReqFormMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(leaveReqFormMenuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGroup(leaveReqFormMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(leaveReqFormMenuLayout.createSequentialGroup()
                         .addComponent(jLabel18)
                         .addGap(6, 6, 6)
                         .addComponent(jLabel20))
@@ -528,8 +546,8 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        showDocHistoryMenu.setBackground(new java.awt.Color(255, 255, 255));
+        showDocHistoryMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-documents-48 (1).png"))); // NOI18N
 
@@ -539,25 +557,25 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel24.setText("ดูรายละเอียด สถานะ คำร้องเเละเอกสารที่ยื่น");
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
+        javax.swing.GroupLayout showDocHistoryMenuLayout = new javax.swing.GroupLayout(showDocHistoryMenu);
+        showDocHistoryMenu.setLayout(showDocHistoryMenuLayout);
+        showDocHistoryMenuLayout.setHorizontalGroup(
+            showDocHistoryMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showDocHistoryMenuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel21)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(showDocHistoryMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel23)
                     .addComponent(jLabel24))
                 .addGap(12, 12, 12))
         );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
+        showDocHistoryMenuLayout.setVerticalGroup(
+            showDocHistoryMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showDocHistoryMenuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGroup(showDocHistoryMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(showDocHistoryMenuLayout.createSequentialGroup()
                         .addComponent(jLabel23)
                         .addGap(6, 6, 6)
                         .addComponent(jLabel24))
@@ -572,24 +590,24 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(generalReqFormMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(leaveReqFormMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(showDocHistoryMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(generalReqFormMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(leaveReqFormMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(showDocHistoryMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-reset-48.png"))); // NOI18N
+        refreshLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-reset-48.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -597,21 +615,21 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9)
+                .addComponent(refreshLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9)
+                .addComponent(refreshLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        contactStaffMenu.setBackground(new java.awt.Color(255, 255, 255));
+        contactStaffMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-faq-48 (1).png"))); // NOI18N
 
@@ -621,25 +639,25 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         jLabel31.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel31.setText("ช่องทางการติดต่อ เเละถาม-ตอบห้องฟ้า");
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
+        javax.swing.GroupLayout contactStaffMenuLayout = new javax.swing.GroupLayout(contactStaffMenu);
+        contactStaffMenu.setLayout(contactStaffMenuLayout);
+        contactStaffMenuLayout.setHorizontalGroup(
+            contactStaffMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contactStaffMenuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel27)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(contactStaffMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel29)
                     .addComponent(jLabel31))
                 .addGap(12, 12, 12))
         );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
+        contactStaffMenuLayout.setVerticalGroup(
+            contactStaffMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contactStaffMenuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(contactStaffMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(contactStaffMenuLayout.createSequentialGroup()
                         .addComponent(jLabel29)
                         .addGap(6, 6, 6)
                         .addComponent(jLabel31))
@@ -647,8 +665,8 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        classAttendMenu.setBackground(new java.awt.Color(255, 255, 255));
+        classAttendMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-today-48.png"))); // NOI18N
 
@@ -658,25 +676,25 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel34.setText("เช็คชื่อเเละบันทึกเวลาการเข้าเรียน");
 
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
+        javax.swing.GroupLayout classAttendMenuLayout = new javax.swing.GroupLayout(classAttendMenu);
+        classAttendMenu.setLayout(classAttendMenuLayout);
+        classAttendMenuLayout.setHorizontalGroup(
+            classAttendMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(classAttendMenuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel32)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(classAttendMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel33)
                     .addComponent(jLabel34))
                 .addGap(12, 12, 12))
         );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
+        classAttendMenuLayout.setVerticalGroup(
+            classAttendMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(classAttendMenuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGroup(classAttendMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(classAttendMenuLayout.createSequentialGroup()
                         .addComponent(jLabel33)
                         .addGap(6, 6, 6)
                         .addComponent(jLabel34))
@@ -684,8 +702,8 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        editStudentProfileMenu.setBackground(new java.awt.Color(255, 255, 255));
+        editStudentProfileMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-edit-property-48.png"))); // NOI18N
 
@@ -695,25 +713,25 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         jLabel37.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel37.setText("เเก้ไขข้อมูลทะเบียนประวัตินักศึกษา");
 
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
+        javax.swing.GroupLayout editStudentProfileMenuLayout = new javax.swing.GroupLayout(editStudentProfileMenu);
+        editStudentProfileMenu.setLayout(editStudentProfileMenuLayout);
+        editStudentProfileMenuLayout.setHorizontalGroup(
+            editStudentProfileMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editStudentProfileMenuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel35)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(editStudentProfileMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel36)
                     .addComponent(jLabel37))
                 .addGap(12, 12, 12))
         );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
+        editStudentProfileMenuLayout.setVerticalGroup(
+            editStudentProfileMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editStudentProfileMenuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGroup(editStudentProfileMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(editStudentProfileMenuLayout.createSequentialGroup()
                         .addComponent(jLabel36)
                         .addGap(6, 6, 6)
                         .addComponent(jLabel37))
@@ -728,20 +746,20 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(contactStaffMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(classAttendMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(editStudentProfileMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(contactStaffMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(classAttendMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
-                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(editStudentProfileMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -812,11 +830,16 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;
+    private javax.swing.JPanel classAttendMenu;
     private javax.swing.JLabel classYearITGenLabel;
+    private javax.swing.JPanel contactStaffMenu;
     private javax.swing.JLabel dobLabel;
+    private javax.swing.JTable docHistoryTable;
+    private javax.swing.JPanel editStudentProfileMenu;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel enStudentNameLabel;
     private javax.swing.JLabel genderLabel;
+    private javax.swing.JPanel generalReqFormMenu;
     private javax.swing.JLabel identificationNumberLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -856,27 +879,22 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JPanel leaveReqFormMenu;
     private javax.swing.JLabel majorNameLabel;
     private javax.swing.JLabel phoneNumberLabel;
     private javax.swing.JLabel programName;
+    private javax.swing.JLabel refreshLabel;
     private javax.swing.JLabel schoolNameLabel;
+    private javax.swing.JPanel showDocHistoryMenu;
     private javax.swing.JLabel studentIdLabel;
     private javax.swing.JLabel thStudentNameLabel;
     // End of variables declaration//GEN-END:variables
