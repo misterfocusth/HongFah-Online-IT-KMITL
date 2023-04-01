@@ -4,6 +4,7 @@
  */
 package forms.student.home;
 
+import javax.swing.JTable;
 import user.AuthUser;
 import user.Student;
 
@@ -448,6 +449,11 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         docHistoryTable.setSelectionForeground(new java.awt.Color(230, 234, 237));
         docHistoryTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         docHistoryTable.setShowGrid(true);
+        docHistoryTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                docHistoryTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(docHistoryTable);
         if (docHistoryTable.getColumnModel().getColumnCount() > 0) {
             docHistoryTable.getColumnModel().getColumn(0).setResizable(false);
@@ -827,6 +833,14 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void docHistoryTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_docHistoryTableMouseClicked
+        // TODO add your handling code here:
+        JTable target = (JTable) evt.getSource();
+        int row = target.getSelectedRow();
+        int column = target.getSelectedColumn();
+        System.out.println(row + " : " + column);
+    }//GEN-LAST:event_docHistoryTableMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;

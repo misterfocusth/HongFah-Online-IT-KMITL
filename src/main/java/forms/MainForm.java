@@ -6,7 +6,9 @@ package forms;
 
 import dialog.OptionDialog;
 import forms.student.about.AboutForm;
+import forms.student.home.HomeForm;
 import forms.student.login.NewLoginForm;
+import helper.FrameLocationHelper;
 import javax.swing.*;
 import user.AuthUser;
 
@@ -194,18 +196,22 @@ public class MainForm extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_jMenu8MouseClicked
-
+    
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+        HomeForm homeForm = new HomeForm();
+        FrameLocationHelper.setLocationToCenter(homeForm);
+        this.mainDesktopPane.add(homeForm);
+        homeForm.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
+    
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
         // TODO add your handling code here:
         AboutForm aboutForm = new AboutForm();
         aboutForm.setLocationRelativeTo(null);
         aboutForm.setVisible(true);
     }//GEN-LAST:event_jMenu4MouseClicked
-
+    
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem4ActionPerformed
@@ -244,9 +250,9 @@ public class MainForm extends javax.swing.JFrame {
                 new MainForm().setVisible(true);
             }
         });
-
+        
     }
-
+    
     public JDesktopPane getMainDesktopPane() {
         return mainDesktopPane;
     }
