@@ -6,7 +6,6 @@ package forms;
 
 import dialog.OptionDialog;
 import forms.student.about.AboutForm;
-import forms.student.home.HomeForm;
 import forms.student.login.NewLoginForm;
 import helper.FrameLocationHelper;
 import javax.swing.*;
@@ -199,7 +198,7 @@ public class MainForm extends javax.swing.JFrame {
     
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        HomeForm homeForm = new HomeForm();
+        StudentInfoForm homeForm = new StudentInfoForm();
         FrameLocationHelper.setLocationToCenter(homeForm);
         this.mainDesktopPane.add(homeForm);
         homeForm.setVisible(true);

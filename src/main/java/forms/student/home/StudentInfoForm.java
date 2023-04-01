@@ -10,12 +10,12 @@ import user.Student;
 /**
  * @author misterfocusth
  */
-public class HomeForm extends javax.swing.JInternalFrame {
+public class StudentInfoForm extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form HomeForm
      */
-    public HomeForm() {
+    public StudentInfoForm() {
         initComponents();
         showStudentInfo();
     }
