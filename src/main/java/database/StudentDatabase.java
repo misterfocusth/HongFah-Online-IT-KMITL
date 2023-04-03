@@ -7,7 +7,7 @@ package database;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.WriteResult;
+import helper.StudentDataHelper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,70 +27,21 @@ public class StudentDatabase {
         if (!document.exists()) {
             return null;
         }
-        System.out.println((HashMap<String, Object>) document.getData());
-
         return (HashMap<String, Object>) document.getData();
     }
 
     public static synchronized boolean addNewStudent(HashMap<String, String> studentData) {
-        // Personal Data
-        String thNameTitle = studentData.get("thNameTitle");
-        String thFirstName = studentData.get("thFirstName");
-        String thLastName = studentData.get("thLastName");
-        String enNameTitle = studentData.get("enNameTitle");
-        String enFirstName = studentData.get("enFirstName");
-        String enLastName = studentData.get("enLastName");
-        String identificationNumber = studentData.get("identificationNumber");
-        String email = studentData.get("email");
-        String phoneNumber = studentData.get("phoneNumber");
-        String contactAddress = studentData.get("contactAddress");
-        String dobDate = studentData.get("dobDate");
-        String dobMonth = studentData.get("dobMonth");
-        String dobYear = studentData.get("dobYear");
-        String gender = studentData.get("gender");
-
-        // Education Data
         String studentId = studentData.get("studentId");
-        String classYear = studentData.get("classYear");
-        String generation = studentData.get("generation");
-        String schoolName = studentData.get("schoolName");
-        String campusName = studentData.get("campusName");
-        String majorName = studentData.get("majorName");
-        String programName = studentData.get("programName");
-
-        // Login Data
-        String username = studentData.get("username");
-        String password = studentData.get("password");
-
         DocumentReference docRef = db.collection("students").document(studentId);
-        Map<String, Object> data = new HashMap<>();
+        Map<String, Object> data = StudentDataHelper.toFirestoreObj(studentData);
+        docRef.set(data);
+        return true;
+    }
 
-        data.put("studentId", studentId);
-        data.put("thNameTitle", thNameTitle);
-        data.put("thFirstName", thFirstName);
-        data.put("thLastName", thLastName);
-        data.put("enNameTitle", enNameTitle);
-        data.put("enFirstName", enFirstName);
-        data.put("enLastName", enLastName);
-        data.put("identificationNumber", identificationNumber);
-        data.put("email", email);
-        data.put("phoneNumber", phoneNumber);
-        data.put("contactAddress", contactAddress);
-        data.put("dobDate", dobDate);
-        data.put("dobMonth", dobMonth);
-        data.put("dobYear", dobYear);
-        data.put("gender", gender);
-        data.put("classYear", classYear);
-        data.put("generation", generation);
-        data.put("schoolName", schoolName);
-        data.put("campusName", campusName);
-        data.put("majorName", majorName);
-        data.put("programName", programName);
-        data.put("username", username);
-        data.put("password", password);
-
-        ApiFuture<WriteResult> result = docRef.set(data);
-
+    public static synchronized boolean updateStudentInfoById(String studentId, HashMap<String, String> studentData) {
+        DocumentReference docRef = db.collection("students").document(studentId);
+        Map<String, Object> data = StudentDataHelper.toFirestoreObj(studentData);
+        docRef.set(data);
         return true;
     }
 }

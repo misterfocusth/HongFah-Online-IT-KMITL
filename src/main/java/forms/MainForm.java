@@ -6,6 +6,8 @@ package forms;
 
 import dialog.OptionDialog;
 import forms.student.about.AboutForm;
+import forms.student.info.EditStudentInfoForm;
+import forms.student.info.StudentInfoForm;
 import forms.student.login.NewLoginForm;
 import helper.FrameLocationHelper;
 import javax.swing.*;
@@ -40,7 +42,6 @@ public class MainForm extends javax.swing.JFrame {
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-        mainDesktopPane = new javax.swing.JDesktopPane();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -213,6 +214,10 @@ public class MainForm extends javax.swing.JFrame {
     
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
+        EditStudentInfoForm editStudentInfoForm = new EditStudentInfoForm();
+        FrameLocationHelper.setLocationToCenter(editStudentInfoForm);
+        MainForm.mainDesktopPane.add(editStudentInfoForm);
+        editStudentInfoForm.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
@@ -275,6 +280,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JDesktopPane mainDesktopPane;
+    public static final javax.swing.JDesktopPane mainDesktopPane = new javax.swing.JDesktopPane();
     // End of variables declaration//GEN-END:variables
 }

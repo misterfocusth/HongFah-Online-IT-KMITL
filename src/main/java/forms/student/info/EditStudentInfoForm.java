@@ -1,64 +1,137 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package forms.student.register;
+package forms.student.info;
 
-import database.StudentDatabase;
 import dialog.InfoDialog;
-import handlers.RegisterHandler;
+import forms.MainForm;
+import handlers.EditStudentInfoHandler;
 import helper.InputValidationHelper;
 import helper.PasswordHelper;
+import user.AuthUser;
+import user.Student;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
 /**
  * @author misterfocusth
  */
-public class NewRegisterForm extends javax.swing.JFrame {
+public class EditStudentInfoForm extends javax.swing.JInternalFrame {
+
+    private HashMap<String, String> studentData = new HashMap<>();
 
     /**
-     * Creates new form NewRegisterForm
+     * Creates new form EditStudentInfoForm
      */
-    public NewRegisterForm() {
+    public EditStudentInfoForm() {
         initComponents();
+        showStudentInfo();
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewRegisterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewRegisterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewRegisterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewRegisterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void showStudentInfo() {
+        Student student = (Student) AuthUser.getAuthUser();
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewRegisterForm().setVisible(true);
-            }
-        });
+        ArrayList<String> thNameTitles = new ArrayList<>(Arrays.asList("นาย", "นางสาว"));
+        ArrayList<String> enNameTitles = new ArrayList<>(Arrays.asList("Mr.", "Mrs."));
+        ArrayList<String> programes = new ArrayList<>(Arrays.asList("เทคโนโลยีสารสนเทศ", "วิทยาการข้อมูลและการวิเคราะห์เชิงธุรกิจ", "เทคโนโลยีสารสนเทศทางธุรกิจ (หลักสูตรนานาชาติ)"));
 
+        selectedThNameTitleBox.setSelectedItem(student.getThNameTitle());
+        selectedEnNameTitleBox.setSelectedItem(student.getEnNameTitle());
+
+        thFirstNameTextField.setText(student.getThFirstName());
+        thLastNameTextField.setText(student.getThLastName());
+        enFirstNameTextField.setText(student.getEnLastName());
+        enLastNameTextField.setText(student.getEnLastName());
+        emailTextField.setText(student.getEmail());
+        phoneNumberTextField.setText(student.getPhoneNumber());
+
+        identificationNumTextField.setText(student.getIdentificationNumber());
+        identificationNumTextField.setEnabled(false);
+        studentIdTextField.setText(student.getStudentId());
+        studentIdTextField.setEnabled(false);
+
+        selectedBirthDayBox.setSelectedItem(student.getDobDate());
+        selectedBirthMonthBox.setSelectedItem(student.getDobMonth());
+        birthYearTextField.setText(student.getDobYear());
+        selectedGenderBox.setSelectedItem(student.getGender());
+
+        selectedStudentYearBox.setSelectedItem(student.getClassYear());
+        itGenerationTextField.setText(student.getGeneration());
+        selectedProgramBox.setSelectedItem(student.getProgramName());
+        majorTextField.setText(student.getMajorName());
+
+        addressTextArea.setText(student.getContactAddress());
+    }
+
+    private HashMap<String, String> toStudentDataMap() {
+        HashMap<String, String> studentData = new HashMap<>();
+        // Personal Data
+        String thNameTitle = (String) selectedThNameTitleBox.getSelectedItem();
+        String thFirstName = thFirstNameTextField.getText();
+        String thLastName = thLastNameTextField.getText();
+        String enNameTitle = (String) selectedEnNameTitleBox.getSelectedItem();
+        String enFirstName = enFirstNameTextField.getText();
+        String enLastName = enLastNameTextField.getText();
+        String identificationNumber = identificationNumTextField.getText();
+        String email = emailTextField.getText();
+        String phoneNumber = phoneNumberTextField.getText();
+        String contactAddress = addressTextArea.getText();
+        String dobDate = (String) selectedBirthDayBox.getSelectedItem();
+        String dobMonth = (String) selectedBirthMonthBox.getSelectedItem();
+        String dobYear = birthYearTextField.getText();
+        String gender = (String) selectedGenderBox.getSelectedItem();
+
+        // Education Data
+        String studentId = studentIdTextField.getText();
+        String classYear = (String) selectedStudentYearBox.getSelectedItem();
+        String generation = itGenerationTextField.getText();
+        String schoolName = (String) selectedSchoolNameBox.getSelectedItem();
+        String campusName = (String) campusBox.getSelectedItem();
+        String majorName = majorTextField.getText();
+        String programName = (String) selectedProgramBox.getSelectedItem();
+
+        // Login Data
+        String username = studentIdTextField.getText();
+
+        // Personal Data
+        studentData.put("thNameTitle", thNameTitle);
+        studentData.put("thFirstName", thFirstName);
+        studentData.put("thLastName", thLastName);
+        studentData.put("enNameTitle", enNameTitle);
+        studentData.put("enFirstName", enFirstName);
+        studentData.put("enLastName", enLastName);
+        studentData.put("identificationNumber", identificationNumber);
+        studentData.put("email", email);
+        studentData.put("phoneNumber", phoneNumber);
+        studentData.put("contactAddress", contactAddress);
+        studentData.put("dobDate", dobDate);
+        studentData.put("dobMonth", dobMonth);
+        studentData.put("dobYear", dobYear);
+        studentData.put("gender", gender);
+
+        // Education Data
+        studentData.put("studentId", studentId);
+        studentData.put("classYear", classYear);
+        studentData.put("generation", generation);
+        studentData.put("schoolName", schoolName);
+        studentData.put("campusName", campusName);
+        studentData.put("programName", programName);
+        studentData.put("majorName", majorName);
+
+        // Login Data
+        studentData.put("username", username);
+        studentData.put("password", AuthUser.getEncodedPassword());
+
+        return studentData;
+    }
+
+    private boolean isStudentChangePassword(String oldPwd, String newPwd, String confirmNewPwd) {
+        if (!(oldPwd.length() == 2)) {
+            return true;
+        } else return !(newPwd.length() == 2) || !(confirmNewPwd.length() == 2);
     }
 
     /**
@@ -70,16 +143,10 @@ public class NewRegisterForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -131,43 +198,27 @@ public class NewRegisterForm extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
+        newPasswordField = new javax.swing.JPasswordField();
         confirmPasswordField = new javax.swing.JPasswordField();
+        jLabel37 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        cancelButton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        registerButton = new javax.swing.JButton();
+        processUpdateButton = new javax.swing.JButton();
 
-        jLabel33.setText("jLabel33");
+        setClosable(true);
+        setIconifiable(true);
 
-        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel34.setText("รหัสผ่าน");
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setResizable(false);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add-user.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user/icons8-male-user-96.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(41, 121, 255));
-        jLabel2.setText("สมัครสมาชิกใช้งานระบบสารสนเทศ");
+        jLabel2.setText("เเก้ไขข้อมูลประวัติทะเบียนนักศึกษา");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("การสมัครเข้าใช้งานระบบสารสนเทศ ห้องฟ้าออนไลน์ (HongFah Online) สำหรับนักศึกษาใหม่");
+        jLabel3.setText("นักศึกษาสามารถเเก้ไขข้อมูลส่วนตัวได้หากข้อมูลที่เคยบันทึกไว้ภายในระบบตอน");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("ในการเข้าใช้งานระบบฯ ครั้งเเรก โปรดสมัครสมาชิกบันทึกข้อมูลเข้าระบบ เพื่อดำเนินการต่อ...");
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel12.setText("คำเเนะนำในการสมัครเข้าใช้งาน !");
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel13.setText("- โปรดกรอกข้อมูล เเละตรวจสอบให้ถูกต้อง ก่อนทำการบันทึกข้อมูล");
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel14.setText("- โปรดจำข้อมูลที่ใช้ในการเข้าสู่ระบบ เพราะต้องใช้ในการเข้าถึงระบบฯ");
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel15.setText("- หากมีปัญหาในการสมัครเข้าใช้งานระบบฯ โปรดติดต่อผู้พัฒนา");
+        jLabel4.setText("สมัครเข้าใช้งานมีข้อผิดพลาด หรือไม่ถูกต้อง (ข้อมูลบางส่วนไม่สามารถเเก้ไขได้)");
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -222,11 +273,13 @@ public class NewRegisterForm extends javax.swing.JFrame {
         jLabel18.setText("เลขบัตรประจำตัวประชาชน");
 
         identificationNumTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        identificationNumTextField.setToolTipText("ไม่สามารถเเก้ไขข้อมูลส่วนนี้ได้ โปรดติดต่อผู้ดูเเลระบบ");
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel19.setText("รหัสประจำตัวนักศึกษา");
 
         studentIdTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        studentIdTextField.setToolTipText("ไม่สามารถเเก้ไขข้อมูลส่วนนี้ได้ โปรดติดต่อผู้ดูเเลระบบ");
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel20.setText("วัน / เดือน / ปี (พ.ศ.) เกิด");
@@ -301,17 +354,22 @@ public class NewRegisterForm extends javax.swing.JFrame {
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(41, 121, 255));
-        jLabel32.setText("ส่วนที่ 4 - ข้อมูลในการเข้าสู่ระบบ");
+        jLabel32.setText("ส่วนที่ 4 - ข้อมูลในการเข้าสู่ระบบ / เปลี่ยนรหัสผ่าน");
 
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel35.setText("รหัสผ่านในการเข้าสู่ระบบ");
 
         jLabel36.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel36.setText("ยืนยันรหัสผ่าน");
+        jLabel36.setText("รหัสผ่านใหม่");
 
         passwordField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        newPasswordField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
         confirmPasswordField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel37.setText("ยืนยันรหัสผ่านใหม่");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -380,35 +438,36 @@ public class NewRegisterForm extends javax.swing.JFrame {
                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                         .addComponent(jLabel35)
-                                                                        .addComponent(jLabel36))
+                                                                        .addComponent(jLabel36)
+                                                                        .addComponent(jLabel37))
                                                                 .addGap(18, 18, 18)
                                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                         .addComponent(passwordField)
+                                                                        .addComponent(newPasswordField)
                                                                         .addComponent(confirmPasswordField)))
-                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                .addComponent(selectedStudentYearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(jLabel23)
-                                                                                                .addComponent(jLabel27))
-                                                                                        .addGap(18, 18, 18)
-                                                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                .addComponent(itGenerationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(jLabel24)))
-                                                                                .addComponent(majorTextField))
-                                                                        .addGap(25, 25, 25)
-                                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                .addComponent(selectedSchoolNameBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(jLabel25))
-                                                                                        .addGap(18, 18, 18)
-                                                                                        .addComponent(jLabel26))
-                                                                                .addComponent(jLabel28)
-                                                                                .addComponent(campusBox, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                                        .addComponent(jScrollPane2)
+                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                        .addComponent(selectedStudentYearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addComponent(jLabel23)
+                                                                                        .addComponent(jLabel27))
+                                                                                .addGap(18, 18, 18)
+                                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                        .addComponent(itGenerationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addComponent(jLabel24)))
+                                                                        .addComponent(majorTextField))
+                                                                .addGap(25, 25, 25)
+                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                        .addComponent(selectedSchoolNameBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addComponent(jLabel25))
+                                                                                .addGap(18, 18, 18)
+                                                                                .addComponent(jLabel26))
+                                                                        .addComponent(jLabel28)
+                                                                        .addComponent(campusBox, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(selectedProgramBox, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -488,7 +547,7 @@ public class NewRegisterForm extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(campusBox)
                                         .addComponent(majorTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
-                                .addGap(24, 24, 24)
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel29)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel30)
@@ -503,6 +562,10 @@ public class NewRegisterForm extends javax.swing.JFrame {
                                 .addGap(22, 22, 22)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel36)
+                                        .addComponent(newPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(22, 22, 22)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel37)
                                         .addComponent(confirmPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel31)
@@ -511,151 +574,122 @@ public class NewRegisterForm extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jPanel1);
 
-        cancelButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cancelButton.setForeground(new java.awt.Color(242, 103, 33));
-        cancelButton.setText("ยกเลิกการสมัครสมาชิก");
-        cancelButton.setPreferredSize(new java.awt.Dimension(250, 35));
-        cancelButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
-            }
-        });
-        jPanel2.add(cancelButton);
         jPanel2.add(jSeparator1);
 
-        registerButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        registerButton.setForeground(new java.awt.Color(41, 121, 255));
-        registerButton.setText("สมัครสมาชิก");
-        registerButton.setPreferredSize(new java.awt.Dimension(250, 35));
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
+        processUpdateButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        processUpdateButton.setForeground(new java.awt.Color(41, 121, 255));
+        processUpdateButton.setText("บันทึกข้อมูล");
+        processUpdateButton.setPreferredSize(new java.awt.Dimension(500, 35));
+        processUpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
+                processUpdateButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(registerButton);
+        jPanel2.add(processUpdateButton);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane1)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel1)
                                                 .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                         .addComponent(jLabel2)
-                                                        .addComponent(jLabel3)
-                                                        .addComponent(jLabel4))
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(24, 24, 24))
+                                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+                                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(44, 44, 44))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE))
+                                                .addGap(24, 24, 24))))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
                                         .addGroup(layout.createSequentialGroup()
+                                                .addGap(10, 10, 10)
                                                 .addComponent(jLabel2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGap(12, 12, 12)
                                                 .addComponent(jLabel3)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel4))
-                                        .addComponent(jLabel1))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel4)))
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel15)
-                                .addGap(24, 24, 24)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24))
+                                .addGap(12, 12, 12))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_cancelButtonActionPerformed
+    private void processUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processUpdateButtonActionPerformed
+        // TODO add your handling code here:
 
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        registerButton.setText("กำลังบันทึกข้อมูล โปรดรอสักครู่...");
-        registerButton.setEnabled(false);
+        this.studentData = this.toStudentDataMap();
 
-        HashMap<String, String> studentData = new HashMap<>();
+        String oldPassword = Arrays.toString(passwordField.getPassword());
+        String newPassword = Arrays.toString(newPasswordField.getPassword());
+        String confirmNewPassword = Arrays.toString(confirmPasswordField.getPassword());
 
-        // Personal Data
-        studentData.put("thNameTitle", selectedThNameTitleBox.getSelectedItem().toString());
-        studentData.put("thFirstName", thFirstNameTextField.getText());
-        studentData.put("thLastName", thLastNameTextField.getText());
-        studentData.put("enNameTitle", selectedEnNameTitleBox.getSelectedItem().toString());
-        studentData.put("enFirstName", enFirstNameTextField.getText());
-        studentData.put("enLastName", enLastNameTextField.getText());
-        studentData.put("identificationNumber", identificationNumTextField.getText());
-        studentData.put("email", emailTextField.getText());
-        studentData.put("phoneNumber", phoneNumberTextField.getText());
-        studentData.put("contactAddress", addressTextArea.getText());
-        studentData.put("dobDate", selectedBirthDayBox.getSelectedItem().toString());
-        studentData.put("dobMonth", selectedBirthMonthBox.getSelectedItem().toString());
-        studentData.put("dobYear", birthYearTextField.getText());
-        studentData.put("gender", selectedGenderBox.getSelectedItem().toString());
+        boolean isPasswordMatches = PasswordHelper.isPasswordMatches(oldPassword, AuthUser.getEncodedPassword());
 
-        // Education Data
-        studentData.put("studentId", studentIdTextField.getText());
-        studentData.put("classYear", selectedStudentYearBox.getSelectedItem().toString());
-        studentData.put("generation", itGenerationTextField.getText().toString());
-        studentData.put("schoolName", selectedSchoolNameBox.getSelectedItem().toString());
-        studentData.put("campusName", campusBox.getSelectedItem().toString());
-        studentData.put("programName", selectedProgramBox.getSelectedItem().toString());
-        studentData.put("majorName", majorTextField.getText());
+        if (this.isStudentChangePassword(oldPassword, newPassword, confirmNewPassword)) {
+            if (InputValidationHelper.validateUserPasswordChange(oldPassword, newPassword, confirmNewPassword)) {
+                new InfoDialog("ไม่สามารถอัพเดทข้อมูลนักศึกษา", "ข้อมูลการเข้าสู่ระบบ (รหัสผ่าน) ไม่ตรงกับข้อมูลปัจจุบัน โปรดตรวจสอบรหัสผ่านปัจจุบัน เเละดำเนินการใหม่อีกครั้ง").show();
+                return;
+            } else if (!isPasswordMatches) {
+                new InfoDialog("ไม่สามารถอัพเดทข้อมูลนักศึกษา", "ข้อมูลการเข้าสู่ระบบไม่ตรงกับข้อมูลปัจจุบัน (โปรดตรวจสอบรหัสผ่านปัจจุบัน)").show();
+                return;
+            } else if (!newPassword.equals(confirmNewPassword)) {
+                new InfoDialog("ไม่สามารถอัพเดทข้อมูลนักศึกษา", "นักศึกษากรอกรหัสผ่านใหม่ไม่ตรงกัน โปรดตรวจสอบข้อมูบเเละดำเนินการใหม่อีกครั้ง").show();
+                return;
+            } else {
+                newPassword = PasswordHelper.encode(newPassword);
+                this.studentData.put("password", newPassword);
+                System.out.println("Push Updated Password !");
+            }
+        }
 
-        // Login Data
-        studentData.put("username", studentIdTextField.getText());
-        String password = Arrays.toString(passwordField.getPassword());
-        String encodedPassword = PasswordHelper.encode(password);
-        studentData.put("password", encodedPassword);
-
-        StudentDatabase db = new StudentDatabase();
+        System.out.println(studentData);
 
         if (!InputValidationHelper.validateUserInput(studentData)) {
-            new InfoDialog("ข้อมูลนักศึกษาไม่ถูกต้อง", "โปรดกรอกข้อมูลให้ครบ ก่อนดำเนินการสมัครเข้าใช้งาน !").show();
-            registerButton.setText("สมัครสมาชิก");
-            registerButton.setEnabled(true);
+            new InfoDialog("ไม่สามารถอัพเดทข้อมูลนักศึกษา", "กรอกข้อมูลไม่ครบ โปรดตรวจสอบข้อมูลที่กรอก เเละดำเนินการใหม่อีกครั้ง").show();
             return;
         }
 
-        if (RegisterHandler.handlerRegister(studentData)) {
-            new InfoDialog("สมัครเข้าใช้งานระบบสารสนเทศ สำเร็จ", "สมัครเข้าใช้งานระบบสารสนเทศ สำเร็จ ! - สามารถล็อกอินเพื่อเข้าใช้งาน ด้วย รหัสนักศึกษา(6507XXXX) และรหัสผ่าน ที่ได้ทำการลงทะเบียนเอาไว้").show();
-            this.setVisible(false);
+
+        processUpdateButton.setText("กำลังอัพเดทข้อมูล...");
+        processUpdateButton.setEnabled(false);
+
+        boolean result = EditStudentInfoHandler.handleEditStudentInfo(studentData.get("studentId"), studentData);
+
+        if (result) {
+            new InfoDialog("อัพเดทข้อมูลทะเบียนประวัตินักศึกษาสำเร็จ !", "โปรดดำเนินการเข้าสู่ระบบ ใหม่เพื่อนดำเนินการต่อ...");
+            AuthUser.setAuthUser(null);
+            AuthUser.setEncodedPassword("");
+            MainForm.mainDesktopPane.removeAll();
         } else {
-            registerButton.setText("สมัครสมาชิก");
-            registerButton.setEnabled(true);
-            new InfoDialog("สมัครสมาชิกไม่สำเร็จ", "สมัครสมาชิกเข้าใช้งานระบบสารสนเทศ ไม่สำเร็จ ! - โปรดติดต่อผู้พัฒนา เพื่อดำเนินการต่อ...").show();
+            new InfoDialog("อัพเดทข้อมูลทะเบียนประวัตินักศึกษาไม่สำเร็จ !", "ไม่สามารถอัพเดทข้อมูลได้ โปรดติดต่อผู้พัฒนา");
+            processUpdateButton.setText("อัพเดทข้อมูล");
+            processUpdateButton.setEnabled(true);
         }
 
-    }//GEN-LAST:event_registerButtonActionPerformed
+
+    }//GEN-LAST:event_processUpdateButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea addressTextArea;
     private javax.swing.JTextField birthYearTextField;
     private javax.swing.JComboBox<String> campusBox;
-    private javax.swing.JButton cancelButton;
     private javax.swing.JPasswordField confirmPasswordField;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JTextField enFirstNameTextField;
@@ -665,10 +699,6 @@ public class NewRegisterForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -688,10 +718,9 @@ public class NewRegisterForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -704,9 +733,10 @@ public class NewRegisterForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField majorTextField;
+    private javax.swing.JPasswordField newPasswordField;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField phoneNumberTextField;
-    private javax.swing.JButton registerButton;
+    private javax.swing.JButton processUpdateButton;
     private javax.swing.JComboBox<String> selectedBirthDayBox;
     private javax.swing.JComboBox<String> selectedBirthMonthBox;
     private javax.swing.JComboBox<String> selectedEnNameTitleBox;

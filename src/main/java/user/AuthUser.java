@@ -5,12 +5,12 @@
 package user;
 
 /**
- *
  * @author misterfocusth
  */
 public class AuthUser {
 
     private static User authUser;
+    private static String encodedPassword;
 
     public static User getAuthUser() {
         return authUser;
@@ -20,4 +20,11 @@ public class AuthUser {
         authUser = AuthUser;
     }
 
+    public static String getEncodedPassword() {
+        return encodedPassword;
+    }
+
+    public static void setEncodedPassword(String encodedPassword) {
+        AuthUser.encodedPassword = encodedPassword;
+    }
 }

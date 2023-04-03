@@ -4,12 +4,10 @@
  */
 package helper;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import javax.swing.JInternalFrame;
+import javax.swing.*;
+import java.awt.*;
 
 /**
- *
  * @author misterfocusth
  */
 public class FrameLocationHelper {
@@ -20,7 +18,7 @@ public class FrameLocationHelper {
         double height = screenSize.getHeight();
         Dimension frameSize = frame.getSize();
         double x = (width - frameSize.width) / 2;
-        double y = (height - frameSize.height) / 2;
+        double y = (height - frameSize.height - 100) / 2;
         frame.setLocation((int) x, (int) y);
     }
 

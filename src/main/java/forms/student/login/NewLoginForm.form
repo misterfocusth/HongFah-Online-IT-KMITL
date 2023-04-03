@@ -144,7 +144,7 @@
               <Font name="Tahoma" size="24" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="0" type="rgb"/>
+              <Color blue="ff" green="79" red="29" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value=" &#xe23;&#xe30;&#xe1a;&#xe1a;&#xe2a;&#xe32;&#xe23;&#xe2a;&#xe19;&#xe40;&#xe17;&#xe28;&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32; @IT, KMITL"/>
@@ -156,7 +156,7 @@
               <Font name="Tahoma" size="24" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="0" type="rgb"/>
+              <Color blue="ff" green="79" red="29" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="&#xe2b;&#xe49;&#xe2d;&#xe07;&#xe1f;&#xe49;&#xe32;&#xe2d;&#xe2d;&#xe19;&#xe44;&#xe25;&#xe19;&#xe4c; (HongFah Online)"/>
@@ -281,12 +281,12 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="closeButton" pref="38" max="32767" attributes="0"/>
-                      <Component id="loginButton" max="32767" attributes="0"/>
+                      <Component id="closeButton" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="loginButton" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -298,7 +298,7 @@
               <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="ff" type="rgb"/>
+              <Color blue="21" green="67" red="f2" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#xe22;&#xe01;&#xe40;&#xe25;&#xe34;&#xe01; / &#xe1b;&#xe34;&#xe14;&#xe42;&#xe1b;&#xe23;&#xe40;&#xe40;&#xe01;&#xe23;&#xe21;"/>
           </Properties>
@@ -311,7 +311,13 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="1"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="79" red="29" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#xe40;&#xe02;&#xe49;&#xe32;&#xe2a;&#xe39;&#xe48;&#xe23;&#xe30;&#xe1a;&#xe1a;"/>
+            <Property name="defaultCapable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="2"/>
+            <Property name="iconTextGap" type="int" value="6"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginButtonActionPerformed"/>
@@ -368,7 +374,11 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/menu_icons/icons8-info-28.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32;&#xe43;&#xe2b;&#xe21;&#xe48; / &#xe21;&#xe35;&#xe1b;&#xe31;&#xe0d;&#xe2b;&#xe32;&#xe43;&#xe19;&#xe01;&#xe32;&#xe23;&#xe40;&#xe02;&#xe49;&#xe32;&#xe2a;&#xe39;&#xe48;&#xe23;&#xe30;&#xe1a;&#xe1a; ?"/>
+            <Property name="iconTextGap" type="int" value="6"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="registerLabel">

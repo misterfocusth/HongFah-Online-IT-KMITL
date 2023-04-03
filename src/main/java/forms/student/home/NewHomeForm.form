@@ -609,7 +609,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xe17;&#xe30;&#xe40;&#xe1a;&#xe35;&#xe22;&#xe19;&#xe1b;&#xe23;&#xe30;&#xe27;&#xe31;&#xe15;&#xe34; &#xe40;&#xe40;&#xe25;&#xe30;&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32;"/>
+            <Property name="text" type="java.lang.String" value="&#xe17;&#xe30;&#xe40;&#xe1a;&#xe35;&#xe22;&#xe19;&#xe1b;&#xe23;&#xe30;&#xe27;&#xe31;&#xe15;&#xe34;&#xe40;&#xe40;&#xe25;&#xe30;&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32;"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -1196,6 +1196,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="editStudentProfileMenuMouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
