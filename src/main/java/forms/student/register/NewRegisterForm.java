@@ -4,7 +4,6 @@
  */
 package forms.student.register;
 
-import database.StudentDatabase;
 import dialog.InfoDialog;
 import handlers.RegisterHandler;
 import helper.InputValidationHelper;
@@ -630,8 +629,6 @@ public class NewRegisterForm extends javax.swing.JFrame {
         String password = Arrays.toString(passwordField.getPassword());
         String encodedPassword = PasswordHelper.encode(password);
         studentData.put("password", encodedPassword);
-
-        StudentDatabase db = new StudentDatabase();
 
         if (!InputValidationHelper.validateUserInput(studentData)) {
             new InfoDialog("ข้อมูลนักศึกษาไม่ถูกต้อง", "โปรดกรอกข้อมูลให้ครบ ก่อนดำเนินการสมัครเข้าใช้งาน !").show();

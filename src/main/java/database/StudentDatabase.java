@@ -7,6 +7,7 @@ package database;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
+import com.google.cloud.firestore.WriteResult;
 import helper.StudentDataHelper;
 
 import java.util.HashMap;
@@ -34,14 +35,23 @@ public class StudentDatabase {
         String studentId = studentData.get("studentId");
         DocumentReference docRef = db.collection("students").document(studentId);
         Map<String, Object> data = StudentDataHelper.toFirestoreObj(studentData);
-        docRef.set(data);
+        ApiFuture<WriteResult> result = docRef.set(data);
+
+        System.out.println("addNewStudent Result: " + result);
+
         return true;
     }
 
     public static synchronized boolean updateStudentInfoById(String studentId, HashMap<String, String> studentData) {
         DocumentReference docRef = db.collection("students").document(studentId);
         Map<String, Object> data = StudentDataHelper.toFirestoreObj(studentData);
-        docRef.set(data);
+        Map<String, Object> test = new HashMap<>();
+        test.put("studentId", "65070219");
+        ApiFuture<WriteResult> result = docRef.update(test);
+
+        System.out.println("updateStudentInfoById Student ID: " + studentId);
+        System.out.println("updateStudentInfoById Result: " + result);
+
         return true;
     }
 }

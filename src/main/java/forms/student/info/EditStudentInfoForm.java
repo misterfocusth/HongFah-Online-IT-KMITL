@@ -67,7 +67,7 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
     }
 
     private HashMap<String, String> toStudentDataMap() {
-        HashMap<String, String> studentData = new HashMap<>();
+        HashMap<String, String> studentDataHashMap = new HashMap<>();
         // Personal Data
         String thNameTitle = (String) selectedThNameTitleBox.getSelectedItem();
         String thFirstName = thFirstNameTextField.getText();
@@ -97,35 +97,35 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
         String username = studentIdTextField.getText();
 
         // Personal Data
-        studentData.put("thNameTitle", thNameTitle);
-        studentData.put("thFirstName", thFirstName);
-        studentData.put("thLastName", thLastName);
-        studentData.put("enNameTitle", enNameTitle);
-        studentData.put("enFirstName", enFirstName);
-        studentData.put("enLastName", enLastName);
-        studentData.put("identificationNumber", identificationNumber);
-        studentData.put("email", email);
-        studentData.put("phoneNumber", phoneNumber);
-        studentData.put("contactAddress", contactAddress);
-        studentData.put("dobDate", dobDate);
-        studentData.put("dobMonth", dobMonth);
-        studentData.put("dobYear", dobYear);
-        studentData.put("gender", gender);
+        studentDataHashMap.put("thNameTitle", thNameTitle);
+        studentDataHashMap.put("thFirstName", thFirstName);
+        studentDataHashMap.put("thLastName", thLastName);
+        studentDataHashMap.put("enNameTitle", enNameTitle);
+        studentDataHashMap.put("enFirstName", enFirstName);
+        studentDataHashMap.put("enLastName", enLastName);
+        studentDataHashMap.put("identificationNumber", identificationNumber);
+        studentDataHashMap.put("email", email);
+        studentDataHashMap.put("phoneNumber", phoneNumber);
+        studentDataHashMap.put("contactAddress", contactAddress);
+        studentDataHashMap.put("dobDate", dobDate);
+        studentDataHashMap.put("dobMonth", dobMonth);
+        studentDataHashMap.put("dobYear", dobYear);
+        studentDataHashMap.put("gender", gender);
 
         // Education Data
-        studentData.put("studentId", studentId);
-        studentData.put("classYear", classYear);
-        studentData.put("generation", generation);
-        studentData.put("schoolName", schoolName);
-        studentData.put("campusName", campusName);
-        studentData.put("programName", programName);
-        studentData.put("majorName", majorName);
+        studentDataHashMap.put("studentId", studentId);
+        studentDataHashMap.put("classYear", classYear);
+        studentDataHashMap.put("generation", generation);
+        studentDataHashMap.put("schoolName", schoolName);
+        studentDataHashMap.put("campusName", campusName);
+        studentDataHashMap.put("programName", programName);
+        studentDataHashMap.put("majorName", majorName);
 
         // Login Data
-        studentData.put("username", username);
-        studentData.put("password", AuthUser.getEncodedPassword());
+        studentDataHashMap.put("username", username);
+        studentDataHashMap.put("password", AuthUser.getEncodedPassword());
 
-        return studentData;
+        return studentDataHashMap;
     }
 
     private boolean isStudentChangePassword(String oldPwd, String newPwd, String confirmNewPwd) {
@@ -632,8 +632,6 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void processUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processUpdateButtonActionPerformed
-        // TODO add your handling code here:
-
         this.studentData = this.toStudentDataMap();
 
         String oldPassword = Arrays.toString(passwordField.getPassword());
@@ -666,13 +664,10 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
             return;
         }
 
-
         processUpdateButton.setText("กำลังอัพเดทข้อมูล...");
         processUpdateButton.setEnabled(false);
 
-        boolean result = EditStudentInfoHandler.handleEditStudentInfo(studentData.get("studentId"), studentData);
-
-        if (result) {
+        if (EditStudentInfoHandler.handleEditStudentInfo(studentData.get("studentId"), studentData)) {
             new InfoDialog("อัพเดทข้อมูลทะเบียนประวัตินักศึกษาสำเร็จ !", "โปรดดำเนินการเข้าสู่ระบบ ใหม่เพื่อนดำเนินการต่อ...");
             AuthUser.setAuthUser(null);
             AuthUser.setEncodedPassword("");
