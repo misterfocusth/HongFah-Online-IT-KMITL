@@ -6,7 +6,7 @@ package forms.student.home;
 
 import forms.MainForm;
 import forms.student.info.EditStudentInfoForm;
-import helper.FrameLocationHelper;
+import helper.FrameHelper;
 import user.AuthUser;
 import user.Student;
 
@@ -854,7 +854,7 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
     private void editStudentProfileMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editStudentProfileMenuMouseClicked
         // TODO add your handling code here:
         EditStudentInfoForm editStudentInfoForm = new EditStudentInfoForm();
-        FrameLocationHelper.setLocationToCenter(editStudentInfoForm);
+        FrameHelper.setLocationToCenter(editStudentInfoForm);
         MainForm.mainDesktopPane.add(editStudentInfoForm);
         editStudentInfoForm.setVisible(true);
 

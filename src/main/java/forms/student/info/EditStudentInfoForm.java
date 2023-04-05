@@ -5,8 +5,9 @@
 package forms.student.info;
 
 import dialog.InfoDialog;
-import forms.MainForm;
+import forms.student.login.NewLoginForm;
 import handlers.EditStudentInfoHandler;
+import helper.FrameHelper;
 import helper.InputValidationHelper;
 import helper.PasswordHelper;
 import user.AuthUser;
@@ -129,9 +130,13 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
     }
 
     private boolean isStudentChangePassword(String oldPwd, String newPwd, String confirmNewPwd) {
-        if (!(oldPwd.length() == 2)) {
+        if (oldPwd.length() == 0) {
+            return false;
+        } else if (newPwd.length() == 0 && confirmNewPwd.length() == 0) {
+            return false;
+        } else {
             return true;
-        } else return !(newPwd.length() == 2) || !(confirmNewPwd.length() == 2);
+        }
     }
 
     /**
@@ -634,18 +639,17 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
     private void processUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processUpdateButtonActionPerformed
         this.studentData = this.toStudentDataMap();
 
-        String oldPassword = Arrays.toString(passwordField.getPassword());
-        String newPassword = Arrays.toString(newPasswordField.getPassword());
-        String confirmNewPassword = Arrays.toString(confirmPasswordField.getPassword());
+        String oldPassword = PasswordHelper.getUserTypedPassword(passwordField);
+        String newPassword = PasswordHelper.getUserTypedPassword(newPasswordField);
+        String confirmNewPassword = PasswordHelper.getUserTypedPassword(confirmPasswordField);
 
+        System.out.println(PasswordHelper.getUserTypedPassword(passwordField));
+        System.out.println(PasswordHelper.isPasswordMatches(oldPassword, AuthUser.getEncodedPassword()));
         boolean isPasswordMatches = PasswordHelper.isPasswordMatches(oldPassword, AuthUser.getEncodedPassword());
 
         if (this.isStudentChangePassword(oldPassword, newPassword, confirmNewPassword)) {
-            if (InputValidationHelper.validateUserPasswordChange(oldPassword, newPassword, confirmNewPassword)) {
+            if (InputValidationHelper.validateUserPasswordChange(oldPassword, newPassword, confirmNewPassword) || !isPasswordMatches) {
                 new InfoDialog("ไม่สามารถอัพเดทข้อมูลนักศึกษา", "ข้อมูลการเข้าสู่ระบบ (รหัสผ่าน) ไม่ตรงกับข้อมูลปัจจุบัน โปรดตรวจสอบรหัสผ่านปัจจุบัน เเละดำเนินการใหม่อีกครั้ง").show();
-                return;
-            } else if (!isPasswordMatches) {
-                new InfoDialog("ไม่สามารถอัพเดทข้อมูลนักศึกษา", "ข้อมูลการเข้าสู่ระบบไม่ตรงกับข้อมูลปัจจุบัน (โปรดตรวจสอบรหัสผ่านปัจจุบัน)").show();
                 return;
             } else if (!newPassword.equals(confirmNewPassword)) {
                 new InfoDialog("ไม่สามารถอัพเดทข้อมูลนักศึกษา", "นักศึกษากรอกรหัสผ่านใหม่ไม่ตรงกัน โปรดตรวจสอบข้อมูบเเละดำเนินการใหม่อีกครั้ง").show();
@@ -668,10 +672,14 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
         processUpdateButton.setEnabled(false);
 
         if (EditStudentInfoHandler.handleEditStudentInfo(studentData.get("studentId"), studentData)) {
-            new InfoDialog("อัพเดทข้อมูลทะเบียนประวัตินักศึกษาสำเร็จ !", "โปรดดำเนินการเข้าสู่ระบบ ใหม่เพื่อนดำเนินการต่อ...");
+            new InfoDialog("อัพเดทข้อมูลทะเบียนประวัตินักศึกษาสำเร็จ !", "โปรดดำเนินการเข้าสู่ระบบ ใหม่เพื่อนดำเนินการต่อ...").show();
             AuthUser.setAuthUser(null);
             AuthUser.setEncodedPassword("");
-            MainForm.mainDesktopPane.removeAll();
+            FrameHelper.disposeCurrentInternalFrame();
+            NewLoginForm newLoginForm = new NewLoginForm();
+            FrameHelper.setLocationToCenter(newLoginForm);
+            newLoginForm.setVisible(true);
+
         } else {
             new InfoDialog("อัพเดทข้อมูลทะเบียนประวัตินักศึกษาไม่สำเร็จ !", "ไม่สามารถอัพเดทข้อมูลได้ โปรดติดต่อผู้พัฒนา");
             processUpdateButton.setText("อัพเดทข้อมูล");

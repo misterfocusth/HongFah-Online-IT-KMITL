@@ -16,8 +16,10 @@ public class EditStudentInfoHandler {
             };
             Future<Boolean> future = executorService.submit(callable);
             while (!future.isDone() && !future.isCancelled()) {
+                System.out.println("Thread Sleep: 1000");
                 Thread.sleep(1000);
             }
+            System.out.println(future.get());
             result = future.get();
         } catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();

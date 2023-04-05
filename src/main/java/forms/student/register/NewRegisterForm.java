@@ -9,7 +9,6 @@ import handlers.RegisterHandler;
 import helper.InputValidationHelper;
 import helper.PasswordHelper;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -626,7 +625,7 @@ public class NewRegisterForm extends javax.swing.JFrame {
 
         // Login Data
         studentData.put("username", studentIdTextField.getText());
-        String password = Arrays.toString(passwordField.getPassword());
+        String password = PasswordHelper.getUserTypedPassword(passwordField);
         String encodedPassword = PasswordHelper.encode(password);
         studentData.put("password", encodedPassword);
 

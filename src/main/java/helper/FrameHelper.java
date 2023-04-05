@@ -4,13 +4,17 @@
  */
 package helper;
 
+import forms.MainForm;
+
 import javax.swing.*;
 import java.awt.*;
 
 /**
  * @author misterfocusth
  */
-public class FrameLocationHelper {
+public class FrameHelper {
+
+    public static MainForm currentMainForm = null;
 
     public static void setLocationToCenter(JInternalFrame frame) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -20,6 +24,15 @@ public class FrameLocationHelper {
         double x = (width - frameSize.width) / 2;
         double y = (height - frameSize.height - 100) / 2;
         frame.setLocation((int) x, (int) y);
+    }
+
+    public static void setLocationToCenter(JFrame frame) {
+        frame.setLocationRelativeTo(null);
+    }
+
+    public static void disposeCurrentInternalFrame() {
+        FrameHelper.currentMainForm.setVisible(false);
+        FrameHelper.currentMainForm.dispose();
     }
 
 }
