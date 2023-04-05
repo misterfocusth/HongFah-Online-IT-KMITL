@@ -6,15 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5cf0c9c8-9ce9-4f1e-9658-6b26b94a186f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/StudentDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/StudentDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/forms/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/MainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/home/NewHomeForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/home/NewHomeForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/info/EditStudentInfoForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/info/EditStudentInfoForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/register/NewRegisterForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/register/NewRegisterForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/EditStudentInfoHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/EditStudentInfoHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helper/FrameLocationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helper/FrameHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helper/PasswordHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helper/PasswordHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helper/FrameHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helper/FrameHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helper/InputValidationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helper/InputValidationHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +136,7 @@
       <workItem from="1680336479445" duration="4133000" />
       <workItem from="1680366383341" duration="7474000" />
       <workItem from="1680502609431" duration="11356000" />
-      <workItem from="1680667981318" duration="6697000" />
+      <workItem from="1680667981318" duration="7890000" />
     </task>
     <servers />
   </component>

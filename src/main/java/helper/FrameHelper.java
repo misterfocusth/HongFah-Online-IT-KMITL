@@ -33,6 +33,7 @@ public class FrameHelper {
     public static void disposeCurrentInternalFrame() {
         FrameHelper.currentMainForm.setVisible(false);
         FrameHelper.currentMainForm.dispose();
+        MainForm.mainDesktopPane = new JDesktopPane();
     }
 
 }

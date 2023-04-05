@@ -281,6 +281,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    public static final javax.swing.JDesktopPane mainDesktopPane = new javax.swing.JDesktopPane();
+    public static javax.swing.JDesktopPane mainDesktopPane = new javax.swing.JDesktopPane();
     // End of variables declaration//GEN-END:variables
 }

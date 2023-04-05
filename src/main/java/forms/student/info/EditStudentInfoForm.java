@@ -129,16 +129,6 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
         return studentDataHashMap;
     }
 
-    private boolean isStudentChangePassword(String oldPwd, String newPwd, String confirmNewPwd) {
-        if (oldPwd.length() == 0) {
-            return false;
-        } else if (newPwd.length() == 0 && confirmNewPwd.length() == 0) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -647,8 +637,8 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
         System.out.println(PasswordHelper.isPasswordMatches(oldPassword, AuthUser.getEncodedPassword()));
         boolean isPasswordMatches = PasswordHelper.isPasswordMatches(oldPassword, AuthUser.getEncodedPassword());
 
-        if (this.isStudentChangePassword(oldPassword, newPassword, confirmNewPassword)) {
-            if (InputValidationHelper.validateUserPasswordChange(oldPassword, newPassword, confirmNewPassword) || !isPasswordMatches) {
+        if (InputValidationHelper.validateUserPasswordChange(oldPassword, newPassword, confirmNewPassword)) {
+            if (!isPasswordMatches) {
                 new InfoDialog("ไม่สามารถอัพเดทข้อมูลนักศึกษา", "ข้อมูลการเข้าสู่ระบบ (รหัสผ่าน) ไม่ตรงกับข้อมูลปัจจุบัน โปรดตรวจสอบรหัสผ่านปัจจุบัน เเละดำเนินการใหม่อีกครั้ง").show();
                 return;
             } else if (!newPassword.equals(confirmNewPassword)) {
@@ -679,7 +669,6 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
             NewLoginForm newLoginForm = new NewLoginForm();
             FrameHelper.setLocationToCenter(newLoginForm);
             newLoginForm.setVisible(true);
-
         } else {
             new InfoDialog("อัพเดทข้อมูลทะเบียนประวัตินักศึกษาไม่สำเร็จ !", "ไม่สามารถอัพเดทข้อมูลได้ โปรดติดต่อผู้พัฒนา");
             processUpdateButton.setText("อัพเดทข้อมูล");
