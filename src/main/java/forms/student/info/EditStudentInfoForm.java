@@ -13,8 +13,6 @@ import helper.PasswordHelper;
 import user.AuthUser;
 import user.Student;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -35,16 +33,12 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
     private void showStudentInfo() {
         Student student = (Student) AuthUser.getAuthUser();
 
-        ArrayList<String> thNameTitles = new ArrayList<>(Arrays.asList("นาย", "นางสาว"));
-        ArrayList<String> enNameTitles = new ArrayList<>(Arrays.asList("Mr.", "Mrs."));
-        ArrayList<String> programes = new ArrayList<>(Arrays.asList("เทคโนโลยีสารสนเทศ", "วิทยาการข้อมูลและการวิเคราะห์เชิงธุรกิจ", "เทคโนโลยีสารสนเทศทางธุรกิจ (หลักสูตรนานาชาติ)"));
-
         selectedThNameTitleBox.setSelectedItem(student.getThNameTitle());
         selectedEnNameTitleBox.setSelectedItem(student.getEnNameTitle());
 
         thFirstNameTextField.setText(student.getThFirstName());
         thLastNameTextField.setText(student.getThLastName());
-        enFirstNameTextField.setText(student.getEnLastName());
+        enFirstNameTextField.setText(student.getEnFirstName());
         enLastNameTextField.setText(student.getEnLastName());
         emailTextField.setText(student.getEmail());
         phoneNumberTextField.setText(student.getPhoneNumber());
@@ -633,8 +627,6 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
         String newPassword = PasswordHelper.getUserTypedPassword(newPasswordField);
         String confirmNewPassword = PasswordHelper.getUserTypedPassword(confirmPasswordField);
 
-        System.out.println(PasswordHelper.getUserTypedPassword(passwordField));
-        System.out.println(PasswordHelper.isPasswordMatches(oldPassword, AuthUser.getEncodedPassword()));
         boolean isPasswordMatches = PasswordHelper.isPasswordMatches(oldPassword, AuthUser.getEncodedPassword());
 
         if (InputValidationHelper.validateUserPasswordChange(oldPassword, newPassword, confirmNewPassword)) {
@@ -647,11 +639,8 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
             } else {
                 newPassword = PasswordHelper.encode(newPassword);
                 this.studentData.put("password", newPassword);
-                System.out.println("Push Updated Password !");
             }
         }
-
-        System.out.println(studentData);
 
         if (!InputValidationHelper.validateUserInput(studentData)) {
             new InfoDialog("ไม่สามารถอัพเดทข้อมูลนักศึกษา", "กรอกข้อมูลไม่ครบ โปรดตรวจสอบข้อมูลที่กรอก เเละดำเนินการใหม่อีกครั้ง").show();

@@ -36,9 +36,6 @@ public class StudentDatabase {
         DocumentReference docRef = db.collection("students").document(studentId);
         Map<String, Object> data = StudentDataHelper.toFirestoreObj(studentData);
         ApiFuture<WriteResult> result = docRef.set(data);
-
-        System.out.println("addNewStudent Result: " + result);
-
         return true;
     }
 
@@ -46,10 +43,6 @@ public class StudentDatabase {
         DocumentReference docRef = db.collection("students").document(studentId);
         Map<String, Object> data = StudentDataHelper.toFirestoreObj(studentData);
         ApiFuture<WriteResult> result = docRef.update(data);
-
-        System.out.println("updateStudentInfoById Student ID: " + studentId);
-        System.out.println("updateStudentInfoById Result: " + result);
-
         return true;
     }
 }
