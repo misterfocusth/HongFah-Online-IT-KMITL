@@ -10,7 +10,9 @@ public class EditStudentInfoHandler {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         boolean result = false;
         try {
-            Callable<Boolean> callable = () -> StudentDatabase.updateStudentInfoById(studentId, studentData);
+            Callable<Boolean> callable = () -> {
+                return StudentDatabase.updateStudentInfoById(studentId, studentData);
+            };
             Future<Boolean> future = executorService.submit(callable);
             while (!future.isDone() && !future.isCancelled()) {
                 Thread.sleep(1000);

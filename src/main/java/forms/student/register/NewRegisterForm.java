@@ -4,13 +4,11 @@
  */
 package forms.student.register;
 
-import database.StudentDatabase;
 import dialog.InfoDialog;
 import handlers.RegisterHandler;
 import helper.InputValidationHelper;
 import helper.PasswordHelper;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -627,11 +625,9 @@ public class NewRegisterForm extends javax.swing.JFrame {
 
         // Login Data
         studentData.put("username", studentIdTextField.getText());
-        String password = Arrays.toString(passwordField.getPassword());
+        String password = PasswordHelper.getUserTypedPassword(passwordField);
         String encodedPassword = PasswordHelper.encode(password);
         studentData.put("password", encodedPassword);
-
-        StudentDatabase db = new StudentDatabase();
 
         if (!InputValidationHelper.validateUserInput(studentData)) {
             new InfoDialog("ข้อมูลนักศึกษาไม่ถูกต้อง", "โปรดกรอกข้อมูลให้ครบ ก่อนดำเนินการสมัครเข้าใช้งาน !").show();

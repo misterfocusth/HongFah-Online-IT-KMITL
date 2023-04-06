@@ -18,15 +18,12 @@ import java.util.logging.Logger;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("[INFO] : Started Application !");
-
         try {
             Firebase.initFirebase();
         } catch (IOException | URISyntaxException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
+        
         NewLoginForm newLoginForm = new NewLoginForm();
         newLoginForm.setLocationRelativeTo(null);
         newLoginForm.setVisible(true);

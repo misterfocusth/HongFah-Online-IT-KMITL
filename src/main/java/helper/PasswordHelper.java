@@ -6,6 +6,8 @@ package helper;
 
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 
+import javax.swing.*;
+
 /**
  * @author misterfocusth
  */
@@ -18,5 +20,13 @@ public class PasswordHelper {
 
     public static boolean isPasswordMatches(String password, String encodedPassword) {
         return encoder.matches(password, encodedPassword);
+    }
+
+    public static String getUserTypedPassword(JPasswordField passwordField) {
+        StringBuilder password = new StringBuilder();
+        for (char chr : passwordField.getPassword()) {
+            password.append(chr);
+        }
+        return password.toString();
     }
 }

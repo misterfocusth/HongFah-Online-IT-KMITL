@@ -5,15 +5,14 @@
 package forms.student.info;
 
 import dialog.InfoDialog;
-import forms.MainForm;
+import forms.student.login.NewLoginForm;
 import handlers.EditStudentInfoHandler;
+import helper.FrameHelper;
 import helper.InputValidationHelper;
 import helper.PasswordHelper;
 import user.AuthUser;
 import user.Student;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -34,16 +33,12 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
     private void showStudentInfo() {
         Student student = (Student) AuthUser.getAuthUser();
 
-        ArrayList<String> thNameTitles = new ArrayList<>(Arrays.asList("นาย", "นางสาว"));
-        ArrayList<String> enNameTitles = new ArrayList<>(Arrays.asList("Mr.", "Mrs."));
-        ArrayList<String> programes = new ArrayList<>(Arrays.asList("เทคโนโลยีสารสนเทศ", "วิทยาการข้อมูลและการวิเคราะห์เชิงธุรกิจ", "เทคโนโลยีสารสนเทศทางธุรกิจ (หลักสูตรนานาชาติ)"));
-
         selectedThNameTitleBox.setSelectedItem(student.getThNameTitle());
         selectedEnNameTitleBox.setSelectedItem(student.getEnNameTitle());
 
         thFirstNameTextField.setText(student.getThFirstName());
         thLastNameTextField.setText(student.getThLastName());
-        enFirstNameTextField.setText(student.getEnLastName());
+        enFirstNameTextField.setText(student.getEnFirstName());
         enLastNameTextField.setText(student.getEnLastName());
         emailTextField.setText(student.getEmail());
         phoneNumberTextField.setText(student.getPhoneNumber());
@@ -67,7 +62,7 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
     }
 
     private HashMap<String, String> toStudentDataMap() {
-        HashMap<String, String> studentData = new HashMap<>();
+        HashMap<String, String> studentDataHashMap = new HashMap<>();
         // Personal Data
         String thNameTitle = (String) selectedThNameTitleBox.getSelectedItem();
         String thFirstName = thFirstNameTextField.getText();
@@ -97,41 +92,35 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
         String username = studentIdTextField.getText();
 
         // Personal Data
-        studentData.put("thNameTitle", thNameTitle);
-        studentData.put("thFirstName", thFirstName);
-        studentData.put("thLastName", thLastName);
-        studentData.put("enNameTitle", enNameTitle);
-        studentData.put("enFirstName", enFirstName);
-        studentData.put("enLastName", enLastName);
-        studentData.put("identificationNumber", identificationNumber);
-        studentData.put("email", email);
-        studentData.put("phoneNumber", phoneNumber);
-        studentData.put("contactAddress", contactAddress);
-        studentData.put("dobDate", dobDate);
-        studentData.put("dobMonth", dobMonth);
-        studentData.put("dobYear", dobYear);
-        studentData.put("gender", gender);
+        studentDataHashMap.put("thNameTitle", thNameTitle);
+        studentDataHashMap.put("thFirstName", thFirstName);
+        studentDataHashMap.put("thLastName", thLastName);
+        studentDataHashMap.put("enNameTitle", enNameTitle);
+        studentDataHashMap.put("enFirstName", enFirstName);
+        studentDataHashMap.put("enLastName", enLastName);
+        studentDataHashMap.put("identificationNumber", identificationNumber);
+        studentDataHashMap.put("email", email);
+        studentDataHashMap.put("phoneNumber", phoneNumber);
+        studentDataHashMap.put("contactAddress", contactAddress);
+        studentDataHashMap.put("dobDate", dobDate);
+        studentDataHashMap.put("dobMonth", dobMonth);
+        studentDataHashMap.put("dobYear", dobYear);
+        studentDataHashMap.put("gender", gender);
 
         // Education Data
-        studentData.put("studentId", studentId);
-        studentData.put("classYear", classYear);
-        studentData.put("generation", generation);
-        studentData.put("schoolName", schoolName);
-        studentData.put("campusName", campusName);
-        studentData.put("programName", programName);
-        studentData.put("majorName", majorName);
+        studentDataHashMap.put("studentId", studentId);
+        studentDataHashMap.put("classYear", classYear);
+        studentDataHashMap.put("generation", generation);
+        studentDataHashMap.put("schoolName", schoolName);
+        studentDataHashMap.put("campusName", campusName);
+        studentDataHashMap.put("programName", programName);
+        studentDataHashMap.put("majorName", majorName);
 
         // Login Data
-        studentData.put("username", username);
-        studentData.put("password", AuthUser.getEncodedPassword());
+        studentDataHashMap.put("username", username);
+        studentDataHashMap.put("password", AuthUser.getEncodedPassword());
 
-        return studentData;
-    }
-
-    private boolean isStudentChangePassword(String oldPwd, String newPwd, String confirmNewPwd) {
-        if (!(oldPwd.length() == 2)) {
-            return true;
-        } else return !(newPwd.length() == 2) || !(confirmNewPwd.length() == 2);
+        return studentDataHashMap;
     }
 
     /**
@@ -632,22 +621,17 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void processUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processUpdateButtonActionPerformed
-        // TODO add your handling code here:
-
         this.studentData = this.toStudentDataMap();
 
-        String oldPassword = Arrays.toString(passwordField.getPassword());
-        String newPassword = Arrays.toString(newPasswordField.getPassword());
-        String confirmNewPassword = Arrays.toString(confirmPasswordField.getPassword());
+        String oldPassword = PasswordHelper.getUserTypedPassword(passwordField);
+        String newPassword = PasswordHelper.getUserTypedPassword(newPasswordField);
+        String confirmNewPassword = PasswordHelper.getUserTypedPassword(confirmPasswordField);
 
         boolean isPasswordMatches = PasswordHelper.isPasswordMatches(oldPassword, AuthUser.getEncodedPassword());
 
-        if (this.isStudentChangePassword(oldPassword, newPassword, confirmNewPassword)) {
-            if (InputValidationHelper.validateUserPasswordChange(oldPassword, newPassword, confirmNewPassword)) {
+        if (InputValidationHelper.validateUserPasswordChange(oldPassword, newPassword, confirmNewPassword)) {
+            if (!isPasswordMatches) {
                 new InfoDialog("ไม่สามารถอัพเดทข้อมูลนักศึกษา", "ข้อมูลการเข้าสู่ระบบ (รหัสผ่าน) ไม่ตรงกับข้อมูลปัจจุบัน โปรดตรวจสอบรหัสผ่านปัจจุบัน เเละดำเนินการใหม่อีกครั้ง").show();
-                return;
-            } else if (!isPasswordMatches) {
-                new InfoDialog("ไม่สามารถอัพเดทข้อมูลนักศึกษา", "ข้อมูลการเข้าสู่ระบบไม่ตรงกับข้อมูลปัจจุบัน (โปรดตรวจสอบรหัสผ่านปัจจุบัน)").show();
                 return;
             } else if (!newPassword.equals(confirmNewPassword)) {
                 new InfoDialog("ไม่สามารถอัพเดทข้อมูลนักศึกษา", "นักศึกษากรอกรหัสผ่านใหม่ไม่ตรงกัน โปรดตรวจสอบข้อมูบเเละดำเนินการใหม่อีกครั้ง").show();
@@ -655,28 +639,25 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
             } else {
                 newPassword = PasswordHelper.encode(newPassword);
                 this.studentData.put("password", newPassword);
-                System.out.println("Push Updated Password !");
             }
         }
-
-        System.out.println(studentData);
 
         if (!InputValidationHelper.validateUserInput(studentData)) {
             new InfoDialog("ไม่สามารถอัพเดทข้อมูลนักศึกษา", "กรอกข้อมูลไม่ครบ โปรดตรวจสอบข้อมูลที่กรอก เเละดำเนินการใหม่อีกครั้ง").show();
             return;
         }
 
-
         processUpdateButton.setText("กำลังอัพเดทข้อมูล...");
         processUpdateButton.setEnabled(false);
 
-        boolean result = EditStudentInfoHandler.handleEditStudentInfo(studentData.get("studentId"), studentData);
-
-        if (result) {
-            new InfoDialog("อัพเดทข้อมูลทะเบียนประวัตินักศึกษาสำเร็จ !", "โปรดดำเนินการเข้าสู่ระบบ ใหม่เพื่อนดำเนินการต่อ...");
+        if (EditStudentInfoHandler.handleEditStudentInfo(studentData.get("studentId"), studentData)) {
+            new InfoDialog("อัพเดทข้อมูลทะเบียนประวัตินักศึกษาสำเร็จ !", "โปรดดำเนินการเข้าสู่ระบบ ใหม่เพื่อนดำเนินการต่อ...").show();
             AuthUser.setAuthUser(null);
             AuthUser.setEncodedPassword("");
-            MainForm.mainDesktopPane.removeAll();
+            FrameHelper.disposeCurrentInternalFrame();
+            NewLoginForm newLoginForm = new NewLoginForm();
+            FrameHelper.setLocationToCenter(newLoginForm);
+            newLoginForm.setVisible(true);
         } else {
             new InfoDialog("อัพเดทข้อมูลทะเบียนประวัตินักศึกษาไม่สำเร็จ !", "ไม่สามารถอัพเดทข้อมูลได้ โปรดติดต่อผู้พัฒนา");
             processUpdateButton.setText("อัพเดทข้อมูล");

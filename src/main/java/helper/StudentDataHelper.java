@@ -34,6 +34,8 @@ public class StudentDataHelper {
         firestoreObj.put("username", studentData.get("username"));
         firestoreObj.put("password", studentData.get("password"));
 
+        System.out.println(firestoreObj);
+
         return firestoreObj;
     }
 
