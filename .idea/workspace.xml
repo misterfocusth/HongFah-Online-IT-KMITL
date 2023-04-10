@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8be20da-bb34-4e4c-9e9f-40680a7a5434" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/document/Document.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/document/LeaveRequestDocument.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/home/NewHomeForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/home/NewHomeForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/home/NewHomeForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/home/NewHomeForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/document/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/document/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/document/GeneralRequestDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/document/GeneralRequestDocument.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,19 +37,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "general-doc-req-dev",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;general-doc-req-dev&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -62,7 +59,8 @@
       <option name="presentableId" value="Default" />
       <updated>1680842908669</updated>
       <workItem from="1680842913752" duration="61000" />
-      <workItem from="1680843001526" duration="2383000" />
+      <workItem from="1680843001526" duration="3001000" />
+      <workItem from="1681095960071" duration="1230000" />
     </task>
     <servers />
   </component>

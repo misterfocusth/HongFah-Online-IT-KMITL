@@ -8,6 +8,44 @@ public abstract class Document {
     private String requestTo;
     private String requestBy;
     private String requestStatus;
+    private String respondedAt;
+    private String respondedBy;
+
+    public Document(String requestedAtDay,
+                    String requestedAtMonth,
+                    String requestedAtYear,
+                    String requestTitle,
+                    String requestTo,
+                    String requestBy,
+                    String requestStatus,
+                    String respondedAt,
+                    String respondedBy) {
+        this.requestedAtDay = requestedAtDay;
+        this.requestedAtMonth = requestedAtMonth;
+        this.requestedAtYear = requestedAtYear;
+        this.requestTitle = requestTitle;
+        this.requestTo = requestTo;
+        this.requestBy = requestBy;
+        this.requestStatus = requestStatus;
+        this.respondedAt = respondedAt;
+        this.respondedBy = respondedBy;
+    }
+
+    public String getRespondedAt() {
+        return respondedAt;
+    }
+
+    public void setRespondedAt(String respondedAt) {
+        this.respondedAt = respondedAt;
+    }
+
+    public String getRespondedBy() {
+        return respondedBy;
+    }
+
+    public void setRespondedBy(String respondedBy) {
+        this.respondedBy = respondedBy;
+    }
 
     public String getWrittenAt() {
         return writtenAt;
