@@ -1,4 +1,7 @@
 package document;
 
-public class LeaveRequestDocument extends Document {
+public class LeaveRequestDocument {
+    public LeaveRequestDocument() {
+
+    }
 }
