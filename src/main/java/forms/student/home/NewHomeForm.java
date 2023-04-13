@@ -6,6 +6,8 @@ package forms.student.home;
 
 import forms.MainForm;
 import forms.student.document.DocRequestHistoryForm;
+import forms.student.document.GeneralDocRequestForm;
+import forms.student.document.LeaveDocRequestForm;
 import forms.student.info.EditStudentInfoForm;
 import helper.FrameHelper;
 import javax.swing.*;
@@ -484,6 +486,11 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
 
         generalReqFormMenu.setBackground(new java.awt.Color(255, 255, 255));
         generalReqFormMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        generalReqFormMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                generalReqFormMenuMouseClicked(evt);
+            }
+        });
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-document-48.png"))); // NOI18N
 
@@ -521,6 +528,11 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
 
         leaveReqFormMenu.setBackground(new java.awt.Color(255, 255, 255));
         leaveReqFormMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        leaveReqFormMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                leaveReqFormMenuMouseClicked(evt);
+            }
+        });
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-document-48.png"))); // NOI18N
 
@@ -872,6 +884,21 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         MainForm.mainDesktopPane.add(docRequestHistoryForm);
         docRequestHistoryForm.setVisible(true);
     }//GEN-LAST:event_showDocHistoryMenuMouseClicked
+    
+    private void generalReqFormMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generalReqFormMenuMouseClicked
+        // TODO add your handling code here:
+        GeneralDocRequestForm generalDocRequestForm = new GeneralDocRequestForm();
+        FrameHelper.setLocationToCenter(generalDocRequestForm);
+        MainForm.mainDesktopPane.add(generalDocRequestForm);
+        generalDocRequestForm.setVisible(true);
+    }//GEN-LAST:event_generalReqFormMenuMouseClicked
+    
+    private void leaveReqFormMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leaveReqFormMenuMouseClicked
+        LeaveDocRequestForm leaveDocRequestForm = new LeaveDocRequestForm();
+        FrameHelper.setLocationToCenter(leaveDocRequestForm);
+        MainForm.mainDesktopPane.add(leaveDocRequestForm);
+        leaveDocRequestForm.setVisible(true);
+    }//GEN-LAST:event_leaveReqFormMenuMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;
