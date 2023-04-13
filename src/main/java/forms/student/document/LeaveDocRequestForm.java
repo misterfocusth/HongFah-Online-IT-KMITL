@@ -103,7 +103,7 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
         setTitle("ยื่นคำร้องขอลาเรียน");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("คำร้องทั่วไปวำหรับให้เจ้าหน้าที่ หรืออาจารย์ พิจารณาดำเนินการต่อ ...");
+        jLabel3.setText("คำร้องลาเรียนสำหรับนักศึกษา ระดับปริญาตรี เพื่อพิจารณาประกอบการลา");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("มีข้อสงสัยเกี่ยวกับการยื่นเอกสาร ? ");
@@ -116,7 +116,7 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
         jLabel2.setBackground(new java.awt.Color(0, 102, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 255));
-        jLabel2.setText("ยื่นคำร้องทั่วไป (General Request Form)");
+        jLabel2.setText("ยื่นคำร้องขอลาเรียนสำหรับนักศึกษา");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_96x96/icons8-document-96.png"))); // NOI18N

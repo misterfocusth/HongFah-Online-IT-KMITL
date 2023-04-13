@@ -187,7 +187,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
         // TODO add your handling code here:
-        int selectedOpt = new OptionDialog("ออกจากระบบ", "ยืนยันที่จะออกจากระบบ หรือไม่ ?").showDialog();
+        int selectedOpt = new OptionDialog("ออกจากระบบ", "ยืนยันที่จะออกจากระบบ หรือไม่ ?").showOptionDialog();
         if (selectedOpt == 0) {
             AuthUser.setAuthUser(null);
             NewLoginForm newLoginForm = new NewLoginForm();
