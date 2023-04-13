@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8be20da-bb34-4e4c-9e9f-40680a7a5434" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/interfaces/EncodeAble.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interfaces/UniqueAble.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dialog/Dialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dialog/Dialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dialog/InfoDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dialog/InfoDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dialog/OptionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dialog/OptionDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/MainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interfaces/AlertDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interfaces/AlertDialog.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +75,7 @@
       <updated>1680842908669</updated>
       <workItem from="1680842913752" duration="61000" />
       <workItem from="1680843001526" duration="3001000" />
-      <workItem from="1681095960071" duration="5916000" />
+      <workItem from="1681095960071" duration="8065000" />
     </task>
     <servers />
   </component>
