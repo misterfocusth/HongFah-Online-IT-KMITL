@@ -1,5 +1,7 @@
 package dialog;
 
+import interfaces.AlertDialog;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -54,6 +56,4 @@ public abstract class Dialog {
     public void setParentComponent(Component parentComponent) {
         this.parentComponent = parentComponent;
     }
-
-    public abstract void show();
 }
