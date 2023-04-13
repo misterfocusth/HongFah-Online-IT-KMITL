@@ -47,6 +47,9 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_96x96/icons8-documents-96.png"))); // NOI18N
 
@@ -256,23 +259,11 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel contactStaffLabel;
     private javax.swing.JTable generalDocHistoryTable;
-    private javax.swing.JPanel generalReqFormMenu;
-    private javax.swing.JPanel generalReqFormMenu1;
-    private javax.swing.JPanel generalReqFormMenu2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
