@@ -34,30 +34,36 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        selectedBirthDayBox = new javax.swing.JComboBox<>();
-        selectedBirthMonthBox = new javax.swing.JComboBox<>();
-        birthYearTextField = new javax.swing.JTextField();
+        selectedWrittenDayBox = new javax.swing.JComboBox<>();
+        selectedWrittenMonthBox = new javax.swing.JComboBox<>();
+        writtenYearTextField = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        requestBodyTextArea = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        requestTitleTextField = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        requestToTextLabel = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        requestByTextField = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        writtenAtTextArea = new javax.swing.JTextArea();
         jLabel34 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        contactAddressTextArea = new javax.swing.JTextArea();
         jLabel37 = new javax.swing.JLabel();
+        requestByNameTextField = new javax.swing.JTextField();
+        requestByNameLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         cancelButton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        registerButton = new javax.swing.JButton();
+        confirmButton = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("ยื่นคำร้องทั่วไป (General Request Form)");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_96x96/icons8-document-96.png"))); // NOI18N
@@ -84,31 +90,31 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel20.setText("เขียนคำร้องที่");
 
-        selectedBirthDayBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        selectedBirthDayBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        selectedWrittenDayBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        selectedWrittenDayBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        selectedBirthMonthBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        selectedBirthMonthBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม" }));
+        selectedWrittenMonthBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        selectedWrittenMonthBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม" }));
 
-        birthYearTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        writtenYearTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jTextArea1.setColumns(1);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextArea1.setRows(15);
-        jTextArea1.setTabSize(1);
-        jScrollPane3.setViewportView(jTextArea1);
+        requestBodyTextArea.setColumns(1);
+        requestBodyTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        requestBodyTextArea.setLineWrap(true);
+        requestBodyTextArea.setRows(15);
+        requestBodyTextArea.setTabSize(1);
+        requestBodyTextArea.setWrapStyleWord(true);
+        jScrollPane3.setViewportView(requestBodyTextArea);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("เรื่อง");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField1.setText("jTextField1");
+        requestTitleTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("เรียน (นักศึกษาต้องการเขียนคำร้องถึงใคร)");
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField2.setText("jTextField2");
+        requestToTextLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setText("เขียนคำร้องเมื่อ");
@@ -116,29 +122,40 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setText("ยื่นคำร้องโดย (รหัสนักศึกษา)");
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField3.setText("jTextField3");
+        requestByTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel33.setText("ที่อยู่สำหรับติดต่อ");
 
-        jTextArea2.setColumns(1);
-        jTextArea2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextArea2.setRows(3);
-        jTextArea2.setTabSize(0);
-        jScrollPane4.setViewportView(jTextArea2);
+        writtenAtTextArea.setColumns(1);
+        writtenAtTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        writtenAtTextArea.setLineWrap(true);
+        writtenAtTextArea.setRows(3);
+        writtenAtTextArea.setTabSize(0);
+        writtenAtTextArea.setWrapStyleWord(true);
+        jScrollPane4.setViewportView(writtenAtTextArea);
 
         jLabel34.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel34.setText("มีความประสงค์ที่จะ");
 
-        jTextArea3.setColumns(1);
-        jTextArea3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextArea3.setRows(3);
-        jTextArea3.setTabSize(0);
-        jScrollPane5.setViewportView(jTextArea3);
+        contactAddressTextArea.setColumns(1);
+        contactAddressTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        contactAddressTextArea.setLineWrap(true);
+        contactAddressTextArea.setRows(3);
+        contactAddressTextArea.setTabSize(0);
+        contactAddressTextArea.setWrapStyleWord(true);
+        jScrollPane5.setViewportView(contactAddressTextArea);
 
         jLabel37.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel37.setText("จึงเรียนมาเพื่อโปรดพิจารณาเเละดำเนินการต่อไปด้วย");
+
+        requestByNameTextField.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        requestByNameTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        requestByNameTextField.setText("นายศิลา ภักดีวงษ์");
+        requestByNameTextField.setEnabled(false);
+
+        requestByNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        requestByNameLabel.setText("NAME");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,7 +168,7 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField2)
+                                .addComponent(requestToTextLabel)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel13)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -162,21 +179,24 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
                                             .addComponent(jLabel20)
                                             .addComponent(jScrollPane3)
                                             .addComponent(jLabel12)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE))
-                                        .addComponent(jLabel37)))
+                                            .addComponent(requestTitleTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE))
+                                        .addComponent(jLabel37)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(requestByNameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(requestByNameTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE))))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel14)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(selectedBirthDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(selectedWrittenDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
-                                            .addComponent(selectedBirthMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(selectedWrittenMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
-                                            .addComponent(birthYearTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(writtenYearTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(31, 31, 31)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel15)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))))
+                                        .addComponent(requestByTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))))
                             .addComponent(jLabel33)))
                     .addComponent(jLabel34)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -192,21 +212,21 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(requestTitleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(requestToTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(selectedBirthDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(selectedBirthMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(birthYearTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(selectedWrittenDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectedWrittenMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(writtenYearTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(requestByTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel33)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -217,8 +237,12 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel37)
-                .addGap(24, 24, 24)
+                .addGap(0, 0, 0)
                 .addComponent(jLabel31)
+                .addGap(18, 18, 18)
+                .addComponent(requestByNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(requestByNameLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -236,16 +260,16 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
         jPanel2.add(cancelButton);
         jPanel2.add(jSeparator1);
 
-        registerButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        registerButton.setForeground(new java.awt.Color(41, 121, 255));
-        registerButton.setText("ดำเนินการยื่นคำร้อง");
-        registerButton.setPreferredSize(new java.awt.Dimension(250, 35));
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
+        confirmButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        confirmButton.setForeground(new java.awt.Color(41, 121, 255));
+        confirmButton.setText("ดำเนินการยื่นคำร้อง");
+        confirmButton.setPreferredSize(new java.awt.Dimension(250, 35));
+        confirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
+                confirmButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(registerButton);
+        jPanel2.add(confirmButton);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -296,13 +320,14 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
         this.setVisible(false);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
 
-    }//GEN-LAST:event_registerButtonActionPerformed
+    }//GEN-LAST:event_confirmButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField birthYearTextField;
     private javax.swing.JButton cancelButton;
+    private javax.swing.JButton confirmButton;
+    private javax.swing.JTextArea contactAddressTextArea;
     private javax.swing.JLabel contactStaffLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
@@ -324,14 +349,15 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JButton registerButton;
-    private javax.swing.JComboBox<String> selectedBirthDayBox;
-    private javax.swing.JComboBox<String> selectedBirthMonthBox;
+    private javax.swing.JTextArea requestBodyTextArea;
+    private javax.swing.JLabel requestByNameLabel;
+    private javax.swing.JTextField requestByNameTextField;
+    private javax.swing.JTextField requestByTextField;
+    private javax.swing.JTextField requestTitleTextField;
+    private javax.swing.JTextField requestToTextLabel;
+    private javax.swing.JComboBox<String> selectedWrittenDayBox;
+    private javax.swing.JComboBox<String> selectedWrittenMonthBox;
+    private javax.swing.JTextArea writtenAtTextArea;
+    private javax.swing.JTextField writtenYearTextField;
     // End of variables declaration//GEN-END:variables
 }
