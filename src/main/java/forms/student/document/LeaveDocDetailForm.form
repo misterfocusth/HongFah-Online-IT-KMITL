@@ -1,0 +1,1150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="documentIDLabel" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel2" min="-2" pref="418" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel3" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jPanel2" max="32767" attributes="0"/>
+                  <Component id="jPanel4" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="documentIDLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="615" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jPanel2" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel2">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="&#xe04;&#xe27;&#xe32;&#xe21;&#xe40;&#xe2b;&#xe47;&#xe19;&#xe08;&#xe32;&#xe01;&#xe40;&#xe08;&#xe49;&#xe32;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe17;&#xe35;&#xe48; / &#xe2d;&#xe32;&#xe08;&#xe32;&#xe23;&#xe22;&#xe4c;"/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jScrollPane7" min="-2" pref="562" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <Component id="jScrollPane7" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane7">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel3">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel24" min="-2" pref="344" max="-2" attributes="0"/>
+                                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jScrollPane10" max="32767" attributes="0"/>
+                                      <Component id="jLabel18" alignment="1" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="respondedBy" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="respondedAt" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Component id="jScrollPane9" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="jLabel17" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane11" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="jLabel39" alignment="1" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="respondedBy" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="respondedAt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane10" min="-2" pref="125" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane9" min="-2" pref="125" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane11" min="-2" pref="125" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane9">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="profCommentTextArea">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="14" style="0"/>
+                        </Property>
+                        <Property name="lineWrap" type="boolean" value="true"/>
+                        <Property name="tabSize" type="int" value="0"/>
+                        <Property name="text" type="java.lang.String" value="&#xe22;&#xe31;&#xe07;&#xe44;&#xe21;&#xe48;&#xe21;&#xe35;&#xe01;&#xe32;&#xe23;&#xe15;&#xe2d;&#xe1a;&#xe01;&#xe25;&#xe31;&#xe1a;"/>
+                        <Property name="wrapStyleWord" type="boolean" value="true"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="jLabel17">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#xe04;&#xe27;&#xe32;&#xe21;&#xe40;&#xe2b;&#xe47;&#xe19;&#xe08;&#xe32;&#xe01;&#xe2d;&#xe32;&#xe08;&#xe32;&#xe23;&#xe22;&#xe4c; (&#xe16;&#xe49;&#xe32;&#xe21;&#xe35;)"/>
+                  </Properties>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane10">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="staffCommentTextArea">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="14" style="0"/>
+                        </Property>
+                        <Property name="lineWrap" type="boolean" value="true"/>
+                        <Property name="tabSize" type="int" value="0"/>
+                        <Property name="text" type="java.lang.String" value="&#xe22;&#xe31;&#xe07;&#xe44;&#xe21;&#xe48;&#xe21;&#xe35;&#xe01;&#xe32;&#xe23;&#xe15;&#xe2d;&#xe1a;&#xe01;&#xe25;&#xe31;&#xe1a;"/>
+                        <Property name="wrapStyleWord" type="boolean" value="true"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="jLabel18">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#xe04;&#xe27;&#xe32;&#xe21;&#xe40;&#xe2b;&#xe47;&#xe19;&#xe08;&#xe32;&#xe01;&#xe40;&#xe08;&#xe49;&#xe32;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe17;&#xe35;&#xe48;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="respondedAt">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="jLabel5"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="respondedBy">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="jLabel5"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel19">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#xe15;&#xe2d;&#xe1a;&#xe01;&#xe25;&#xe31;&#xe1a;&#xe42;&#xe14;&#xe22; : "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel21">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#xe15;&#xe2d;&#xe1a;&#xe01;&#xe25;&#xe31;&#xe1a;&#xe40;&#xe21;&#xe37;&#xe48;&#xe2d; : "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel22">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/icons_48x48/icons8-male-user-48.png"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel23">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#xe2a;&#xe16;&#xe32;&#xe19;&#xe30;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23; : "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel24">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#xe22;&#xe37;&#xe48;&#xe19;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;&#xe40;&#xe40;&#xe25;&#xe49;&#xe27; / &#xe01;&#xe33;&#xe25;&#xe31;&#xe07;&#xe23;&#xe2d;&#xe01;&#xe32;&#xe23;&#xe15;&#xe2d;&#xe1a;&#xe01;&#xe25;&#xe31;&#xe1a;"/>
+                  </Properties>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane11">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="remarkTextArea">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="14" style="0"/>
+                        </Property>
+                        <Property name="lineWrap" type="boolean" value="true"/>
+                        <Property name="tabSize" type="int" value="0"/>
+                        <Property name="text" type="java.lang.String" value="&#xe22;&#xe31;&#xe07;&#xe44;&#xe21;&#xe48;&#xe21;&#xe35;&#xe01;&#xe32;&#xe23;&#xe15;&#xe2d;&#xe1a;&#xe01;&#xe25;&#xe31;&#xe1a;"/>
+                        <Property name="wrapStyleWord" type="boolean" value="true"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="jLabel39">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#xe2b;&#xe21;&#xe32;&#xe22;&#xe40;&#xe2b;&#xe15;&#xe38; (&#xe16;&#xe49;&#xe32;&#xe21;&#xe35;)"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+        <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanel1">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="requestToTextLabel" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="leaveFromDay" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="leaveFromMonth" min="-2" pref="114" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="leaveFromYear" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="jLabel32" min="-2" pref="57" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="LeaveUntilDay" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="leaveUntilMonth" min="-2" pref="114" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="leaveUntilYear" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="jLabel38" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="selectedWrittenDayBox" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="selectedWrittenMonthBox" min="-2" pref="114" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="writtenYearTextField" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="requestByTextField" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="requestByNameLabel" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="requestByNameTextField" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="jLabel37" alignment="1" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Component id="jScrollPane5" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="selectedLeaveTitle" min="-2" pref="301" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="causeOfLeaveTextField" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel30" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel34" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel36" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" alignment="0" min="-2" pref="637" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jTextField1" alignment="0" pref="35" max="32767" attributes="0"/>
+                          <Component id="selectedLeaveTitle" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="requestToTextLabel" min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="requestByTextField" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="selectedWrittenDayBox" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="selectedWrittenMonthBox" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="writtenYearTextField" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane5" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="337" max="-2" attributes="0"/>
+                              <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="causeOfLeaveTextField" min="-2" pref="35" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="leaveFromDay" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="leaveFromMonth" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="leaveFromYear" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="LeaveUntilDay" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="leaveUntilMonth" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="leaveUntilYear" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="requestByNameTextField" min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="requestByNameLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel20">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe40;&#xe02;&#xe35;&#xe22;&#xe19;&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe17;&#xe35;&#xe48;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="selectedWrittenDayBox">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="31">
+                    <StringItem index="0" value="1"/>
+                    <StringItem index="1" value="2"/>
+                    <StringItem index="2" value="3"/>
+                    <StringItem index="3" value="4"/>
+                    <StringItem index="4" value="5"/>
+                    <StringItem index="5" value="6"/>
+                    <StringItem index="6" value="7"/>
+                    <StringItem index="7" value="8"/>
+                    <StringItem index="8" value="9"/>
+                    <StringItem index="9" value="10"/>
+                    <StringItem index="10" value="11"/>
+                    <StringItem index="11" value="12"/>
+                    <StringItem index="12" value="13"/>
+                    <StringItem index="13" value="14"/>
+                    <StringItem index="14" value="15"/>
+                    <StringItem index="15" value="16"/>
+                    <StringItem index="16" value="17"/>
+                    <StringItem index="17" value="18"/>
+                    <StringItem index="18" value="19"/>
+                    <StringItem index="19" value="20"/>
+                    <StringItem index="20" value="21"/>
+                    <StringItem index="21" value="22"/>
+                    <StringItem index="22" value="23"/>
+                    <StringItem index="23" value="24"/>
+                    <StringItem index="24" value="25"/>
+                    <StringItem index="25" value="26"/>
+                    <StringItem index="26" value="27"/>
+                    <StringItem index="27" value="28"/>
+                    <StringItem index="28" value="29"/>
+                    <StringItem index="29" value="30"/>
+                    <StringItem index="30" value="31"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="selectedWrittenMonthBox">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="12">
+                    <StringItem index="0" value="&#xe21;&#xe01;&#xe23;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="1" value="&#xe01;&#xe38;&#xe21;&#xe20;&#xe32;&#xe1e;&#xe31;&#xe19;&#xe18;&#xe4c;"/>
+                    <StringItem index="2" value="&#xe21;&#xe35;&#xe19;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="3" value="&#xe40;&#xe21;&#xe29;&#xe32;&#xe22;&#xe19;"/>
+                    <StringItem index="4" value="&#xe1e;&#xe24;&#xe29;&#xe20;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="5" value="&#xe21;&#xe34;&#xe16;&#xe38;&#xe19;&#xe32;&#xe22;&#xe19;"/>
+                    <StringItem index="6" value="&#xe01;&#xe23;&#xe01;&#xe0e;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="7" value="&#xe2a;&#xe34;&#xe07;&#xe2b;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="8" value="&#xe01;&#xe31;&#xe19;&#xe22;&#xe32;&#xe22;&#xe19;"/>
+                    <StringItem index="9" value="&#xe15;&#xe38;&#xe25;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="10" value="&#xe1e;&#xe24;&#xe28;&#xe08;&#xe34;&#xe01;&#xe32;&#xe22;&#xe19;"/>
+                    <StringItem index="11" value="&#xe18;&#xe31;&#xe19;&#xe27;&#xe32;&#xe04;&#xe21;"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="writtenYearTextField">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel31">
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="requestRemarkTextArea">
+                  <Properties>
+                    <Property name="columns" type="int" value="1"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="lineWrap" type="boolean" value="true"/>
+                    <Property name="rows" type="int" value="5"/>
+                    <Property name="tabSize" type="int" value="1"/>
+                    <Property name="wrapStyleWord" type="boolean" value="true"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="jLabel12">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe40;&#xe23;&#xe37;&#xe48;&#xe2d;&#xe07;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel13">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe40;&#xe23;&#xe35;&#xe22;&#xe19; (&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe01;&#xe32;&#xe23;&#xe40;&#xe02;&#xe35;&#xe22;&#xe19;&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe16;&#xe36;&#xe07;&#xe43;&#xe04;&#xe23;)"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="requestToTextLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe2d;&#xe32;&#xe08;&#xe32;&#xe23;&#xe22;&#xe4c;&#xe1b;&#xe23;&#xe30;&#xe08;&#xe33;&#xe27;&#xe34;&#xe0a;&#xe32; (&#xe1c;&#xe48;&#xe32;&#xe19;&#xe2d;&#xe32;&#xe08;&#xe32;&#xe23;&#xe22;&#xe4c;&#xe17;&#xe35;&#xe48;&#xe1b;&#xe23;&#xe36;&#xe01;&#xe29;&#xe32; &#xe40;&#xe40;&#xe25;&#xe30;&#xe23;&#xe30;&#xe1a;&#xe1a;&#xe2b;&#xe49;&#xe2d;&#xe07;&#xe1f;&#xe49;&#xe32;&#xe2d;&#xe2d;&#xe19;&#xe44;&#xe25;&#xe19;&#xe4c;)"/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel14">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe40;&#xe02;&#xe35;&#xe22;&#xe19;&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe40;&#xe21;&#xe37;&#xe48;&#xe2d;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel15">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe22;&#xe37;&#xe48;&#xe19;&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe42;&#xe14;&#xe22; (&#xe23;&#xe2b;&#xe31;&#xe2a;&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32;)"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="requestByTextField">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel33">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe17;&#xe35;&#xe48;&#xe2d;&#xe22;&#xe39;&#xe48;&#xe2a;&#xe33;&#xe2b;&#xe23;&#xe31;&#xe1a;&#xe15;&#xe34;&#xe14;&#xe15;&#xe48;&#xe2d;"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="writtenAtTextArea">
+                  <Properties>
+                    <Property name="columns" type="int" value="1"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="lineWrap" type="boolean" value="true"/>
+                    <Property name="rows" type="int" value="3"/>
+                    <Property name="tabSize" type="int" value="0"/>
+                    <Property name="wrapStyleWord" type="boolean" value="true"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="jLabel34">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe2b;&#xe21;&#xe32;&#xe22;&#xe40;&#xe2b;&#xe15;&#xe38;&#xe2d;&#xe37;&#xe48;&#xe19; &#xe46; &#xe1b;&#xe23;&#xe30;&#xe01;&#xe2d;&#xe1a;&#xe01;&#xe32;&#xe23;&#xe25;&#xe32; (&#xe16;&#xe49;&#xe32;&#xe21;&#xe35;)"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="contactAddressTextArea">
+                  <Properties>
+                    <Property name="columns" type="int" value="1"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="lineWrap" type="boolean" value="true"/>
+                    <Property name="rows" type="int" value="3"/>
+                    <Property name="tabSize" type="int" value="0"/>
+                    <Property name="wrapStyleWord" type="boolean" value="true"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="jLabel37">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe08;&#xe36;&#xe07;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;&#xe21;&#xe32;&#xe40;&#xe1e;&#xe37;&#xe48;&#xe2d;&#xe42;&#xe1b;&#xe23;&#xe14;&#xe1e;&#xe34;&#xe08;&#xe32;&#xe23;&#xe13;&#xe32; &#xe02;&#xe2d;&#xe40;&#xe40;&#xe2a;&#xe14;&#xe07;&#xe04;&#xe27;&#xe32;&#xe21;&#xe19;&#xe31;&#xe1a;&#xe16;&#xe37;&#xe2d;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="selectedLeaveTitle">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="&#xe02;&#xe2d;&#xe25;&#xe32;&#xe1b;&#xe48;&#xe27;&#xe22;"/>
+                    <StringItem index="1" value="&#xe02;&#xe2d;&#xe25;&#xe32;&#xe01;&#xe34;&#xe08;"/>
+                    <StringItem index="2" value="&#xe02;&#xe2d;&#xe25;&#xe32;&#xe23;&#xe48;&#xe27;&#xe21;&#xe01;&#xe34;&#xe08;&#xe01;&#xe23;&#xe23;&#xe21;"/>
+                    <StringItem index="3" value="&#xe2d;&#xe37;&#xe48;&#xe19; &#xe46; (&#xe42;&#xe1b;&#xe23;&#xe14;&#xe23;&#xe30;&#xe1a;&#xe38;&#xe2a;&#xe32;&#xe40;&#xe2b;&#xe15;&#xe38;&#xe01;&#xe32;&#xe23;&#xe25;&#xe32;)"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel26">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe2d;&#xe37;&#xe48;&#xe19;&#xe46; &#xe42;&#xe1b;&#xe23;&#xe14;&#xe23;&#xe30;&#xe1a;&#xe38;&#xe40;&#xe2b;&#xe15;&#xe38;&#xe1c;&#xe25;&#xe01;&#xe32;&#xe23;&#xe25;&#xe32;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel29">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe21;&#xe35;&#xe04;&#xe27;&#xe32;&#xe21;&#xe1b;&#xe23;&#xe30;&#xe2a;&#xe07;&#xe04;&#xe4c;&#xe17;&#xe35;&#xe48;&#xe08;&#xe30;&#xe02;&#xe2d;&#xe25;&#xe32;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;&#xe40;&#xe19;&#xe37;&#xe48;&#xe2d;&#xe07;&#xe08;&#xe32;&#xe01;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="causeOfLeaveTextField">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="causeOfLeaveTextFieldActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel30">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe08;&#xe36;&#xe07;&#xe02;&#xe2d;&#xe25;&#xe32;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;&#xe15;&#xe31;&#xe49;&#xe07;&#xe40;&#xe40;&#xe15;&#xe48;&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="leaveFromYear">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="leaveFromMonth">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="12">
+                    <StringItem index="0" value="&#xe21;&#xe01;&#xe23;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="1" value="&#xe01;&#xe38;&#xe21;&#xe20;&#xe32;&#xe1e;&#xe31;&#xe19;&#xe18;&#xe4c;"/>
+                    <StringItem index="2" value="&#xe21;&#xe35;&#xe19;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="3" value="&#xe40;&#xe21;&#xe29;&#xe32;&#xe22;&#xe19;"/>
+                    <StringItem index="4" value="&#xe1e;&#xe24;&#xe29;&#xe20;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="5" value="&#xe21;&#xe34;&#xe16;&#xe38;&#xe19;&#xe32;&#xe22;&#xe19;"/>
+                    <StringItem index="6" value="&#xe01;&#xe23;&#xe01;&#xe0e;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="7" value="&#xe2a;&#xe34;&#xe07;&#xe2b;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="8" value="&#xe01;&#xe31;&#xe19;&#xe22;&#xe32;&#xe22;&#xe19;"/>
+                    <StringItem index="9" value="&#xe15;&#xe38;&#xe25;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="10" value="&#xe1e;&#xe24;&#xe28;&#xe08;&#xe34;&#xe01;&#xe32;&#xe22;&#xe19;"/>
+                    <StringItem index="11" value="&#xe18;&#xe31;&#xe19;&#xe27;&#xe32;&#xe04;&#xe21;"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="leaveFromDay">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="31">
+                    <StringItem index="0" value="1"/>
+                    <StringItem index="1" value="2"/>
+                    <StringItem index="2" value="3"/>
+                    <StringItem index="3" value="4"/>
+                    <StringItem index="4" value="5"/>
+                    <StringItem index="5" value="6"/>
+                    <StringItem index="6" value="7"/>
+                    <StringItem index="7" value="8"/>
+                    <StringItem index="8" value="9"/>
+                    <StringItem index="9" value="10"/>
+                    <StringItem index="10" value="11"/>
+                    <StringItem index="11" value="12"/>
+                    <StringItem index="12" value="13"/>
+                    <StringItem index="13" value="14"/>
+                    <StringItem index="14" value="15"/>
+                    <StringItem index="15" value="16"/>
+                    <StringItem index="16" value="17"/>
+                    <StringItem index="17" value="18"/>
+                    <StringItem index="18" value="19"/>
+                    <StringItem index="19" value="20"/>
+                    <StringItem index="20" value="21"/>
+                    <StringItem index="21" value="22"/>
+                    <StringItem index="22" value="23"/>
+                    <StringItem index="23" value="24"/>
+                    <StringItem index="24" value="25"/>
+                    <StringItem index="25" value="26"/>
+                    <StringItem index="26" value="27"/>
+                    <StringItem index="27" value="28"/>
+                    <StringItem index="28" value="29"/>
+                    <StringItem index="29" value="30"/>
+                    <StringItem index="30" value="31"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="leaveUntilYear">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="leaveUntilMonth">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="12">
+                    <StringItem index="0" value="&#xe21;&#xe01;&#xe23;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="1" value="&#xe01;&#xe38;&#xe21;&#xe20;&#xe32;&#xe1e;&#xe31;&#xe19;&#xe18;&#xe4c;"/>
+                    <StringItem index="2" value="&#xe21;&#xe35;&#xe19;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="3" value="&#xe40;&#xe21;&#xe29;&#xe32;&#xe22;&#xe19;"/>
+                    <StringItem index="4" value="&#xe1e;&#xe24;&#xe29;&#xe20;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="5" value="&#xe21;&#xe34;&#xe16;&#xe38;&#xe19;&#xe32;&#xe22;&#xe19;"/>
+                    <StringItem index="6" value="&#xe01;&#xe23;&#xe01;&#xe0e;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="7" value="&#xe2a;&#xe34;&#xe07;&#xe2b;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="8" value="&#xe01;&#xe31;&#xe19;&#xe22;&#xe32;&#xe22;&#xe19;"/>
+                    <StringItem index="9" value="&#xe15;&#xe38;&#xe25;&#xe32;&#xe04;&#xe21;"/>
+                    <StringItem index="10" value="&#xe1e;&#xe24;&#xe28;&#xe08;&#xe34;&#xe01;&#xe32;&#xe22;&#xe19;"/>
+                    <StringItem index="11" value="&#xe18;&#xe31;&#xe19;&#xe27;&#xe32;&#xe04;&#xe21;"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="LeaveUntilDay">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="31">
+                    <StringItem index="0" value="1"/>
+                    <StringItem index="1" value="2"/>
+                    <StringItem index="2" value="3"/>
+                    <StringItem index="3" value="4"/>
+                    <StringItem index="4" value="5"/>
+                    <StringItem index="5" value="6"/>
+                    <StringItem index="6" value="7"/>
+                    <StringItem index="7" value="8"/>
+                    <StringItem index="8" value="9"/>
+                    <StringItem index="9" value="10"/>
+                    <StringItem index="10" value="11"/>
+                    <StringItem index="11" value="12"/>
+                    <StringItem index="12" value="13"/>
+                    <StringItem index="13" value="14"/>
+                    <StringItem index="14" value="15"/>
+                    <StringItem index="15" value="16"/>
+                    <StringItem index="16" value="17"/>
+                    <StringItem index="17" value="18"/>
+                    <StringItem index="18" value="19"/>
+                    <StringItem index="19" value="20"/>
+                    <StringItem index="20" value="21"/>
+                    <StringItem index="21" value="22"/>
+                    <StringItem index="22" value="23"/>
+                    <StringItem index="23" value="24"/>
+                    <StringItem index="24" value="25"/>
+                    <StringItem index="25" value="26"/>
+                    <StringItem index="26" value="27"/>
+                    <StringItem index="27" value="28"/>
+                    <StringItem index="28" value="29"/>
+                    <StringItem index="29" value="30"/>
+                    <StringItem index="30" value="31"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel32">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="&#xe16;&#xe36;&#xe07;&#xe27;&#xe31;&#xe19;&#xe17;&#xe35;&#xe48;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel35">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel36">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe40;&#xe21;&#xe37;&#xe48;&#xe2d;&#xe04;&#xe23;&#xe1a;&#xe01;&#xe33;&#xe2b;&#xe19;&#xe14;&#xe40;&#xe40;&#xe25;&#xe49;&#xe27;&#xe02;&#xe49;&#xe32;&#xe1e;&#xe40;&#xe08;&#xe49;&#xe32;&#xe08;&#xe30;&#xe21;&#xe32;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;&#xe15;&#xe32;&#xe21;&#xe1b;&#xe01;&#xe15;&#xe34; &#xe40;&#xe40;&#xe25;&#xe30;&#xe02;&#xe2d;&#xe23;&#xe31;&#xe1a;&#xe23;&#xe2d;&#xe07;&#xe27;&#xe48;&#xe32;&#xe40;&#xe1b;&#xe47;&#xe19;&#xe04;&#xe27;&#xe32;&#xe21;&#xe08;&#xe23;&#xe34;&#xe07;&#xe17;&#xe38;&#xe01;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe23;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel38">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#xe2b;&#xe32;&#xe01;&#xe02;&#xe49;&#xe2d;&#xe04;&#xe27;&#xe32;&#xe21;&#xe02;&#xe49;&#xe32;&#xe07;&#xe15;&#xe49;&#xe19;&#xe40;&#xe1b;&#xe47;&#xe19;&#xe40;&#xe17;&#xe47;&#xe08;&#xe02;&#xe49;&#xe32;&#xe1e;&#xe40;&#xe08;&#xe49;&#xe32;&#xe02;&#xe2d;&#xe22;&#xe2d;&#xe21;&#xe23;&#xe31;&#xe1a;&#xe1c;&#xe34;&#xe14;&#xe15;&#xe32;&#xe21;&#xe17;&#xe35;&#xe48;&#xe04;&#xe13;&#xe30;&#xe40;&#xe17;&#xe04;&#xe42;&#xe19;&#xe42;&#xe25;&#xe22;&#xe35;&#xe2a;&#xe32;&#xe23;&#xe2a;&#xe19;&#xe40;&#xe17;&#xe28; &#xe2a;&#xe08;&#xe25;. &#xe40;&#xe2b;&#xe47;&#xe19;&#xe2a;&#xe21;&#xe04;&#xe27;&#xe23;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="requestByNameTextField">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="&#xe19;&#xe32;&#xe22;&#xe28;&#xe34;&#xe25;&#xe32; &#xe20;&#xe31;&#xe01;&#xe14;&#xe35;&#xe27;&#xe07;&#xe29;&#xe4c;"/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="requestByNameLabel">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="NAME"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel4">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jLabel28" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jLabel27" alignment="1" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="contactStaffLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="contactStaffLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel25">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="   2. &#xe15;&#xe34;&#xe14;&#xe15;&#xe48;&#xe2d;&#xe40;&#xe08;&#xe49;&#xe32;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe17;&#xe35;&#xe48;&#xe2b;&#xe49;&#xe2d;&#xe07;&#xe1f;&#xe49;&#xe32; &#xe1c;&#xe48;&#xe32;&#xe19;&#xe23;&#xe30;&#xe1a;&#xe1a;&#xe2b;&#xe49;&#xe2d;&#xe07;&#xe1f;&#xe49;&#xe32;&#xe2d;&#xe2d;&#xe19;&#xe44;&#xe25;&#xe19;&#xe4c;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel27">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="   1. &#xe15;&#xe34;&#xe14;&#xe15;&#xe48;&#xe2d; &#xe04;&#xe38;&#xe13;&#xe1b;&#xe23;&#xe30;&#xe17;&#xe35;&#xe1b; &#xe2d;&#xe34;&#xe19;&#xe17;&#xe23;&#xe4c;&#xe40;&#xe02;&#xe35;&#xe22;&#xe27; &#xe44;&#xe14;&#xe49;&#xe17;&#xe35;&#xe48;&#xe2b;&#xe49;&#xe2d;&#xe07; M.22 &#xe2b;&#xe23;&#xe37;&#xe2d;&#xe17;&#xe32;&#xe07;&#xe2d;&#xe35;&#xe40;&#xe21;&#xe25; prateep@it.kmitl.ac.th"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel28">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#xe21;&#xe35;&#xe02;&#xe49;&#xe2d;&#xe2a;&#xe07;&#xe2a;&#xe31;&#xe22;&#xe40;&#xe01;&#xe35;&#xe48;&#xe22;&#xe27;&#xe01;&#xe31;&#xe1a;&#xe01;&#xe32;&#xe23;&#xe22;&#xe37;&#xe48;&#xe19;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;&#xe25;&#xe32;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19; ?"/>
+            <Property name="iconTextGap" type="int" value="6"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="contactStaffLabel1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="0" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#xe15;&#xe34;&#xe14;&#xe15;&#xe48;&#xe2d;&#xe2b;&#xe49;&#xe2d;&#xe07;&#xe1f;&#xe49;&#xe32;"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icons_48x48/icons8-analyze-48.png"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#xe23;&#xe32;&#xe22;&#xe25;&#xe30;&#xe40;&#xe2d;&#xe35;&#xe22;&#xe14;&#xe01;&#xe32;&#xe23;&#xe22;&#xe37;&#xe48;&#xe19;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;&#xe25;&#xe32;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;&#xe2a;&#xe33;&#xe2b;&#xe23;&#xe31;&#xe1a;&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;&#xe25;&#xe32;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19; &#xe04;&#xe27;&#xe32;&#xe21;&#xe04;&#xe34;&#xe14;&#xe40;&#xe2b;&#xe47;&#xe19; &#xe40;&#xe40;&#xe25;&#xe30;&#xe2a;&#xe16;&#xe32;&#xe19;&#xe30;&#xe01;&#xe32;&#xe23;&#xe15;&#xe2d;&#xe1a;&#xe01;&#xe25;&#xe31;&#xe1a;&#xe08;&#xe32;&#xe01;&#xe40;&#xe08;&#xe49;&#xe32;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe17;&#xe35;&#xe48; &#xe40;&#xe40;&#xe25;&#xe30;/&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe2d;&#xe32;&#xe08;&#xe32;&#xe23;&#xe22;&#xe4c;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#xe40;&#xe25;&#xe02;&#xe17;&#xe35;&#xe48;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23; (&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe40;&#xe25;&#xe02;&#xe17;&#xe35;&#xe48;) : "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="documentIDLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="XXXXXXXXXX"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
