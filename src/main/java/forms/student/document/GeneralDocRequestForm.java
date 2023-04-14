@@ -4,17 +4,40 @@
  */
 package forms.student.document;
 
+import dialog.InfoDialog;
+import document.Document;
+import document.GeneralRequestDocument;
+import handlers.document.GeneralDocHandler;
+import helper.InputValidationHelper;
+import user.AuthUser;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author misterfocusth
  */
 public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
+    private Map<String, Object> docData = new HashMap<>();
 
     /**
      * Creates new form GeneralDocRequestForm
      */
     public GeneralDocRequestForm() {
         initComponents();
+        setFormDefaultData();
+    }
+
+    private void setFormDefaultData() {
+        writtenAtTextArea.setText("คณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง");
+        contactAddressTextArea.setText(AuthUser.getAuthUser().getContactAddress());
+        requestByTextField.setText(AuthUser.getAuthUser().getUsername());
+
+        String studentName = AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName();
+        requestByNameTextField.setText(studentName);
+        requestByNameLabel.setText("( " + AuthUser.getAuthUser().getThNameTitle() + studentName + " )");
     }
 
     /**
@@ -323,8 +346,77 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+        docData = toDocDataMap();
+
+        System.out.println(docData);
+        System.out.println(docData.get("writtenAt"));
+        System.out.println((String) docData.get("writtenAt"));
+        System.out.println(((String) docData.get("writtenAt")).isEmpty());
+
+        boolean isUserInputValid = InputValidationHelper.validateUserInput(docData);
+        if (!isUserInputValid) {
+            new InfoDialog("ไม่สามารถดำเนินการยื่นเอกสารได้", "โปรดตรวจสอบการกรอกข้อมูล แล้วดำเนินการใหม่อีกครั้ง !").show();
+            return;
+        }
+
+        if (GeneralDocHandler.handleAddNewDocument(docData)) {
+            new InfoDialog("ยื่นคำร้องทั่วไปสำเร็จ !", "คำร้องทั่วไปของคุณถูกสร้างและยื่นเข้ามาในระบบแล้ว โปรดรอเจ้าหน้าที่ติดต่อกลับหรือตรวจสอบสถานะเอกสารในระบบห้องฟ้าออนไลน์").show();
+            this.setVisible(false);
+        }
 
     }//GEN-LAST:event_confirmButtonActionPerformed
+
+    private Map<String, Object> toDocDataMap() {
+        String writtenAt = writtenAtTextArea.getText();
+        String requestTitle = requestTitleTextField.getText();
+        String requestTo = requestToTextLabel.getText();
+        String requestedAtDay = (String) selectedWrittenDayBox.getSelectedItem();
+        String requestedAtMonth = (String) selectedWrittenMonthBox.getSelectedItem();
+        String requestedAtYear = writtenYearTextField.getText();
+        String requestBy = requestByTextField.getText();
+        String contactAddress = contactAddressTextArea.getText();
+        String requestBody = requestBodyTextArea.getText();
+
+        String requestStatus = "ยื่นเอกสารแล้ว";
+        String respondedAt = "ยังไม่มีการตอบกลับ";
+        String respondedBy = "ยังไม่มีการตอบกลับ";
+        ArrayList<String> requestResponses = new ArrayList<>();
+
+        Map<String, Object> docData = new HashMap<>();
+
+        docData.put("documentType", 1);
+        docData.put("writtenAt", writtenAt);
+        docData.put("requestTitle", requestTitle);
+        docData.put("requestTo", requestTo);
+        docData.put("requestedAtDay", requestedAtDay);
+        docData.put("requestedAtMonth", requestedAtMonth);
+        docData.put("requestedAtYear", requestedAtYear);
+        docData.put("requestBy", requestBy);
+        docData.put("contactAddress", contactAddress);
+        docData.put("requestBody", requestBody);
+        docData.put("requestStatus", requestStatus);
+        docData.put("respondedAt", respondedAt);
+        docData.put("respondedBy", respondedBy);
+        docData.put("requestResponses", requestResponses);
+
+//        GeneralRequestDocument docData = new GeneralRequestDocument(
+//                writtenAt,
+//                requestedAtDay,
+//                requestedAtMonth,
+//                requestedAtYear,
+//                requestTitle,
+//                requestTo,
+//                requestBy,
+//                requestStatus,
+//                respondedAt,
+//                respondedBy,
+//                contactAddress,
+//                requestBody,
+//                requestResponses
+//        );
+
+        return docData;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
