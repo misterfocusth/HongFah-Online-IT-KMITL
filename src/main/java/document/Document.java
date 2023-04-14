@@ -2,7 +2,9 @@ package document;
 
 public abstract class Document {
 
-    private final String writtenAt = "คณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง";
+    private int documentType = 0;
+    private String writtenAt = "คณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง";
+    private String documentId;
     private String requestedAtDay, requestedAtMonth, requestedAtYear;
     private String requestTitle;
     private String requestTo;
@@ -11,7 +13,10 @@ public abstract class Document {
     private String respondedAt;
     private String respondedBy;
 
-    public Document(String requestedAtDay,
+    public Document(int documentType,
+                    String documentId,
+                    String writtenAt,
+                    String requestedAtDay,
                     String requestedAtMonth,
                     String requestedAtYear,
                     String requestTitle,
@@ -20,6 +25,9 @@ public abstract class Document {
                     String requestStatus,
                     String respondedAt,
                     String respondedBy) {
+        this.documentType = documentType;
+        this.documentId = documentId;
+        this.writtenAt = writtenAt;
         this.requestedAtDay = requestedAtDay;
         this.requestedAtMonth = requestedAtMonth;
         this.requestedAtYear = requestedAtYear;
@@ -29,6 +37,26 @@ public abstract class Document {
         this.requestStatus = requestStatus;
         this.respondedAt = respondedAt;
         this.respondedBy = respondedBy;
+    }
+
+    public int getDocumentType() {
+        return documentType;
+    }
+
+    public void setDocumentType(int documentType) {
+        this.documentType = documentType;
+    }
+
+    public String getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
+    }
+
+    public void setWrittenAt(String writtenAt) {
+        this.writtenAt = writtenAt;
     }
 
     public String getRespondedAt() {

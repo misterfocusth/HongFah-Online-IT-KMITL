@@ -25,9 +25,4 @@ public class InfoDialog extends Dialog implements AlertDialog {
         Component parentComponent = this.getParentComponent();
         JOptionPane.showMessageDialog(parentComponent, message, dialogTitle, JOptionPane.INFORMATION_MESSAGE);
     }
-
-    @Override
-    public int showOptionDialog() {
-        return 0;
-    }
 }

@@ -12,7 +12,7 @@ import java.awt.*;
 /**
  * @author misterfocusth
  */
-public class OptionDialog extends Dialog implements AlertDialog {
+public class OptionDialog extends Dialog implements interfaces.OptionDialog {
 
     public OptionDialog() {
 
@@ -27,12 +27,7 @@ public class OptionDialog extends Dialog implements AlertDialog {
     }
 
     @Override
-    public void show() {
-        this.showOptionDialog();
-    }
-
-    @Override
-    public int showOptionDialog() {
+    public int show() {
         JLabel message = this.getMessage();
         String dialogTitle = this.getDialogTitle();
         Component parentComponent = this.getParentComponent();
