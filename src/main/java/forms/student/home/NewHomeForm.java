@@ -5,6 +5,7 @@
 package forms.student.home;
 
 import forms.MainForm;
+import forms.student.contact.ContactStaffHomeForm;
 import forms.student.document.DocRequestHistoryForm;
 import forms.student.document.GeneralDocRequestForm;
 import forms.student.document.LeaveDocRequestForm;
@@ -657,6 +658,11 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
 
         contactStaffMenu.setBackground(new java.awt.Color(255, 255, 255));
         contactStaffMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        contactStaffMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contactStaffMenuMouseClicked(evt);
+            }
+        });
 
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-faq-48 (1).png"))); // NOI18N
 
@@ -899,6 +905,13 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         MainForm.mainDesktopPane.add(leaveDocRequestForm);
         leaveDocRequestForm.setVisible(true);
     }//GEN-LAST:event_leaveReqFormMenuMouseClicked
+    
+    private void contactStaffMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactStaffMenuMouseClicked
+        ContactStaffHomeForm contactStaffHomeForm = new ContactStaffHomeForm();
+        FrameHelper.setLocationToCenter(contactStaffHomeForm);
+        MainForm.mainDesktopPane.add(contactStaffHomeForm);
+        contactStaffHomeForm.setVisible(true);
+    }//GEN-LAST:event_contactStaffMenuMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;
