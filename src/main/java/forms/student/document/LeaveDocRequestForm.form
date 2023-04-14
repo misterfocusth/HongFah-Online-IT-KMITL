@@ -47,7 +47,7 @@
                                   <Component id="jLabel3" alignment="0" pref="430" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="jPanel3" pref="0" max="32767" attributes="0"/>
+                          <Component id="jPanel3" pref="544" max="32767" attributes="0"/>
                           <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
@@ -270,11 +270,13 @@
                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="selectedWrittenDayBox" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="selectedWrittenMonthBox" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="writtenYearTextField" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="requestByTextField" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="selectedWrittenDayBox" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="selectedWrittenMonthBox" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="writtenYearTextField" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
