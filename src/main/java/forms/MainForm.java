@@ -187,7 +187,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
         // TODO add your handling code here:
-        int selectedOpt = new OptionDialog("ออกจากระบบ", "ยืนยันที่จะออกจากระบบ หรือไม่ ?").showOptionDialog();
+        int selectedOpt = new OptionDialog("ออกจากระบบ", "ยืนยันที่จะออกจากระบบ หรือไม่ ?").show();
         if (selectedOpt == 0) {
             AuthUser.setAuthUser(null);
             NewLoginForm newLoginForm = new NewLoginForm();
@@ -202,7 +202,7 @@ public class MainForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         StudentInfoForm homeForm = new StudentInfoForm();
         FrameHelper.setLocationToCenter(homeForm);
-        this.mainDesktopPane.add(homeForm);
+        MainForm.mainDesktopPane.add(homeForm);
         homeForm.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 

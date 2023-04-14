@@ -1,11 +1,19 @@
 package document;
 
+import java.util.ArrayList;
+
 public class GeneralRequestDocument extends Document {
     private String contactAddress;
     private String requestBody;
-    private String[] requestResponses;
+    private ArrayList<String> requestResponses;
+
+    public GeneralRequestDocument() {
+        this("","","","","","","","","","","","","",null);
+    }
 
     public GeneralRequestDocument(
+            String documentId,
+            String writtenAt,
             String requestedAtDay,
             String requestedAtMonth,
             String requestedAtYear,
@@ -17,9 +25,12 @@ public class GeneralRequestDocument extends Document {
             String respondedBy,
             String contactAddress,
             String requestBody,
-            String[] requestResponses
+            ArrayList<String> requestResponses
     ) {
         super(
+                1,
+                documentId,
+                writtenAt,
                 requestedAtDay,
                 requestedAtMonth,
                 requestedAtYear,
@@ -51,11 +62,11 @@ public class GeneralRequestDocument extends Document {
         this.requestBody = requestBody;
     }
 
-    public String[] getRequestResponses() {
+    public ArrayList<String> getRequestResponses() {
         return requestResponses;
     }
 
-    public void setRequestResponses(String[] requestResponses) {
+    public void setRequestResponses(ArrayList<String> requestResponses) {
         this.requestResponses = requestResponses;
     }
 }

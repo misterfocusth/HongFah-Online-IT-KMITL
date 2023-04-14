@@ -6,7 +6,8 @@ package firebase;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
-import static firebase.Firebase.db;
+import database.Database;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -21,7 +22,7 @@ import java.util.logging.Logger;
  *
  * @author misterfocusth
  */
-public class Test {
+public class Test extends Database {
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
 

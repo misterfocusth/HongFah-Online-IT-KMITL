@@ -4,6 +4,7 @@
  */
 package database;
 
+import com.google.api.client.util.Data;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
@@ -14,12 +15,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-import static firebase.Firebase.db;
-
 /**
  * @author misterfocusth
  */
-public class StudentDatabase {
+public class StudentDatabase extends Database {
 
     public static synchronized HashMap<String, Object> getStudentById(String studentId) throws ExecutionException, InterruptedException {
         DocumentReference docRef = db.collection("students").document(studentId);
