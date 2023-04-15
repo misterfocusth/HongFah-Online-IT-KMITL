@@ -11,7 +11,10 @@ import forms.student.document.GeneralDocRequestForm;
 import forms.student.document.LeaveDocRequestForm;
 import forms.student.info.EditStudentInfoForm;
 import helper.FrameHelper;
+import java.awt.*;
+import java.util.HashMap;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import user.AuthUser;
 import user.Student;
 
@@ -26,34 +29,58 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
     public NewHomeForm() {
         initComponents();
         showStudentInfo();
+        setDocumentTableData();
     }
-    
+
     private void showStudentInfo() {
         Student student = (Student) AuthUser.getAuthUser();
-        
+
         studentIdLabel.setText(student.getStudentId());
         identificationNumberLabel.setText(student.getIdentificationNumber());
-        
+
         String thStudentFullName = student.getThFirstName() + " " + student.getThLastName();
         String enStudentFullName = student.getEnFirstName() + " " + student.getEnLastName();
         thStudentNameLabel.setText(thStudentFullName);
         enStudentNameLabel.setText(enStudentFullName);
-        
+
         String dobDate = student.getDobDate();
         String dobMonth = student.getDobMonth();
         String dobYear = student.getDobYear();
         String dob = dobDate + " " + dobMonth + " " + dobYear;
         dobLabel.setText(dob);
-        
+
         genderLabel.setText(student.getGender());
         schoolNameLabel.setText(student.getSchoolName());
         programName.setText(student.getProgramName());
         majorNameLabel.setText(student.getMajorName());
         classYearITGenLabel.setText(student.getClassYear() + " / " + student.getGeneration());
-        
+
         emailLabel.setText(student.getEmail());
         phoneNumberLabel.setText(student.getPhoneNumber());
         addressLabel.setText(student.getContactAddress());
+    }
+
+    private void setDocumentTableData() {
+        DefaultTableModel model = (DefaultTableModel) docHistoryTable.getModel();
+        docHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
+        Student currentStudent = (Student) AuthUser.getAuthUser();
+        HashMap<String, HashMap<String, Object>> studentDocuments = currentStudent.getDocuments();
+        studentDocuments.forEach((k, v) -> {
+            String documentId = (String) v.get("documentId");
+            String requestedAtDay = (String) v.get("requestedAtDay");
+            String requestedAtMonth = (String) v.get("requestedAtMonth");
+            String requestedAtYear = (String) v.get("requestedAtYear");
+            String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
+            String documentTypeId = (String) v.get("documentType");
+            String documentType = "NULL";
+            if (documentTypeId.equals("1.0")) {
+                documentType = "คำร้องทั่วไป";
+            } else if (documentTypeId.equals("2.0")) {
+                documentType = "คำร้องลาเรียน";
+            }
+            String requestStatus = (String) v.get("requestStatus");
+            model.addRow(new String[]{documentId, requestedDate, documentType, requestStatus});
+        });
     }
 
     /**
@@ -424,14 +451,11 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
                 .addGap(0, 0, 0))
         );
 
+        docHistoryTable.setAutoCreateRowSorter(true);
         docHistoryTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         docHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"ABCD05", "31/03/2566", "คำร้องทั่วไป", "กำลังตรวจสอบ"},
-                {"ABCD04", "31/03/2566", "คำร้องทั่วไป", "กำลังตรวจสอบ"},
-                {"ABCD03", "31/03/2566", "ลาเรียน", "เสร็จสิ้น"},
-                {"ABCD02", "31/03/2566", "ลาเรียน", "ไม่อนุญาติ"},
-                {"ABCD01", "31/03/2566", "ลาเรียน", "เสร็จสิ้น"}
+
             },
             new String [] {
                 "เลขที่เอกสาร", "ยื่นเอกสารเมื่อ", "ประเภทเอกสาร", "สถานะเอกสาร"
@@ -456,6 +480,8 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         docHistoryTable.setSelectionForeground(new java.awt.Color(230, 234, 237));
         docHistoryTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         docHistoryTable.setShowGrid(true);
+        docHistoryTable.setShowHorizontalLines(true);
+        docHistoryTable.setShowVerticalLines(true);
         docHistoryTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 docHistoryTableMouseClicked(evt);
@@ -873,16 +899,16 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         int column = target.getSelectedColumn();
         System.out.println(row + " : " + column);
     }//GEN-LAST:event_docHistoryTableMouseClicked
-    
+
     private void editStudentProfileMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editStudentProfileMenuMouseClicked
         // TODO add your handling code here:
         EditStudentInfoForm editStudentInfoForm = new EditStudentInfoForm();
         FrameHelper.setLocationToCenter(editStudentInfoForm);
         MainForm.mainDesktopPane.add(editStudentInfoForm);
         editStudentInfoForm.setVisible(true);
-        
+
     }//GEN-LAST:event_editStudentProfileMenuMouseClicked
-    
+
     private void showDocHistoryMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showDocHistoryMenuMouseClicked
         // TODO add your handling code here:
         DocRequestHistoryForm docRequestHistoryForm = new DocRequestHistoryForm();
@@ -890,7 +916,7 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         MainForm.mainDesktopPane.add(docRequestHistoryForm);
         docRequestHistoryForm.setVisible(true);
     }//GEN-LAST:event_showDocHistoryMenuMouseClicked
-    
+
     private void generalReqFormMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generalReqFormMenuMouseClicked
         // TODO add your handling code here:
         GeneralDocRequestForm generalDocRequestForm = new GeneralDocRequestForm();
@@ -898,14 +924,14 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         MainForm.mainDesktopPane.add(generalDocRequestForm);
         generalDocRequestForm.setVisible(true);
     }//GEN-LAST:event_generalReqFormMenuMouseClicked
-    
+
     private void leaveReqFormMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leaveReqFormMenuMouseClicked
         LeaveDocRequestForm leaveDocRequestForm = new LeaveDocRequestForm();
         FrameHelper.setLocationToCenter(leaveDocRequestForm);
         MainForm.mainDesktopPane.add(leaveDocRequestForm);
         leaveDocRequestForm.setVisible(true);
     }//GEN-LAST:event_leaveReqFormMenuMouseClicked
-    
+
     private void contactStaffMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactStaffMenuMouseClicked
         ContactStaffHomeForm contactStaffHomeForm = new ContactStaffHomeForm();
         FrameHelper.setLocationToCenter(contactStaffHomeForm);

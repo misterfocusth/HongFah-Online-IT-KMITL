@@ -5,31 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8be20da-bb34-4e4c-9e9f-40680a7a5434" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/DocumentDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/document/DocumentHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/document/GeneralDocHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/helper/DocumentDataHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interfaces/OptionDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/StudentDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/StudentDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dialog/InfoDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dialog/InfoDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dialog/OptionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dialog/OptionDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/document/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/document/Document.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/document/GeneralRequestDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/document/GeneralRequestDocument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/DocumentDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DocumentDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/document/LeaveRequestDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/document/LeaveRequestDocument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/firebase/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/firebase/Firebase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/firebase/Firebase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/firebase/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/firebase/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/MainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/document/GeneralDocRequestForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/document/GeneralDocRequestForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/document/LeaveDocRequestForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/document/LeaveDocRequestForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/document/LeaveDocRequestForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/document/LeaveDocRequestForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/home/NewHomeForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/home/NewHomeForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/home/NewHomeForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/home/NewHomeForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helper/InputValidationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helper/InputValidationHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helper/PasswordHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helper/PasswordHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interfaces/AlertDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interfaces/AlertDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interfaces/EncodeAble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interfaces/EncodeAble.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/forms/student/login/NewLoginForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/document/GeneralDocHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/document/GeneralDocHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/user/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +83,8 @@
       <updated>1680842908669</updated>
       <workItem from="1680842913752" duration="61000" />
       <workItem from="1680843001526" duration="3001000" />
-      <workItem from="1681095960071" duration="16327000" />
+      <workItem from="1681095960071" duration="20319000" />
+      <workItem from="1681545615987" duration="2000000" />
     </task>
     <servers />
   </component>

@@ -11,12 +11,14 @@ import forms.student.announce.AnnounceForm;
 import forms.student.home.NewHomeForm;
 import forms.student.register.NewRegisterForm;
 import handlers.LoginHandler;
+import handlers.document.GeneralDocHandler;
 import helper.FrameHelper;
 import helper.PasswordHelper;
 import user.AuthUser;
 import user.Student;
 
 import javax.swing.*;
+import java.util.HashMap;
 
 /**
  * @author misterfocusth
@@ -353,12 +355,10 @@ public class NewLoginForm extends javax.swing.JFrame {
             if (student == null) {
                 new InfoDialog("ข้อมูลการเข้าสู่ระบบไม่ถูกต้อง", "ไม่สามารถเข้าสู่ระบบได้ เนื่องจากข้อมูลการเข้าสู่ระบบไม่ถูกต้อง !").show();
             } else {
+                HashMap<String, HashMap<String, Object>> documents = GeneralDocHandler.handleGetAllDocumentsByStudentId(username);
+                student.setDocuments(documents);
                 AuthUser.setAuthUser(student);
-                try {
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+
                 SwingUtilities.invokeLater(() -> {
                     // HomeForm homeForm = new HomeForm();
                     NewHomeForm homeForm = new NewHomeForm();

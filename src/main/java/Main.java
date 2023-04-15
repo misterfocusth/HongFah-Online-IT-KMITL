@@ -10,6 +10,7 @@
 import firebase.Firebase;
 import forms.student.login.NewLoginForm;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
@@ -18,10 +19,12 @@ import java.util.logging.Logger;
 public class Main {
 
     public static void main(String[] args) {
+
         try {
             Firebase.initFirebase();
-        } catch (IOException | URISyntaxException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
         
         NewLoginForm newLoginForm = new NewLoginForm();

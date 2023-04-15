@@ -622,39 +622,16 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="docHistoryTable">
           <Properties>
+            <Property name="autoCreateRowSorter" type="boolean" value="true"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="5">
-                <Column editable="false" title="&#xe40;&#xe25;&#xe02;&#xe17;&#xe35;&#xe48;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;" type="java.lang.String">
-                  <Data value="ABCD05"/>
-                  <Data value="ABCD04"/>
-                  <Data value="ABCD03"/>
-                  <Data value="ABCD02"/>
-                  <Data value="ABCD01"/>
-                </Column>
-                <Column editable="false" title="&#xe22;&#xe37;&#xe48;&#xe19;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;&#xe40;&#xe21;&#xe37;&#xe48;&#xe2d;" type="java.lang.String">
-                  <Data value="31/03/2566"/>
-                  <Data value="31/03/2566"/>
-                  <Data value="31/03/2566"/>
-                  <Data value="31/03/2566"/>
-                  <Data value="31/03/2566"/>
-                </Column>
-                <Column editable="false" title="&#xe1b;&#xe23;&#xe30;&#xe40;&#xe20;&#xe17;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;" type="java.lang.String">
-                  <Data value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe17;&#xe31;&#xe48;&#xe27;&#xe44;&#xe1b;"/>
-                  <Data value="&#xe04;&#xe33;&#xe23;&#xe49;&#xe2d;&#xe07;&#xe17;&#xe31;&#xe48;&#xe27;&#xe44;&#xe1b;"/>
-                  <Data value="&#xe25;&#xe32;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;"/>
-                  <Data value="&#xe25;&#xe32;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;"/>
-                  <Data value="&#xe25;&#xe32;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;"/>
-                </Column>
-                <Column editable="false" title="&#xe2a;&#xe16;&#xe32;&#xe19;&#xe30;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;" type="java.lang.String">
-                  <Data value="&#xe01;&#xe33;&#xe25;&#xe31;&#xe07;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;"/>
-                  <Data value="&#xe01;&#xe33;&#xe25;&#xe31;&#xe07;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;"/>
-                  <Data value="&#xe40;&#xe2a;&#xe23;&#xe47;&#xe08;&#xe2a;&#xe34;&#xe49;&#xe19;"/>
-                  <Data value="&#xe44;&#xe21;&#xe48;&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15;&#xe34;"/>
-                  <Data value="&#xe40;&#xe2a;&#xe23;&#xe47;&#xe08;&#xe2a;&#xe34;&#xe49;&#xe19;"/>
-                </Column>
+              <Table columnCount="4" rowCount="0">
+                <Column editable="false" title="&#xe40;&#xe25;&#xe02;&#xe17;&#xe35;&#xe48;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;" type="java.lang.String"/>
+                <Column editable="false" title="&#xe22;&#xe37;&#xe48;&#xe19;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;&#xe40;&#xe21;&#xe37;&#xe48;&#xe2d;" type="java.lang.String"/>
+                <Column editable="false" title="&#xe1b;&#xe23;&#xe30;&#xe40;&#xe20;&#xe17;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;" type="java.lang.String"/>
+                <Column editable="false" title="&#xe2a;&#xe16;&#xe32;&#xe19;&#xe30;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -687,6 +664,8 @@
             </Property>
             <Property name="selectionMode" type="int" value="0"/>
             <Property name="showGrid" type="boolean" value="true"/>
+            <Property name="showHorizontalLines" type="boolean" value="true"/>
+            <Property name="showVerticalLines" type="boolean" value="true"/>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>

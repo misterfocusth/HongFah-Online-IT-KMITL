@@ -54,7 +54,7 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
         contactAddressTextArea = new javax.swing.JTextArea();
         jLabel37 = new javax.swing.JLabel();
         selectedLeaveTitle = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        leaveTitleTextField = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         causeOfLeaveTextField = new javax.swing.JTextField();
@@ -190,7 +190,7 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
         selectedLeaveTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         selectedLeaveTitle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ขอลาป่วย", "ขอลากิจ", "ขอลาร่วมกิจกรรม", "อื่น ๆ (โปรดระบุสาเหตุการลา)" }));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        leaveTitleTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel26.setText("อื่นๆ โปรดระบุเหตุผลการลาเรียน");
@@ -301,7 +301,7 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
                             .addGap(18, 18, 18)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel26)
-                                .addComponent(jTextField1)))
+                                .addComponent(leaveTitleTextField)))
                         .addComponent(jLabel29)
                         .addComponent(causeOfLeaveTextField))
                     .addComponent(jLabel30)
@@ -324,7 +324,7 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
                     .addComponent(jLabel26))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(leaveTitleTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(selectedLeaveTitle))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel13)
@@ -568,7 +568,7 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
 
         cancelButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cancelButton.setForeground(new java.awt.Color(242, 103, 33));
-        cancelButton.setText("ยกเลิกการยื่นคำร้องทั่วไป");
+        cancelButton.setText("ยกเลิกการยื่นคำร้องลาเรียน");
         cancelButton.setPreferredSize(new java.awt.Dimension(250, 35));
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -717,10 +717,10 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JComboBox<String> leaveFromDay;
     private javax.swing.JComboBox<String> leaveFromMonth;
     private javax.swing.JTextField leaveFromYear;
+    private javax.swing.JTextField leaveTitleTextField;
     private javax.swing.JComboBox<String> leaveUntilMonth;
     private javax.swing.JTextField leaveUntilYear;
     private javax.swing.JLabel requestByNameLabel;
