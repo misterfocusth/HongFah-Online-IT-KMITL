@@ -152,7 +152,9 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
 
         resetFormButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         resetFormButton.setText("รีเซ็ตฟอร์ม");
-        resetFormButton.setPreferredSize(new java.awt.Dimension(200, 30));
+        resetFormButton.setMaximumSize(new java.awt.Dimension(99, 35));
+        resetFormButton.setMinimumSize(new java.awt.Dimension(99, 35));
+        resetFormButton.setPreferredSize(new java.awt.Dimension(200, 35));
         resetFormButton.setSize(new java.awt.Dimension(78, 35));
         resetFormButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,7 +166,9 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
         createQuestionButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         createQuestionButton.setForeground(new java.awt.Color(0, 102, 255));
         createQuestionButton.setText("สร้างคำถาม");
-        createQuestionButton.setPreferredSize(new java.awt.Dimension(200, 30));
+        createQuestionButton.setMaximumSize(new java.awt.Dimension(104, 35));
+        createQuestionButton.setMinimumSize(new java.awt.Dimension(104, 35));
+        createQuestionButton.setPreferredSize(new java.awt.Dimension(200, 35));
         jPanel4.add(createQuestionButton);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -208,8 +212,7 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         questionHistoryTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
