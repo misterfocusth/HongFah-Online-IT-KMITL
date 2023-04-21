@@ -79,7 +79,7 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
                 documentType = "คำร้องลาเรียน";
             }
             String requestStatus = (String) v.get("requestStatus");
-            model.addRow(new String[]{documentId, requestedDate, documentType, requestStatus});
+            model.addRow(new String[]{documentId.toUpperCase(), requestedDate, documentType, requestStatus});
         });
     }
 

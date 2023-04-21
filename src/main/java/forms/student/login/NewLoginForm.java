@@ -365,6 +365,7 @@ public class NewLoginForm extends javax.swing.JFrame {
                     AnnounceForm announceForm = new AnnounceForm();
                     MainForm mainForm = new MainForm();
 
+
                     mainForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     mainForm.setLocationRelativeTo(null);
                     mainForm.setVisible(true);

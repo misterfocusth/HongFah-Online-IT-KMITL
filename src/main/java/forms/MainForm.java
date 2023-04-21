@@ -195,6 +195,9 @@ public class MainForm extends javax.swing.JFrame {
             newLoginForm.setVisible(true);
             this.setVisible(false);
             this.dispose();
+
+            MainForm.mainDesktopPane.removeAll();
+            MainForm.mainDesktopPane.updateUI();
         }
     }//GEN-LAST:event_jMenu8MouseClicked
 
