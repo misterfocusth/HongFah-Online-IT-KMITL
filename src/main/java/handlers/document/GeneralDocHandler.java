@@ -1,6 +1,7 @@
 package handlers.document;
 
 import database.DocumentDatabase;
+import database.GeneralDocumentDatabase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,9 +15,7 @@ public class GeneralDocHandler extends DocumentHandler {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         boolean result = false;
         try {
-            Callable<Boolean> callable = () -> {
-                return DocumentDatabase.addNewDocument(docData, newDocId);
-            };
+            Callable<Boolean> callable = () -> new GeneralDocumentDatabase().addNewDocument(docData, newDocId);
             Future<Boolean> future = executorService.submit(callable);
             while (!future.isDone() && !future.isCancelled()) {
                 Thread.sleep(1000);
@@ -34,9 +33,7 @@ public class GeneralDocHandler extends DocumentHandler {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         HashMap<String, HashMap<String, Object>> result = null;
         try {
-            Callable<HashMap<String, HashMap<String, Object>>> callable = () -> {
-                return DocumentDatabase.getAllDocumentsByStudentId(studentId);
-            };
+            Callable<HashMap<String, HashMap<String, Object>>> callable = () -> new GeneralDocumentDatabase().getAllDocumentsByStudentId(studentId);
             Future<HashMap<String, HashMap<String, Object>>> future = executorService.submit(callable);
             while (!future.isDone() && !future.isCancelled()) {
                 Thread.sleep(1000);

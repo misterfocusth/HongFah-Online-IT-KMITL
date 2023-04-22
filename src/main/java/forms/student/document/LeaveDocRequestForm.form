@@ -183,7 +183,7 @@
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Component id="jLabel32" min="-2" pref="57" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="LeaveUntilDay" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="leaveUntilDay" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Component id="leaveUntilMonth" min="-2" pref="114" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -227,7 +227,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
-                                      <Component id="leaveTitleTextField" max="32767" attributes="0"/>
+                                      <Component id="otherLeaveTitleTextField" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -257,7 +257,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="leaveTitleTextField" pref="35" max="32767" attributes="0"/>
+                          <Component id="otherLeaveTitleTextField" pref="35" max="32767" attributes="0"/>
                           <Component id="selectedLeaveTitle" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -299,7 +299,7 @@
                                   <Component id="leaveFromDay" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="leaveFromMonth" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="leaveFromYear" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="LeaveUntilDay" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="leaveUntilDay" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="leaveUntilMonth" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="leaveUntilYear" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -570,7 +570,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="leaveTitleTextField">
+            <Component class="javax.swing.JTextField" name="otherLeaveTitleTextField">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -722,7 +722,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="LeaveUntilDay">
+            <Component class="javax.swing.JComboBox" name="leaveUntilDay">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>

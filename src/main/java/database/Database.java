@@ -13,7 +13,7 @@ import firebase.Firebase;
  *
  * @author misterfocusth
  */
-public class Database {
+public abstract class Database {
 
     public static final String STUDENT_COLLECTION = "students";
     public static final String DOCUMENT_COLLECTION = "documents";

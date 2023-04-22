@@ -348,11 +348,6 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         docData = toDocDataMap();
 
-        System.out.println(docData);
-        System.out.println(docData.get("writtenAt"));
-        System.out.println((String) docData.get("writtenAt"));
-        System.out.println(((String) docData.get("writtenAt")).isEmpty());
-
         boolean isUserInputValid = InputValidationHelper.validateUserInput(docData);
         if (!isUserInputValid) {
             new InfoDialog("ไม่สามารถดำเนินการยื่นเอกสารได้", "โปรดตรวจสอบการกรอกข้อมูล แล้วดำเนินการใหม่อีกครั้ง !").show();

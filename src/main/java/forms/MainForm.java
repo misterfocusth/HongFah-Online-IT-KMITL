@@ -42,6 +42,7 @@ public class MainForm extends javax.swing.JFrame {
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        mainDesktopPane = new javax.swing.JDesktopPane();
         jMenuBar2 = new javax.swing.JMenuBar();
         aboutProgrameMenu = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -282,7 +283,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenu logoutMenu;
-    public static final javax.swing.JDesktopPane mainDesktopPane = new javax.swing.JDesktopPane();
+    public static javax.swing.JDesktopPane mainDesktopPane;
     private javax.swing.JMenuItem studentInfoMenu;
     // End of variables declaration//GEN-END:variables
 }
