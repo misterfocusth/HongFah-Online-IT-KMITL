@@ -4,12 +4,12 @@
  */
 package forms.student.document;
 
+import dialog.InfoDialog;
+import handlers.document.LeaveDocHandler;
+import helper.InputValidationHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import dialog.InfoDialog;
-import helper.InputValidationHelper;
 import user.AuthUser;
 
 /**
@@ -210,8 +210,15 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
 
         selectedLeaveTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         selectedLeaveTitle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ขอลาป่วย", "ขอลากิจ", "ขอลาร่วมกิจกรรม", "อื่น ๆ (โปรดระบุสาเหตุการลา)" }));
+        selectedLeaveTitle.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                selectedLeaveTitleItemStateChanged(evt);
+            }
+        });
 
         otherLeaveTitleTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        otherLeaveTitleTextField.setText("ขอลาป่วย");
+        otherLeaveTitleTextField.setEnabled(false);
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel26.setText("อื่นๆ โปรดระบุเหตุผลการลาเรียน");
@@ -679,8 +686,24 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
             return;
         }
 
-
+        if (LeaveDocHandler.handleAddNewDocument(docData)) {
+            new InfoDialog("ยื่นคำร้องลาเรียนสำเร็จ !", "คำร้องลาเรียนของคุณถูกสร้างและยื่นเข้ามาในระบบแล้ว โปรดรอเจ้าหน้าที่ติดต่อกลับหรือตรวจสอบสถานะเอกสารในระบบห้องฟ้าออนไลน์").show();
+            this.setVisible(false);
+            this.dispose();
+        }
     }//GEN-LAST:event_confirmButtonActionPerformed
+
+    private void selectedLeaveTitleItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_selectedLeaveTitleItemStateChanged
+        String selectedItem = (String) evt.getItem();
+        System.out.println(selectedItem);
+        if (selectedItem.equalsIgnoreCase("อื่น ๆ (โปรดระบุสาเหตุการลา)")) {
+            otherLeaveTitleTextField.setEnabled(true);
+            otherLeaveTitleTextField.setText("");
+        } else {
+            otherLeaveTitleTextField.setEnabled(false);
+            otherLeaveTitleTextField.setText(selectedItem);
+        }
+    }//GEN-LAST:event_selectedLeaveTitleItemStateChanged
 
     private Map<String, Object> toDocDataMap() {
         String writtenAt = writtenAtTextArea.getText();
@@ -707,6 +730,10 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
         ArrayList<String> requestResponses = new ArrayList<>();
 
         Map<String, Object> docData = new HashMap<>();
+
+        if (requestRemark.isEmpty()) {
+            requestRemark = "-";
+        }
 
         docData.put("documentType", 2);
         docData.put("writtenAt", writtenAt);

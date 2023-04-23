@@ -13,7 +13,7 @@ public class GeneralDocumentDatabase extends DocumentDatabase {
 
     public synchronized HashMap<String, HashMap<String, Object>> getAllDocumentsByStudentId(String studentId) throws ExecutionException, InterruptedException {
         HashMap<String, HashMap<String, Object>> documents = new HashMap<>();
-        ApiFuture<QuerySnapshot> query = db.collection(DOCUMENT_COLLECTION).whereEqualTo("requestBy", studentId).get();
+        ApiFuture<QuerySnapshot> query = db.collection(DOCUMENT_COLLECTION).whereEqualTo("requestBy", studentId).whereEqualTo("documentType", 1).get();
         QuerySnapshot querySnapshot = query.get();
         List<QueryDocumentSnapshot> queryDocuments = querySnapshot.getDocuments();
         try {

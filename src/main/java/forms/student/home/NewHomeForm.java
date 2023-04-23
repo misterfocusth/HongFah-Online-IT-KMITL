@@ -480,8 +480,6 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         docHistoryTable.setSelectionForeground(new java.awt.Color(230, 234, 237));
         docHistoryTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         docHistoryTable.setShowGrid(true);
-        docHistoryTable.setShowHorizontalLines(true);
-        docHistoryTable.setShowVerticalLines(true);
         docHistoryTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 docHistoryTableMouseClicked(evt);

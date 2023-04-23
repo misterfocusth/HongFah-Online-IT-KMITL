@@ -11,6 +11,7 @@ import forms.student.announce.AnnounceForm;
 import forms.student.home.NewHomeForm;
 import forms.student.register.NewRegisterForm;
 import handlers.LoginHandler;
+import handlers.document.DocumentHandler;
 import handlers.document.GeneralDocHandler;
 import helper.FrameHelper;
 import helper.PasswordHelper;
@@ -355,7 +356,7 @@ public class NewLoginForm extends javax.swing.JFrame {
             if (student == null) {
                 new InfoDialog("ข้อมูลการเข้าสู่ระบบไม่ถูกต้อง", "ไม่สามารถเข้าสู่ระบบได้ เนื่องจากข้อมูลการเข้าสู่ระบบไม่ถูกต้อง !").show();
             } else {
-                HashMap<String, HashMap<String, Object>> documents = GeneralDocHandler.handleGetAllDocumentsByStudentId(username);
+                HashMap<String, HashMap<String, Object>> documents = DocumentHandler.handleGetAllDocumentsByStudentId(username);
                 student.setDocuments(documents);
                 AuthUser.setAuthUser(student);
 
