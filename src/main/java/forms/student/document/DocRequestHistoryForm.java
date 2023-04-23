@@ -4,12 +4,13 @@
  */
 package forms.student.document;
 
+import forms.MainForm;
 import handlers.document.GeneralDocHandler;
+import handlers.document.LeaveDocHandler;
+import helper.FrameHelper;
 import java.awt.*;
 import java.util.HashMap;
 import javax.swing.table.DefaultTableModel;
-
-import handlers.document.LeaveDocHandler;
 import user.AuthUser;
 
 /**
@@ -92,7 +93,7 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        leaveReqFormMenu1 = new javax.swing.JPanel();
+        genReqFormMenu = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -122,7 +123,6 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
             }
         });
         generalDocHistoryTable.setRowHeight(35);
-        generalDocHistoryTable.setRowSelectionAllowed(true);
         generalDocHistoryTable.setShowGrid(true);
         generalDocHistoryTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(generalDocHistoryTable);
@@ -145,9 +145,7 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        leaveDocHistoryTable.setCellSelectionEnabled(false);
         leaveDocHistoryTable.setRowHeight(35);
-        leaveDocHistoryTable.setRowSelectionAllowed(true);
         leaveDocHistoryTable.setShowGrid(true);
         leaveDocHistoryTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(leaveDocHistoryTable);
@@ -179,21 +177,24 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1126, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 106, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2))
                 .addGap(0, 0, 0))
         );
         jPanel1Layout.setVerticalGroup(
@@ -206,12 +207,11 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel8)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -235,6 +235,11 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
 
         leaveReqFormMenu.setBackground(new java.awt.Color(255, 255, 255));
         leaveReqFormMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        leaveReqFormMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                leaveReqFormMenuMouseClicked(evt);
+            }
+        });
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-document-48.png"))); // NOI18N
 
@@ -270,36 +275,41 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        leaveReqFormMenu1.setBackground(new java.awt.Color(255, 255, 255));
-        leaveReqFormMenu1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        genReqFormMenu.setBackground(new java.awt.Color(255, 255, 255));
+        genReqFormMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        genReqFormMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                genReqFormMenuMouseClicked(evt);
+            }
+        });
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-document-48.png"))); // NOI18N
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel23.setText("เเบบฟอร์มยื่นลาเรียน");
+        jLabel23.setText("เเบบฟอร์มคำร้องทั่วไป");
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel24.setText("คำร้องลาเรียนสำหรับนักศึกษา");
+        jLabel24.setText("คำร้องทั่วไปเพื่อพิจารณาดำเนินการต่อ");
 
-        javax.swing.GroupLayout leaveReqFormMenu1Layout = new javax.swing.GroupLayout(leaveReqFormMenu1);
-        leaveReqFormMenu1.setLayout(leaveReqFormMenu1Layout);
-        leaveReqFormMenu1Layout.setHorizontalGroup(
-            leaveReqFormMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(leaveReqFormMenu1Layout.createSequentialGroup()
+        javax.swing.GroupLayout genReqFormMenuLayout = new javax.swing.GroupLayout(genReqFormMenu);
+        genReqFormMenu.setLayout(genReqFormMenuLayout);
+        genReqFormMenuLayout.setHorizontalGroup(
+            genReqFormMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(genReqFormMenuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel22)
                 .addGap(18, 18, 18)
-                .addGroup(leaveReqFormMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(genReqFormMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel23)
                     .addComponent(jLabel24))
                 .addGap(12, 12, 12))
         );
-        leaveReqFormMenu1Layout.setVerticalGroup(
-            leaveReqFormMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(leaveReqFormMenu1Layout.createSequentialGroup()
+        genReqFormMenuLayout.setVerticalGroup(
+            genReqFormMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(genReqFormMenuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(leaveReqFormMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(leaveReqFormMenu1Layout.createSequentialGroup()
+                .addGroup(genReqFormMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(genReqFormMenuLayout.createSequentialGroup()
                         .addComponent(jLabel23)
                         .addGap(6, 6, 6)
                         .addComponent(jLabel24))
@@ -328,7 +338,7 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(leaveReqFormMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(leaveReqFormMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(genReqFormMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
@@ -346,7 +356,7 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel4)
                                 .addComponent(contactStaffLabel)))
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addComponent(leaveReqFormMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(genReqFormMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(leaveReqFormMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -356,8 +366,23 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void leaveReqFormMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leaveReqFormMenuMouseClicked
+        LeaveDocRequestForm leaveDocRequestForm = new LeaveDocRequestForm();
+        FrameHelper.setLocationToCenter(leaveDocRequestForm);
+        MainForm.mainDesktopPane.add(leaveDocRequestForm);
+        leaveDocRequestForm.setVisible(true);
+    }//GEN-LAST:event_leaveReqFormMenuMouseClicked
+
+    private void genReqFormMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_genReqFormMenuMouseClicked
+        GeneralDocRequestForm generalDocRequestForm = new GeneralDocRequestForm();
+        FrameHelper.setLocationToCenter(generalDocRequestForm);
+        MainForm.mainDesktopPane.add(generalDocRequestForm);
+        generalDocRequestForm.setVisible(true);
+    }//GEN-LAST:event_genReqFormMenuMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel contactStaffLabel;
+    private javax.swing.JPanel genReqFormMenu;
     private javax.swing.JTable generalDocHistoryTable;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -380,6 +405,5 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable leaveDocHistoryTable;
     private javax.swing.JPanel leaveReqFormMenu;
-    private javax.swing.JPanel leaveReqFormMenu1;
     // End of variables declaration//GEN-END:variables
 }
