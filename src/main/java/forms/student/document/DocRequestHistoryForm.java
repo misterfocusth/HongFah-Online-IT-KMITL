@@ -4,12 +4,14 @@
  */
 package forms.student.document;
 
+import document.GeneralRequestDocument;
 import forms.MainForm;
 import handlers.document.GeneralDocHandler;
 import handlers.document.LeaveDocHandler;
 import helper.FrameHelper;
 import java.awt.*;
 import java.util.HashMap;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import user.AuthUser;
 
@@ -44,7 +46,7 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
             String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
             String requestTitle = (String) v.get("requestTitle");
             String requestStatus = (String) v.get("requestStatus");
-            model.addRow(new String[]{documentId.toUpperCase(), requestedDate, requestTitle, requestStatus});
+            model.addRow(new String[]{documentId, requestedDate, requestTitle, requestStatus});
         });
     }
 
@@ -125,6 +127,11 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         generalDocHistoryTable.setRowHeight(35);
         generalDocHistoryTable.setShowGrid(true);
         generalDocHistoryTable.getTableHeader().setReorderingAllowed(false);
+        generalDocHistoryTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                generalDocHistoryTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(generalDocHistoryTable);
 
         leaveDocHistoryTable.setAutoCreateRowSorter(true);
@@ -379,6 +386,18 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         MainForm.mainDesktopPane.add(generalDocRequestForm);
         generalDocRequestForm.setVisible(true);
     }//GEN-LAST:event_genReqFormMenuMouseClicked
+
+    private void generalDocHistoryTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generalDocHistoryTableMouseClicked
+        JTable target = (JTable) evt.getSource();
+        int selectedRow = target.getSelectedRow();
+        String selectedDocId = (String) generalDocHistoryTable.getValueAt(selectedRow, 0);
+        GeneralRequestDocument selectedDocData = GeneralDocHandler.handleGetDocumentById(selectedDocId);
+
+        GeneralDocDetailForm generalDocDetailForm = new GeneralDocDetailForm(selectedDocData);
+        FrameHelper.setLocationToCenter(generalDocDetailForm);
+        MainForm.mainDesktopPane.add(generalDocDetailForm);
+        generalDocDetailForm.setVisible(true);
+    }//GEN-LAST:event_generalDocHistoryTableMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel contactStaffLabel;

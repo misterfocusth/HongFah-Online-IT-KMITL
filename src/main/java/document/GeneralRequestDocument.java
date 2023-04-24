@@ -3,12 +3,13 @@ package document;
 import java.util.ArrayList;
 
 public class GeneralRequestDocument extends Document {
+
     private String contactAddress;
     private String requestBody;
     private ArrayList<String> requestResponses;
 
     public GeneralRequestDocument() {
-        this("","","","","","","","","","","","","",null);
+        this("", "", "", "", "", "", "", "", "", "", "", "", "", null);
     }
 
     public GeneralRequestDocument(
@@ -40,7 +41,7 @@ public class GeneralRequestDocument extends Document {
                 requestStatus,
                 respondedAt,
                 respondedBy
-                );
+        );
         this.requestResponses = requestResponses;
         this.contactAddress = contactAddress;
         this.requestBody = requestBody;

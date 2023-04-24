@@ -4,17 +4,40 @@
  */
 package forms.student.document;
 
+import document.GeneralRequestDocument;
+
 /**
  *
  * @author misterfocusth
  */
 public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
+    
+    private GeneralRequestDocument docData;
 
     /**
      * Creates new form GeneralDocDetailForm
      */
-    public GeneralDocDetailForm() {
+    public GeneralDocDetailForm(GeneralRequestDocument docData) {
         initComponents();
+        this.docData = docData;
+        showDocData();
+    }
+    
+    GeneralDocDetailForm(String selectedDocId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    private void showDocData() {
+        documentIDLabel.setText(docData.getDocumentId());
+        writtenAtTextArea.setText(docData.getWrittenAt());
+        requestTitleTextField.setText(docData.getRequestTitle());
+        requestToTextLabel.setText(docData.getRequestTo());
+        selectedWrittenDayBox.setSelectedItem(docData.getRequestedAtDay());
+        selectedWrittenMonthBox.setSelectedItem(docData.getRequestedAtMonth());
+        writtenYearTextField.setText(docData.getRequestedAtYear());
+        requestByTextField.setText(docData.getRespondedBy());
+        contactAddressTextArea.setText(docData.getContactAddress());
+        requestBodyTextArea.setText(docData.getRequestBody());
     }
 
     /**
@@ -80,6 +103,9 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
         jLabel37 = new javax.swing.JLabel();
         requestByNameTextField = new javax.swing.JTextField();
         requestByNameLabel = new javax.swing.JLabel();
+
+        setClosable(true);
+        setIconifiable(true);
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -308,6 +334,11 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
         jLabel12.setText("เรื่อง");
 
         requestTitleTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        requestTitleTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestTitleTextFieldActionPerformed(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("เรียน (นักศึกษาต้องการเขียนคำร้องถึงใคร)");
@@ -501,6 +532,10 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void requestTitleTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTitleTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_requestTitleTextFieldActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea contactAddressTextArea;

@@ -1,9 +1,11 @@
 package database;
 
 import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
-
+import static database.Database.db;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +29,15 @@ public class GeneralDocumentDatabase extends DocumentDatabase {
         return documents;
     }
 
-
+    public synchronized HashMap<String, Object> getDocumentByDocID(String docId) throws InterruptedException, ExecutionException {
+        DocumentReference docRef = db.collection(DOCUMENT_COLLECTION).document(docId);
+        ApiFuture<DocumentSnapshot> future = docRef.get();
+        DocumentSnapshot document = future.get();
+        if (!document.exists()) {
+            return null;
+        }
+        return (HashMap<String, Object>) document.getData();
+    }
 
     private HashMap<String, Object> toDocDataMap(QueryDocumentSnapshot document) {
         HashMap<String, Object> currentDocument = new HashMap<>();
