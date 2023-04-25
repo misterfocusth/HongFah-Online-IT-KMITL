@@ -85,7 +85,7 @@ public class LeaveDocHandler extends DocumentHandler {
         String leaveUntilYear = (String) result.get("selectedLeaveUntilYear");
         String remark = (String) result.get("requestRemark");
         String contactAddress = (String) result.get("contactAddress");
-        ArrayList<String> responses = (ArrayList<String>) result.get("responses");
+        ArrayList<String> responses = (ArrayList<String>) result.get("requestResponses");
 
         return new LeaveRequestDocument(documentId,
                 writtenAt,

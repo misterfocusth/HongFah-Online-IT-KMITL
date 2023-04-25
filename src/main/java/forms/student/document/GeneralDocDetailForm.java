@@ -5,6 +5,9 @@
 package forms.student.document;
 
 import document.GeneralRequestDocument;
+import forms.MainForm;
+import forms.student.contact.ContactStaffHomeForm;
+import helper.FrameHelper;
 import user.AuthUser;
 
 /**
@@ -41,16 +44,31 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
         requestBodyTextArea.setText(docData.getRequestBody());
         requestByNameTextField.setText(AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName());
         requestByNameLabel.setText("(นาย" + AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName() + ")");
+        respondedBy.setText(docData.getRespondedBy());
+        respondedAt.setText(docData.getRespondedAt());
+        if (docData.getRequestResponses().size() == 0) {
+            staffCommentTextArea.setText("ยังไม่มีการตอบกลับ");
+            profCommentTextArea.setText("ยังไม่มีการตอบกลับ");
+            remarkTextArea.setText("ยังไม่มีการตอบกลับ");
+        } else {
+            staffCommentTextArea.setText(docData.getRequestResponses().get(0));
+            profCommentTextArea.setText(docData.getRequestResponses().get(1));
+            remarkTextArea.setText(docData.getRequestResponses().get(2));
+
+        }
+
         writtenAtTextArea.setEditable(false);
         requestTitleTextField.setEditable(false);
         requestToTextLabel.setEditable(false);
-        selectedWrittenDayBox.setEditable(false);
-        selectedWrittenMonthBox.setEditable(false);
+        selectedWrittenDayBox.setEnabled(false);
+        selectedWrittenMonthBox.setEnabled(false);
         writtenYearTextField.setEditable(false);
         requestByTextField.setEditable(false);
         contactAddressTextArea.setEditable(false);
         requestBodyTextArea.setEditable(false);
-
+        staffCommentTextArea.setEditable(false);
+        profCommentTextArea.setEditable(false);
+        remarkTextArea.setEditable(false);
     }
 
     /**
@@ -136,6 +154,11 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
         contactStaffLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         contactStaffLabel1.setForeground(new java.awt.Color(0, 102, 255));
         contactStaffLabel1.setText("ติดต่อห้องฟ้า");
+        contactStaffLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contactStaffLabel1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -347,11 +370,6 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
         jLabel12.setText("เรื่อง");
 
         requestTitleTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        requestTitleTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                requestTitleTextFieldActionPerformed(evt);
-            }
-        });
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("เรียน (นักศึกษาต้องการเขียนคำร้องถึงใคร)");
@@ -396,11 +414,6 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
         requestByNameTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         requestByNameTextField.setText("นายศิลา ภักดีวงษ์");
         requestByNameTextField.setEnabled(false);
-        requestByNameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                requestByNameTextFieldActionPerformed(evt);
-            }
-        });
 
         requestByNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         requestByNameLabel.setText("NAME");
@@ -551,13 +564,12 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void requestTitleTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTitleTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_requestTitleTextFieldActionPerformed
-
-    private void requestByNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestByNameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_requestByNameTextFieldActionPerformed
+    private void contactStaffLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactStaffLabel1MouseClicked
+        ContactStaffHomeForm contactStaffHomeForm = new ContactStaffHomeForm();
+        FrameHelper.setLocationToCenter(contactStaffHomeForm);
+        MainForm.mainDesktopPane.add(contactStaffHomeForm);
+        contactStaffHomeForm.setVisible(true);
+    }//GEN-LAST:event_contactStaffLabel1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea contactAddressTextArea;

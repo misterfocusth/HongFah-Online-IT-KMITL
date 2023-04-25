@@ -5,21 +5,22 @@
 package forms.student.document;
 
 import dialog.InfoDialog;
-import document.Document;
-import document.GeneralRequestDocument;
+import forms.MainForm;
+import forms.student.contact.ContactStaffHomeForm;
 import handlers.document.GeneralDocHandler;
+import helper.FrameHelper;
 import helper.InputValidationHelper;
-import user.AuthUser;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import user.AuthUser;
 
 /**
  *
  * @author misterfocusth
  */
 public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
+
     private Map<String, Object> docData = new HashMap<>();
 
     /**
@@ -106,6 +107,11 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
         contactStaffLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         contactStaffLabel.setForeground(new java.awt.Color(0, 102, 255));
         contactStaffLabel.setText("ติดต่อห้องฟ้า");
+        contactStaffLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contactStaffLabelMouseClicked(evt);
+            }
+        });
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -361,6 +367,13 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_confirmButtonActionPerformed
 
+    private void contactStaffLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactStaffLabelMouseClicked
+        ContactStaffHomeForm contactStaffHomeForm = new ContactStaffHomeForm();
+        FrameHelper.setLocationToCenter(contactStaffHomeForm);
+        MainForm.mainDesktopPane.add(contactStaffHomeForm);
+        contactStaffHomeForm.setVisible(true);
+    }//GEN-LAST:event_contactStaffLabelMouseClicked
+
     private Map<String, Object> toDocDataMap() {
         String writtenAt = writtenAtTextArea.getText();
         String requestTitle = requestTitleTextField.getText();
@@ -409,7 +422,6 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
 //                requestBody,
 //                requestResponses
 //        );
-
         return docData;
     }
 

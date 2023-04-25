@@ -5,7 +5,10 @@
 package forms.student.document;
 
 import dialog.InfoDialog;
+import forms.MainForm;
+import forms.student.contact.ContactStaffHomeForm;
 import handlers.document.LeaveDocHandler;
+import helper.FrameHelper;
 import helper.InputValidationHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -133,6 +136,11 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
         contactStaffLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         contactStaffLabel.setForeground(new java.awt.Color(0, 102, 255));
         contactStaffLabel.setText("ติดต่อห้องฟ้า");
+        contactStaffLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contactStaffLabelMouseClicked(evt);
+            }
+        });
 
         jLabel2.setBackground(new java.awt.Color(0, 102, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -704,6 +712,13 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
             otherLeaveTitleTextField.setText(selectedItem);
         }
     }//GEN-LAST:event_selectedLeaveTitleItemStateChanged
+
+    private void contactStaffLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactStaffLabelMouseClicked
+        ContactStaffHomeForm contactStaffHomeForm = new ContactStaffHomeForm();
+        FrameHelper.setLocationToCenter(contactStaffHomeForm);
+        MainForm.mainDesktopPane.add(contactStaffHomeForm);
+        contactStaffHomeForm.setVisible(true);
+    }//GEN-LAST:event_contactStaffLabelMouseClicked
 
     private Map<String, Object> toDocDataMap() {
         String writtenAt = writtenAtTextArea.getText();

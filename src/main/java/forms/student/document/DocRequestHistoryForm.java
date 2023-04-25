@@ -7,6 +7,7 @@ package forms.student.document;
 import document.GeneralRequestDocument;
 import document.LeaveRequestDocument;
 import forms.MainForm;
+import forms.student.contact.ContactStaffHomeForm;
 import handlers.document.GeneralDocHandler;
 import handlers.document.LeaveDocHandler;
 import helper.FrameHelper;
@@ -245,6 +246,11 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         contactStaffLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         contactStaffLabel.setForeground(new java.awt.Color(0, 102, 255));
         contactStaffLabel.setText("ติดต่อห้องฟ้า");
+        contactStaffLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contactStaffLabelMouseClicked(evt);
+            }
+        });
 
         leaveReqFormMenu.setBackground(new java.awt.Color(255, 255, 255));
         leaveReqFormMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -418,6 +424,13 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         MainForm.mainDesktopPane.add(leaveDocDetailForm);
         leaveDocDetailForm.setVisible(true);
     }//GEN-LAST:event_leaveDocHistoryTableMouseClicked
+
+    private void contactStaffLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactStaffLabelMouseClicked
+        ContactStaffHomeForm contactStaffHomeForm = new ContactStaffHomeForm();
+        FrameHelper.setLocationToCenter(contactStaffHomeForm);
+        MainForm.mainDesktopPane.add(contactStaffHomeForm);
+        contactStaffHomeForm.setVisible(true);
+    }//GEN-LAST:event_contactStaffLabelMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel contactStaffLabel;
