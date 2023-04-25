@@ -27,14 +27,6 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
         showDocData();
     }
 
-    public LeaveDocDetailForm(LeaveDocDetailForm leaveDocDetailForm) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public LeaveDocDetailForm(String selectedDocId) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
     private void showDocData() {
         documentIDLabel.setText(docData.getDocumentId());
         writtenAtTextArea.setText(docData.getWrittenAt());
