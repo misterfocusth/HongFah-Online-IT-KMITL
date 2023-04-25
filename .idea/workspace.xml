@@ -62,6 +62,7 @@
       <recent name="handlers.document.LeaveDocHandler" />
     </key>
   </component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -96,7 +97,7 @@
       <workItem from="1682158137273" duration="5407000" />
       <workItem from="1682236695255" duration="359000" />
       <workItem from="1682237382928" duration="5239000" />
-      <workItem from="1682307765754" duration="2184000" />
+      <workItem from="1682307765754" duration="3791000" />
     </task>
     <servers />
   </component>
