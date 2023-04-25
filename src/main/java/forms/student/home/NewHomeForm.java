@@ -4,12 +4,18 @@
  */
 package forms.student.home;
 
+import document.GeneralRequestDocument;
+import document.LeaveRequestDocument;
 import forms.MainForm;
 import forms.student.contact.ContactStaffHomeForm;
 import forms.student.document.DocRequestHistoryForm;
+import forms.student.document.GeneralDocDetailForm;
 import forms.student.document.GeneralDocRequestForm;
+import forms.student.document.LeaveDocDetailForm;
 import forms.student.document.LeaveDocRequestForm;
 import forms.student.info.EditStudentInfoForm;
+import handlers.document.GeneralDocHandler;
+import handlers.document.LeaveDocHandler;
 import helper.FrameHelper;
 import java.awt.*;
 import java.util.HashMap;
@@ -893,9 +899,23 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
     private void docHistoryTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_docHistoryTableMouseClicked
         // TODO add your handling code here:
         JTable target = (JTable) evt.getSource();
-        int row = target.getSelectedRow();
-        int column = target.getSelectedColumn();
-        System.out.println(row + " : " + column);
+        int selectedRow = target.getSelectedRow();
+        String selectedDocId = (String) docHistoryTable.getValueAt(selectedRow, 0);
+        String selectedDocType = (String) docHistoryTable.getValueAt(selectedRow, 2);
+        System.out.println(selectedDocType);
+        if (selectedDocType == "คำร้องทั่วไป") {
+            GeneralRequestDocument docDetail = GeneralDocHandler.handleGetDocumentById(selectedDocId);
+            GeneralDocDetailForm generalDocDetailForm = new GeneralDocDetailForm(docDetail);
+            FrameHelper.setLocationToCenter(generalDocDetailForm);
+            MainForm.mainDesktopPane.add(generalDocDetailForm);
+            generalDocDetailForm.setVisible(true);
+        } else if (selectedDocType == "คำร้องลาเรียน") {
+            LeaveRequestDocument docDetail = LeaveDocHandler.handleGetLeaveDocumentById(selectedDocId);
+            LeaveDocDetailForm leaveDocDetailForm = new LeaveDocDetailForm(docDetail);
+            FrameHelper.setLocationToCenter(leaveDocDetailForm);
+            MainForm.mainDesktopPane.add(leaveDocDetailForm);
+            leaveDocDetailForm.setVisible(true);
+        }
     }//GEN-LAST:event_docHistoryTableMouseClicked
 
     private void editStudentProfileMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editStudentProfileMenuMouseClicked
