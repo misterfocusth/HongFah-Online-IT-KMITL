@@ -295,7 +295,7 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         majorNameLabel.setText("NULL");
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel30.setText("ชั้นปีที่ เเละรุ่นที่");
+        jLabel30.setText("ชั้นปีที่/รุ่นที่");
 
         classYearITGenLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         classYearITGenLabel.setText("NULL");
@@ -734,7 +734,7 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-today-48.png"))); // NOI18N
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel33.setText("ระบบเช็คชื่อเค้าชั้นเรียน");
+        jLabel33.setText("ระบบเช็คชื่อเข้าชั้นเรียน");
 
         jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel34.setText("เช็คชื่อเเละบันทึกเวลาการเข้าเรียน");
