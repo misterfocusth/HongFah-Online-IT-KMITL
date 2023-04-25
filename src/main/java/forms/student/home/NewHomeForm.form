@@ -987,6 +987,9 @@
               <Image iconType="3" name="/icons8-reset-48.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="refreshLabelMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
