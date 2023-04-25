@@ -845,6 +845,9 @@
                 <Property name="text" type="java.lang.String" value="&#xe19;&#xe32;&#xe22;&#xe28;&#xe34;&#xe25;&#xe32; &#xe20;&#xe31;&#xe01;&#xe14;&#xe35;&#xe27;&#xe07;&#xe29;&#xe4c;"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="requestByNameTextFieldActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="requestByNameLabel">
               <Properties>

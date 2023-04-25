@@ -1,10 +1,9 @@
 package document;
 
-import interfaces.UniqueAble;
-
 import java.util.ArrayList;
 
 public class LeaveRequestDocument extends Document {
+
     private String causeOfLeave;
     private String leaveTitle;
     private String leaveFromDay, leaveFromMonth, leaveFromYear;
@@ -12,6 +11,7 @@ public class LeaveRequestDocument extends Document {
     private String remark;
     private String contactAddress;
     private ArrayList<String> responses;
+    private String otherLeaveTitle;
 
     public LeaveRequestDocument(
             String documentId,
@@ -25,7 +25,7 @@ public class LeaveRequestDocument extends Document {
             String requestStatus,
             String respondedAt,
             String respondedBy,
-
+            String otherLeaveTitle,
             String causeOfLeave,
             String leaveTitle,
             String leaveFromDay,
@@ -52,6 +52,7 @@ public class LeaveRequestDocument extends Document {
                 respondedAt,
                 respondedBy
         );
+        this.otherLeaveTitle = otherLeaveTitle;
         this.causeOfLeave = causeOfLeave;
         this.leaveTitle = leaveTitle;
         this.leaveFromDay = leaveFromDay;
@@ -63,6 +64,14 @@ public class LeaveRequestDocument extends Document {
         this.remark = remark;
         this.contactAddress = contactAddress;
         this.responses = responses;
+    }
+
+    public String getOtherLeaveTitle() {
+        return otherLeaveTitle;
+    }
+
+    public void setOtherLeaveTitle(String otherLeaveTitle) {
+        this.otherLeaveTitle = otherLeaveTitle;
     }
 
     public String getCauseOfLeave() {

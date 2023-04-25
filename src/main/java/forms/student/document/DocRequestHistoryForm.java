@@ -5,6 +5,7 @@
 package forms.student.document;
 
 import document.GeneralRequestDocument;
+import document.LeaveRequestDocument;
 import forms.MainForm;
 import handlers.document.GeneralDocHandler;
 import handlers.document.LeaveDocHandler;
@@ -46,7 +47,7 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
             String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
             String requestTitle = (String) v.get("requestTitle");
             String requestStatus = (String) v.get("requestStatus");
-            model.addRow(new String[]{documentId, requestedDate, requestTitle, requestStatus});
+            model.addRow(new String[]{documentId.toUpperCase(), requestedDate, requestTitle, requestStatus});
         });
     }
 
@@ -155,6 +156,11 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         leaveDocHistoryTable.setRowHeight(35);
         leaveDocHistoryTable.setShowGrid(true);
         leaveDocHistoryTable.getTableHeader().setReorderingAllowed(false);
+        leaveDocHistoryTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                leaveDocHistoryTableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(leaveDocHistoryTable);
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
@@ -392,12 +398,26 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         int selectedRow = target.getSelectedRow();
         String selectedDocId = (String) generalDocHistoryTable.getValueAt(selectedRow, 0);
         GeneralRequestDocument selectedDocData = GeneralDocHandler.handleGetDocumentById(selectedDocId);
-
+        System.out.println(selectedRow);
+        System.out.println(selectedDocId);
         GeneralDocDetailForm generalDocDetailForm = new GeneralDocDetailForm(selectedDocData);
         FrameHelper.setLocationToCenter(generalDocDetailForm);
         MainForm.mainDesktopPane.add(generalDocDetailForm);
         generalDocDetailForm.setVisible(true);
     }//GEN-LAST:event_generalDocHistoryTableMouseClicked
+
+    private void leaveDocHistoryTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leaveDocHistoryTableMouseClicked
+        JTable target = (JTable) evt.getSource();
+        int selectedRow = target.getSelectedRow();
+        String selectedDocId = (String) leaveDocHistoryTable.getValueAt(selectedRow, 0);
+        LeaveRequestDocument selectedDocData = LeaveDocHandler.handleGetLeaveDocumentById(selectedDocId);
+        System.out.println(selectedRow);
+        System.out.println(selectedDocId);
+        LeaveDocDetailForm leaveDocDetailForm = new LeaveDocDetailForm(selectedDocData);
+        FrameHelper.setLocationToCenter(leaveDocDetailForm);
+        MainForm.mainDesktopPane.add(leaveDocDetailForm);
+        leaveDocDetailForm.setVisible(true);
+    }//GEN-LAST:event_leaveDocHistoryTableMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel contactStaffLabel;

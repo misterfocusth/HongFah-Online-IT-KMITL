@@ -2,6 +2,7 @@ package handlers.document;
 
 import database.GeneralDocumentDatabase;
 import document.GeneralRequestDocument;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -94,4 +95,5 @@ public class GeneralDocHandler extends DocumentHandler {
                 requestBody,
                 requestResponses);
     }
+
 }

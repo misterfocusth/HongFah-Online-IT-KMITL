@@ -5,13 +5,14 @@
 package forms.student.document;
 
 import document.GeneralRequestDocument;
+import user.AuthUser;
 
 /**
  *
  * @author misterfocusth
  */
 public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
-    
+
     private GeneralRequestDocument docData;
 
     /**
@@ -22,11 +23,11 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
         this.docData = docData;
         showDocData();
     }
-    
+
     GeneralDocDetailForm(String selectedDocId) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
+
     private void showDocData() {
         documentIDLabel.setText(docData.getDocumentId());
         writtenAtTextArea.setText(docData.getWrittenAt());
@@ -35,9 +36,21 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
         selectedWrittenDayBox.setSelectedItem(docData.getRequestedAtDay());
         selectedWrittenMonthBox.setSelectedItem(docData.getRequestedAtMonth());
         writtenYearTextField.setText(docData.getRequestedAtYear());
-        requestByTextField.setText(docData.getRespondedBy());
+        requestByTextField.setText(docData.getRequestBy());
         contactAddressTextArea.setText(docData.getContactAddress());
         requestBodyTextArea.setText(docData.getRequestBody());
+        requestByNameTextField.setText(AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName());
+        requestByNameLabel.setText("(นาย" + AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName() + ")");
+        writtenAtTextArea.setEditable(false);
+        requestTitleTextField.setEditable(false);
+        requestToTextLabel.setEditable(false);
+        selectedWrittenDayBox.setEditable(false);
+        selectedWrittenMonthBox.setEditable(false);
+        writtenYearTextField.setEditable(false);
+        requestByTextField.setEditable(false);
+        contactAddressTextArea.setEditable(false);
+        requestBodyTextArea.setEditable(false);
+
     }
 
     /**
@@ -383,6 +396,11 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
         requestByNameTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         requestByNameTextField.setText("นายศิลา ภักดีวงษ์");
         requestByNameTextField.setEnabled(false);
+        requestByNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestByNameTextFieldActionPerformed(evt);
+            }
+        });
 
         requestByNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         requestByNameLabel.setText("NAME");
@@ -536,6 +554,10 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
     private void requestTitleTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTitleTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_requestTitleTextFieldActionPerformed
+
+    private void requestByNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestByNameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_requestByNameTextFieldActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea contactAddressTextArea;

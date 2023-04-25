@@ -1,15 +1,19 @@
 package database;
 
 import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
-
+import static database.Database.DOCUMENT_COLLECTION;
+import static database.Database.db;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class LeaveDocumentDatabase extends DocumentDatabase {
+
     public HashMap<String, HashMap<String, Object>> getAllDocumentsByStudentId(String studentId) throws ExecutionException, InterruptedException {
         HashMap<String, HashMap<String, Object>> documents = new HashMap<>();
         ApiFuture<QuerySnapshot> query = db.collection(DOCUMENT_COLLECTION).whereEqualTo("requestBy", studentId).whereEqualTo("documentType", 2).get();
@@ -24,6 +28,16 @@ public class LeaveDocumentDatabase extends DocumentDatabase {
         }
 
         return documents;
+    }
+
+    public synchronized HashMap<String, Object> getDocumentByDocID(String docId) throws InterruptedException, ExecutionException {
+        DocumentReference docRef = db.collection(DOCUMENT_COLLECTION).document(docId);
+        ApiFuture<DocumentSnapshot> future = docRef.get();
+        DocumentSnapshot document = future.get();
+        if (!document.exists()) {
+            return null;
+        }
+        return (HashMap<String, Object>) document.getData();
     }
 
     public HashMap<String, Object> toDocDataMap(QueryDocumentSnapshot document) {

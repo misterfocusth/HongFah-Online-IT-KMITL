@@ -4,17 +4,67 @@
  */
 package forms.student.document;
 
+import document.LeaveRequestDocument;
+import user.AuthUser;
+
 /**
  *
  * @author misterfocusth
  */
 public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
 
+    private LeaveRequestDocument docData;
+
     /**
      * Creates new form LeaveDocDetailForm
      */
-    public LeaveDocDetailForm() {
+    public LeaveDocDetailForm(LeaveRequestDocument docData) {
         initComponents();
+        this.docData = docData;
+        showDocData();
+    }
+
+    private void showDocData() {
+        documentIDLabel.setText(docData.getDocumentId());
+        writtenAtTextArea.setText(docData.getWrittenAt());
+        selectedLeaveTitle.setSelectedItem(docData.getLeaveTitle());
+        leaveTitleTextField.setText("");
+        requestToTextLabel.setText(docData.getRequestTo());
+        selectedWrittenDayBox.setSelectedItem(docData.getRequestedAtDay());
+        selectedWrittenMonthBox.setSelectedItem(docData.getRequestedAtMonth());
+        writtenYearTextField.setText(docData.getRequestedAtYear());
+        requestByTextField.setText(docData.getRequestBy());
+        contactAddressTextArea.setText(docData.getContactAddress());
+        causeOfLeaveTextField.setText(docData.getCauseOfLeave());
+        leaveFromDay.setSelectedItem(docData.getLeaveFromDay());
+        leaveFromMonth.setSelectedItem(docData.getLeaveFromMonth());
+        leaveFromYear.setText(docData.getLeaveFromYear());
+        LeaveUntilDay.setSelectedItem(docData.getLeaveUntilDay());
+        leaveUntilMonth.setSelectedItem(docData.getLeaveUntilMonth());
+        leaveUntilYear.setText(docData.getLeaveUntilYear());
+        requestRemarkTextArea.setText(docData.getRemark());
+        leaveTitleTextField.setText(docData.getOtherLeaveTitle());
+        requestByNameTextField.setText(AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName());
+        requestByNameLabel.setText("(นาย" + AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName() + ")");
+
+        writtenAtTextArea.setEditable(false);
+        selectedLeaveTitle.setEditable(false);
+        leaveTitleTextField.setEditable(false);
+        requestToTextLabel.setEditable(false);
+        selectedWrittenDayBox.setEditable(false);
+        selectedWrittenMonthBox.setEditable(false);
+        writtenYearTextField.setEditable(false);
+        requestByTextField.setEditable(false);
+        contactAddressTextArea.setEditable(false);
+        causeOfLeaveTextField.setEditable(false);
+        leaveFromDay.setEditable(false);
+        leaveFromMonth.setEditable(false);
+        leaveFromYear.setEditable(false);
+        LeaveUntilDay.setEditable(false);
+        leaveUntilMonth.setEditable(false);
+        leaveUntilYear.setEditable(false);
+        requestRemarkTextArea.setEditable(false);
+        leaveTitleTextField.setEditable(false);
     }
 
     /**
@@ -95,6 +145,9 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         documentIDLabel = new javax.swing.JLabel();
+
+        setClosable(true);
+        setIconifiable(true);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("ความเห็นจากเจ้าหน้าที่ / อาจารย์"));
 
@@ -275,6 +328,11 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
 
         requestByTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         requestByTextField.setEnabled(false);
+        requestByTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestByTextFieldActionPerformed(evt);
+            }
+        });
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel33.setText("ที่อยู่สำหรับติดต่อ");
@@ -305,6 +363,11 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
         selectedLeaveTitle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ขอลาป่วย", "ขอลากิจ", "ขอลาร่วมกิจกรรม", "อื่น ๆ (โปรดระบุสาเหตุการลา)" }));
 
         leaveTitleTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        leaveTitleTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                leaveTitleTextFieldActionPerformed(evt);
+            }
+        });
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel26.setText("อื่นๆ โปรดระบุเหตุผลการลาเรียน");
@@ -619,6 +682,14 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
     private void causeOfLeaveTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_causeOfLeaveTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_causeOfLeaveTextFieldActionPerformed
+
+    private void requestByTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestByTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_requestByTextFieldActionPerformed
+
+    private void leaveTitleTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaveTitleTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_leaveTitleTextFieldActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> LeaveUntilDay;
