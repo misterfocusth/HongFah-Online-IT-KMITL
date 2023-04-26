@@ -386,6 +386,9 @@
                   <Dimension value="[200, 35]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="createQuestionButtonMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

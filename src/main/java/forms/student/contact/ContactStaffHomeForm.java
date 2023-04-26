@@ -4,6 +4,8 @@
  */
 package forms.student.contact;
 
+import dialog.InfoDialog;
+
 /**
  *
  * @author misterfocusth
@@ -169,6 +171,11 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
         createQuestionButton.setMaximumSize(new java.awt.Dimension(104, 35));
         createQuestionButton.setMinimumSize(new java.awt.Dimension(104, 35));
         createQuestionButton.setPreferredSize(new java.awt.Dimension(200, 35));
+        createQuestionButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createQuestionButtonMouseClicked(evt);
+            }
+        });
         jPanel4.add(createQuestionButton);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -320,6 +327,14 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
     private void resetFormButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetFormButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_resetFormButtonActionPerformed
+
+    private void createQuestionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createQuestionButtonMouseClicked
+        if ((questionBodyTextArea.getText().isEmpty()) || (questionTitleTextField.getText().isEmpty())) {
+            new InfoDialog("ข้อมูลไม่สมบูรณ์", "โปรดกรอกข้อมูลให้ครบทุกช่อง ก่อนดำเนินการต่อ").show();
+            return;
+        }
+
+    }//GEN-LAST:event_createQuestionButtonMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createQuestionButton;
