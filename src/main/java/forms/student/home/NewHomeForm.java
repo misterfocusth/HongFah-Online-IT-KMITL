@@ -14,6 +14,7 @@ import forms.student.document.GeneralDocRequestForm;
 import forms.student.document.LeaveDocDetailForm;
 import forms.student.document.LeaveDocRequestForm;
 import forms.student.info.EditStudentInfoForm;
+import handlers.document.DocumentHandler;
 import handlers.document.GeneralDocHandler;
 import handlers.document.LeaveDocHandler;
 import helper.FrameHelper;
@@ -71,6 +72,32 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         docHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
         Student currentStudent = (Student) AuthUser.getAuthUser();
         HashMap<String, HashMap<String, Object>> studentDocuments = currentStudent.getDocuments();
+        studentDocuments.forEach((k, v) -> {
+            String documentId = (String) v.get("documentId");
+            String requestedAtDay = (String) v.get("requestedAtDay");
+            String requestedAtMonth = (String) v.get("requestedAtMonth");
+            String requestedAtYear = (String) v.get("requestedAtYear");
+            String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
+            String documentTypeId = (String) v.get("documentType");
+            String documentType = "NULL";
+            if (documentTypeId.equals("1.0")) {
+                documentType = "คำร้องทั่วไป";
+            } else if (documentTypeId.equals("2.0")) {
+                documentType = "คำร้องลาเรียน";
+            }
+            String requestStatus = (String) v.get("requestStatus");
+            model.addRow(new String[]{documentId.toUpperCase(), requestedDate, documentType, requestStatus});
+        });
+    }
+
+    private void refreshHomeData() {
+        DefaultTableModel model = (DefaultTableModel) docHistoryTable.getModel();
+        model.getDataVector().removeAllElements();
+        model.fireTableDataChanged(); // notifies the JTable that the model has changed
+
+        docHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
+        Student currentStudent = (Student) AuthUser.getAuthUser();
+        HashMap<String, HashMap<String, Object>> studentDocuments = DocumentHandler.handleGetAllDocumentsByStudentId(currentStudent.getStudentId());
         studentDocuments.forEach((k, v) -> {
             String documentId = (String) v.get("documentId");
             String requestedAtDay = (String) v.get("requestedAtDay");
@@ -295,7 +322,7 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         majorNameLabel.setText("NULL");
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel30.setText("ชั้นปีที่ เเละรุ่นที่");
+        jLabel30.setText("ชั้นปีที่/รุ่นที่");
 
         classYearITGenLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         classYearITGenLabel.setText("NULL");
@@ -666,6 +693,11 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         );
 
         refreshLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-reset-48.png"))); // NOI18N
+        refreshLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                refreshLabelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -734,7 +766,7 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-today-48.png"))); // NOI18N
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel33.setText("ระบบเช็คชื่อเค้าชั้นเรียน");
+        jLabel33.setText("ระบบเช็คชื่อเข้าชั้นเรียน");
 
         jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel34.setText("เช็คชื่อเเละบันทึกเวลาการเข้าเรียน");
@@ -956,6 +988,10 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
         MainForm.mainDesktopPane.add(contactStaffHomeForm);
         contactStaffHomeForm.setVisible(true);
     }//GEN-LAST:event_contactStaffMenuMouseClicked
+
+    private void refreshLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshLabelMouseClicked
+        refreshHomeData();
+    }//GEN-LAST:event_refreshLabelMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;
