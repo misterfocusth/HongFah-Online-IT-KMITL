@@ -3,6 +3,8 @@
  */
 package forms;
 
+import forms.student.about.AboutForm;
+
 /**
  *
  * @author USER
@@ -27,7 +29,7 @@ public class AdminMainForm extends javax.swing.JFrame {
 
         mainDesktopPane = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        aboutMenu = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,10 +50,15 @@ public class AdminMainForm extends javax.swing.JFrame {
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(690, 35));
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-info-28.png"))); // NOI18N
-        jMenu1.setText("เกี่ยวกับโปรแกรม");
-        jMenu1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jMenuBar1.add(jMenu1);
+        aboutMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-info-28.png"))); // NOI18N
+        aboutMenu.setText("เกี่ยวกับโปรแกรม");
+        aboutMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        aboutMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aboutMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(aboutMenu);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-logout-28.png"))); // NOI18N
         jMenu2.setText("ออกจากระบบ");
@@ -73,6 +80,12 @@ public class AdminMainForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void aboutMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuMouseClicked
+        AboutForm aboutForm = new AboutForm();
+        aboutForm.setLocationRelativeTo(null);
+        aboutForm.setVisible(true);
+    }//GEN-LAST:event_aboutMenuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -110,7 +123,7 @@ public class AdminMainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu aboutMenu;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     public static javax.swing.JDesktopPane mainDesktopPane;
