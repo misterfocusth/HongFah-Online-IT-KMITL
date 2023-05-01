@@ -6,6 +6,10 @@ package forms;
 
 import dialog.OptionDialog;
 import forms.student.about.AboutForm;
+import forms.student.contact.ContactStaffHomeForm;
+import forms.student.document.DocRequestHistoryForm;
+import forms.student.document.GeneralDocRequestForm;
+import forms.student.document.LeaveDocRequestForm;
 import forms.student.info.EditStudentInfoForm;
 import forms.student.info.StudentInfoForm;
 import forms.student.login.NewLoginForm;
@@ -50,6 +54,11 @@ public class MainForm extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         editStudentInfoMenu = new javax.swing.JMenuItem();
         docRequestMenu = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem4 = new javax.swing.JMenuItem();
         contactStaffMenu = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         logoutMenu = new javax.swing.JMenu();
@@ -124,7 +133,7 @@ public class MainForm extends javax.swing.JFrame {
         jMenu5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
 
         studentInfoMenu.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        studentInfoMenu.setText("ข้อมูลนึกศึกษา");
+        studentInfoMenu.setText("ข้อมูลนักศึกษา");
         studentInfoMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 studentInfoMenuActionPerformed(evt);
@@ -147,11 +156,46 @@ public class MainForm extends javax.swing.JFrame {
         docRequestMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-documents-28.png"))); // NOI18N
         docRequestMenu.setText("เอกสารเเละคำร้องทางการศึกษา");
         docRequestMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+
+        jMenuItem1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jMenuItem1.setText("แบบฟอร์มคำร้องทั่วไป");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                genDocClickActionPerformed(evt);
+            }
+        });
+        docRequestMenu.add(jMenuItem1);
+        docRequestMenu.add(jSeparator2);
+
+        jMenuItem2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jMenuItem2.setText("แบบฟอร์มยื่นลาเรียน");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                leaveDocClickActionPerformed(evt);
+            }
+        });
+        docRequestMenu.add(jMenuItem2);
+        docRequestMenu.add(jSeparator3);
+
+        jMenuItem4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jMenuItem4.setText("ประวัติการยื่นคำร้องและเอกสาร");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                historyDocClickActionPerformed(evt);
+            }
+        });
+        docRequestMenu.add(jMenuItem4);
+
         jMenuBar2.add(docRequestMenu);
 
         contactStaffMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-faq-28.png"))); // NOI18N
         contactStaffMenu.setText("ถามตอบห้องฟ้า");
         contactStaffMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        contactStaffMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contactStaffMenuMouseClicked(evt);
+            }
+        });
         jMenuBar2.add(contactStaffMenu);
 
         jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-today-28.png"))); // NOI18N
@@ -195,12 +239,12 @@ public class MainForm extends javax.swing.JFrame {
             newLoginForm.setVisible(true);
             this.setVisible(false);
             this.dispose();
-
+            
             MainForm.mainDesktopPane.removeAll();
             MainForm.mainDesktopPane.updateUI();
         }
     }//GEN-LAST:event_logoutMenuMouseClicked
-
+    
     private void studentInfoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentInfoMenuActionPerformed
         // TODO add your handling code here:
         StudentInfoForm homeForm = new StudentInfoForm();
@@ -208,14 +252,14 @@ public class MainForm extends javax.swing.JFrame {
         MainForm.mainDesktopPane.add(homeForm);
         homeForm.setVisible(true);
     }//GEN-LAST:event_studentInfoMenuActionPerformed
-
+    
     private void aboutProgrameMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutProgrameMenuMouseClicked
         // TODO add your handling code here:
         AboutForm aboutForm = new AboutForm();
         aboutForm.setLocationRelativeTo(null);
         aboutForm.setVisible(true);
     }//GEN-LAST:event_aboutProgrameMenuMouseClicked
-
+    
     private void editStudentInfoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editStudentInfoMenuActionPerformed
         // TODO add your handling code here:
         EditStudentInfoForm editStudentInfoForm = new EditStudentInfoForm();
@@ -223,6 +267,34 @@ public class MainForm extends javax.swing.JFrame {
         MainForm.mainDesktopPane.add(editStudentInfoForm);
         editStudentInfoForm.setVisible(true);
     }//GEN-LAST:event_editStudentInfoMenuActionPerformed
+    
+    private void contactStaffMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactStaffMenuMouseClicked
+        ContactStaffHomeForm contactStaffHomeForm = new ContactStaffHomeForm();
+        FrameHelper.setLocationToCenter(contactStaffHomeForm);
+        MainForm.mainDesktopPane.add(contactStaffHomeForm);
+        contactStaffHomeForm.setVisible(true);
+    }//GEN-LAST:event_contactStaffMenuMouseClicked
+    
+    private void genDocClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genDocClickActionPerformed
+        GeneralDocRequestForm gendoc = new GeneralDocRequestForm();
+        FrameHelper.setLocationToCenter(gendoc);
+        MainForm.mainDesktopPane.add(gendoc);
+        gendoc.setVisible(true);
+    }//GEN-LAST:event_genDocClickActionPerformed
+    
+    private void leaveDocClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaveDocClickActionPerformed
+        LeaveDocRequestForm leaveDoc = new LeaveDocRequestForm();
+        FrameHelper.setLocationToCenter(leaveDoc);
+        MainForm.mainDesktopPane.add(leaveDoc);
+        leaveDoc.setVisible(true);
+    }//GEN-LAST:event_leaveDocClickActionPerformed
+    
+    private void historyDocClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyDocClickActionPerformed
+        DocRequestHistoryForm hisDoc = new DocRequestHistoryForm();
+        FrameHelper.setLocationToCenter(hisDoc);
+        MainForm.mainDesktopPane.add(hisDoc);
+        hisDoc.setVisible(true);
+    }//GEN-LAST:event_historyDocClickActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,9 +330,9 @@ public class MainForm extends javax.swing.JFrame {
                 new MainForm().setVisible(true);
             }
         });
-
+        
     }
-
+    
     public JDesktopPane getMainDesktopPane() {
         return mainDesktopPane;
     }
@@ -279,9 +351,14 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JMenu logoutMenu;
     public static javax.swing.JDesktopPane mainDesktopPane;
     private javax.swing.JMenuItem studentInfoMenu;
