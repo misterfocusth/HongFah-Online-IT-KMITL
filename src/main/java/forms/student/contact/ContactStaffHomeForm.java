@@ -5,6 +5,9 @@
 package forms.student.contact;
 
 import dialog.InfoDialog;
+import handlers.document.LeaveDocHandler;
+import helper.InputValidationHelper;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -12,6 +15,8 @@ import java.util.Map;
  * @author misterfocusth
  */
 public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
+
+    private Map<String, Object> questionData = new HashMap<>();
 
     /**
      * Creates new form ContactStaffHomeForm
@@ -330,6 +335,19 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_resetFormButtonActionPerformed
 
     private void createQuestionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createQuestionButtonMouseClicked
+        questionData = toQuestionDataMap();
+
+        boolean isUserInputValid = InputValidationHelper.validateUserInput(questionData);
+        if (!isUserInputValid) {
+            new InfoDialog("ไม่สามารถดำเนินการยื่นคำร้องลาเรียนได้", "โปรดตรวจสอบการกรอกข้อมูล แล้วดำเนินการใหม่อีกครั้ง !").show();
+            return;
+        }
+
+        if (LeaveDocHandler.handleAddNewDocument(questionData)) {
+            new InfoDialog("ยื่นคำร้องลาเรียนสำเร็จ !", "คำร้องลาเรียนของคุณถูกสร้างและยื่นเข้ามาในระบบแล้ว โปรดรอเจ้าหน้าที่ติดต่อกลับหรือตรวจสอบสถานะเอกสารในระบบห้องฟ้าออนไลน์").show();
+            this.setVisible(false);
+            this.dispose();
+        }
         if ((questionBodyTextArea.getText().isEmpty()) || (questionTitleTextField.getText().isEmpty())) {
             new InfoDialog("ข้อมูลไม่สมบูรณ์", "โปรดกรอกข้อมูลให้ครบทุกช่อง ก่อนดำเนินการต่อ").show();
             return;
@@ -338,7 +356,8 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_createQuestionButtonMouseClicked
 
     private Map<String, Object> toQuestionDataMap() {
-        return 
+
+        return questionData;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createQuestionButton;
