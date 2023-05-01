@@ -5,12 +5,22 @@
 package forms.student.contact;
 
 import dialog.InfoDialog;
+import handlers.QuestionHandler;
+import helper.InputValidationHelper;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
+import user.AuthUser;
+import user.Student;
 
 /**
  *
  * @author misterfocusth
  */
 public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
+
+    private Map<String, Object> questionData = new HashMap<>();
 
     /**
      * Creates new form ContactStaffHomeForm
@@ -157,7 +167,6 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
         resetFormButton.setMaximumSize(new java.awt.Dimension(99, 35));
         resetFormButton.setMinimumSize(new java.awt.Dimension(99, 35));
         resetFormButton.setPreferredSize(new java.awt.Dimension(200, 35));
-        resetFormButton.setSize(new java.awt.Dimension(78, 35));
         resetFormButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetFormButtonActionPerformed(evt);
@@ -222,18 +231,26 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        questionHistoryTable.setAutoCreateRowSorter(true);
         questionHistoryTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         questionHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "เลขที่คำถาม", "หัวเรื่องคำถาม", "คำถาม", "สถานะการตอบกลับ"
+                "รหัสคำถาม", "หัวเรื่องคำถาม", "คำถาม", "สถานะการตอบกลับ"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        questionHistoryTable.setShowGrid(true);
+        questionHistoryTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(questionHistoryTable);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_48x48/icons8-order-history-48.png"))); // NOI18N
@@ -325,17 +342,53 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void resetFormButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetFormButtonActionPerformed
-        // TODO add your handling code here:
+        questionTitleTextField.setText("");
+        questionBodyTextArea.setText("");
     }//GEN-LAST:event_resetFormButtonActionPerformed
 
     private void createQuestionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createQuestionButtonMouseClicked
-        if ((questionBodyTextArea.getText().isEmpty()) || (questionTitleTextField.getText().isEmpty())) {
+        questionData = toQuestionDataMap();
+
+        boolean isUserInputValid = InputValidationHelper.validateUserInput(questionData);
+        if (!isUserInputValid) {
             new InfoDialog("ข้อมูลไม่สมบูรณ์", "โปรดกรอกข้อมูลให้ครบทุกช่อง ก่อนดำเนินการต่อ").show();
             return;
         }
 
+        if (QuestionHandler.handleAddNewQuestion(questionData)) {
+            new InfoDialog("บันทึกคำถามเสร็จสิ้น", "ระบบได้บันทึกคำถามของท่านแล้ว! โปรดรอเจ้าหน้าที่ติดต่อกลับ").show();
+            questionTitleTextField.setText("");
+            questionBodyTextArea.setText("");
+        }
+
     }//GEN-LAST:event_createQuestionButtonMouseClicked
 
+    private Map<String, Object> toQuestionDataMap() {
+
+        String questionTitle = questionTitleTextField.getText();
+        String questionBody = questionBodyTextArea.getText();
+
+        Student student = (Student) AuthUser.getAuthUser();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+        String questionBy = student.getStudentId();
+        String questionAt = dtf.format(LocalDateTime.now());
+        String questionReponse = "ยังไม่มีการตอบกลับ (กำลังรอการตอบกลับจากเจ้าหน้าที่)";
+        String answerBy = "ยังไม่มีการตอบกลับ";
+        String answerAt = "ยังไม่มีการตอบกลับ";
+        String answerBody = "ยังไม่มีการตอบกลับ (กำลังรอการตอบกลับจากเจ้าหน้าที่)";
+
+        questionData.put("questionTitle", questionTitle);
+        questionData.put("questionBody", questionBody);
+        questionData.put("questionBy", questionBy);
+        questionData.put("questionAt", questionAt);
+        questionData.put("questionReponse", questionReponse);
+        questionData.put("answerBy", answerBy);
+        questionData.put("answerAt", answerAt);
+        questionData.put("answerBody", answerBody);
+
+        return questionData;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createQuestionButton;
     private javax.swing.JButton jButton1;
