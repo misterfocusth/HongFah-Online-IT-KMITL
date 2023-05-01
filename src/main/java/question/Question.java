@@ -17,11 +17,13 @@ public class Question {
     private String answerBy;
     private String answerAt;
     private String answerBody;
+    private String questionId;
 
-    public Question(String questionBy, String questionAt, String questionTItle, String questionBody, String questionResponse, String answerBy, String answerAt, String answerBody) {
+    public Question(String questionId, String questionBy, String questionAt, String questionTitle, String questionBody, String questionResponse, String answerBy, String answerAt, String answerBody) {
+        this.questionId = questionId;
         this.questionBy = questionBy;
         this.questionAt = questionAt;
-        this.questionTItle = questionTItle;
+        this.questionTItle = questionTitle;
         this.questionBody = questionBody;
         this.questionResponse = questionResponse;
         this.answerBy = answerBy;
@@ -30,6 +32,14 @@ public class Question {
     }
 
     public Question() {
+    }
+
+    public String getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(String questionId) {
+        this.questionId = questionId;
     }
 
     public String getAnswerAt() {
@@ -60,7 +70,7 @@ public class Question {
         return questionResponse;
     }
 
-    public String getQuestionTItle() {
+    public String getQuestionTitle() {
         return questionTItle;
     }
 
@@ -92,7 +102,7 @@ public class Question {
         this.questionResponse = questionResponse;
     }
 
-    public void setQuestionTItle(String questionTItle) {
+    public void setQuestionTitle(String questionTItle) {
         this.questionTItle = questionTItle;
     }
 

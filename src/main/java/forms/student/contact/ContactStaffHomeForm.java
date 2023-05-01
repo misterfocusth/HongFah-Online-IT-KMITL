@@ -7,10 +7,12 @@ package forms.student.contact;
 import dialog.InfoDialog;
 import handlers.QuestionHandler;
 import helper.InputValidationHelper;
+import java.awt.Font;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.table.DefaultTableModel;
 import user.AuthUser;
 import user.Student;
 
@@ -21,12 +23,28 @@ import user.Student;
 public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
 
     private Map<String, Object> questionData = new HashMap<>();
+    private final String studentId = AuthUser.getAuthUser().getUsername();
+    private HashMap<String, HashMap<String, Object>> requestQuestion = new HashMap<>();
 
     /**
      * Creates new form ContactStaffHomeForm
      */
     public ContactStaffHomeForm() {
         initComponents();
+        getAllQuestion();
+    }
+
+    private void getAllQuestion() {
+        DefaultTableModel model = (DefaultTableModel) questionHistoryTable.getModel();
+        questionHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
+        requestQuestion = QuestionHandler.handleGetAllQuestionByStudentId(studentId);
+        requestQuestion.forEach((k, v) -> {
+            String questionId = (String) v.get("questionId");
+            String questionTitle = (String) v.get("questionTitle");
+            String questionBody = (String) v.get("questionBody");
+            String questionResponse = (String) v.get("questionResponse");
+            model.addRow(new String[]{questionId.toUpperCase(), questionTitle, questionBody, questionResponse});
+        });
     }
 
     /**
@@ -249,6 +267,7 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        questionHistoryTable.setRowHeight(35);
         questionHistoryTable.setShowGrid(true);
         questionHistoryTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(questionHistoryTable);
@@ -373,7 +392,7 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
 
         String questionBy = student.getStudentId();
         String questionAt = dtf.format(LocalDateTime.now());
-        String questionReponse = "ยังไม่มีการตอบกลับ (กำลังรอการตอบกลับจากเจ้าหน้าที่)";
+        String questionResponse = "ยังไม่มีการตอบกลับ";
         String answerBy = "ยังไม่มีการตอบกลับ";
         String answerAt = "ยังไม่มีการตอบกลับ";
         String answerBody = "ยังไม่มีการตอบกลับ (กำลังรอการตอบกลับจากเจ้าหน้าที่)";
@@ -382,7 +401,7 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
         questionData.put("questionBody", questionBody);
         questionData.put("questionBy", questionBy);
         questionData.put("questionAt", questionAt);
-        questionData.put("questionReponse", questionReponse);
+        questionData.put("questionResponse", questionResponse);
         questionData.put("answerBy", answerBy);
         questionData.put("answerAt", answerAt);
         questionData.put("answerBody", answerBody);

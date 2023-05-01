@@ -65,11 +65,11 @@ public class QuestionHandler implements UniqueAble {
         return result;
     }
 
-    public static Question handleGetQuestionByQuestionID(String QuestionID) {
+    public static Question handleGetQuestionByQuestionID(String questionID) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         HashMap<String, Object> result = null;
         try {
-            Callable<HashMap<String, Object>> callable = () -> new QuestionDatabase().getQuestionByQuestionID(QuestionID);
+            Callable<HashMap<String, Object>> callable = () -> new QuestionDatabase().getQuestionByQuestionID(questionID);
             Future<HashMap<String, Object>> future = executorService.submit(callable);
             while (!future.isDone() && !future.isCancelled()) {
                 Thread.sleep(1000);
@@ -81,19 +81,20 @@ public class QuestionHandler implements UniqueAble {
             executorService.shutdown();
         }
         System.out.println(result);
-        String questionId = QuestionID;
+        String questionId = questionID;
         String questionBy = (String) result.get("questionBy");
-        String questionAt = (String) result.get("questionAt");;
-        String questionTItle = (String) result.get("questionTItle");;
-        String questionBody = (String) result.get("questionBody");;
-        String questionResponse = (String) result.get("questionResponse");;
-        String answerBy = (String) result.get("answerBy");;
-        String answerAt = (String) result.get("answerAt");;
-        String answerBody = (String) result.get("answerBody");;
+        String questionAt = (String) result.get("questionAt");
+        String questionTitle = (String) result.get("questionTitle");
+        String questionBody = (String) result.get("questionBody");
+        String questionResponse = (String) result.get("questionResponse");
+        String answerBy = (String) result.get("answerBy");
+        String answerAt = (String) result.get("answerAt");
+        String answerBody = (String) result.get("answerBody");
 
-        return new Question(questionBy,
+        return new Question(questionId,
+                questionBy,
                 questionAt,
-                questionTItle,
+                questionTitle,
                 questionBody,
                 questionResponse,
                 answerBy,

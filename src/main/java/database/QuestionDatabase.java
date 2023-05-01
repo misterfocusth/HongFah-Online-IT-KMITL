@@ -63,20 +63,22 @@ public class QuestionDatabase extends Database {
     public HashMap<String, Object> toQuestionDataMap(QueryDocumentSnapshot document) {
         HashMap<String, Object> currentQuestion = new HashMap<>();
         try {
+            String questionId = document.getId();
             String questionBy = document.getString("questionBy");
             String questionAt = document.getString("questionAt");
             String questionTitle = document.getString("questionTitle");
             String questionBody = document.getString("questionBody");
-            String questionReponse = document.getString("questionReponse");
+            String questionResponse = document.getString("questionResponse");
             String answerBy = document.getString("answerBy");
             String answerAt = document.getString("answerAt");
             String answerBody = document.getString("answerBody");
 
+            currentQuestion.put("questionId", questionId);
             currentQuestion.put("questionBy", questionBy);
             currentQuestion.put("questionAt", questionAt);
             currentQuestion.put("questionTitle", questionTitle);
             currentQuestion.put("questionBody", questionBody);
-            currentQuestion.put("questionReponse", questionReponse);
+            currentQuestion.put("questionResponse", questionResponse);
             currentQuestion.put("answerBy", answerBy);
             currentQuestion.put("answerAt", answerAt);
             currentQuestion.put("answerBody", answerBody);
