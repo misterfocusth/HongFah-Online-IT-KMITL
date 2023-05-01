@@ -17,6 +17,8 @@ public abstract class Database {
 
     public static final String STUDENT_COLLECTION = "students";
     public static final String DOCUMENT_COLLECTION = "documents";
+    public static final String CHECKIN_COLLECTION = "checkin";
+    public static final String QUESTION_COLLECTION = "question";
     public static Firestore db = null;
 
     public static Firestore getDb() {
