@@ -167,7 +167,6 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
         resetFormButton.setMaximumSize(new java.awt.Dimension(99, 35));
         resetFormButton.setMinimumSize(new java.awt.Dimension(99, 35));
         resetFormButton.setPreferredSize(new java.awt.Dimension(200, 35));
-        resetFormButton.setSize(new java.awt.Dimension(78, 35));
         resetFormButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetFormButtonActionPerformed(evt);
@@ -232,18 +231,26 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        questionHistoryTable.setAutoCreateRowSorter(true);
         questionHistoryTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         questionHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "เลขที่คำถาม", "หัวเรื่องคำถาม", "คำถาม", "สถานะการตอบกลับ"
+                "รหัสคำถาม", "หัวเรื่องคำถาม", "คำถาม", "สถานะการตอบกลับ"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        questionHistoryTable.setShowGrid(true);
+        questionHistoryTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(questionHistoryTable);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_48x48/icons8-order-history-48.png"))); // NOI18N
