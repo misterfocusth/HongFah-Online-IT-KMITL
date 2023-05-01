@@ -12,14 +12,12 @@ import forms.student.home.NewHomeForm;
 import forms.student.register.NewRegisterForm;
 import handlers.LoginHandler;
 import handlers.document.DocumentHandler;
-import handlers.document.GeneralDocHandler;
 import helper.FrameHelper;
 import helper.PasswordHelper;
+import java.util.HashMap;
+import javax.swing.*;
 import user.AuthUser;
 import user.Student;
-
-import javax.swing.*;
-import java.util.HashMap;
 
 /**
  * @author misterfocusth
@@ -365,7 +363,6 @@ public class NewLoginForm extends javax.swing.JFrame {
                     NewHomeForm homeForm = new NewHomeForm();
                     AnnounceForm announceForm = new AnnounceForm();
                     MainForm mainForm = new MainForm();
-
 
                     mainForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     mainForm.setLocationRelativeTo(null);

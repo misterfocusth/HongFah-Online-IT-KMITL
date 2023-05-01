@@ -3,13 +3,13 @@ package handlers;
 import database.StudentDatabase;
 import helper.PasswordHelper;
 import helper.StudentDataHelper;
+import java.util.HashMap;
+import java.util.concurrent.*;
 import user.AuthUser;
 import user.Student;
 
-import java.util.HashMap;
-import java.util.concurrent.*;
-
 public class LoginHandler {
+
     public static Student handleLogin(String username, String password) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         HashMap<String, Object> studentData = null;
