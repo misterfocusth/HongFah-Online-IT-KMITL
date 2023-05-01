@@ -5,6 +5,7 @@
 package forms.student.login;
 
 import dialog.InfoDialog;
+import forms.AdminMainForm;
 import forms.MainForm;
 import forms.student.about.AboutForm;
 import forms.student.announce.AnnounceForm;
@@ -16,6 +17,7 @@ import helper.FrameHelper;
 import helper.PasswordHelper;
 import java.util.HashMap;
 import javax.swing.*;
+import user.Admin;
 import user.AuthUser;
 import user.Student;
 
@@ -350,37 +352,69 @@ public class NewLoginForm extends javax.swing.JFrame {
         if (username.isEmpty() || password.isEmpty()) {
             new InfoDialog("ข้อมูลการเข้าสู่ระบบไม่สมบูรณ์", "โปรดกรอกข้อมูลการเข้าสู่ระบบให้ครบ ก่อนดำเนินการต่อ").show();
         } else {
-            Student student = LoginHandler.handleLogin(username, password);
-            if (student == null) {
-                new InfoDialog("ข้อมูลการเข้าสู่ระบบไม่ถูกต้อง", "ไม่สามารถเข้าสู่ระบบได้ เนื่องจากข้อมูลการเข้าสู่ระบบไม่ถูกต้อง !").show();
+            if (username.equalsIgnoreCase("admin")) {
+                Admin admin = LoginHandler.handleAdminLogin(username, password);
+                if (admin == null) {
+                    new InfoDialog("ข้อมูลการเข้าสู่ระบบไม่ถูกต้อง", "ไม่สามารถเข้าสู่ระบบได้ เนื่องจากข้อมูลการเข้าสู่ระบบไม่ถูกต้อง !").show();
+                } else {
+                    HashMap<String, HashMap<String, Object>> documents = DocumentHandler.handleGetAllDocumentsByStudentId(username);
+                    AuthUser.setAuthUser(admin);
+
+                    SwingUtilities.invokeLater(() -> {
+                        // HomeForm homeForm = new HomeForm();
+//                        NewHomeForm homeForm = new NewHomeForm();
+//                        AnnounceForm announceForm = new AnnounceForm();
+                        AdminMainForm adminMainForm = new AdminMainForm();
+
+                        adminMainForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                        adminMainForm.setLocationRelativeTo(null);
+                        adminMainForm.setVisible(true);
+
+//                        FrameHelper.setLocationToCenter(homeForm);
+//                        FrameHelper.currentMainForm = adminMainForm;
+//
+//                        adminMainForm.getMainDesktopPane().add(announceForm);
+//                        adminMainForm.getMainDesktopPane().add(homeForm);
+//
+//                        announceForm.setVisible(true);
+//                        homeForm.setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();
+                    });
+                }
             } else {
-                HashMap<String, HashMap<String, Object>> documents = DocumentHandler.handleGetAllDocumentsByStudentId(username);
-                student.setDocuments(documents);
-                AuthUser.setAuthUser(student);
+                Student student = LoginHandler.handleLogin(username, password);
+                if (student == null) {
+                    new InfoDialog("ข้อมูลการเข้าสู่ระบบไม่ถูกต้อง", "ไม่สามารถเข้าสู่ระบบได้ เนื่องจากข้อมูลการเข้าสู่ระบบไม่ถูกต้อง !").show();
+                } else {
+                    HashMap<String, HashMap<String, Object>> documents = DocumentHandler.handleGetAllDocumentsByStudentId(username);
+                    student.setDocuments(documents);
+                    AuthUser.setAuthUser(student);
 
-                SwingUtilities.invokeLater(() -> {
-                    // HomeForm homeForm = new HomeForm();
-                    NewHomeForm homeForm = new NewHomeForm();
-                    AnnounceForm announceForm = new AnnounceForm();
-                    MainForm mainForm = new MainForm();
+                    SwingUtilities.invokeLater(() -> {
+                        // HomeForm homeForm = new HomeForm();
+                        NewHomeForm homeForm = new NewHomeForm();
+                        AnnounceForm announceForm = new AnnounceForm();
+                        MainForm mainForm = new MainForm();
 
-                    mainForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                    mainForm.setLocationRelativeTo(null);
-                    mainForm.setVisible(true);
+                        mainForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                        mainForm.setLocationRelativeTo(null);
+                        mainForm.setVisible(true);
 
-                    FrameHelper.setLocationToCenter(homeForm);
-                    FrameHelper.currentMainForm = mainForm;
+                        FrameHelper.setLocationToCenter(homeForm);
+                        FrameHelper.currentMainForm = mainForm;
 
-                    mainForm.getMainDesktopPane().add(announceForm);
-                    mainForm.getMainDesktopPane().add(homeForm);
+                        mainForm.getMainDesktopPane().add(announceForm);
+                        mainForm.getMainDesktopPane().add(homeForm);
 
-                    announceForm.setVisible(true);
-                    homeForm.setVisible(true);
+                        announceForm.setVisible(true);
+                        homeForm.setVisible(true);
 
-                    this.setVisible(false);
-                    this.dispose();
-                });
+                        this.setVisible(false);
+                        this.dispose();
+                    });
 
+                }
             }
         }
 

@@ -16,13 +16,14 @@ import java.util.concurrent.ExecutionException;
  */
 public class AdminDatabase extends Database {
 
-    public static synchronized Object getStudentById(String username) throws ExecutionException, InterruptedException {
+    public static synchronized HashMap<String, Object> getAdminById(String username) throws ExecutionException, InterruptedException {
         DocumentReference docRef = db.collection("students").document(username);
         ApiFuture<DocumentSnapshot> future = docRef.get();
         DocumentSnapshot document = future.get();
         if (!document.exists()) {
             return null;
         }
+
         return (HashMap<String, Object>) document.getData();
     }
 }
