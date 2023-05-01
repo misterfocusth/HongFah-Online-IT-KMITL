@@ -3,7 +3,10 @@
  */
 package forms;
 
+import dialog.OptionDialog;
 import forms.student.about.AboutForm;
+import forms.student.login.NewLoginForm;
+import user.AuthUser;
 
 /**
  *
@@ -30,7 +33,7 @@ public class AdminMainForm extends javax.swing.JFrame {
         mainDesktopPane = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         aboutMenu = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        logout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,10 +63,15 @@ public class AdminMainForm extends javax.swing.JFrame {
         });
         jMenuBar1.add(aboutMenu);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-logout-28.png"))); // NOI18N
-        jMenu2.setText("ออกจากระบบ");
-        jMenu2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jMenuBar1.add(jMenu2);
+        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-logout-28.png"))); // NOI18N
+        logout.setText("ออกจากระบบ");
+        logout.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(logout);
 
         setJMenuBar(jMenuBar1);
 
@@ -86,6 +94,21 @@ public class AdminMainForm extends javax.swing.JFrame {
         aboutForm.setLocationRelativeTo(null);
         aboutForm.setVisible(true);
     }//GEN-LAST:event_aboutMenuMouseClicked
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        int selectedOpt = new OptionDialog("ออกจากระบบ", "ยืนยันที่จะออกจากระบบ หรือไม่ ?").show();
+        if (selectedOpt == 0) {
+            AuthUser.setAuthUser(null);
+            NewLoginForm newLoginForm = new NewLoginForm();
+            newLoginForm.setLocationRelativeTo(null);
+            newLoginForm.setVisible(true);
+            this.setVisible(false);
+            this.dispose();
+
+            MainForm.mainDesktopPane.removeAll();
+            MainForm.mainDesktopPane.updateUI();
+    }//GEN-LAST:event_logoutMouseClicked
+    }
 
     /**
      * @param args the command line arguments
@@ -124,8 +147,8 @@ public class AdminMainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu aboutMenu;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu logout;
     public static javax.swing.JDesktopPane mainDesktopPane;
     // End of variables declaration//GEN-END:variables
 }
