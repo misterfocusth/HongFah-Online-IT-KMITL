@@ -4,10 +4,7 @@
  */
 package database;
 
-import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.Firestore;
-import firebase.Firebase;
 
 /**
  *
@@ -17,6 +14,7 @@ public abstract class Database {
 
     public static final String STUDENT_COLLECTION = "students";
     public static final String DOCUMENT_COLLECTION = "documents";
+    public static final String QUESTION_COLLECTION = "question";
     public static Firestore db = null;
 
     public static Firestore getDb() {

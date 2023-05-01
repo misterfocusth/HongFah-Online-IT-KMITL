@@ -72,11 +72,11 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
         requestByTextField.setEditable(false);
         contactAddressTextArea.setEditable(false);
         causeOfLeaveTextField.setEditable(false);
-        leaveFromDay.setEditable(false);
-        leaveFromMonth.setEditable(false);
+        leaveFromDay.setEnabled(false);
+        leaveFromMonth.setEnabled(false);
         leaveFromYear.setEditable(false);
-        LeaveUntilDay.setEditable(false);
-        leaveUntilMonth.setEditable(false);
+        LeaveUntilDay.setEnabled(false);
+        leaveUntilMonth.setEnabled(false);
         leaveUntilYear.setEditable(false);
         requestRemarkTextArea.setEditable(false);
         leaveTitleTextField.setEditable(false);

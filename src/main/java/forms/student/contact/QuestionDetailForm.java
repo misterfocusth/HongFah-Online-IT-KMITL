@@ -54,6 +54,7 @@ public class QuestionDetailForm extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        questionBodyTextArea.setEditable(false);
         questionBodyTextArea.setColumns(20);
         questionBodyTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         questionBodyTextArea.setLineWrap(true);
@@ -64,6 +65,7 @@ public class QuestionDetailForm extends javax.swing.JInternalFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("คำถามที่ต้องการติดต่อเจ้าหน้าที่");
 
+        questionTitleTextField.setEditable(false);
         questionTitleTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -99,6 +101,7 @@ public class QuestionDetailForm extends javax.swing.JInternalFrame {
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_48x48/icons8-male-user-48.png"))); // NOI18N
 
+        questionResponseTextArea.setEditable(false);
         questionResponseTextArea.setColumns(20);
         questionResponseTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         questionResponseTextArea.setLineWrap(true);
@@ -156,26 +159,24 @@ public class QuestionDetailForm extends javax.swing.JInternalFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(createdBy))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(createdAt))))
-                            .addComponent(questionTitleTextField)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, 0)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(createdBy))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(createdAt))))
+                        .addComponent(questionTitleTextField)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
@@ -224,11 +225,8 @@ public class QuestionDetailForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea questionBodyTextArea;
     private javax.swing.JTextArea questionResponseTextArea;
     private javax.swing.JTextField questionTitleTextField;

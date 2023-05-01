@@ -5,6 +5,7 @@
 package forms.student.contact;
 
 import dialog.InfoDialog;
+import java.util.Map;
 
 /**
  *
@@ -336,6 +337,9 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_createQuestionButtonMouseClicked
 
+    private Map<String, Object> toQuestionDataMap() {
+        return 
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createQuestionButton;
     private javax.swing.JButton jButton1;
