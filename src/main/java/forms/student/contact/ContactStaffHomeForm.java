@@ -5,14 +5,18 @@
 package forms.student.contact;
 
 import dialog.InfoDialog;
+import forms.MainForm;
 import handlers.QuestionHandler;
+import helper.FrameHelper;
 import helper.InputValidationHelper;
 import java.awt.Font;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import question.Question;
 import user.AuthUser;
 import user.Student;
 
@@ -270,6 +274,11 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
         questionHistoryTable.setRowHeight(35);
         questionHistoryTable.setShowGrid(true);
         questionHistoryTable.getTableHeader().setReorderingAllowed(false);
+        questionHistoryTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                questionHistoryTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(questionHistoryTable);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_48x48/icons8-order-history-48.png"))); // NOI18N
@@ -381,6 +390,19 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_createQuestionButtonMouseClicked
+
+    private void questionHistoryTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_questionHistoryTableMouseClicked
+        JTable target = (JTable) evt.getSource();
+        int selectedRow = target.getSelectedRow();
+        String selectedQuesId = (String) questionHistoryTable.getValueAt(selectedRow, 0);
+        Question selectedQuesData = QuestionHandler.handleGetQuestionByQuestionID(selectedQuesId);
+        System.out.println(selectedRow);
+        System.out.println(selectedQuesData);
+        QuestionDetailForm questionDetailForm = new QuestionDetailForm(selectedQuesData);
+        FrameHelper.setLocationToCenter(questionDetailForm);
+        MainForm.mainDesktopPane.add(questionDetailForm);
+        questionDetailForm.setVisible(true);
+    }//GEN-LAST:event_questionHistoryTableMouseClicked
 
     private Map<String, Object> toQuestionDataMap() {
 

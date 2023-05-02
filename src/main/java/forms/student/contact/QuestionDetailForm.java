@@ -4,17 +4,36 @@
  */
 package forms.student.contact;
 
+import question.Question;
+import user.AuthUser;
+import user.Student;
+
 /**
  *
  * @author misterfocusth
  */
 public class QuestionDetailForm extends javax.swing.JInternalFrame {
+    
+    private Question quesData;
 
     /**
      * Creates new form QuestionDetailForm
      */
-    public QuestionDetailForm() {
+    public QuestionDetailForm(Question quesData) {
         initComponents();
+        this.quesData = quesData;
+        showQuestionData();
+    }
+    
+    private void showQuestionData() {
+        Student student = (Student) AuthUser.getAuthUser();
+        createdBy.setText(student.getThFirstName() + " " + student.getThLastName());
+        createdAt.setText(quesData.getQuestionAt());
+        questionTitleTextField.setText(quesData.getQuestionTitle());
+        questionBodyTextArea.setText(quesData.getQuestionBody());
+        repliedBy.setText(quesData.getAnswerBy());
+        repliedAt.setText(quesData.getAnswerAt());
+        questionResponseTextArea.setText(quesData.getAnswerBody());
     }
 
     /**
