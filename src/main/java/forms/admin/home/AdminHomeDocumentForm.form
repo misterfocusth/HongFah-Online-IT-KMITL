@@ -151,10 +151,12 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="&#xe01;&#xe33;&#xe25;&#xe31;&#xe07;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;"/>
-                <StringItem index="1" value="&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15; / &#xe1c;&#xe48;&#xe32;&#xe19;"/>
-                <StringItem index="2" value="&#xe44;&#xe21;&#xe48;&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15; / &#xe44;&#xe21;&#xe48;&#xe1c;&#xe48;&#xe32;&#xe19;"/>
+              <StringArray count="5">
+                <StringItem index="0" value="&#xe14;&#xe39;&#xe23;&#xe32;&#xe22;&#xe01;&#xe32;&#xe23;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;&#xe17;&#xe31;&#xe49;&#xe07;&#xe2b;&#xe21;&#xe14;"/>
+                <StringItem index="1" value="&#xe22;&#xe37;&#xe48;&#xe19;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;&#xe41;&#xe25;&#xe49;&#xe27;"/>
+                <StringItem index="2" value="&#xe01;&#xe33;&#xe25;&#xe31;&#xe07;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;"/>
+                <StringItem index="3" value="&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15; / &#xe1c;&#xe48;&#xe32;&#xe19;"/>
+                <StringItem index="4" value="&#xe44;&#xe21;&#xe48;&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15; / &#xe44;&#xe21;&#xe48;&#xe1c;&#xe48;&#xe32;&#xe19;"/>
               </StringArray>
             </Property>
           </Properties>
@@ -224,10 +226,12 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="&#xe01;&#xe33;&#xe25;&#xe31;&#xe07;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;"/>
-                <StringItem index="1" value="&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15;&#xe43;&#xe2b;&#xe49;&#xe25;&#xe32;"/>
-                <StringItem index="2" value="&#xe44;&#xe21;&#xe48;&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15;&#xe43;&#xe2b;&#xe49;&#xe25;&#xe32;"/>
+              <StringArray count="5">
+                <StringItem index="0" value="&#xe14;&#xe39;&#xe23;&#xe32;&#xe22;&#xe01;&#xe32;&#xe23;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;&#xe17;&#xe31;&#xe49;&#xe07;&#xe2b;&#xe21;&#xe14;"/>
+                <StringItem index="1" value="&#xe22;&#xe37;&#xe48;&#xe19;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;&#xe41;&#xe25;&#xe49;&#xe27;"/>
+                <StringItem index="2" value="&#xe01;&#xe33;&#xe25;&#xe31;&#xe07;&#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;"/>
+                <StringItem index="3" value="&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15;&#xe43;&#xe2b;&#xe49;&#xe25;&#xe32;"/>
+                <StringItem index="4" value="&#xe44;&#xe21;&#xe48;&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15;&#xe43;&#xe2b;&#xe49;&#xe25;&#xe32;"/>
               </StringArray>
             </Property>
           </Properties>
