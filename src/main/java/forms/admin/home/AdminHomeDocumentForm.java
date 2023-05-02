@@ -54,7 +54,7 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
         jLabel5.setText("เลือกดูตามสถานะของเอกสาร :");
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ดูรายการเอกสารทั้งหมด", "ยื่นเอกสารแล้ว", "กำลังตรวจสอบเอกสาร", "อนุญาต / ผ่าน", "ไม่อนุญาต / ไม่ผ่าน" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "กำลังตรวจสอบเอกสาร", "อนุญาต / ผ่าน", "ไม่อนุญาต / ไม่ผ่าน" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -98,7 +98,7 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
         jLabel8.setText("เลือกดูตามสถานะของเอกสาร :");
 
         jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ดูรายการเอกสารทั้งหมด", "ยื่นเอกสารแล้ว", "กำลังตรวจสอบเอกสาร", "อนุญาต / ผ่าน", "ไม่อนุญาต / ไม่ผ่าน" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "กำลังตรวจสอบเอกสาร", "อนุญาตให้ลา", "ไม่อนุญาตให้ลา" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -196,7 +196,6 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
         searchByStudentIdButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         searchByStudentIdButton.setText("ค้นหา");
         searchByStudentIdButton.setPreferredSize(new java.awt.Dimension(100, 35));
-        searchByStudentIdButton.setSize(new java.awt.Dimension(100, 35));
         searchByStudentIdButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchByStudentIdButtonActionPerformed(evt);
