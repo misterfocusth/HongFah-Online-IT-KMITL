@@ -89,6 +89,7 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        refresh = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
@@ -289,6 +290,13 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("รายการเเละสถานะของคำถาม ที่นักศึกษาถาม-ตอบ ผ่านระบบห้องฟ้าออนไลน์");
 
+        refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-reset-48.png"))); // NOI18N
+        refresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                refreshMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -296,28 +304,35 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(refresh)
+                        .addGap(24, 24, 24))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)))
-                .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel7)))
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(refresh)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
@@ -404,6 +419,27 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
         questionDetailForm.setVisible(true);
     }//GEN-LAST:event_questionHistoryTableMouseClicked
 
+    private void refreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshMouseClicked
+        refreshHomeData();
+    }//GEN-LAST:event_refreshMouseClicked
+
+    private void refreshHomeData() {
+        DefaultTableModel model = (DefaultTableModel) questionHistoryTable.getModel();
+        model.getDataVector().removeAllElements();
+        model.fireTableDataChanged(); // notifies the JTable that the model has changed
+
+        questionHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
+
+        requestQuestion = QuestionHandler.handleGetAllQuestionByStudentId(studentId);
+        requestQuestion.forEach((k, v) -> {
+            String questionId = (String) v.get("questionId");
+            String questionTitle = (String) v.get("questionTitle");
+            String questionBody = (String) v.get("questionBody");
+            String questionResponse = (String) v.get("questionResponse");
+            model.addRow(new String[]{questionId.toUpperCase(), questionTitle, questionBody, questionResponse});
+        });
+    }
+
     private Map<String, Object> toQuestionDataMap() {
 
         String questionTitle = questionTitleTextField.getText();
@@ -459,6 +495,7 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea questionBodyTextArea;
     private javax.swing.JTable questionHistoryTable;
     private javax.swing.JTextField questionTitleTextField;
+    private javax.swing.JLabel refresh;
     private javax.swing.JButton resetFormButton;
     // End of variables declaration//GEN-END:variables
 }
