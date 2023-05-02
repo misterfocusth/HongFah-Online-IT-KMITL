@@ -6,6 +6,7 @@ package forms;
 import dialog.OptionDialog;
 import forms.student.about.AboutForm;
 import forms.student.login.NewLoginForm;
+import javax.swing.JDesktopPane;
 import user.AuthUser;
 
 /**
@@ -151,4 +152,8 @@ public class AdminMainForm extends javax.swing.JFrame {
     private javax.swing.JMenu logout;
     public static javax.swing.JDesktopPane mainDesktopPane;
     // End of variables declaration//GEN-END:variables
+
+    public JDesktopPane getMainDesktopPane() {
+        return mainDesktopPane;
+    }
 }
