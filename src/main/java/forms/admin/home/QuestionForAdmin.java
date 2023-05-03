@@ -62,11 +62,25 @@ public class QuestionForAdmin extends javax.swing.JInternalFrame {
             new String [] {
                 "รหัสคำถาม", "รหัสนักศึกษา", "หัวเรื่องคำถาม", "สถานะการตอบกลับ"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         questionTable.setRowHeight(35);
         questionTable.setShowGrid(true);
         questionTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(questionTable);
+        if (questionTable.getColumnModel().getColumnCount() > 0) {
+            questionTable.getColumnModel().getColumn(0).setResizable(false);
+            questionTable.getColumnModel().getColumn(1).setResizable(false);
+            questionTable.getColumnModel().getColumn(2).setResizable(false);
+            questionTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("คำถามที่ส่งเข้ามาสำหรับเจ้าหน้าที่");

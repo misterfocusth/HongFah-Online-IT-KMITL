@@ -135,6 +135,12 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane1.setViewportView(generalDocHistoryTable);
+        if (generalDocHistoryTable.getColumnModel().getColumnCount() > 0) {
+            generalDocHistoryTable.getColumnModel().getColumn(0).setResizable(false);
+            generalDocHistoryTable.getColumnModel().getColumn(1).setResizable(false);
+            generalDocHistoryTable.getColumnModel().getColumn(2).setResizable(false);
+            generalDocHistoryTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         leaveDocHistoryTable.setAutoCreateRowSorter(true);
         leaveDocHistoryTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -163,6 +169,12 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane2.setViewportView(leaveDocHistoryTable);
+        if (leaveDocHistoryTable.getColumnModel().getColumnCount() > 0) {
+            leaveDocHistoryTable.getColumnModel().getColumn(0).setResizable(false);
+            leaveDocHistoryTable.getColumnModel().getColumn(1).setResizable(false);
+            leaveDocHistoryTable.getColumnModel().getColumn(2).setResizable(false);
+            leaveDocHistoryTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

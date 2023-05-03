@@ -2,7 +2,6 @@ package handlers.document;
 
 import database.GeneralDocumentDatabase;
 import document.GeneralRequestDocument;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +17,24 @@ public class GeneralDocHandler extends DocumentHandler {
         try {
             Callable<Boolean> callable = () -> new GeneralDocumentDatabase().addNewDocument(docData, newDocId);
             Future<Boolean> future = executorService.submit(callable);
+            while (!future.isDone() && !future.isCancelled()) {
+                Thread.sleep(1000);
+            }
+            result = future.get();
+        } catch (InterruptedException | ExecutionException ex) {
+            ex.printStackTrace();
+        } finally {
+            executorService.shutdown();
+        }
+        return result;
+    }
+
+    public static HashMap<String, HashMap<String, Object>> handleGetAllGeneralDoc() {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        HashMap<String, HashMap<String, Object>> result = null;
+        try {
+            Callable<HashMap<String, HashMap<String, Object>>> callable = () -> new GeneralDocumentDatabase().getAllGeneralDoc();
+            Future<HashMap<String, HashMap<String, Object>>> future = executorService.submit(callable);
             while (!future.isDone() && !future.isCancelled()) {
                 Thread.sleep(1000);
             }

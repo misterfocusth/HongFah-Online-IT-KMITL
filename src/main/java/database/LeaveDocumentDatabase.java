@@ -30,6 +30,21 @@ public class LeaveDocumentDatabase extends DocumentDatabase {
         return documents;
     }
 
+    public synchronized HashMap<String, HashMap<String, Object>> getAllLeaveDoc() throws ExecutionException, InterruptedException {
+        HashMap<String, HashMap<String, Object>> docData = new HashMap<>();
+        ApiFuture<QuerySnapshot> query = db.collection(DOCUMENT_COLLECTION).whereEqualTo("documentType", 2).get();
+        QuerySnapshot querySnapshot = query.get();
+        List<QueryDocumentSnapshot> queryDocuments = querySnapshot.getDocuments();
+        try {
+            for (QueryDocumentSnapshot document : queryDocuments) {
+                docData.put(document.getId(), toDocDataMap(document));
+            }
+        } catch (NullPointerException ex) {
+            ex.printStackTrace();
+        }
+        return docData;
+    }
+
     public synchronized HashMap<String, Object> getDocumentByDocID(String docId) throws InterruptedException, ExecutionException {
         DocumentReference docRef = db.collection(DOCUMENT_COLLECTION).document(docId);
         ApiFuture<DocumentSnapshot> future = docRef.get();

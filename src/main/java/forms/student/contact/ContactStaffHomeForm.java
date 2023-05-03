@@ -586,6 +586,12 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane1.setViewportView(questionHistoryTable);
+        if (questionHistoryTable.getColumnModel().getColumnCount() > 0) {
+            questionHistoryTable.getColumnModel().getColumn(0).setResizable(false);
+            questionHistoryTable.getColumnModel().getColumn(1).setResizable(false);
+            questionHistoryTable.getColumnModel().getColumn(2).setResizable(false);
+            questionHistoryTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_48x48/icons8-order-history-48.png"))); // NOI18N
 
@@ -656,7 +662,7 @@ public class ContactStaffHomeForm extends javax.swing.JInternalFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, Short.MAX_VALUE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

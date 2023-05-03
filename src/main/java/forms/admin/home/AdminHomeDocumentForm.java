@@ -4,17 +4,54 @@
  */
 package forms.admin.home;
 
+import handlers.document.GeneralDocHandler;
+import handlers.document.LeaveDocHandler;
+import java.awt.Font;
+import java.util.HashMap;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author pangggg
  */
 public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
 
+    private HashMap<String, HashMap<String, Object>> requestDoc = new HashMap<>();
+    private HashMap<String, HashMap<String, Object>> leaveRequestDoc = new HashMap<>();
+
     /**
      * Creates new form AdminHomeForm
      */
     public AdminHomeDocumentForm() {
         initComponents();
+        setGeneralDocTableData();
+        setLeaveDocTableData();
+    }
+
+    private void setGeneralDocTableData() {
+        DefaultTableModel model = (DefaultTableModel) generalDocHistoryTable.getModel();
+        generalDocHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
+        requestDoc = GeneralDocHandler.handleGetAllGeneralDoc();
+        requestDoc.forEach((k, v) -> {
+            String docID = (String) v.get("documentId");
+            String requestTitle = (String) v.get("requestTitle");
+            String dateDoc = (String) v.get("requestedAtDay") + " " + (String) v.get("requestedAtMonth") + " " + (String) v.get("requestedAtYear");
+            String requestStatus = (String) v.get("requestStatus");
+            model.addRow(new String[]{docID.toUpperCase(), dateDoc, requestTitle, requestStatus});
+        });
+    }
+
+    private void setLeaveDocTableData() {
+        DefaultTableModel model = (DefaultTableModel) leaveDocHistoryTable.getModel();
+        leaveDocHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
+        leaveRequestDoc = LeaveDocHandler.handleGetAllLeaveDoc();
+        leaveRequestDoc.forEach((k, v) -> {
+            String docID = (String) v.get("documentId");
+            String requestTitle = (String) v.get("otherLeaveTitle");
+            String dateDoc = (String) v.get("requestedAtDay") + " " + (String) v.get("requestedAtMonth") + " " + (String) v.get("requestedAtYear");
+            String requestStatus = (String) v.get("requestStatus");
+            model.addRow(new String[]{docID.toUpperCase(), dateDoc, requestTitle, requestStatus});
+        });
     }
 
     /**
@@ -33,11 +70,11 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        generalDocHistoryTable1 = new javax.swing.JTable();
+        generalDocHistoryTable = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        generalDocHistoryTable2 = new javax.swing.JTable();
+        leaveDocHistoryTable = new javax.swing.JTable();
         searchByStudentIdTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         searchByStudentIdButton = new javax.swing.JButton();
@@ -68,9 +105,9 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("ประวัติการยื่นรายการคำร้องลาเรียน");
 
-        generalDocHistoryTable1.setAutoCreateRowSorter(true);
-        generalDocHistoryTable1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        generalDocHistoryTable1.setModel(new javax.swing.table.DefaultTableModel(
+        generalDocHistoryTable.setAutoCreateRowSorter(true);
+        generalDocHistoryTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        generalDocHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -86,15 +123,21 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        generalDocHistoryTable1.setRowHeight(35);
-        generalDocHistoryTable1.setShowGrid(true);
-        generalDocHistoryTable1.getTableHeader().setReorderingAllowed(false);
-        generalDocHistoryTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        generalDocHistoryTable.setRowHeight(35);
+        generalDocHistoryTable.setShowGrid(true);
+        generalDocHistoryTable.getTableHeader().setReorderingAllowed(false);
+        generalDocHistoryTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                generalDocHistoryTable1MouseClicked(evt);
+                generalDocHistoryTableMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(generalDocHistoryTable1);
+        jScrollPane2.setViewportView(generalDocHistoryTable);
+        if (generalDocHistoryTable.getColumnModel().getColumnCount() > 0) {
+            generalDocHistoryTable.getColumnModel().getColumn(0).setResizable(false);
+            generalDocHistoryTable.getColumnModel().getColumn(1).setResizable(false);
+            generalDocHistoryTable.getColumnModel().getColumn(2).setResizable(false);
+            generalDocHistoryTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("เลือกดูตามสถานะของเอกสาร :");
@@ -107,9 +150,9 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
             }
         });
 
-        generalDocHistoryTable2.setAutoCreateRowSorter(true);
-        generalDocHistoryTable2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        generalDocHistoryTable2.setModel(new javax.swing.table.DefaultTableModel(
+        leaveDocHistoryTable.setAutoCreateRowSorter(true);
+        leaveDocHistoryTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        leaveDocHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -125,15 +168,21 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        generalDocHistoryTable2.setRowHeight(35);
-        generalDocHistoryTable2.setShowGrid(true);
-        generalDocHistoryTable2.getTableHeader().setReorderingAllowed(false);
-        generalDocHistoryTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+        leaveDocHistoryTable.setRowHeight(35);
+        leaveDocHistoryTable.setShowGrid(true);
+        leaveDocHistoryTable.getTableHeader().setReorderingAllowed(false);
+        leaveDocHistoryTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                generalDocHistoryTable2MouseClicked(evt);
+                leaveDocHistoryTableMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(generalDocHistoryTable2);
+        jScrollPane3.setViewportView(leaveDocHistoryTable);
+        if (leaveDocHistoryTable.getColumnModel().getColumnCount() > 0) {
+            leaveDocHistoryTable.getColumnModel().getColumn(0).setResizable(false);
+            leaveDocHistoryTable.getColumnModel().getColumn(1).setResizable(false);
+            leaveDocHistoryTable.getColumnModel().getColumn(2).setResizable(false);
+            leaveDocHistoryTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -240,17 +289,17 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void generalDocHistoryTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generalDocHistoryTable1MouseClicked
+    private void generalDocHistoryTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generalDocHistoryTableMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_generalDocHistoryTable1MouseClicked
+    }//GEN-LAST:event_generalDocHistoryTableMouseClicked
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
-    private void generalDocHistoryTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generalDocHistoryTable2MouseClicked
+    private void leaveDocHistoryTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leaveDocHistoryTableMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_generalDocHistoryTable2MouseClicked
+    }//GEN-LAST:event_leaveDocHistoryTableMouseClicked
 
     private void searchByStudentIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByStudentIdTextFieldActionPerformed
         // TODO add your handling code here:
@@ -261,8 +310,7 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_searchByStudentIdButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable generalDocHistoryTable1;
-    private javax.swing.JTable generalDocHistoryTable2;
+    private javax.swing.JTable generalDocHistoryTable;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -274,6 +322,7 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable leaveDocHistoryTable;
     private javax.swing.JButton searchByStudentIdButton;
     private javax.swing.JTextField searchByStudentIdTextField;
     // End of variables declaration//GEN-END:variables
