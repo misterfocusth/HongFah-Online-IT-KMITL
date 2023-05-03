@@ -26,23 +26,23 @@ public class CheckFailCase1Forms extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        finalLabel = new javax.swing.JLabel();
+        backHomebtn = new javax.swing.JButton();
+        finalLabel2 = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("เช็คชื่อไม่สำเร็จ");
+        finalLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        finalLabel.setText("เช็คชื่อไม่สำเร็จ");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setText("กลับสู่หน้าหลัก");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backHomebtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        backHomebtn.setText("กลับสู่หน้าหลัก");
+        backHomebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backHomebtnActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("ระบบปิดรับการตอบกลับแล้ว");
+        finalLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        finalLabel2.setText("ระบบปิดรับการตอบกลับแล้ว");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -50,41 +50,41 @@ public class CheckFailCase1Forms extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 62, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(finalLabel2)
                 .addGap(54, 54, 54))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(83, 83, 83)
-                        .addComponent(jLabel1))
+                        .addComponent(finalLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(124, 124, 124)
-                        .addComponent(jButton1)))
+                        .addComponent(backHomebtn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel1)
+                .addComponent(finalLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(finalLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(backHomebtn)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void backHomebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backHomebtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_backHomebtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton backHomebtn;
+    private javax.swing.JLabel finalLabel;
+    private javax.swing.JLabel finalLabel2;
     // End of variables declaration//GEN-END:variables
 }
