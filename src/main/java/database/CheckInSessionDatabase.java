@@ -30,7 +30,7 @@ public class CheckInSessionDatabase extends Database {
     }
 
     public synchronized  HashMap<String, Object> getCheckInSessionByCode(String subjectCode) throws ExecutionException, InterruptedException {
-DocumentReference docRef = db.collection(CHECKIN_COLLECTION).document(subjectCode);
+        DocumentReference docRef = db.collection(CHECKIN_COLLECTION).document(subjectCode);
         ApiFuture<DocumentSnapshot> future = docRef.get();
         DocumentSnapshot document = future.get();
         if (!document.exists()) {
