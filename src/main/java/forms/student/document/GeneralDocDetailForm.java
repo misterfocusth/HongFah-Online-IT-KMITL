@@ -27,10 +27,6 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
         showDocData();
     }
 
-    GeneralDocDetailForm(String selectedDocId) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
     private void showDocData() {
         documentIDLabel.setText(docData.getDocumentId());
         writtenAtTextArea.setText(docData.getWrittenAt());

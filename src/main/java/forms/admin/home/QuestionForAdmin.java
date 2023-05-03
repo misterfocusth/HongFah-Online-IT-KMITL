@@ -4,10 +4,16 @@
  */
 package forms.admin.home;
 
+import forms.AdminMainForm;
 import handlers.QuestionHandler;
+import handlers.StudentInfoHandler;
+import helper.FrameHelper;
 import java.awt.Font;
 import java.util.HashMap;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import question.Question;
+import user.Student;
 
 /**
  *
@@ -74,6 +80,11 @@ public class QuestionForAdmin extends javax.swing.JInternalFrame {
         questionTable.setRowHeight(35);
         questionTable.setShowGrid(true);
         questionTable.getTableHeader().setReorderingAllowed(false);
+        questionTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                questionTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(questionTable);
         if (questionTable.getColumnModel().getColumnCount() > 0) {
             questionTable.getColumnModel().getColumn(0).setResizable(false);
@@ -118,6 +129,20 @@ public class QuestionForAdmin extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void questionTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_questionTableMouseClicked
+        JTable target = (JTable) evt.getSource();
+        int selectedRow = target.getSelectedRow();
+        String selectedQuesId = (String) questionTable.getValueAt(selectedRow, 0);
+        Question selectedQuesData = QuestionHandler.handleGetQuestionByQuestionID(selectedQuesId);
+        System.out.println(selectedRow);
+        System.out.println(selectedQuesData);
+        Student student = new StudentInfoHandler().handleGetNameStudentByStudentId(selectedQuesData.getQuestionBy());
+        QuestionAndAnswerAdmin questionDetailForm = new QuestionAndAnswerAdmin(selectedQuesData, student);
+        FrameHelper.setLocationToCenter(questionDetailForm);
+        AdminMainForm.mainDesktopPane.add(questionDetailForm);
+        questionDetailForm.setVisible(true);
+    }//GEN-LAST:event_questionTableMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
