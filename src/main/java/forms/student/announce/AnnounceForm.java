@@ -54,6 +54,7 @@ public class AnnounceForm extends javax.swing.JInternalFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ข่าวประกาศล่าสุด / ปัจจุบัน", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         announceTitleTextField.setEditable(false);
+        announceTitleTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("หัวเรื่องประกาศ");
@@ -63,6 +64,7 @@ public class AnnounceForm extends javax.swing.JInternalFrame {
 
         announceBodyTextArea.setEditable(false);
         announceBodyTextArea.setColumns(20);
+        announceBodyTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         announceBodyTextArea.setRows(5);
         jScrollPane1.setViewportView(announceBodyTextArea);
 

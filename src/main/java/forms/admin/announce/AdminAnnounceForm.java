@@ -4,6 +4,11 @@
  */
 package forms.admin.announce;
 
+import announce.Announce;
+import dialog.InfoDialog;
+import dialog.OptionDialog;
+import handlers.AnnounceHandler;
+
 /**
  *
  * @author misterfocusth
@@ -15,6 +20,13 @@ public class AdminAnnounceForm extends javax.swing.JInternalFrame {
      */
     public AdminAnnounceForm() {
         initComponents();
+        showCurrentAnnouncement();
+    }
+
+    private void showCurrentAnnouncement() {
+        Announce announce = AnnounceHandler.handlerGetCurrentAnnouncement();
+        announceTitleTextField.setText(announce.getAnnounceTitle());
+        announceBodyTextArea.setText(announce.getAnnounceBody());
     }
 
     /**
@@ -49,6 +61,8 @@ public class AdminAnnounceForm extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ข่าวประกาศล่าสุด / ปัจจุบัน", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
+        announceTitleTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("หัวเรื่องประกาศ");
 
@@ -56,6 +70,7 @@ public class AdminAnnounceForm extends javax.swing.JInternalFrame {
         jLabel5.setText("เนื้อเรื่องประกาศ");
 
         announceBodyTextArea.setColumns(20);
+        announceBodyTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         announceBodyTextArea.setRows(5);
         jScrollPane1.setViewportView(announceBodyTextArea);
 
@@ -93,10 +108,22 @@ public class AdminAnnounceForm extends javax.swing.JInternalFrame {
         );
 
         resetAnnounceButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        resetAnnounceButton.setForeground(new java.awt.Color(242, 103, 33));
         resetAnnounceButton.setText("รีเซ็ตประกาศ");
+        resetAnnounceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetAnnounceButtonActionPerformed(evt);
+            }
+        });
 
         saveAnnounceButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        saveAnnounceButton.setForeground(new java.awt.Color(41, 121, 255));
         saveAnnounceButton.setText("บันทึกประกาศ");
+        saveAnnounceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAnnounceButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -155,6 +182,33 @@ public class AdminAnnounceForm extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private boolean validDateInputData() {
+        return !announceTitleTextField.getText().isEmpty() && !announceBodyTextArea.getText().isEmpty();
+    }
+    private void resetAnnounceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetAnnounceButtonActionPerformed
+        if (!validDateInputData()) {
+            return;
+        }
+        if (new OptionDialog("ยืนยันการล้างประกาศ / ประชาสัมพันธ์", "ต้องการล้างประกาศ เเละ/หรือข้อความประชาสัมพันธ์ปัจจุบันหรือไม่").show() == 0) {
+            if (AnnounceHandler.handleUpdateAnnouncement("ยังไม่มีประกาศ / ประชาสัมพันธ์", "ยังไม่มีประกาศ / ประชาสัมพันธ์")) {
+                announceTitleTextField.setText("ยังไม่มีประกาศ / ประชาสัมพันธ์");
+                announceBodyTextArea.setText("ยังไม่มีประกาศ / ประชาสัมพันธ์");
+                new InfoDialog("", "ล้างประกาศ / ประชาสัมพันธ์เรียบร้อยเเล้ว").show();
+            }
+        }
+    }//GEN-LAST:event_resetAnnounceButtonActionPerformed
+
+    private void saveAnnounceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAnnounceButtonActionPerformed
+        if (!validDateInputData()) {
+            return;
+        }
+        if (new OptionDialog("อัพเดทการล้างประกาศ / ประชาสัมพันธ์ ?", "ต้องการอัพเดท แก้ไขข้อมูลประกาศ เเละ/หรือข้อความประชาสัมพันธ์ปัจจุบันหรือไม่").show() == 0) {
+            if (AnnounceHandler.handleUpdateAnnouncement(announceTitleTextField.getText(), announceBodyTextArea.getText())) {
+                new InfoDialog("", "อัพเดทประกาศ / ประชาสัมพันธ์เรียบร้อยแล้ว").show();
+            }
+        }
+    }//GEN-LAST:event_saveAnnounceButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea announceBodyTextArea;

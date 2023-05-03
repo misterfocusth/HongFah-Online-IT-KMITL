@@ -16,7 +16,7 @@ import java.util.concurrent.ExecutionException;
 public class AnnounceDatabase extends Database {
 
     public synchronized Announce getAnnouncement() throws ExecutionException, InterruptedException {
-        DocumentReference docRef = db.collection("announce").document("1");
+        DocumentReference docRef = db.collection(ANNOUNCE_COLLECTION).document("1");
         ApiFuture<DocumentSnapshot> future = docRef.get();
         DocumentSnapshot document = future.get();
         if (!document.exists()) {
@@ -31,11 +31,11 @@ public class AnnounceDatabase extends Database {
     }
 
     public synchronized boolean updateAnnouncement(String announceTitle, String announceBody) {
-        DocumentReference docRef = db.collection("question").document("1");
+        DocumentReference docRef = db.collection(ANNOUNCE_COLLECTION).document("1");
         Map<String, Object> data = new HashMap<>();
         data.put("announceTitle", announceTitle);
         data.put("announceBody", announceBody);
-        ApiFuture<WriteResult> result = docRef.update(data);
+        ApiFuture<WriteResult> result = docRef.set(data);
         return true;
     }
 }

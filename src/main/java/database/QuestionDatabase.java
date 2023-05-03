@@ -9,7 +9,6 @@ import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
-import static database.Database.db;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
