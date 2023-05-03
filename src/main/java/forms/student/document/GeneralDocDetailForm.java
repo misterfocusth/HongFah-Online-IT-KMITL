@@ -51,7 +51,6 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
             staffCommentTextArea.setText(docData.getRequestResponses().get(0));
             profCommentTextArea.setText(docData.getRequestResponses().get(1));
             remarkTextArea.setText(docData.getRequestResponses().get(2));
-
         }
 
         writtenAtTextArea.setEditable(false);

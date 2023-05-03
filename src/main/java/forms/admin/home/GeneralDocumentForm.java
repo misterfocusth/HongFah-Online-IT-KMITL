@@ -4,9 +4,16 @@
  */
 package forms.admin.home;
 
+import dialog.InfoDialog;
 import document.GeneralRequestDocument;
+import handlers.document.GeneralDocHandler;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import user.Admin;
+import user.AuthUser;
 import user.Student;
 
 /**
@@ -47,6 +54,11 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
         addressLabel.setText(student.getContactAddress());
         majorNameLabel.setText(student.getMajorName());
 
+        if (docData.getRequestStatus().equals("ยื่นเอกสารแล้ว")) {
+        } else {
+            statusCombo.setSelectedItem(docData.getRequestStatus());
+        }
+
         documentIDLabel.setText(docData.getDocumentId());
         writtenAtTextArea.setText(docData.getWrittenAt());
         requestTitleTextField.setText(docData.getRequestTitle());
@@ -59,7 +71,15 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
         requestBodyTextArea.setText(docData.getRequestBody());
         requestByNameTextField.setText(student.getThFirstName() + " " + student.getThLastName());
         requestByNameLabel.setText("(" + student.getThNameTitle() + student.getThFirstName() + " " + student.getThLastName() + ")");
-
+        if (docData.getRequestResponses().size() == 0) {
+            staffComment.setText("");
+            teacherComment.setText("");
+            remark.setText("");
+        } else {
+            staffComment.setText((String) docData.getRequestResponses().get(0));
+            teacherComment.setText((String) docData.getRequestResponses().get(1));
+            remark.setText((String) docData.getRequestResponses().get(2));
+        }
     }
 
     /**
@@ -105,8 +125,8 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
         classYearITGenLabel = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        statusCombo = new javax.swing.JComboBox<>();
+        saveButton = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -136,13 +156,13 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
         requestByNameLabel = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
         jScrollPane15 = new javax.swing.JScrollPane();
-        staffCommentTextArea2 = new javax.swing.JTextArea();
+        remark = new javax.swing.JTextArea();
         jScrollPane16 = new javax.swing.JScrollPane();
-        staffCommentTextArea3 = new javax.swing.JTextArea();
+        staffComment = new javax.swing.JTextArea();
         jLabel53 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
         jScrollPane17 = new javax.swing.JScrollPane();
-        staffCommentTextArea4 = new javax.swing.JTextArea();
+        teacherComment = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -396,12 +416,17 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
 
         jLabel37.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "กำลังตรวจสอบเอกสาร", "อนุญาต / ผ่าน", "ไม่อนุญาต / ไม่ผ่าน" }));
+        statusCombo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        statusCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "กำลังตรวจสอบเอกสาร", "อนุญาต / ผ่าน", "ไม่อนุญาต / ไม่ผ่าน" }));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("บันทึก");
-        jButton1.setAutoscrolls(true);
+        saveButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        saveButton.setText("บันทึก");
+        saveButton.setAutoscrolls(true);
+        saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -413,17 +438,17 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(statusCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(saveButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(statusCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(jLabel37))
         );
@@ -552,21 +577,19 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
         jLabel52.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel52.setText("ความเห็นจากเจ้าหน้าที่");
 
-        staffCommentTextArea2.setColumns(20);
-        staffCommentTextArea2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        staffCommentTextArea2.setLineWrap(true);
-        staffCommentTextArea2.setTabSize(0);
-        staffCommentTextArea2.setText("ยังไม่มีการตอบกลับ");
-        staffCommentTextArea2.setWrapStyleWord(true);
-        jScrollPane15.setViewportView(staffCommentTextArea2);
+        remark.setColumns(20);
+        remark.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        remark.setLineWrap(true);
+        remark.setTabSize(0);
+        remark.setWrapStyleWord(true);
+        jScrollPane15.setViewportView(remark);
 
-        staffCommentTextArea3.setColumns(20);
-        staffCommentTextArea3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        staffCommentTextArea3.setLineWrap(true);
-        staffCommentTextArea3.setTabSize(0);
-        staffCommentTextArea3.setText("ยังไม่มีการตอบกลับ");
-        staffCommentTextArea3.setWrapStyleWord(true);
-        jScrollPane16.setViewportView(staffCommentTextArea3);
+        staffComment.setColumns(20);
+        staffComment.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        staffComment.setLineWrap(true);
+        staffComment.setTabSize(0);
+        staffComment.setWrapStyleWord(true);
+        jScrollPane16.setViewportView(staffComment);
 
         jLabel53.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel53.setText("หมายเหตุ / คำสั่ง (ถ้ามี)");
@@ -574,13 +597,12 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
         jLabel54.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel54.setText("ความเห็นจากอาจารย์ (ถ้ามี)");
 
-        staffCommentTextArea4.setColumns(20);
-        staffCommentTextArea4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        staffCommentTextArea4.setLineWrap(true);
-        staffCommentTextArea4.setTabSize(0);
-        staffCommentTextArea4.setText("ยังไม่มีการตอบกลับ");
-        staffCommentTextArea4.setWrapStyleWord(true);
-        jScrollPane17.setViewportView(staffCommentTextArea4);
+        teacherComment.setColumns(20);
+        teacherComment.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        teacherComment.setLineWrap(true);
+        teacherComment.setTabSize(0);
+        teacherComment.setWrapStyleWord(true);
+        jScrollPane17.setViewportView(teacherComment);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -692,7 +714,7 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
                 .addComponent(jLabel54)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jLabel53)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -838,6 +860,58 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
         setBounds(0, 0, 1500, 873);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void saveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveButtonMouseClicked
+        genDocData = toDocDataMap();
+        if (GeneralDocHandler.handleUpdateGenDocAdmin(docData.getDocumentId(), (HashMap<String, Object>) genDocData)) {
+            new InfoDialog("บันทึกคำตอบเสร็จสิ้น", "ระบบได้บันทึกคำตอบของท่านแล้ว!").show();
+            this.setVisible(false);
+            this.dispose();
+        }
+    }//GEN-LAST:event_saveButtonMouseClicked
+
+    private Map<String, Object> toDocDataMap() {
+        Admin admin = (Admin) AuthUser.getAuthUser();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+        String documentId = documentIDLabel.getText();
+        String writtenAt = writtenAtTextArea.getText();
+        String requestTitle = requestTitleTextField.getText();
+        String requestTo = requestToTextLabel.getText();
+        String requestedAtDay = (String) selectedWrittenDayBox.getSelectedItem();
+        String requestedAtMonth = (String) selectedWrittenMonthBox.getSelectedItem();
+        String requestedAtYear = writtenYearTextField.getText();
+        String requestBy = requestByTextField.getText();
+        String contactAddress = contactAddressTextArea.getText();
+        String requestBody = requestBodyTextArea.getText();
+
+        String requestStatus = (String) statusCombo.getSelectedItem();
+        String respondedAt = dtf.format(LocalDateTime.now());
+        String respondedBy = admin.getUsername();
+        ArrayList<String> requestResponses = new ArrayList<>();
+        requestResponses.add(0, staffComment.getText());
+        requestResponses.add(1, teacherComment.getText());
+        requestResponses.add(2, remark.getText());
+
+        genDocData.put("documentType", 1);
+        genDocData.put("requestBy", requestBy);
+        genDocData.put("documentId", documentId);
+        genDocData.put("writtenAt", writtenAt);
+        genDocData.put("requestTitle", requestTitle);
+        genDocData.put("requestTo", requestTo);
+        genDocData.put("requestedAtDay", requestedAtDay);
+        genDocData.put("requestedAtMonth", requestedAtMonth);
+        genDocData.put("requestedAtYear", requestedAtYear);
+        genDocData.put("requestBy", requestBy);
+        genDocData.put("contactAddress", contactAddress);
+        genDocData.put("requestBody", requestBody);
+        genDocData.put("requestStatus", requestStatus);
+        genDocData.put("respondedAt", respondedAt);
+        genDocData.put("respondedBy", respondedBy);
+        genDocData.put("requestResponses", requestResponses);
+
+        return genDocData;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DOB;
     private javax.swing.JLabel ENname;
@@ -847,8 +921,6 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea contactAddressTextArea;
     private javax.swing.JLabel documentIDLabel;
     private javax.swing.JLabel emailLabel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -902,21 +974,23 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel passportId;
     private javax.swing.JLabel phoneNumberLabel;
     private javax.swing.JLabel programName;
+    private javax.swing.JTextArea remark;
     private javax.swing.JTextArea requestBodyTextArea;
     private javax.swing.JLabel requestByNameLabel;
     private javax.swing.JTextField requestByNameTextField;
     private javax.swing.JTextField requestByTextField;
     private javax.swing.JTextField requestTitleTextField;
     private javax.swing.JTextField requestToTextLabel;
+    private javax.swing.JButton saveButton;
     private javax.swing.JLabel schoolNameLabel;
     private javax.swing.JComboBox<String> selectedWrittenDayBox;
     private javax.swing.JComboBox<String> selectedWrittenMonthBox;
     private javax.swing.JLabel sex;
-    private javax.swing.JTextArea staffCommentTextArea2;
-    private javax.swing.JTextArea staffCommentTextArea3;
-    private javax.swing.JTextArea staffCommentTextArea4;
+    private javax.swing.JTextArea staffComment;
     private javax.swing.JLabel status;
+    private javax.swing.JComboBox<String> statusCombo;
     private javax.swing.JLabel studentId;
+    private javax.swing.JTextArea teacherComment;
     private javax.swing.JTextArea writtenAtTextArea;
     private javax.swing.JTextField writtenYearTextField;
     private javax.swing.JLabel yearGen;

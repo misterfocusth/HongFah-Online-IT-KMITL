@@ -5,10 +5,12 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
+import com.google.cloud.firestore.WriteResult;
 import static database.Database.db;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class GeneralDocumentDatabase extends DocumentDatabase {
@@ -92,6 +94,28 @@ public class GeneralDocumentDatabase extends DocumentDatabase {
             ex.printStackTrace();
         }
         return currentDocument;
+    }
+
+    public static synchronized boolean updateGenDocById(String docId, HashMap<String, Object> docData) {
+        DocumentReference docRef = db.collection("documents").document(docId);
+        Map<String, Object> data = new HashMap<>();
+        data.put("documentId", docData.get("documentId"));
+        data.put("documentType", docData.get("documentType"));
+        data.put("contactAddress", docData.get("contactAddress"));
+        data.put("requestBody", docData.get("requestBody"));
+        data.put("requestBy", docData.get("requestBy"));
+        data.put("requestResponses", docData.get("requestResponses"));
+        data.put("requestStatus", docData.get("requestStatus"));
+        data.put("requestTitle", docData.get("requestTitle"));
+        data.put("requestTo", docData.get("requestTo"));
+        data.put("requestedAtDay", docData.get("requestedAtDay"));
+        data.put("requestedAtMonth", docData.get("requestedAtMonth"));
+        data.put("requestedAtYear", docData.get("requestedAtYear"));
+        data.put("respondedAt", docData.get("respondedAt"));
+        data.put("respondedBy", docData.get("respondedBy"));
+        data.put("writtenAt", docData.get("writtenAt"));
+        ApiFuture<WriteResult> result = docRef.update(data);
+        return true;
     }
 
 }

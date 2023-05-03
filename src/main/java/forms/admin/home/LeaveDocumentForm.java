@@ -37,7 +37,6 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
     }
 
     private void showData() {
-        Admin admin = (Admin) AuthUser.getAuthUser();
         documentIDLabel.setText(docData.getDocumentId());
         status.setText(docData.getRequestStatus());
         studentId.setText(student.getStudentId());
@@ -74,8 +73,21 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         leaveUntilYear.setText(docData.getLeaveUntilYear());
         requestRemarkTextArea.setText(docData.getRemark());
         leaveTitleTextField.setText(docData.getOtherLeaveTitle());
-        requestByNameTextField.setText(admin.getThFirstName() + " " + admin.getThLastName());
-        requestByNameLabel.setText("(" + admin.getThNameTitle() + admin.getThFirstName() + " " + admin.getThLastName() + ")");
+        requestByNameTextField.setText(student.getThFirstName() + " " + student.getThLastName());
+        requestByNameLabel.setText("(" + student.getThNameTitle() + student.getThFirstName() + " " + student.getThLastName() + ")");
+        if (docData.getResponses().size() == 0) {
+            staffComment.setText("");
+            teacherComment.setText("");
+            Remark.setText("");
+        } else {
+            staffComment.setText((String) docData.getResponses().get(0));
+            teacherComment.setText((String) docData.getResponses().get(1));
+            Remark.setText((String) docData.getResponses().get(2));
+        }
+        if (docData.getRequestStatus().equals("ยื่นเอกสารแล้ว")) {
+        } else {
+            statusCombo.setSelectedItem(docData.getRequestStatus());
+        }
     }
 
     /**
@@ -176,7 +188,7 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         teacherComment = new javax.swing.JTextArea();
         jLabel54 = new javax.swing.JLabel();
         jScrollPane16 = new javax.swing.JScrollPane();
-        staffCommentTextArea3 = new javax.swing.JTextArea();
+        staffComment = new javax.swing.JTextArea();
         jLabel52 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -189,6 +201,9 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         status = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
+
+        setClosable(true);
+        setIconifiable(true);
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel23.setText("ทะเบียนประวัติเเละข้อมูลนักศึกษา");
@@ -663,12 +678,12 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         jLabel54.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel54.setText("ความเห็นจากอาจารย์ (ถ้ามี)");
 
-        staffCommentTextArea3.setColumns(20);
-        staffCommentTextArea3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        staffCommentTextArea3.setLineWrap(true);
-        staffCommentTextArea3.setTabSize(0);
-        staffCommentTextArea3.setWrapStyleWord(true);
-        jScrollPane16.setViewportView(staffCommentTextArea3);
+        staffComment.setColumns(20);
+        staffComment.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        staffComment.setLineWrap(true);
+        staffComment.setTabSize(0);
+        staffComment.setWrapStyleWord(true);
+        jScrollPane16.setViewportView(staffComment);
 
         jLabel52.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel52.setText("ความเห็นจากเจ้าหน้าที่(ถ้ามี)");
@@ -1061,7 +1076,7 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         String respondedAt = dtf.format(LocalDateTime.now());
         String respondedBy = admin.getUsername();
         ArrayList<String> requestResponses = new ArrayList<>();
-        requestResponses.add(0, staffCommentTextArea3.getText());
+        requestResponses.add(0, staffComment.getText());
         requestResponses.add(1, teacherComment.getText());
         requestResponses.add(2, Remark.getText());
 
@@ -1189,7 +1204,7 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> selectedWrittenDayBox;
     private javax.swing.JComboBox<String> selectedWrittenMonthBox;
     private javax.swing.JLabel sex;
-    private javax.swing.JTextArea staffCommentTextArea3;
+    private javax.swing.JTextArea staffComment;
     private javax.swing.JLabel status;
     private javax.swing.JComboBox<String> statusCombo;
     private javax.swing.JLabel studentId;
