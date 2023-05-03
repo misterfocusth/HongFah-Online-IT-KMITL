@@ -38,7 +38,7 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         generalDocHistoryTable2 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        searchByStudentIdTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         searchByStudentIdButton = new javax.swing.JButton();
 
@@ -182,11 +182,11 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
                 .addGap(24, 24, 24))
         );
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField1.setText("NULL");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        searchByStudentIdTextField.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        searchByStudentIdTextField.setText("NULL");
+        searchByStudentIdTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                searchByStudentIdTextFieldActionPerformed(evt);
             }
         });
 
@@ -213,7 +213,7 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
                 .addGap(350, 350, 350)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchByStudentIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(searchByStudentIdButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(369, 369, 369))
@@ -223,7 +223,7 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchByStudentIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(searchByStudentIdButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -250,9 +250,9 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_generalDocHistoryTable2MouseClicked
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void searchByStudentIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByStudentIdTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_searchByStudentIdTextFieldActionPerformed
 
     private void searchByStudentIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByStudentIdButtonActionPerformed
         // TODO add your handling code here:
@@ -272,7 +272,7 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton searchByStudentIdButton;
+    private javax.swing.JTextField searchByStudentIdTextField;
     // End of variables declaration//GEN-END:variables
 }
