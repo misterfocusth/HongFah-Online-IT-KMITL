@@ -31,10 +31,21 @@ public class AdminMainForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         mainDesktopPane = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         aboutMenu = new javax.swing.JMenu();
+        answerMenu = new javax.swing.JMenu();
+        docMenu = new javax.swing.JMenu();
         logout = new javax.swing.JMenu();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +74,16 @@ public class AdminMainForm extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(aboutMenu);
+
+        answerMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_48x48/icons8-composing-mail-48.png"))); // NOI18N
+        answerMenu.setText("คำถามทั้งหมด");
+        answerMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jMenuBar1.add(answerMenu);
+
+        docMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-document-48.png"))); // NOI18N
+        docMenu.setText("เอกสารทั้งหมด");
+        docMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jMenuBar1.add(docMenu);
 
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-logout-28.png"))); // NOI18N
         logout.setText("ออกจากระบบ");
@@ -108,8 +129,8 @@ public class AdminMainForm extends javax.swing.JFrame {
 
             MainForm.mainDesktopPane.removeAll();
             MainForm.mainDesktopPane.updateUI();
+        }
     }//GEN-LAST:event_logoutMouseClicked
-    }
 
     /**
      * @param args the command line arguments
@@ -125,16 +146,24 @@ public class AdminMainForm extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminMainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminMainForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminMainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminMainForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminMainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminMainForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminMainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminMainForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -148,7 +177,12 @@ public class AdminMainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu aboutMenu;
+    private javax.swing.JMenu answerMenu;
+    private javax.swing.JMenu docMenu;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenu logout;
     public static javax.swing.JDesktopPane mainDesktopPane;
     // End of variables declaration//GEN-END:variables
