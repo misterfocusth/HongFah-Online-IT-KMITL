@@ -10,7 +10,6 @@ import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
 import static database.Database.db;
-import helper.StudentDataHelper;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,9 +27,18 @@ public class QuestionDatabase extends Database {
         return true;
     }
 
-    public static synchronized boolean updateQuestionInfoById(String questionID, HashMap<String, String> questionData) {
+    public static synchronized boolean updateQuestionInfoById(String questionID, HashMap<String, Object> questionData) {
         DocumentReference docRef = db.collection("question").document(questionID);
-        Map<String, Object> data = StudentDataHelper.toFirestoreObj(questionData);
+        Map<String, Object> data = new HashMap<>();
+        data.put("questionId", questionData.get("questionId"));
+        data.put("questionBy", questionData.get("questionBy"));
+        data.put("questionAt", questionData.get("questionAt"));
+        data.put("questionTitle", questionData.get("questionTitle"));
+        data.put("questionBody", questionData.get("questionBody"));
+        data.put("questionResponse", questionData.get("questionResponse"));
+        data.put("answerBy", questionData.get("answerBy"));
+        data.put("answerAt", questionData.get("answerAt"));
+        data.put("answerBody", questionData.get("answerBody"));
         ApiFuture<WriteResult> result = docRef.update(data);
         return true;
     }

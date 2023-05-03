@@ -47,6 +47,26 @@ public class QuestionHandler implements UniqueAble {
         return result;
     }
 
+    public static boolean handleUpdateAnswerAdmin(String questionId, HashMap<String, Object> questionData) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        boolean result = false;
+        try {
+            Callable<Boolean> callable = () -> {
+                return QuestionDatabase.updateQuestionInfoById(questionId, questionData);
+            };
+            Future<Boolean> future = executorService.submit(callable);
+            while (!future.isDone() && !future.isCancelled()) {
+                Thread.sleep(1000);
+            }
+            result = future.get();
+        } catch (InterruptedException | ExecutionException ex) {
+            ex.printStackTrace();
+        } finally {
+            executorService.shutdown();
+        }
+        return result;
+    }
+
     public static HashMap<String, HashMap<String, Object>> handleGetAllQuestionByStudentId(String studentId) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         HashMap<String, HashMap<String, Object>> result = null;

@@ -4,7 +4,15 @@
  */
 package forms.admin.home;
 
+import dialog.InfoDialog;
+import handlers.QuestionHandler;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 import question.Question;
+import user.Admin;
+import user.AuthUser;
 import user.Student;
 
 /**
@@ -14,7 +22,9 @@ import user.Student;
 public class QuestionAndAnswerAdmin extends javax.swing.JInternalFrame {
 
     private Question selectedData;
+    private Admin admin;
     private Student student;
+    private Map<String, Object> questionData = new HashMap<>();
 
     /**
      * Creates new form QuestionAndAnswerAdmin
@@ -30,7 +40,6 @@ public class QuestionAndAnswerAdmin extends javax.swing.JInternalFrame {
         questionTitle.setText(selectedData.getQuestionTitle());
         questionBy.setText(student.getThFirstName() + " " + student.getThLastName());
         questionBody.setText(selectedData.getQuestionBody());
-        questionResponseTextArea.setText(selectedData.getAnswerBody());
 
         questionTitle.setEditable(false);
         questionBody.setEditable(false);
@@ -88,7 +97,6 @@ public class QuestionAndAnswerAdmin extends javax.swing.JInternalFrame {
         questionResponseTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         questionResponseTextArea.setLineWrap(true);
         questionResponseTextArea.setTabSize(0);
-        questionResponseTextArea.setText("พิมพ์คำตอบที่นี่..");
         questionResponseTextArea.setWrapStyleWord(true);
         jScrollPane4.setViewportView(questionResponseTextArea);
 
@@ -260,22 +268,18 @@ public class QuestionAndAnswerAdmin extends javax.swing.JInternalFrame {
         questionTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         questionTitle.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         questionTitle.setText("หัวข้อคำถาม");
-        questionTitle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                questionTitleActionPerformed(evt);
-            }
-        });
 
         questionBody.setColumns(20);
+        questionBody.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         questionBody.setRows(5);
         jScrollPane1.setViewportView(questionBody);
 
         AnswerButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         AnswerButton.setForeground(new java.awt.Color(41, 121, 255));
         AnswerButton.setText("ส่งคำตอบ");
-        AnswerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AnswerButtonActionPerformed(evt);
+        AnswerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AnswerButtonMouseClicked(evt);
             }
         });
 
@@ -365,13 +369,46 @@ public class QuestionAndAnswerAdmin extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void questionTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_questionTitleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_questionTitleActionPerformed
+    private void AnswerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AnswerButtonMouseClicked
+        questionData = toQuestionDataMap();
 
-    private void AnswerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnswerButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AnswerButtonActionPerformed
+        if (questionResponseTextArea.getText().isEmpty()) {
+            new InfoDialog("ยังไม่ได้กรอกคำตอบ", "โปรดตอบคำถาม ก่อนดำเนินการต่อ").show();
+            return;
+        } else if (QuestionHandler.handleUpdateAnswerAdmin(selectedData.getQuestionId(), (HashMap<String, Object>) questionData)) {
+            new InfoDialog("บันทึกคำตอบเสร็จสิ้น", "ระบบได้บันทึกคำตอบของท่านแล้ว!").show();
+            this.setVisible(false);
+            this.dispose();
+        }
+
+    }//GEN-LAST:event_AnswerButtonMouseClicked
+
+    private Map<String, Object> toQuestionDataMap() {
+
+        String questionTitle = selectedData.getQuestionTitle();
+        String questionBody = selectedData.getQuestionBody();
+        Admin admin = (Admin) AuthUser.getAuthUser();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String questionId = selectedData.getQuestionId();
+        String answerBy = admin.getUsername();
+        String answerAt = dtf.format(LocalDateTime.now());
+        String questionResponse = "ตอบกลับเรียบร้อยแล้ว";
+        String questionBy = selectedData.getQuestionBy();
+        String questionAt = selectedData.getQuestionAt();
+        String answerBody = questionResponseTextArea.getText();
+
+        questionData.put("questionId", questionId);
+        questionData.put("questionTitle", questionTitle);
+        questionData.put("questionBody", questionBody);
+        questionData.put("questionBy", questionBy);
+        questionData.put("questionAt", questionAt);
+        questionData.put("questionResponse", questionResponse);
+        questionData.put("answerBy", answerBy);
+        questionData.put("answerAt", answerAt);
+        questionData.put("answerBody", answerBody);
+
+        return questionData;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AnswerButton;
