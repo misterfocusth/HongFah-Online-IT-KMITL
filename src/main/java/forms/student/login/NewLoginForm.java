@@ -375,8 +375,8 @@ public class NewLoginForm extends javax.swing.JFrame {
                         FrameHelper.setLocationToCenter(adminHomeForm);
 //                        FrameHelper.currentMainForm = adminMainForm;
 //
-                        adminMainForm.getMainDesktopPane().add(questionForAdmin);
-                        adminMainForm.getMainDesktopPane().add(adminHomeForm);
+                        adminMainForm.mainDesktopPane.add(questionForAdmin);
+                        adminMainForm.mainDesktopPane.add(adminHomeForm);
 //
                         adminHomeForm.setVisible(true);
                         questionForAdmin.setVisible(true);
