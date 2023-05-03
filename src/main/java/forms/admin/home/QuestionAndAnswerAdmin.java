@@ -22,7 +22,6 @@ import user.Student;
 public class QuestionAndAnswerAdmin extends javax.swing.JInternalFrame {
 
     private Question selectedData;
-    private Admin admin;
     private Student student;
     private Map<String, Object> questionData = new HashMap<>();
 
@@ -40,6 +39,11 @@ public class QuestionAndAnswerAdmin extends javax.swing.JInternalFrame {
         questionTitle.setText(selectedData.getQuestionTitle());
         questionBy.setText(student.getThFirstName() + " " + student.getThLastName());
         questionBody.setText(selectedData.getQuestionBody());
+        if (selectedData.getAnswerBody().equals("ยังไม่มีการตอบกลับ (กำลังรอการตอบกลับจากเจ้าหน้าที่)")) {
+            questionResponseTextArea.setText("");
+        } else {
+            questionResponseTextArea.setText(selectedData.getAnswerBody());
+        }
 
         questionTitle.setEditable(false);
         questionBody.setEditable(false);

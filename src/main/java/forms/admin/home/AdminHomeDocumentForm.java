@@ -4,11 +4,17 @@
  */
 package forms.admin.home;
 
+import document.GeneralRequestDocument;
+import forms.AdminMainForm;
+import handlers.StudentInfoHandler;
 import handlers.document.GeneralDocHandler;
 import handlers.document.LeaveDocHandler;
+import helper.FrameHelper;
 import java.awt.Font;
 import java.util.HashMap;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import user.Student;
 
 /**
  *
@@ -290,7 +296,20 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void generalDocHistoryTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generalDocHistoryTableMouseClicked
-        // TODO add your handling code here:
+        JTable target = (JTable) evt.getSource();
+        int selectedRow = target.getSelectedRow();
+        String selectedDocId = (String) generalDocHistoryTable.getValueAt(selectedRow, 0);
+        GeneralRequestDocument selectedDocData = GeneralDocHandler.handleGetDocumentById(selectedDocId);
+        System.out.println(selectedRow);
+        System.out.println(selectedDocData);
+        Student student = new StudentInfoHandler().handleGetNameStudentByStudentId(selectedDocData.getRequestBy());
+        if (selectedDocData.getRequestStatus().equals("ยื่นเอกสารแล้ว")) {
+            selectedDocData.setRequestStatus("กำลังรอการตอบกลับ");
+        }
+        GeneralDocumentForm generalDocumentForm = new GeneralDocumentForm(selectedDocData, student);
+        FrameHelper.setLocationToCenter(generalDocumentForm);
+        AdminMainForm.mainDesktopPane.add(generalDocumentForm);
+        generalDocumentForm.setVisible(true);
     }//GEN-LAST:event_generalDocHistoryTableMouseClicked
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed

@@ -48,7 +48,7 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
         requestRemarkTextArea.setText(docData.getRemark());
         leaveTitleTextField.setText(docData.getOtherLeaveTitle());
         requestByNameTextField.setText(AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName());
-        requestByNameLabel.setText("(นาย" + AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName() + ")");
+        requestByNameLabel.setText(AuthUser.getAuthUser().getThNameTitle() + AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName() + ")");
         respondedBy.setText(docData.getRespondedBy());
         respondedAt.setText(docData.getRespondedAt());
         if (docData.getResponses().size() == 0) {

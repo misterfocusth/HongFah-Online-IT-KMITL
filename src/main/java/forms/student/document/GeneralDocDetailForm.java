@@ -39,7 +39,7 @@ public class GeneralDocDetailForm extends javax.swing.JInternalFrame {
         contactAddressTextArea.setText(docData.getContactAddress());
         requestBodyTextArea.setText(docData.getRequestBody());
         requestByNameTextField.setText(AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName());
-        requestByNameLabel.setText("(นาย" + AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName() + ")");
+        requestByNameLabel.setText(AuthUser.getAuthUser().getThNameTitle() + AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName() + ")");
         respondedBy.setText(docData.getRespondedBy());
         respondedAt.setText(docData.getRespondedAt());
         if (docData.getRequestResponses().size() == 0) {

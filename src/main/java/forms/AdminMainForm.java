@@ -127,8 +127,8 @@ public class AdminMainForm extends javax.swing.JFrame {
             this.setVisible(false);
             this.dispose();
 
-            MainForm.mainDesktopPane.removeAll();
-            MainForm.mainDesktopPane.updateUI();
+            AdminMainForm.mainDesktopPane.removeAll();
+            AdminMainForm.mainDesktopPane.updateUI();
         }
     }//GEN-LAST:event_logoutMouseClicked
 

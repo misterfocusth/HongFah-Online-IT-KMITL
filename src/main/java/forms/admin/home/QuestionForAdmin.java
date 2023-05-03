@@ -167,6 +167,7 @@ public class QuestionForAdmin extends javax.swing.JInternalFrame {
         System.out.println(selectedRow);
         System.out.println(selectedQuesData);
         Student student = new StudentInfoHandler().handleGetNameStudentByStudentId(selectedQuesData.getQuestionBy());
+
         QuestionAndAnswerAdmin questionDetailForm = new QuestionAndAnswerAdmin(selectedQuesData, student);
         FrameHelper.setLocationToCenter(questionDetailForm);
         AdminMainForm.mainDesktopPane.add(questionDetailForm);
