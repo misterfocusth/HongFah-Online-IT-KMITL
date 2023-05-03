@@ -4,17 +4,38 @@
  */
 package forms.admin.home;
 
+import handlers.QuestionHandler;
+import java.awt.Font;
+import java.util.HashMap;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author prapada
  */
 public class QuestionForAdmin extends javax.swing.JInternalFrame {
 
+    private HashMap<String, HashMap<String, Object>> requestQuestion = new HashMap<>();
+
     /**
      * Creates new form QuestionForAdmin
      */
     public QuestionForAdmin() {
         initComponents();
+        setQuestionTableData();
+    }
+
+    private void setQuestionTableData() {
+        DefaultTableModel model = (DefaultTableModel) questionTable.getModel();
+        questionTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
+        requestQuestion = QuestionHandler.handleGetAllQuestion();
+        requestQuestion.forEach((k, v) -> {
+            String questionId = (String) v.get("questionId");
+            String questionTitle = (String) v.get("questionTitle");
+            String studentId = (String) v.get("questionBy");
+            String questionResponse = (String) v.get("questionResponse");
+            model.addRow(new String[]{questionId.toUpperCase(), studentId, questionTitle, questionResponse});
+        });
     }
 
     /**
@@ -27,55 +48,67 @@ public class QuestionForAdmin extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        questionTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
-        jTable1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        setIconifiable(true);
+
+        questionTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        questionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "รหัสนักศึกษา", "คำถาม"
+                "รหัสคำถาม", "รหัสนักศึกษา", "หัวเรื่องคำถาม", "สถานะการตอบกลับ"
             }
         ));
-        jTable1.setShowGrid(true);
-        jScrollPane1.setViewportView(jTable1);
+        questionTable.setRowHeight(35);
+        questionTable.setShowGrid(true);
+        questionTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(questionTable);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("คำถามที่ส่งเข้ามาสำหรับเจ้าหน้าที่");
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_48x48/icons8-composing-mail-48.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 846, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addGap(275, 275, 275))
+                .addGap(281, 281, 281))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel1)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable questionTable;
     // End of variables declaration//GEN-END:variables
 }

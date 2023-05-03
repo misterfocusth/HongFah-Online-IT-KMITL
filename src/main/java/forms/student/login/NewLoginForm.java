@@ -8,6 +8,7 @@ import dialog.InfoDialog;
 import forms.AdminMainForm;
 import forms.MainForm;
 import forms.admin.home.AdminHomeDocumentForm;
+import forms.admin.home.QuestionForAdmin;
 import forms.student.about.AboutForm;
 import forms.student.announce.AnnounceForm;
 import forms.student.home.NewHomeForm;
@@ -362,7 +363,7 @@ public class NewLoginForm extends javax.swing.JFrame {
                     AuthUser.setAuthUser(admin);
 
                     SwingUtilities.invokeLater(() -> {
-                        // HomeForm homeForm = new HomeForm();
+                        QuestionForAdmin questionForAdmin = new QuestionForAdmin();
                         AdminHomeDocumentForm adminHomeForm = new AdminHomeDocumentForm();
 //                        AnnounceForm announceForm = new AnnounceForm();
                         AdminMainForm adminMainForm = new AdminMainForm();
@@ -374,11 +375,11 @@ public class NewLoginForm extends javax.swing.JFrame {
                         FrameHelper.setLocationToCenter(adminHomeForm);
 //                        FrameHelper.currentMainForm = adminMainForm;
 //
-//                        adminMainForm.getMainDesktopPane().add(announceForm);
+                        adminMainForm.getMainDesktopPane().add(questionForAdmin);
                         adminMainForm.getMainDesktopPane().add(adminHomeForm);
 //
                         adminHomeForm.setVisible(true);
-//                        homeForm.setVisible(true);
+                        questionForAdmin.setVisible(true);
                         this.setVisible(false);
                         this.dispose();
                     });

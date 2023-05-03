@@ -50,6 +50,21 @@ public class QuestionDatabase extends Database {
         return questionData;
     }
 
+    public synchronized HashMap<String, HashMap<String, Object>> getAllQuestion() throws ExecutionException, InterruptedException {
+        HashMap<String, HashMap<String, Object>> questionData = new HashMap<>();
+        ApiFuture<QuerySnapshot> query = (ApiFuture<QuerySnapshot>) db.collection(QUESTION_COLLECTION).get();
+        QuerySnapshot querySnapshot = query.get();
+        List<QueryDocumentSnapshot> queryDocuments = querySnapshot.getDocuments();
+        try {
+            for (QueryDocumentSnapshot document : queryDocuments) {
+                questionData.put(document.getId(), toQuestionDataMap(document));
+            }
+        } catch (NullPointerException ex) {
+            ex.printStackTrace();
+        }
+        return questionData;
+    }
+
     public synchronized HashMap<String, Object> getQuestionByQuestionID(String questioncId) throws InterruptedException, ExecutionException {
         DocumentReference docRef = db.collection(QUESTION_COLLECTION).document(questioncId);
         ApiFuture<DocumentSnapshot> future = docRef.get();
