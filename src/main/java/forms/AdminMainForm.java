@@ -4,9 +4,10 @@
 package forms;
 
 import dialog.OptionDialog;
+import forms.admin.announce.AdminAnnounceForm;
 import forms.student.about.AboutForm;
 import forms.student.login.NewLoginForm;
-import javax.swing.JDesktopPane;
+import helper.FrameHelper;
 import user.AuthUser;
 
 /**
@@ -39,7 +40,8 @@ public class AdminMainForm extends javax.swing.JFrame {
         aboutMenu = new javax.swing.JMenu();
         answerMenu = new javax.swing.JMenu();
         docMenu = new javax.swing.JMenu();
-        logout = new javax.swing.JMenu();
+        logoutMenu = new javax.swing.JMenu();
+        announceMenu = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -85,15 +87,24 @@ public class AdminMainForm extends javax.swing.JFrame {
         docMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenuBar1.add(docMenu);
 
-        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-logout-28.png"))); // NOI18N
-        logout.setText("ออกจากระบบ");
-        logout.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+        logoutMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-logout-28.png"))); // NOI18N
+        logoutMenu.setText("ออกจากระบบ");
+        logoutMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        logoutMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutMouseClicked(evt);
+                logoutMenuMouseClicked(evt);
             }
         });
-        jMenuBar1.add(logout);
+        jMenuBar1.add(logoutMenu);
+
+        announceMenu.setText("จัดการประกาศ / ประชาสัมพันธ์");
+        announceMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        announceMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                announceMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(announceMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -116,8 +127,8 @@ public class AdminMainForm extends javax.swing.JFrame {
         aboutForm.setLocationRelativeTo(null);
         aboutForm.setVisible(true);
     }//GEN-LAST:event_aboutMenuMouseClicked
-
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+    
+    private void logoutMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMenuMouseClicked
         int selectedOpt = new OptionDialog("ออกจากระบบ", "ยืนยันที่จะออกจากระบบ หรือไม่ ?").show();
         if (selectedOpt == 0) {
             AuthUser.setAuthUser(null);
@@ -126,11 +137,17 @@ public class AdminMainForm extends javax.swing.JFrame {
             newLoginForm.setVisible(true);
             this.setVisible(false);
             this.dispose();
-
-            MainForm.mainDesktopPane.removeAll();
-            MainForm.mainDesktopPane.updateUI();
+            AdminMainForm.mainDesktopPane.removeAll();
+            AdminMainForm.mainDesktopPane.updateUI();
         }
-    }//GEN-LAST:event_logoutMouseClicked
+    }//GEN-LAST:event_logoutMenuMouseClicked
+    
+    private void announceMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_announceMenuMouseClicked
+        AdminAnnounceForm adminAnnounceForm = new AdminAnnounceForm();
+        FrameHelper.setLocationToCenter(adminAnnounceForm);
+        AdminMainForm.mainDesktopPane.add(adminAnnounceForm);
+        adminAnnounceForm.setVisible(true);
+    }//GEN-LAST:event_announceMenuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -146,21 +163,21 @@ public class AdminMainForm extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-
+                    
                 }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(AdminMainForm.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
+            
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(AdminMainForm.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
+            
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(AdminMainForm.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
+            
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AdminMainForm.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -177,17 +194,15 @@ public class AdminMainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu aboutMenu;
+    private javax.swing.JMenu announceMenu;
     private javax.swing.JMenu answerMenu;
     private javax.swing.JMenu docMenu;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenu logout;
+    private javax.swing.JMenu logoutMenu;
     public static javax.swing.JDesktopPane mainDesktopPane;
     // End of variables declaration//GEN-END:variables
 
-    public JDesktopPane getMainDesktopPane() {
-        return mainDesktopPane;
-    }
 }
