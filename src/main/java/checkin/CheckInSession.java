@@ -10,22 +10,25 @@ package checkin;
  */
 public class CheckInSession {
 
+    private String checkInByStudenCode;
+    private String checkInByStudenName;
+    private String checkInAt;
     private String sessionCode;
     private String subjectCode;
     private String subjectName;
     private String teacherName;
     private String classTime;
-    private String place;
+    private String classroom;
     private String sessionNote;
     private boolean isActive;
 
-    public CheckInSession(String sessionCode, String subjectCode, String subjectName, String teacherName, String classTime, String place, String sessionNote, boolean isActive) {
+    public CheckInSession(String sessionCode, String subjectCode, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive) {
         this.sessionCode = sessionCode;
         this.subjectCode = subjectCode;
         this.subjectName = subjectName;
         this.teacherName = teacherName;
         this.classTime = classTime;
-        this.place = place;
+        this.classroom = classroom;
         this.sessionNote = sessionNote;
         this.isActive = isActive;
     }
@@ -70,12 +73,12 @@ public class CheckInSession {
         this.classTime = classTime;
     }
 
-    public String getPlace() {
-        return place;
+    public String getClassroom() {
+        return classroom;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setClassroom(String classroom) {
+        this.classroom = classroom;
     }
 
     public String getSessionNote() {
@@ -93,6 +96,31 @@ public class CheckInSession {
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
     }
+
+
+    public String getCheckInAt() {
+        return checkInAt;
+    }
+
+    public void setCheckInAt(String checkInAtl) {
+        this.checkInAt = checkInAtl;
+    }
+
+    public String getCheckInByStudenCode() {
+        return checkInByStudenCode;
+    }
+
+    public void setCheckInByStudenCode(String checkInByStudenCode) {
+        this.checkInByStudenCode = checkInByStudenCode;
+    }
+
+    public String getCheckInByStudenName() {
+        return checkInByStudenName;
+    }
+
+    public void setCheckInByStudenName(String checkInByStudenName) {
+        this.checkInByStudenName = checkInByStudenName;
+    }
     
-    
+
 }

@@ -14,6 +14,7 @@ import forms.student.document.GeneralDocRequestForm;
 import forms.student.document.LeaveDocDetailForm;
 import forms.student.document.LeaveDocRequestForm;
 import forms.student.info.EditStudentInfoForm;
+import forms.student.subject.CheckConfirmationForms;
 import handlers.document.DocumentHandler;
 import handlers.document.GeneralDocHandler;
 import handlers.document.LeaveDocHandler;
@@ -763,6 +764,11 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
 
         classAttendMenu.setBackground(new java.awt.Color(255, 255, 255));
         classAttendMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        classAttendMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                classAttendMenuMouseClicked(evt);
+            }
+        });
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-today-48.png"))); // NOI18N
 
@@ -993,6 +999,13 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
     private void refreshLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshLabelMouseClicked
         refreshHomeData();
     }//GEN-LAST:event_refreshLabelMouseClicked
+
+    private void classAttendMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classAttendMenuMouseClicked
+        CheckConfirmationForms checkConfirmationForms = new CheckConfirmationForms();
+        FrameHelper.setLocationToCenter(checkConfirmationForms);
+        MainForm.mainDesktopPane.add(checkConfirmationForms);
+        checkConfirmationForms.setVisible(true);
+    }//GEN-LAST:event_classAttendMenuMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;

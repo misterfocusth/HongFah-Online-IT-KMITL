@@ -9,9 +9,9 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
-import static database.Database.DOCUMENT_COLLECTION;
+//import static database.Database.DOCUMENT_COLLECTION;
 import static database.Database.db;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +29,7 @@ public class CheckInSessionDatabase extends Database {
         return true;
     }
 
-    public synchronized  HashMap<String, Object> getCheckInSessionByCode(String subjectCode) throws ExecutionException, InterruptedException {
+    public synchronized HashMap<String, Object> getCheckInSessionByCode(String subjectCode) throws ExecutionException, InterruptedException {
         DocumentReference docRef = db.collection(CHECKIN_COLLECTION).document(subjectCode);
         ApiFuture<DocumentSnapshot> future = docRef.get();
         DocumentSnapshot document = future.get();
@@ -38,8 +38,8 @@ public class CheckInSessionDatabase extends Database {
         }
         return (HashMap<String, Object>) document.getData();
     }
-    
-       public synchronized HashMap<String, HashMap<String, Object>> getAllCheckInSessions() throws ExecutionException, InterruptedException {
+
+    public synchronized HashMap<String, HashMap<String, Object>> getAllCheckInSessions() throws ExecutionException, InterruptedException {
         HashMap<String, HashMap<String, Object>> checkinSessionData = new HashMap<>();
         ApiFuture<QuerySnapshot> query = db.collection(CHECKIN_COLLECTION).get();
         QuerySnapshot querySnapshot = query.get();
@@ -58,15 +58,21 @@ public class CheckInSessionDatabase extends Database {
         HashMap<String, Object> currentDocument = new HashMap<>();
         try {
             String sessionCode = document.getId();
+            String checkInByStudenCode = document.getString("checkInByStudenCode ");
+            String checkInByStudenName = document.getString("checkInByStudenName ");
+            String checkInAt = document.getString("checkInAt");
             String subjectCode = document.getString("subjectCode");
             String subjectName = document.getString("subjectName");
             String teacherName = document.getString("teacherName");
             String classTime = document.getString("classTime");
             String place = document.getString("place");
             String sessionNote = document.getString("sessionNote");
-            boolean  isActive = document.getBoolean("isActive");
+            boolean isActive = document.getBoolean("isActive");
 
             currentDocument.put("documentId", sessionCode);
+            currentDocument.put("checkInByStudenCode ", checkInByStudenCode );
+            currentDocument.put("checkInByStudenName ", checkInByStudenName );
+            currentDocument.put("checkInAt", checkInAt);
             currentDocument.put("subjectCode", String.valueOf(subjectCode));
             currentDocument.put("subjectName", subjectName);
             currentDocument.put("teacherName", teacherName);
