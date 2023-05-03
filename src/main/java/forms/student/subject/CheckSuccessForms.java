@@ -26,17 +26,17 @@ public class CheckSuccessForms extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        finalLabel = new javax.swing.JLabel();
+        backhomebtn = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("เช็คชื่อสำเร็จ");
+        finalLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        finalLabel.setText("เช็คชื่อสำเร็จ");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setText("กลับสู่หน้าหลัก");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backhomebtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        backhomebtn.setText("กลับสู่หน้าหลัก");
+        backhomebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backhomebtnActionPerformed(evt);
             }
         });
 
@@ -48,32 +48,32 @@ public class CheckSuccessForms extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(64, 64, 64)
-                        .addComponent(jLabel1))
+                        .addComponent(finalLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(83, 83, 83)
-                        .addComponent(jButton1)))
+                        .addComponent(backhomebtn)))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel1)
+                .addComponent(finalLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(backhomebtn)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void backhomebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backhomebtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_backhomebtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton backhomebtn;
+    private javax.swing.JLabel finalLabel;
     // End of variables declaration//GEN-END:variables
 }
