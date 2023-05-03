@@ -58,7 +58,7 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
         contactAddressTextArea.setText(docData.getContactAddress());
         requestBodyTextArea.setText(docData.getRequestBody());
         requestByNameTextField.setText(student.getThFirstName() + " " + student.getThLastName());
-        requestByNameLabel.setText(student.getThNameTitle() + student.getThFirstName() + " " + student.getThLastName() + ")");
+        requestByNameLabel.setText("(" + student.getThNameTitle() + student.getThFirstName() + " " + student.getThLastName() + ")");
 
     }
 
@@ -402,11 +402,6 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("บันทึก");
         jButton1.setAutoscrolls(true);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -480,9 +475,11 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
 
         selectedWrittenDayBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         selectedWrittenDayBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        selectedWrittenDayBox.setEnabled(false);
 
         selectedWrittenMonthBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         selectedWrittenMonthBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม" }));
+        selectedWrittenMonthBox.setEnabled(false);
 
         writtenYearTextField.setEditable(false);
         writtenYearTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N

@@ -5,6 +5,7 @@
 package forms.admin.home;
 
 import document.GeneralRequestDocument;
+import document.LeaveRequestDocument;
 import forms.AdminMainForm;
 import handlers.StudentInfoHandler;
 import handlers.document.GeneralDocHandler;
@@ -303,9 +304,7 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
         System.out.println(selectedRow);
         System.out.println(selectedDocData);
         Student student = new StudentInfoHandler().handleGetNameStudentByStudentId(selectedDocData.getRequestBy());
-        if (selectedDocData.getRequestStatus().equals("ยื่นเอกสารแล้ว")) {
-            selectedDocData.setRequestStatus("กำลังรอการตอบกลับ");
-        }
+        
         GeneralDocumentForm generalDocumentForm = new GeneralDocumentForm(selectedDocData, student);
         FrameHelper.setLocationToCenter(generalDocumentForm);
         AdminMainForm.mainDesktopPane.add(generalDocumentForm);
@@ -317,8 +316,18 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void leaveDocHistoryTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leaveDocHistoryTableMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_leaveDocHistoryTableMouseClicked
+        JTable target = (JTable) evt.getSource();
+        int selectedRow = target.getSelectedRow();
+        String selectedDocId = (String) leaveDocHistoryTable.getValueAt(selectedRow, 0);
+        LeaveRequestDocument selectedDocData = LeaveDocHandler.handleGetLeaveDocumentById(selectedDocId);
+        System.out.println(selectedRow);
+        System.out.println(selectedDocData);
+        Student student = new StudentInfoHandler().handleGetNameStudentByStudentId(selectedDocData.getRequestBy());
+        
+        LeaveDocumentForm leaveDocumentForm = new LeaveDocumentForm(selectedDocData, student);
+        FrameHelper.setLocationToCenter(leaveDocumentForm);
+        AdminMainForm.mainDesktopPane.add(leaveDocumentForm);
+        leaveDocumentForm.setVisible(true);    }//GEN-LAST:event_leaveDocHistoryTableMouseClicked
 
     private void searchByStudentIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByStudentIdTextFieldActionPerformed
         // TODO add your handling code here:

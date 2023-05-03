@@ -15,7 +15,7 @@ import user.AuthUser;
  * @author misterfocusth
  */
 public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
-
+    
     private LeaveRequestDocument docData;
 
     /**
@@ -26,12 +26,12 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
         this.docData = docData;
         showDocData();
     }
-
+    
     private void showDocData() {
         documentIDLabel.setText(docData.getDocumentId());
         writtenAtTextArea.setText(docData.getWrittenAt());
         selectedLeaveTitle.setSelectedItem(docData.getLeaveTitle());
-        leaveTitleTextField.setText("");
+        leaveTitleTextField.setText(docData.getOtherLeaveTitle());
         requestToTextLabel.setText(docData.getRequestTo());
         selectedWrittenDayBox.setSelectedItem(docData.getRequestedAtDay());
         selectedWrittenMonthBox.setSelectedItem(docData.getRequestedAtMonth());
@@ -48,9 +48,10 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
         requestRemarkTextArea.setText(docData.getRemark());
         leaveTitleTextField.setText(docData.getOtherLeaveTitle());
         requestByNameTextField.setText(AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName());
-        requestByNameLabel.setText(AuthUser.getAuthUser().getThNameTitle() + AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName() + ")");
+        requestByNameLabel.setText("(" + AuthUser.getAuthUser().getThNameTitle() + AuthUser.getAuthUser().getThFirstName() + " " + AuthUser.getAuthUser().getThLastName() + ")");
         respondedBy.setText(docData.getRespondedBy());
         respondedAt.setText(docData.getRespondedAt());
+        status.setText(docData.getRequestStatus());
         if (docData.getResponses().size() == 0) {
             staffCommentTextArea.setText("ยังไม่มีการตอบกลับ");
             profCommentTextArea.setText("ยังไม่มีการตอบกลับ");
@@ -59,9 +60,9 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
             staffCommentTextArea.setText(docData.getResponses().get(0));
             profCommentTextArea.setText(docData.getResponses().get(1));
             remarkTextArea.setText(docData.getResponses().get(2));
-
+            
         }
-
+        
         writtenAtTextArea.setEditable(false);
         selectedLeaveTitle.setEnabled(false);
         leaveTitleTextField.setEditable(false);
@@ -83,7 +84,7 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
         staffCommentTextArea.setEditable(false);
         profCommentTextArea.setEditable(false);
         remarkTextArea.setEditable(false);
-
+        
     }
 
     /**
@@ -110,7 +111,7 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        status = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
         remarkTextArea = new javax.swing.JTextArea();
         jLabel39 = new javax.swing.JLabel();
@@ -209,8 +210,8 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel23.setText("สถานะเอกสาร : ");
 
-        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel24.setText("ยื่นเอกสารเเล้ว / กำลังรอการตอบกลับ");
+        status.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        status.setText("ยื่นเอกสารเเล้ว / กำลังรอการตอบกลับ");
 
         remarkTextArea.setColumns(20);
         remarkTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -233,7 +234,7 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel23)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(44, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,7 +264,7 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(jLabel24))
+                    .addComponent(status))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel22)
@@ -714,7 +715,6 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
@@ -763,6 +763,7 @@ public class LeaveDocDetailForm extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> selectedWrittenDayBox;
     private javax.swing.JComboBox<String> selectedWrittenMonthBox;
     private javax.swing.JTextArea staffCommentTextArea;
+    private javax.swing.JLabel status;
     private javax.swing.JTextArea writtenAtTextArea;
     private javax.swing.JTextField writtenYearTextField;
     // End of variables declaration//GEN-END:variables

@@ -9,7 +9,11 @@
     </Component>
   </NonVisualComponents>
   <SyntheticProperties>
-    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="formSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,78,0,0,4,-30"/>
+    <SyntheticProperty name="formPosition" type="java.awt.Point" value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,97,119,116,46,80,111,105,110,116,-74,-60,-118,114,52,126,-56,38,2,0,2,73,0,1,120,73,0,1,121,120,112,0,0,0,0,0,0,0,0"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="0"/>
+    <SyntheticProperty name="generatePosition" type="boolean" value="true"/>
+    <SyntheticProperty name="generateSize" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -89,10 +93,10 @@
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel11" max="32767" attributes="0"/>
+                      <Component id="jLabel23" alignment="0" pref="314" max="32767" attributes="0"/>
                       <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
                       <Component id="jPanel8" alignment="1" max="32767" attributes="0"/>
                       <Component id="jPanel7" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jLabel23" alignment="0" pref="314" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               </Group>
@@ -152,8 +156,8 @@
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="phoneNumberLabel" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="addressLabel" alignment="1" max="32767" attributes="0"/>
                           <Component id="jLabel26" alignment="0" max="32767" attributes="0"/>
+                          <Component id="addressLabel" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -175,7 +179,7 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="addressLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="addressLabel" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -252,32 +256,32 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel2" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="studentIdLabel3" max="32767" attributes="0"/>
+                              <Component id="studentId" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel27" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="identificationNumberLabel3" max="32767" attributes="0"/>
+                              <Component id="passportId" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel28" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="thStudentNameLabel3" max="32767" attributes="0"/>
+                              <Component id="THname" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel29" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="enStudentNameLabel3" max="32767" attributes="0"/>
+                              <Component id="ENname" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel30" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="dobLabel3" max="32767" attributes="0"/>
+                              <Component id="DOB" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel31" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="genderLabel3" max="32767" attributes="0"/>
+                              <Component id="sex" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -290,32 +294,32 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="studentIdLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="studentId" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="identificationNumberLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="passportId" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="thStudentNameLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="THname" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="enStudentNameLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ENname" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="dobLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DOB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="genderLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="sex" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
@@ -323,7 +327,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="identificationNumberLabel3">
+            <Component class="javax.swing.JLabel" name="passportId">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -347,7 +351,7 @@
                 <Property name="text" type="java.lang.String" value="&#xe23;&#xe2b;&#xe31;&#xe2a;&#xe1b;&#xe23;&#xe30;&#xe08;&#xe33;&#xe15;&#xe31;&#xe27;&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="studentIdLabel3">
+            <Component class="javax.swing.JLabel" name="studentId">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -363,7 +367,7 @@
                 <Property name="text" type="java.lang.String" value="&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32; (TH)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="thStudentNameLabel3">
+            <Component class="javax.swing.JLabel" name="THname">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -379,7 +383,7 @@
                 <Property name="text" type="java.lang.String" value="&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32; (EN)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="enStudentNameLabel3">
+            <Component class="javax.swing.JLabel" name="ENname">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -387,7 +391,7 @@
                 <Property name="text" type="java.lang.String" value="NULL"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="dobLabel3">
+            <Component class="javax.swing.JLabel" name="DOB">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -411,7 +415,7 @@
                 <Property name="text" type="java.lang.String" value="&#xe40;&#xe1e;&#xe28;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="genderLabel3">
+            <Component class="javax.swing.JLabel" name="sex">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -582,8 +586,8 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jComboBox2" max="32767" attributes="0"/>
-                          <Component id="jButton1" max="32767" attributes="0"/>
+                          <Component id="statusCombo" max="32767" attributes="0"/>
+                          <Component id="saveButton" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel37" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -597,11 +601,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox2" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="statusCombo" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="saveButton" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -614,7 +618,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox2">
+            <Component class="javax.swing.JComboBox" name="statusCombo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -631,13 +635,16 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="saveButton">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe1a;&#xe31;&#xe19;&#xe17;&#xe36;&#xe01;"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="saveButtonMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -817,7 +824,7 @@
                                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                                           <Group type="103" groupAlignment="0" attributes="0">
                                                               <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="otherLeaveTitleTextField" alignment="0" max="32767" attributes="0"/>
+                                                              <Component id="leaveTitleTextField" alignment="0" max="32767" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                       <Component id="jLabel46" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -868,7 +875,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="otherLeaveTitleTextField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="leaveTitleTextField" alignment="0" max="32767" attributes="0"/>
                                       <Component id="selectedLeaveTitle" alignment="0" pref="35" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -999,6 +1006,7 @@
                                 <StringItem index="30" value="31"/>
                               </StringArray>
                             </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1025,6 +1033,7 @@
                                 <StringItem index="11" value="&#xe18;&#xe31;&#xe19;&#xe27;&#xe32;&#xe04;&#xe21;"/>
                               </StringArray>
                             </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1032,6 +1041,7 @@
                         </Component>
                         <Component class="javax.swing.JTextField" name="writtenYearTextField">
                           <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="14" style="0"/>
                             </Property>
@@ -1048,6 +1058,7 @@
                           <SubComponents>
                             <Component class="javax.swing.JTextArea" name="requestRemarkTextArea">
                               <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
                                 <Property name="columns" type="int" value="1"/>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
@@ -1078,11 +1089,11 @@
                         </Component>
                         <Component class="javax.swing.JTextField" name="requestToTextLabel">
                           <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="14" style="0"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="&#xe2d;&#xe32;&#xe08;&#xe32;&#xe23;&#xe22;&#xe4c;&#xe1b;&#xe23;&#xe30;&#xe08;&#xe33;&#xe27;&#xe34;&#xe0a;&#xe32; (&#xe1c;&#xe48;&#xe32;&#xe19;&#xe2d;&#xe32;&#xe08;&#xe32;&#xe23;&#xe22;&#xe4c;&#xe17;&#xe35;&#xe48;&#xe1b;&#xe23;&#xe36;&#xe01;&#xe29;&#xe32; &#xe40;&#xe40;&#xe25;&#xe30;&#xe23;&#xe30;&#xe1a;&#xe1a;&#xe2b;&#xe49;&#xe2d;&#xe07;&#xe1f;&#xe49;&#xe32;&#xe2d;&#xe2d;&#xe19;&#xe44;&#xe25;&#xe19;&#xe4c;)"/>
-                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel14">
@@ -1103,10 +1114,10 @@
                         </Component>
                         <Component class="javax.swing.JTextField" name="requestByTextField">
                           <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="14" style="0"/>
                             </Property>
-                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel42">
@@ -1126,6 +1137,7 @@
                           <SubComponents>
                             <Component class="javax.swing.JTextArea" name="writtenAtTextArea">
                               <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
                                 <Property name="columns" type="int" value="1"/>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
@@ -1155,6 +1167,7 @@
                           <SubComponents>
                             <Component class="javax.swing.JTextArea" name="contactAddressTextArea">
                               <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
                                 <Property name="columns" type="int" value="1"/>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
@@ -1188,6 +1201,7 @@
                                 <StringItem index="3" value="&#xe2d;&#xe37;&#xe48;&#xe19; &#xe46; (&#xe42;&#xe1b;&#xe23;&#xe14;&#xe23;&#xe30;&#xe1a;&#xe38;&#xe2a;&#xe32;&#xe40;&#xe2b;&#xe15;&#xe38;&#xe01;&#xe32;&#xe23;&#xe25;&#xe32;)"/>
                               </StringArray>
                             </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
                             <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="selectedLeaveTitleItemStateChanged"/>
@@ -1196,16 +1210,16 @@
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="otherLeaveTitleTextField">
+                        <Component class="javax.swing.JTextField" name="leaveTitleTextField">
                           <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="14" style="0"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="&#xe02;&#xe2d;&#xe25;&#xe32;&#xe1b;&#xe48;&#xe27;&#xe22;"/>
-                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="otherLeaveTitleTextFieldActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="leaveTitleTextFieldActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel45">
@@ -1226,6 +1240,7 @@
                         </Component>
                         <Component class="javax.swing.JTextField" name="causeOfLeaveTextField">
                           <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="14" style="0"/>
                             </Property>
@@ -1241,6 +1256,7 @@
                         </Component>
                         <Component class="javax.swing.JTextField" name="leaveFromYear">
                           <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="14" style="0"/>
                             </Property>
@@ -1267,6 +1283,7 @@
                                 <StringItem index="11" value="&#xe18;&#xe31;&#xe19;&#xe27;&#xe32;&#xe04;&#xe21;"/>
                               </StringArray>
                             </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1312,6 +1329,7 @@
                                 <StringItem index="30" value="31"/>
                               </StringArray>
                             </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1319,6 +1337,7 @@
                         </Component>
                         <Component class="javax.swing.JTextField" name="leaveUntilYear">
                           <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="14" style="0"/>
                             </Property>
@@ -1345,6 +1364,7 @@
                                 <StringItem index="11" value="&#xe18;&#xe31;&#xe19;&#xe27;&#xe32;&#xe04;&#xe21;"/>
                               </StringArray>
                             </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1390,6 +1410,7 @@
                                 <StringItem index="30" value="31"/>
                               </StringArray>
                             </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1445,7 +1466,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTextArea" name="staffCommentTextArea2">
+                            <Component class="javax.swing.JTextArea" name="Remark">
                               <Properties>
                                 <Property name="columns" type="int" value="20"/>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1453,7 +1474,6 @@
                                 </Property>
                                 <Property name="lineWrap" type="boolean" value="true"/>
                                 <Property name="tabSize" type="int" value="0"/>
-                                <Property name="text" type="java.lang.String" value="&#xe22;&#xe31;&#xe07;&#xe44;&#xe21;&#xe48;&#xe21;&#xe35;&#xe01;&#xe32;&#xe23;&#xe15;&#xe2d;&#xe1a;&#xe01;&#xe25;&#xe31;&#xe1a;"/>
                                 <Property name="wrapStyleWord" type="boolean" value="true"/>
                               </Properties>
                             </Component>
@@ -1474,7 +1494,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTextArea" name="staffCommentTextArea4">
+                            <Component class="javax.swing.JTextArea" name="teacherComment">
                               <Properties>
                                 <Property name="columns" type="int" value="20"/>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1482,7 +1502,6 @@
                                 </Property>
                                 <Property name="lineWrap" type="boolean" value="true"/>
                                 <Property name="tabSize" type="int" value="0"/>
-                                <Property name="text" type="java.lang.String" value="&#xe22;&#xe31;&#xe07;&#xe44;&#xe21;&#xe48;&#xe21;&#xe35;&#xe01;&#xe32;&#xe23;&#xe15;&#xe2d;&#xe1a;&#xe01;&#xe25;&#xe31;&#xe1a;"/>
                                 <Property name="wrapStyleWord" type="boolean" value="true"/>
                               </Properties>
                             </Component>
@@ -1511,7 +1530,6 @@
                                 </Property>
                                 <Property name="lineWrap" type="boolean" value="true"/>
                                 <Property name="tabSize" type="int" value="0"/>
-                                <Property name="text" type="java.lang.String" value="&#xe22;&#xe31;&#xe07;&#xe44;&#xe21;&#xe48;&#xe21;&#xe35;&#xe01;&#xe32;&#xe23;&#xe15;&#xe2d;&#xe1a;&#xe01;&#xe25;&#xe31;&#xe1a;"/>
                                 <Property name="wrapStyleWord" type="boolean" value="true"/>
                               </Properties>
                             </Component>
@@ -1522,7 +1540,7 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="18" style="1"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="&#xe04;&#xe27;&#xe32;&#xe21;&#xe40;&#xe2b;&#xe47;&#xe19;&#xe08;&#xe32;&#xe01;&#xe40;&#xe08;&#xe49;&#xe32;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe17;&#xe35;&#xe48;"/>
+                            <Property name="text" type="java.lang.String" value="&#xe04;&#xe27;&#xe32;&#xe21;&#xe40;&#xe2b;&#xe47;&#xe19;&#xe08;&#xe32;&#xe01;&#xe40;&#xe08;&#xe49;&#xe32;&#xe2b;&#xe19;&#xe49;&#xe32;&#xe17;&#xe35;&#xe48;(&#xe16;&#xe49;&#xe32;&#xe21;&#xe35;)"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -1599,7 +1617,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel55" min="-2" pref="256" max="-2" attributes="0"/>
+                          <Component id="status" min="-2" pref="256" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -1617,7 +1635,7 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel55" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="status" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -1649,7 +1667,7 @@
             <Property name="text" type="java.lang.String" value="&#xe2a;&#xe16;&#xe32;&#xe19;&#xe30;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel55">
+        <Component class="javax.swing.JLabel" name="status">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="1"/>

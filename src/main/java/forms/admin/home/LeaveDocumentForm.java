@@ -4,17 +4,78 @@
  */
 package forms.admin.home;
 
+import dialog.InfoDialog;
+import document.LeaveRequestDocument;
+import handlers.document.LeaveDocHandler;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import user.Admin;
+import user.AuthUser;
+import user.Student;
+
 /**
  *
  * @author pangggg
  */
 public class LeaveDocumentForm extends javax.swing.JInternalFrame {
 
+    private LeaveRequestDocument docData;
+    private Student student;
+    private Map<String, Object> leaveDocData = new HashMap<>();
+
     /**
      * Creates new form AdminDocumentForm
      */
-    public LeaveDocumentForm() {
+    public LeaveDocumentForm(LeaveRequestDocument docData, Student student) {
         initComponents();
+        this.docData = docData;
+        this.student = student;
+        showData();
+    }
+
+    private void showData() {
+        Admin admin = (Admin) AuthUser.getAuthUser();
+        documentIDLabel.setText(docData.getDocumentId());
+        status.setText(docData.getRequestStatus());
+        studentId.setText(student.getStudentId());
+        passportId.setText(student.getIdentificationNumber());
+        THname.setText(student.getThNameTitle() + student.getThFirstName() + " " + student.getThLastName());
+        ENname.setText(student.getEnNameTitle() + student.getEnFirstName() + " " + student.getEnLastName());
+        DOB.setText(student.getDobDate() + " " + student.getDobMonth() + " " + student.getDobYear());
+        sex.setText(student.getGender());
+        schoolNameLabel.setText(student.getSchoolName());
+        majorNameLabel.setText(student.getMajorName());
+        classYearITGenLabel.setText(student.getClassYear() + "/" + student.getGeneration());
+        programName.setText(student.getProgramName());
+        emailLabel.setText(student.getEmail());
+        phoneNumberLabel.setText(student.getPhoneNumber());
+        addressLabel.setText(student.getContactAddress());
+        majorNameLabel.setText(student.getMajorName());
+
+        documentIDLabel.setText(docData.getDocumentId());
+        writtenAtTextArea.setText(docData.getWrittenAt());
+        selectedLeaveTitle.setSelectedItem(docData.getLeaveTitle());
+        leaveTitleTextField.setText(docData.getOtherLeaveTitle());
+        requestToTextLabel.setText(docData.getRequestTo());
+        selectedWrittenDayBox.setSelectedItem(docData.getRequestedAtDay());
+        selectedWrittenMonthBox.setSelectedItem(docData.getRequestedAtMonth());
+        writtenYearTextField.setText(docData.getRequestedAtYear());
+        requestByTextField.setText(docData.getRequestBy());
+        contactAddressTextArea.setText(docData.getContactAddress());
+        causeOfLeaveTextField.setText(docData.getCauseOfLeave());
+        leaveFromDay.setSelectedItem(docData.getLeaveFromDay());
+        leaveFromMonth.setSelectedItem(docData.getLeaveFromMonth());
+        leaveFromYear.setText(docData.getLeaveFromYear());
+        leaveUntilDay.setSelectedItem(docData.getLeaveUntilDay());
+        leaveUntilMonth.setSelectedItem(docData.getLeaveUntilMonth());
+        leaveUntilYear.setText(docData.getLeaveUntilYear());
+        requestRemarkTextArea.setText(docData.getRemark());
+        leaveTitleTextField.setText(docData.getOtherLeaveTitle());
+        requestByNameTextField.setText(admin.getThFirstName() + " " + admin.getThLastName());
+        requestByNameLabel.setText("(" + admin.getThNameTitle() + admin.getThFirstName() + " " + admin.getThLastName() + ")");
     }
 
     /**
@@ -37,18 +98,18 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         jLabel26 = new javax.swing.JLabel();
         addressLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        identificationNumberLabel3 = new javax.swing.JLabel();
+        passportId = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        studentIdLabel3 = new javax.swing.JLabel();
+        studentId = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        thStudentNameLabel3 = new javax.swing.JLabel();
+        THname = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        enStudentNameLabel3 = new javax.swing.JLabel();
-        dobLabel3 = new javax.swing.JLabel();
+        ENname = new javax.swing.JLabel();
+        DOB = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        genderLabel3 = new javax.swing.JLabel();
+        sex = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         schoolNameLabel = new javax.swing.JLabel();
@@ -60,8 +121,8 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         classYearITGenLabel = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        statusCombo = new javax.swing.JComboBox<>();
+        saveButton = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -91,7 +152,7 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         contactAddressTextArea = new javax.swing.JTextArea();
         jLabel44 = new javax.swing.JLabel();
         selectedLeaveTitle = new javax.swing.JComboBox<>();
-        otherLeaveTitleTextField = new javax.swing.JTextField();
+        leaveTitleTextField = new javax.swing.JTextField();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         causeOfLeaveTextField = new javax.swing.JTextField();
@@ -109,10 +170,10 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         requestByNameTextField = new javax.swing.JTextField();
         requestByNameLabel = new javax.swing.JLabel();
         jScrollPane15 = new javax.swing.JScrollPane();
-        staffCommentTextArea2 = new javax.swing.JTextArea();
+        Remark = new javax.swing.JTextArea();
         jLabel53 = new javax.swing.JLabel();
         jScrollPane17 = new javax.swing.JScrollPane();
-        staffCommentTextArea4 = new javax.swing.JTextArea();
+        teacherComment = new javax.swing.JTextArea();
         jLabel54 = new javax.swing.JLabel();
         jScrollPane16 = new javax.swing.JScrollPane();
         staffCommentTextArea3 = new javax.swing.JTextArea();
@@ -125,7 +186,7 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         documentIDLabel = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
+        status = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -167,8 +228,8 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
                         .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(phoneNumberLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(addressLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addressLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -185,14 +246,14 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel26)
                 .addGap(12, 12, 12)
-                .addComponent(addressLabel)
+                .addComponent(addressLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ข้อมูลส่วนตัว", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13))); // NOI18N
 
-        identificationNumberLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        identificationNumberLabel3.setText("NULL");
+        passportId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        passportId.setText("NULL");
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel27.setText("บัตรประจำตัวประชาชน");
@@ -200,23 +261,23 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("รหัสประจำตัวนักศึกษา");
 
-        studentIdLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        studentIdLabel3.setText("NULL");
+        studentId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        studentId.setText("NULL");
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel28.setText("ชื่อนักศึกษา (TH)");
 
-        thStudentNameLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        thStudentNameLabel3.setText("NULL");
+        THname.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        THname.setText("NULL");
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel29.setText("ชื่อนักศึกษา (EN)");
 
-        enStudentNameLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        enStudentNameLabel3.setText("NULL");
+        ENname.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ENname.setText("NULL");
 
-        dobLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        dobLabel3.setText("NULL");
+        DOB.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        DOB.setText("NULL");
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel30.setText("วัน / เดือน / ปี เกิด");
@@ -224,8 +285,8 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel31.setText("เพศ");
 
-        genderLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        genderLabel3.setText("NULL");
+        sex.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        sex.setText("NULL");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -237,27 +298,27 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(studentIdLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(studentId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(identificationNumberLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(passportId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(thStudentNameLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(THname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(enStudentNameLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(ENname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(dobLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DOB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(genderLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(sex, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -266,27 +327,27 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(studentIdLabel3))
+                    .addComponent(studentId))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
-                    .addComponent(identificationNumberLabel3))
+                    .addComponent(passportId))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
-                    .addComponent(thStudentNameLabel3))
+                    .addComponent(THname))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29)
-                    .addComponent(enStudentNameLabel3))
+                    .addComponent(ENname))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
-                    .addComponent(dobLabel3))
+                    .addComponent(DOB))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
-                    .addComponent(genderLabel3))
+                    .addComponent(sex))
                 .addGap(12, 12, 12))
         );
 
@@ -367,11 +428,16 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
 
         jLabel37.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "กำลังตรวจสอบเอกสาร", "อนุญาตให้ลา", "ไม่อนุญาตให้ลา" }));
+        statusCombo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        statusCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "กำลังตรวจสอบเอกสาร", "อนุญาตให้ลา", "ไม่อนุญาตให้ลา" }));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("บันทึก");
+        saveButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        saveButton.setText("บันทึก");
+        saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -380,8 +446,8 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(statusCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(saveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
                         .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -391,11 +457,11 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(statusCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel37)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -406,10 +472,10 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE))
+                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
@@ -443,12 +509,16 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
 
         selectedWrittenDayBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         selectedWrittenDayBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        selectedWrittenDayBox.setEnabled(false);
 
         selectedWrittenMonthBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         selectedWrittenMonthBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม" }));
+        selectedWrittenMonthBox.setEnabled(false);
 
+        writtenYearTextField.setEditable(false);
         writtenYearTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        requestRemarkTextArea.setEditable(false);
         requestRemarkTextArea.setColumns(1);
         requestRemarkTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         requestRemarkTextArea.setLineWrap(true);
@@ -463,9 +533,9 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("เรียน (นักศึกษาต้องการเขียนคำร้องถึงใคร)");
 
+        requestToTextLabel.setEditable(false);
         requestToTextLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         requestToTextLabel.setText("อาจารย์ประจำวิชา (ผ่านอาจารย์ที่ปรึกษา เเละระบบห้องฟ้าออนไลน์)");
-        requestToTextLabel.setEnabled(false);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setText("เขียนคำร้องเมื่อ");
@@ -473,12 +543,13 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setText("ยื่นคำร้องโดย (รหัสนักศึกษา)");
 
+        requestByTextField.setEditable(false);
         requestByTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        requestByTextField.setEnabled(false);
 
         jLabel42.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel42.setText("ที่อยู่สำหรับติดต่อ");
 
+        writtenAtTextArea.setEditable(false);
         writtenAtTextArea.setColumns(1);
         writtenAtTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         writtenAtTextArea.setLineWrap(true);
@@ -490,6 +561,7 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         jLabel43.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel43.setText("หมายเหตุอื่น ๆ ประกอบการลา (ถ้ามี)");
 
+        contactAddressTextArea.setEditable(false);
         contactAddressTextArea.setColumns(1);
         contactAddressTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         contactAddressTextArea.setLineWrap(true);
@@ -503,18 +575,19 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
 
         selectedLeaveTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         selectedLeaveTitle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ขอลาป่วย", "ขอลากิจ", "ขอลาร่วมกิจกรรม", "อื่น ๆ (โปรดระบุสาเหตุการลา)" }));
+        selectedLeaveTitle.setEnabled(false);
         selectedLeaveTitle.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 selectedLeaveTitleItemStateChanged(evt);
             }
         });
 
-        otherLeaveTitleTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        otherLeaveTitleTextField.setText("ขอลาป่วย");
-        otherLeaveTitleTextField.setEnabled(false);
-        otherLeaveTitleTextField.addActionListener(new java.awt.event.ActionListener() {
+        leaveTitleTextField.setEditable(false);
+        leaveTitleTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        leaveTitleTextField.setText("ขอลาป่วย");
+        leaveTitleTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherLeaveTitleTextFieldActionPerformed(evt);
+                leaveTitleTextFieldActionPerformed(evt);
             }
         });
 
@@ -524,26 +597,33 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         jLabel46.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel46.setText("มีความประสงค์ที่จะขอลาเรียนเนื่องจาก");
 
+        causeOfLeaveTextField.setEditable(false);
         causeOfLeaveTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel47.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel47.setText("จึงขอลาเรียนตั้งเเต่วันที่");
 
+        leaveFromYear.setEditable(false);
         leaveFromYear.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         leaveFromMonth.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         leaveFromMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม" }));
+        leaveFromMonth.setEnabled(false);
 
         leaveFromDay.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         leaveFromDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        leaveFromDay.setEnabled(false);
 
+        leaveUntilYear.setEditable(false);
         leaveUntilYear.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         leaveUntilMonth.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         leaveUntilMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม" }));
+        leaveUntilMonth.setEnabled(false);
 
         leaveUntilDay.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         leaveUntilDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        leaveUntilDay.setEnabled(false);
 
         jLabel48.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -563,24 +643,22 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         requestByNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         requestByNameLabel.setText("NAME");
 
-        staffCommentTextArea2.setColumns(20);
-        staffCommentTextArea2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        staffCommentTextArea2.setLineWrap(true);
-        staffCommentTextArea2.setTabSize(0);
-        staffCommentTextArea2.setText("ยังไม่มีการตอบกลับ");
-        staffCommentTextArea2.setWrapStyleWord(true);
-        jScrollPane15.setViewportView(staffCommentTextArea2);
+        Remark.setColumns(20);
+        Remark.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Remark.setLineWrap(true);
+        Remark.setTabSize(0);
+        Remark.setWrapStyleWord(true);
+        jScrollPane15.setViewportView(Remark);
 
         jLabel53.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel53.setText("หมายเหตุ / คำสั่ง (ถ้ามี)");
 
-        staffCommentTextArea4.setColumns(20);
-        staffCommentTextArea4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        staffCommentTextArea4.setLineWrap(true);
-        staffCommentTextArea4.setTabSize(0);
-        staffCommentTextArea4.setText("ยังไม่มีการตอบกลับ");
-        staffCommentTextArea4.setWrapStyleWord(true);
-        jScrollPane17.setViewportView(staffCommentTextArea4);
+        teacherComment.setColumns(20);
+        teacherComment.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        teacherComment.setLineWrap(true);
+        teacherComment.setTabSize(0);
+        teacherComment.setWrapStyleWord(true);
+        jScrollPane17.setViewportView(teacherComment);
 
         jLabel54.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel54.setText("ความเห็นจากอาจารย์ (ถ้ามี)");
@@ -589,12 +667,11 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         staffCommentTextArea3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         staffCommentTextArea3.setLineWrap(true);
         staffCommentTextArea3.setTabSize(0);
-        staffCommentTextArea3.setText("ยังไม่มีการตอบกลับ");
         staffCommentTextArea3.setWrapStyleWord(true);
         jScrollPane16.setViewportView(staffCommentTextArea3);
 
         jLabel52.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel52.setText("ความเห็นจากเจ้าหน้าที่");
+        jLabel52.setText("ความเห็นจากเจ้าหน้าที่(ถ้ามี)");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -659,7 +736,7 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel45)
-                                            .addComponent(otherLeaveTitleTextField)))
+                                            .addComponent(leaveTitleTextField)))
                                     .addComponent(jLabel46)
                                     .addComponent(causeOfLeaveTextField))
                                 .addComponent(jLabel47)
@@ -695,7 +772,7 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
                     .addComponent(jLabel45))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(otherLeaveTitleTextField)
+                    .addComponent(leaveTitleTextField)
                     .addComponent(selectedLeaveTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel13)
@@ -851,8 +928,8 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         jLabel51.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel51.setText("สถานะเอกสาร");
 
-        jLabel55.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel55.setText("ยื่นเอกสารเเล้ว / กำลังรอการตอบกลับ");
+        status.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        status.setText("ยื่นเอกสารเเล้ว / กำลังรอการตอบกลับ");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -868,7 +945,7 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel51)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -881,7 +958,7 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel51)
-                    .addComponent(jLabel55))
+                    .addComponent(status))
                 .addContainerGap())
         );
 
@@ -929,38 +1006,106 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18))
         );
 
-        pack();
+        setBounds(0, 0, 1250, 846);
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectedLeaveTitleItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_selectedLeaveTitleItemStateChanged
         String selectedItem = (String) evt.getItem();
         System.out.println(selectedItem);
         if (selectedItem.equalsIgnoreCase("อื่น ๆ (โปรดระบุสาเหตุการลา)")) {
-            otherLeaveTitleTextField.setEnabled(true);
-            otherLeaveTitleTextField.setText("");
+            leaveTitleTextField.setEnabled(true);
+            leaveTitleTextField.setText("");
         } else {
-            otherLeaveTitleTextField.setEnabled(false);
-            otherLeaveTitleTextField.setText(selectedItem);
+            leaveTitleTextField.setEnabled(false);
+            leaveTitleTextField.setText(selectedItem);
         }
     }//GEN-LAST:event_selectedLeaveTitleItemStateChanged
 
-    private void otherLeaveTitleTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherLeaveTitleTextFieldActionPerformed
+    private void leaveTitleTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaveTitleTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_otherLeaveTitleTextFieldActionPerformed
+    }//GEN-LAST:event_leaveTitleTextFieldActionPerformed
+
+    private void saveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveButtonMouseClicked
+        leaveDocData = toDocDataMap();
+        if (LeaveDocHandler.handleUpdateLeaveDocAdmin(docData.getDocumentId(), (HashMap<String, Object>) leaveDocData)) {
+            new InfoDialog("บันทึกคำตอบเสร็จสิ้น", "ระบบได้บันทึกคำตอบของท่านแล้ว!").show();
+            this.setVisible(false);
+            this.dispose();
+        }
+
+    }//GEN-LAST:event_saveButtonMouseClicked
+
+    private Map<String, Object> toDocDataMap() {
+        Admin admin = (Admin) AuthUser.getAuthUser();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+        String writtenAt = writtenAtTextArea.getText();
+        String leaveTitle = (String) selectedLeaveTitle.getSelectedItem();
+        String otherLeaveTitle = leaveTitleTextField.getText();
+        String requestTo = requestToTextLabel.getText();
+        String requestedAtDay = (String) selectedWrittenDayBox.getSelectedItem();
+        String requestedAtMonth = (String) selectedWrittenMonthBox.getSelectedItem();
+        String requestedAtYear = writtenYearTextField.getText();
+        String requestBy = requestByTextField.getText();
+        String contactAddress = contactAddressTextArea.getText();
+        String causeOfLeave = causeOfLeaveTextField.getText();
+        String selectedLeaveFromDay = (String) leaveFromDay.getSelectedItem();
+        String selectedLeaveFromMonth = (String) leaveFromMonth.getSelectedItem();
+        String selectedLeaveFromYear = leaveFromYear.getText();
+        String selectedLeaveUntilDay = (String) leaveUntilDay.getSelectedItem();
+        String selectedLeaveUntilMonth = (String) leaveUntilMonth.getSelectedItem();
+        String selectedLeaveUntilYear = leaveUntilYear.getText();
+        String requestRemark = requestRemarkTextArea.getText();
+
+        String requestStatus = (String) statusCombo.getSelectedItem();
+        String respondedAt = dtf.format(LocalDateTime.now());
+        String respondedBy = admin.getUsername();
+        ArrayList<String> requestResponses = new ArrayList<>();
+        requestResponses.add(0, staffCommentTextArea3.getText());
+        requestResponses.add(1, teacherComment.getText());
+        requestResponses.add(2, Remark.getText());
+
+        if (requestRemark.isEmpty()) {
+            requestRemark = "-";
+        }
+
+        leaveDocData.put("documentType", 2);
+        leaveDocData.put("writtenAt", writtenAt);
+        leaveDocData.put("leaveTitle", leaveTitle);
+        leaveDocData.put("otherLeaveTitle", otherLeaveTitle);
+        leaveDocData.put("requestTo", requestTo);
+        leaveDocData.put("requestedAtDay", requestedAtDay);
+        leaveDocData.put("requestedAtMonth", requestedAtMonth);
+        leaveDocData.put("requestedAtYear", requestedAtYear);
+        leaveDocData.put("requestBy", requestBy);
+        leaveDocData.put("contactAddress", contactAddress);
+        leaveDocData.put("requestRemark", requestRemark);
+        leaveDocData.put("causeOfLeave", causeOfLeave);
+        leaveDocData.put("selectedLeaveFromDay", selectedLeaveFromDay);
+        leaveDocData.put("selectedLeaveFromMonth", selectedLeaveFromMonth);
+        leaveDocData.put("selectedLeaveFromYear", selectedLeaveFromYear);
+        leaveDocData.put("selectedLeaveUntilDay", selectedLeaveUntilDay);
+        leaveDocData.put("selectedLeaveUntilMonth", selectedLeaveUntilMonth);
+        leaveDocData.put("selectedLeaveUntilYear", selectedLeaveUntilYear);
+        leaveDocData.put("requestStatus", requestStatus);
+        leaveDocData.put("respondedAt", respondedAt);
+        leaveDocData.put("respondedBy", respondedBy);
+        leaveDocData.put("requestResponses", requestResponses);
+
+        return leaveDocData;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel DOB;
+    private javax.swing.JLabel ENname;
+    private javax.swing.JTextArea Remark;
+    private javax.swing.JLabel THname;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JTextField causeOfLeaveTextField;
     private javax.swing.JLabel classYearITGenLabel;
     private javax.swing.JTextArea contactAddressTextArea;
-    private javax.swing.JLabel dobLabel3;
     private javax.swing.JLabel documentIDLabel;
     private javax.swing.JLabel emailLabel;
-    private javax.swing.JLabel enStudentNameLabel3;
-    private javax.swing.JLabel genderLabel3;
-    private javax.swing.JLabel identificationNumberLabel3;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -1001,7 +1146,6 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
@@ -1026,11 +1170,12 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> leaveFromDay;
     private javax.swing.JComboBox<String> leaveFromMonth;
     private javax.swing.JTextField leaveFromYear;
+    private javax.swing.JTextField leaveTitleTextField;
     private javax.swing.JComboBox<String> leaveUntilDay;
     private javax.swing.JComboBox<String> leaveUntilMonth;
     private javax.swing.JTextField leaveUntilYear;
     private javax.swing.JLabel majorNameLabel;
-    private javax.swing.JTextField otherLeaveTitleTextField;
+    private javax.swing.JLabel passportId;
     private javax.swing.JLabel phoneNumberLabel;
     private javax.swing.JLabel programName;
     private javax.swing.JLabel requestByNameLabel;
@@ -1038,15 +1183,17 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
     private javax.swing.JTextField requestByTextField;
     private javax.swing.JTextArea requestRemarkTextArea;
     private javax.swing.JTextField requestToTextLabel;
+    private javax.swing.JButton saveButton;
     private javax.swing.JLabel schoolNameLabel;
     private javax.swing.JComboBox<String> selectedLeaveTitle;
     private javax.swing.JComboBox<String> selectedWrittenDayBox;
     private javax.swing.JComboBox<String> selectedWrittenMonthBox;
-    private javax.swing.JTextArea staffCommentTextArea2;
+    private javax.swing.JLabel sex;
     private javax.swing.JTextArea staffCommentTextArea3;
-    private javax.swing.JTextArea staffCommentTextArea4;
-    private javax.swing.JLabel studentIdLabel3;
-    private javax.swing.JLabel thStudentNameLabel3;
+    private javax.swing.JLabel status;
+    private javax.swing.JComboBox<String> statusCombo;
+    private javax.swing.JLabel studentId;
+    private javax.swing.JTextArea teacherComment;
     private javax.swing.JTextArea writtenAtTextArea;
     private javax.swing.JTextField writtenYearTextField;
     // End of variables declaration//GEN-END:variables

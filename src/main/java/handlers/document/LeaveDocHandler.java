@@ -130,4 +130,24 @@ public class LeaveDocHandler extends DocumentHandler {
                 responses
         );
     }
+
+    public static boolean handleUpdateLeaveDocAdmin(String docId, HashMap<String, Object> docData) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        boolean result = false;
+        try {
+            Callable<Boolean> callable = () -> {
+                return LeaveDocumentDatabase.updateLeaveDocById(docId, docData);
+            };
+            Future<Boolean> future = executorService.submit(callable);
+            while (!future.isDone() && !future.isCancelled()) {
+                Thread.sleep(1000);
+            }
+            result = future.get();
+        } catch (InterruptedException | ExecutionException ex) {
+            ex.printStackTrace();
+        } finally {
+            executorService.shutdown();
+        }
+        return result;
+    }
 }
