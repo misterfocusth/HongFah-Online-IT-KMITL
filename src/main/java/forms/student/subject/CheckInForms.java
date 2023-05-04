@@ -135,14 +135,14 @@ public class CheckInForms extends javax.swing.JInternalFrame {
             new InfoDialog("ข้อมูลไม่สมบูรณ์", "โปรดกรอกรหัสเข้าชั้นเรียน ก่อนดำเนินการต่อ").show();
             return;
         }
-        
+
         if (CheckInHandler.handleAddNewCheckIn(checkInData)) {
             new InfoDialog("บันทึกคำถามเสร็จสิ้น", "ระบบได้บันทึกการเข้าห้องเรียนของท่านแล้ว! กรุณาตั้งใจเรียน").show();
         }
     }//GEN-LAST:event_cheeckbtnMouseClicked
 
     private void cancelbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelbtnMouseClicked
-
+        this.setVisible(false);
     }//GEN-LAST:event_cancelbtnMouseClicked
     private Map<String, Object> toCheckInDataMap() {
 
