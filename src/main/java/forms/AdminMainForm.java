@@ -5,6 +5,8 @@ package forms;
 
 import dialog.OptionDialog;
 import forms.admin.announce.AdminAnnounceForm;
+import forms.admin.home.AdminHomeDocumentForm;
+import forms.admin.home.QuestionForAdmin;
 import forms.student.about.AboutForm;
 import forms.student.login.NewLoginForm;
 import helper.FrameHelper;
@@ -40,8 +42,8 @@ public class AdminMainForm extends javax.swing.JFrame {
         aboutMenu = new javax.swing.JMenu();
         answerMenu = new javax.swing.JMenu();
         docMenu = new javax.swing.JMenu();
-        logoutMenu = new javax.swing.JMenu();
         announceMenu = new javax.swing.JMenu();
+        logoutMenu = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -80,12 +82,31 @@ public class AdminMainForm extends javax.swing.JFrame {
         answerMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_48x48/icons8-composing-mail-48.png"))); // NOI18N
         answerMenu.setText("คำถามทั้งหมด");
         answerMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        answerMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                answerMenuMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(answerMenu);
 
         docMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-document-48.png"))); // NOI18N
         docMenu.setText("เอกสารทั้งหมด");
         docMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        docMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                docMenuMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(docMenu);
+
+        announceMenu.setText("จัดการประกาศ / ประชาสัมพันธ์");
+        announceMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        announceMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                announceMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(announceMenu);
 
         logoutMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-logout-28.png"))); // NOI18N
         logoutMenu.setText("ออกจากระบบ");
@@ -96,15 +117,6 @@ public class AdminMainForm extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(logoutMenu);
-
-        announceMenu.setText("จัดการประกาศ / ประชาสัมพันธ์");
-        announceMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        announceMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                announceMenuMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(announceMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -148,6 +160,20 @@ public class AdminMainForm extends javax.swing.JFrame {
         AdminMainForm.mainDesktopPane.add(adminAnnounceForm);
         adminAnnounceForm.setVisible(true);
     }//GEN-LAST:event_announceMenuMouseClicked
+    
+    private void answerMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_answerMenuMouseClicked
+        QuestionForAdmin questionForAdmin = new QuestionForAdmin();
+        FrameHelper.setLocationToCenter(questionForAdmin);
+        AdminMainForm.mainDesktopPane.add(questionForAdmin);
+        questionForAdmin.setVisible(true);
+    }//GEN-LAST:event_answerMenuMouseClicked
+    
+    private void docMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_docMenuMouseClicked
+        AdminHomeDocumentForm adminHomeDocumentForm = new AdminHomeDocumentForm();
+        FrameHelper.setLocationToCenter(adminHomeDocumentForm);
+        AdminMainForm.mainDesktopPane.add(adminHomeDocumentForm);
+        adminHomeDocumentForm.setVisible(true);
+    }//GEN-LAST:event_docMenuMouseClicked
 
     /**
      * @param args the command line arguments
