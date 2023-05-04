@@ -8,12 +8,12 @@ package forms.student.subject;
  *
  * @author WINDOWS 10
  */
-public class CheckinForms extends javax.swing.JInternalFrame {
+public class CheckInForms extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CheckinForms
      */
-    public CheckinForms() {
+    public CheckInForms() {
         initComponents();
     }
 

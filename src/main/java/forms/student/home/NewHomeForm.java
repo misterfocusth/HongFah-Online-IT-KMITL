@@ -14,7 +14,7 @@ import forms.student.document.GeneralDocRequestForm;
 import forms.student.document.LeaveDocDetailForm;
 import forms.student.document.LeaveDocRequestForm;
 import forms.student.info.EditStudentInfoForm;
-import forms.student.subject.CheckConfirmationForms;
+import forms.student.subject.CheckInForms;
 import handlers.document.DocumentHandler;
 import handlers.document.GeneralDocHandler;
 import handlers.document.LeaveDocHandler;
@@ -1001,10 +1001,10 @@ public class NewHomeForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_refreshLabelMouseClicked
 
     private void classAttendMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classAttendMenuMouseClicked
-        CheckConfirmationForms checkConfirmationForms = new CheckConfirmationForms();
-        FrameHelper.setLocationToCenter(checkConfirmationForms);
-        MainForm.mainDesktopPane.add(checkConfirmationForms);
-        checkConfirmationForms.setVisible(true);
+        CheckInForms CheckInForms = new CheckInForms();
+        FrameHelper.setLocationToCenter(CheckInForms);
+        MainForm.mainDesktopPane.add(CheckInForms);
+        CheckInForms.setVisible(true);
     }//GEN-LAST:event_classAttendMenuMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
