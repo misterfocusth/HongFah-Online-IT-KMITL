@@ -4,11 +4,23 @@
  */
 package forms.student.subject;
 
+import dialog.InfoDialog;
+import handlers.CheckInHandler;
+import helper.InputValidationHelper;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
+import user.AuthUser;
+import user.Student;
+
 /**
  *
  * @author WINDOWS 10
  */
 public class CheckInForms extends javax.swing.JInternalFrame {
+
+    private Map<String, Object> checkInData = new HashMap<>();
 
     /**
      * Creates new form CheckinForms
@@ -28,11 +40,16 @@ public class CheckInForms extends javax.swing.JInternalFrame {
 
         cheeckbtn = new javax.swing.JButton();
         cancelbtn = new javax.swing.JButton();
-        Code = new javax.swing.JTextField();
+        codeTextField = new javax.swing.JTextField();
         finalLabel = new javax.swing.JLabel();
 
         cheeckbtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cheeckbtn.setText("Check-in");
+        cheeckbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cheeckbtnMouseClicked(evt);
+            }
+        });
         cheeckbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cheeckbtnActionPerformed(evt);
@@ -41,17 +58,22 @@ public class CheckInForms extends javax.swing.JInternalFrame {
 
         cancelbtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cancelbtn.setText("Cancel");
+        cancelbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelbtnMouseClicked(evt);
+            }
+        });
         cancelbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelbtnActionPerformed(evt);
             }
         });
 
-        Code.setFont(new java.awt.Font("Tahoma", 0, 60)); // NOI18N
-        Code.setText("123456");
-        Code.addActionListener(new java.awt.event.ActionListener() {
+        codeTextField.setFont(new java.awt.Font("Tahoma", 0, 60)); // NOI18N
+        codeTextField.setText("123456");
+        codeTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CodeActionPerformed(evt);
+                codeTextFieldActionPerformed(evt);
             }
         });
 
@@ -68,7 +90,7 @@ public class CheckInForms extends javax.swing.JInternalFrame {
                     .addComponent(finalLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(codeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(cheeckbtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -82,7 +104,7 @@ public class CheckInForms extends javax.swing.JInternalFrame {
                 .addGap(30, 30, 30)
                 .addComponent(finalLabel)
                 .addGap(32, 32, 32)
-                .addComponent(Code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(codeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cheeckbtn)
@@ -101,15 +123,59 @@ public class CheckInForms extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelbtnActionPerformed
 
-    private void CodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodeActionPerformed
+    private void codeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codeTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CodeActionPerformed
+    }//GEN-LAST:event_codeTextFieldActionPerformed
 
+    private void cheeckbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cheeckbtnMouseClicked
+        checkInData = toCheckInDataMap();
+
+        boolean isUserInputValid = InputValidationHelper.validateUserInput(checkInData);
+        if (!isUserInputValid) {
+            new InfoDialog("ข้อมูลไม่สมบูรณ์", "โปรดกรอกรหัสเข้าชั้นเรียน ก่อนดำเนินการต่อ").show();
+            return;
+        }
+        
+        if (CheckInHandler.handleAddNewCheckIn(checkInData)) {
+            new InfoDialog("บันทึกคำถามเสร็จสิ้น", "ระบบได้บันทึกการเข้าห้องเรียนของท่านแล้ว! กรุณาตั้งใจเรียน").show();
+        }
+    }//GEN-LAST:event_cheeckbtnMouseClicked
+
+    private void cancelbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelbtnMouseClicked
+
+    }//GEN-LAST:event_cancelbtnMouseClicked
+    private Map<String, Object> toCheckInDataMap() {
+
+        String subjectCode = codeTextField.getText();
+
+        Student student = (Student) AuthUser.getAuthUser();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+        String checkInByStudenCode = student.getStudentId();
+        String checkInByStudenFirstName = student.getThFirstName();
+        String checkInByStudenLastName = student.getThLastName();
+        String checkInAt = dtf.format(LocalDateTime.now());
+//        String questionResponse = "ยังไม่มีการตอบกลับ";
+//        String answerBy = "ยังไม่มีการตอบกลับ";
+//        String answerAt = "ยังไม่มีการตอบกลับ";
+//        String answerBody = "ยังไม่มีการตอบกลับ (กำลังรอการตอบกลับจากเจ้าหน้าที่)";
+
+        checkInData.put("checkInByStudenCode", checkInByStudenCode);
+        checkInData.put("checkInByStudenName", checkInByStudenFirstName);
+        checkInData.put("checkInByStudenName", checkInByStudenLastName);
+        checkInData.put("checkInAt", checkInAt);
+//        questionData.put("questionResponse", questionResponse);
+//        questionData.put("answerBy", answerBy);
+//        questionData.put("answerAt", answerAt);
+//        questionData.put("answerBody", answerBody);
+
+        return checkInData;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Code;
     private javax.swing.JButton cancelbtn;
     private javax.swing.JButton cheeckbtn;
+    private javax.swing.JTextField codeTextField;
     private javax.swing.JLabel finalLabel;
     // End of variables declaration//GEN-END:variables
 }
