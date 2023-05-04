@@ -41,6 +41,7 @@ public class AdminMainForm extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         aboutMenu = new javax.swing.JMenu();
         answerMenu = new javax.swing.JMenu();
+        announceMenu1 = new javax.swing.JMenu();
         docMenu = new javax.swing.JMenu();
         announceMenu = new javax.swing.JMenu();
         logoutMenu = new javax.swing.JMenu();
@@ -88,6 +89,15 @@ public class AdminMainForm extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(answerMenu);
+
+        announceMenu1.setText("เช็คชื่อเข้าเรียน");
+        announceMenu1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        announceMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                announceMenu1MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(announceMenu1);
 
         docMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-document-48.png"))); // NOI18N
         docMenu.setText("เอกสารทั้งหมด");
@@ -139,7 +149,7 @@ public class AdminMainForm extends javax.swing.JFrame {
         aboutForm.setLocationRelativeTo(null);
         aboutForm.setVisible(true);
     }//GEN-LAST:event_aboutMenuMouseClicked
-    
+
     private void logoutMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMenuMouseClicked
         int selectedOpt = new OptionDialog("ออกจากระบบ", "ยืนยันที่จะออกจากระบบ หรือไม่ ?").show();
         if (selectedOpt == 0) {
@@ -153,27 +163,31 @@ public class AdminMainForm extends javax.swing.JFrame {
             AdminMainForm.mainDesktopPane.updateUI();
         }
     }//GEN-LAST:event_logoutMenuMouseClicked
-    
+
     private void announceMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_announceMenuMouseClicked
         AdminAnnounceForm adminAnnounceForm = new AdminAnnounceForm();
         FrameHelper.setLocationToCenter(adminAnnounceForm);
         AdminMainForm.mainDesktopPane.add(adminAnnounceForm);
         adminAnnounceForm.setVisible(true);
     }//GEN-LAST:event_announceMenuMouseClicked
-    
+
     private void answerMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_answerMenuMouseClicked
         QuestionForAdmin questionForAdmin = new QuestionForAdmin();
         FrameHelper.setLocationToCenter(questionForAdmin);
         AdminMainForm.mainDesktopPane.add(questionForAdmin);
         questionForAdmin.setVisible(true);
     }//GEN-LAST:event_answerMenuMouseClicked
-    
+
     private void docMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_docMenuMouseClicked
         AdminHomeDocumentForm adminHomeDocumentForm = new AdminHomeDocumentForm();
         FrameHelper.setLocationToCenter(adminHomeDocumentForm);
         AdminMainForm.mainDesktopPane.add(adminHomeDocumentForm);
         adminHomeDocumentForm.setVisible(true);
     }//GEN-LAST:event_docMenuMouseClicked
+
+    private void announceMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_announceMenu1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_announceMenu1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -189,21 +203,21 @@ public class AdminMainForm extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                    
+
                 }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(AdminMainForm.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(AdminMainForm.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(AdminMainForm.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AdminMainForm.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -221,6 +235,7 @@ public class AdminMainForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu aboutMenu;
     private javax.swing.JMenu announceMenu;
+    private javax.swing.JMenu announceMenu1;
     private javax.swing.JMenu answerMenu;
     private javax.swing.JMenu docMenu;
     private javax.swing.JMenuBar jMenuBar1;
