@@ -4,11 +4,21 @@
  */
 package forms.admin.subject;
 
+import dialog.InfoDialog;
+import handlers.CheckInHandler;
+import helper.InputValidationHelper;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author WINDOWS 10
  */
 public class SubjectForms extends javax.swing.JFrame {
+
+    private Map<String, Object> checkInData = new HashMap<>();
 
     /**
      * Creates new form SubjectForms
@@ -31,18 +41,18 @@ public class SubjectForms extends javax.swing.JFrame {
         cancel = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        SubjectName = new javax.swing.JTextField();
+        SubjectNameTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        SubjectID = new javax.swing.JTextField();
+        SubjectIDTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        duration = new javax.swing.JTextField();
+        durationTextField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        teacherName = new javax.swing.JTextField();
-        room = new javax.swing.JTextField();
+        teacherNameTextField = new javax.swing.JTextField();
+        classroomTextField = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        subjectInfo = new javax.swing.JTextArea();
+        subjectInfoTextField = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         checkClassinfo = new javax.swing.JTable();
         status = new javax.swing.JComboBox<>();
@@ -84,6 +94,11 @@ public class SubjectForms extends javax.swing.JFrame {
 
         add.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         add.setText("เพิ่มวิชา");
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMouseClicked(evt);
+            }
+        });
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addActionPerformed(evt);
@@ -105,12 +120,12 @@ public class SubjectForms extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("รหัสวิชา");
 
-        SubjectName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        SubjectNameTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("ชื่อวิชา");
 
-        SubjectID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        SubjectIDTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("วัน - เวลาเรียน");
@@ -118,32 +133,32 @@ public class SubjectForms extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("ห้องเรียน");
 
-        duration.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        duration.addActionListener(new java.awt.event.ActionListener() {
+        durationTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        durationTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                durationActionPerformed(evt);
+                durationTextFieldActionPerformed(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("ชื่ออาจารย์ผู้สอน");
 
-        teacherName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        teacherNameTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        room.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        room.addActionListener(new java.awt.event.ActionListener() {
+        classroomTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        classroomTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                roomActionPerformed(evt);
+                classroomTextFieldActionPerformed(evt);
             }
         });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("รายละเอียดวิชา");
 
-        subjectInfo.setColumns(20);
-        subjectInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        subjectInfo.setRows(5);
-        jScrollPane3.setViewportView(subjectInfo);
+        subjectInfoTextField.setColumns(20);
+        subjectInfoTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        subjectInfoTextField.setRows(5);
+        jScrollPane3.setViewportView(subjectInfoTextField);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -166,17 +181,17 @@ public class SubjectForms extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3)
-                            .addComponent(teacherName)
+                            .addComponent(teacherNameTextField)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(SubjectID, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(duration, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SubjectIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(durationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel3))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(SubjectName)
-                                    .addComponent(room)
+                                    .addComponent(SubjectNameTextField)
+                                    .addComponent(classroomTextField)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel4)
@@ -197,20 +212,20 @@ public class SubjectForms extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SubjectName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SubjectID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SubjectNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SubjectIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(duration, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(room, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(durationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(classroomTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(teacherName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(teacherNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -324,9 +339,9 @@ public class SubjectForms extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelActionPerformed
 
-    private void roomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomActionPerformed
+    private void classroomTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classroomTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_roomActionPerformed
+    }//GEN-LAST:event_classroomTextFieldActionPerformed
 
     private void statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusActionPerformed
         // TODO add your handling code here:
@@ -340,9 +355,23 @@ public class SubjectForms extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchSubjectinfoActionPerformed
 
-    private void durationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_durationActionPerformed
+    private void durationTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_durationTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_durationActionPerformed
+    }//GEN-LAST:event_durationTextFieldActionPerformed
+
+    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
+        checkInData = toCheckInDataMap();
+
+        boolean isUserInputValid = InputValidationHelper.validateUserInput(checkInData);
+        if (!isUserInputValid) {
+            new InfoDialog("ข้อมูลไม่สมบูรณ์", "โปรดกรอกข้อมูลให้ครบทุกช่อง ก่อนดำเนินการต่อ").show();
+            return;
+        }
+
+        if (CheckInHandler.handleAddNewCheckIn(checkInData)) {
+            new InfoDialog("บันทึกคำถามเสร็จสิ้น", "ระบบได้บันทึกการเข้าห้องเรียนของท่านแล้ว! กรุณาตั้งใจเรียน").show();
+        }
+    }//GEN-LAST:event_addMouseClicked
 
     /**
      * @param args the command line arguments
@@ -380,12 +409,13 @@ public class SubjectForms extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField SubjectID;
-    private javax.swing.JTextField SubjectName;
+    private javax.swing.JTextField SubjectIDTextField;
+    private javax.swing.JTextField SubjectNameTextField;
     private javax.swing.JButton add;
     private javax.swing.JButton cancel;
     private javax.swing.JTable checkClassinfo;
-    private javax.swing.JTextField duration;
+    private javax.swing.JTextField classroomTextField;
+    private javax.swing.JTextField durationTextField;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -402,11 +432,45 @@ public class SubjectForms extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextArea procedureInfo;
     private javax.swing.JLabel procedures;
-    private javax.swing.JTextField room;
     private javax.swing.JButton search;
     private javax.swing.JTextField searchSubjectinfo;
     private javax.swing.JComboBox<String> status;
-    private javax.swing.JTextArea subjectInfo;
-    private javax.swing.JTextField teacherName;
+    private javax.swing.JTextArea subjectInfoTextField;
+    private javax.swing.JTextField teacherNameTextField;
     // End of variables declaration//GEN-END:variables
+
+    private Map<String, Object> toCheckInDataMap() {
+
+        String SubjectID = SubjectIDTextField.getText();
+        String SubjectName = SubjectNameTextField.getText();
+        String classTime= durationTextField.getText();
+        String classroom = classroomTextField.getText();
+        String teacherName = teacherNameTextField.getText();
+        String subjectInfo = subjectInfoTextField.getText();
+
+//        Student student = (Student) AuthUser.getAuthUser();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+//        String checkInByStudenCode = student.getStudentId();
+//        String checkInByStudenName = student.getThFirstName();
+        String subjectCreateAt = dtf.format(LocalDateTime.now());
+//        String questionResponse = "ยังไม่มีการตอบกลับ";
+//        String answerBy = "ยังไม่มีการตอบกลับ";
+//        String answerAt = "ยังไม่มีการตอบกลับ";
+//        String answerBody = "ยังไม่มีการตอบกลับ (กำลังรอการตอบกลับจากเจ้าหน้าที่)";
+
+        checkInData.put("classroom", SubjectID);
+        checkInData.put("classTime", SubjectName);
+        checkInData.put("subjectCreateAt", subjectCreateAt);
+        checkInData.put("classTime", classTime);
+        checkInData.put("classroom", classroom);
+        checkInData.put("teacherName", teacherName);
+        checkInData.put("sessionNote", subjectInfo);
+//        questionData.put("questionResponse", questionResponse);
+//        questionData.put("answerBy", answerBy);
+//        questionData.put("answerAt", answerAt);
+//        questionData.put("answerBody", answerBody);
+
+        return checkInData;
+    }
 }

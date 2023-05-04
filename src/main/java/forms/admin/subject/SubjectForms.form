@@ -160,18 +160,18 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="teacherName" alignment="0" max="32767" attributes="0"/>
+                              <Component id="teacherNameTextField" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="SubjectID" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
-                                      <Component id="duration" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
+                                      <Component id="SubjectIDTextField" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
+                                      <Component id="durationTextField" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
                                       <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="SubjectName" max="32767" attributes="0"/>
-                                      <Component id="room" max="32767" attributes="0"/>
+                                      <Component id="SubjectNameTextField" max="32767" attributes="0"/>
+                                      <Component id="classroomTextField" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -203,8 +203,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="SubjectName" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="SubjectID" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="SubjectNameTextField" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="SubjectIDTextField" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -213,13 +213,13 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="duration" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="room" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="durationTextField" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="classroomTextField" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="teacherName" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="teacherNameTextField" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -243,6 +243,7 @@
             <Property name="text" type="java.lang.String" value="&#xe40;&#xe1e;&#xe34;&#xe48;&#xe21;&#xe27;&#xe34;&#xe0a;&#xe32;"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="addMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addActionPerformed"/>
           </Events>
         </Component>
@@ -274,7 +275,7 @@
             <Property name="text" type="java.lang.String" value="&#xe23;&#xe2b;&#xe31;&#xe2a;&#xe27;&#xe34;&#xe0a;&#xe32;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="SubjectName">
+        <Component class="javax.swing.JTextField" name="SubjectNameTextField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
@@ -289,7 +290,7 @@
             <Property name="text" type="java.lang.String" value="&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe27;&#xe34;&#xe0a;&#xe32;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="SubjectID">
+        <Component class="javax.swing.JTextField" name="SubjectIDTextField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
@@ -312,14 +313,14 @@
             <Property name="text" type="java.lang.String" value="&#xe2b;&#xe49;&#xe2d;&#xe07;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="duration">
+        <Component class="javax.swing.JTextField" name="durationTextField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="durationActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="durationTextFieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
@@ -330,21 +331,21 @@
             <Property name="text" type="java.lang.String" value="&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe2d;&#xe32;&#xe08;&#xe32;&#xe23;&#xe22;&#xe4c;&#xe1c;&#xe39;&#xe49;&#xe2a;&#xe2d;&#xe19;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="teacherName">
+        <Component class="javax.swing.JTextField" name="teacherNameTextField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="room">
+        <Component class="javax.swing.JTextField" name="classroomTextField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="roomActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="classroomTextFieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -362,7 +363,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="subjectInfo">
+            <Component class="javax.swing.JTextArea" name="subjectInfoTextField">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

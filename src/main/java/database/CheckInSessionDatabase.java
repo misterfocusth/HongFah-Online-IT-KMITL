@@ -60,6 +60,7 @@ public class CheckInSessionDatabase extends Database {
             String sessionCode = document.getId();
             String checkInByStudenCode = document.getString("checkInByStudenCode ");
             String checkInByStudenName = document.getString("checkInByStudenName ");
+            String subjectCreateAt = document.getString("subjectCreateAt ");
             String checkInAt = document.getString("checkInAt");
             String subjectCode = document.getString("subjectCode");
             String subjectName = document.getString("subjectName");
@@ -72,6 +73,7 @@ public class CheckInSessionDatabase extends Database {
             currentDocument.put("documentId", sessionCode);
             currentDocument.put("checkInByStudenCode ", checkInByStudenCode );
             currentDocument.put("checkInByStudenName ", checkInByStudenName );
+            currentDocument.put("subjectCreateAt ", subjectCreateAt );
             currentDocument.put("checkInAt", checkInAt);
             currentDocument.put("subjectCode", String.valueOf(subjectCode));
             currentDocument.put("subjectName", subjectName);
