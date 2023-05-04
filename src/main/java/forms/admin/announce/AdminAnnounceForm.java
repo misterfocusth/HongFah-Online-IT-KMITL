@@ -51,6 +51,9 @@ public class AdminAnnounceForm extends javax.swing.JInternalFrame {
         resetAnnounceButton = new javax.swing.JButton();
         saveAnnounceButton = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/announce/icons8-email-send-48.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
