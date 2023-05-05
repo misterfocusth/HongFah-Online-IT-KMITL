@@ -1,19 +1,19 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package forms.admin.subject;
-import checkin.CheckInSession;
+
 /**
  *
  * @author WINDOWS 10
  */
-public class CheckingForms extends javax.swing.JFrame {
+public class CheckForms extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form forms
+     * Creates new form CheckForms
      */
-    public CheckingForms() {
+    public CheckForms() {
         initComponents();
     }
 
@@ -46,8 +46,6 @@ public class CheckingForms extends javax.swing.JFrame {
         finalDetail = new javax.swing.JLabel();
         finalCode = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         studentCheckTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -75,9 +73,6 @@ public class CheckingForms extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(studentCheckTable);
-        if (studentCheckTable.getColumnModel().getColumnCount() > 0) {
-            studentCheckTable.getColumnModel().getColumn(2).setMinWidth(10);
-        }
 
         deActivateB.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         deActivateB.setText("ปิดการเข้าเช็คชื่อ");
@@ -239,13 +234,12 @@ public class CheckingForms extends javax.swing.JFrame {
                         .addComponent(detailPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 8, Short.MAX_VALUE)))
+                        .addGap(0, 2, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(detailPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -257,8 +251,7 @@ public class CheckingForms extends javax.swing.JFrame {
                         .addGap(35, 35, 35)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(deActivateB)
-                .addGap(12, 12, 12))
+                .addComponent(deActivateB))
         );
 
         pack();
@@ -268,10 +261,6 @@ public class CheckingForms extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_deActivateBActionPerformed
 
-    private void classroomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classroomActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_classroomActionPerformed
-
     private void subjectIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_subjectIDActionPerformed
@@ -280,47 +269,14 @@ public class CheckingForms extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_timeActionPerformed
 
+    private void classroomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classroomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_classroomActionPerformed
+
     private void teacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_teacherActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CheckingForms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CheckingForms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CheckingForms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CheckingForms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CheckingForms().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FinalTime;
