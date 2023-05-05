@@ -97,7 +97,6 @@ public class CheckInSession {
         this.isActive = isActive;
     }
 
-
     public String getCheckInAt() {
         return checkInAt;
     }
@@ -121,6 +120,13 @@ public class CheckInSession {
     public void setCheckInByStudentName(String checkInByStudentName) {
         this.checkInByStudentName = checkInByStudentName;
     }
-    
+
+    public String getSubjectCreatAt() {
+        return subjectCreateAt;
+    }
+
+    public void setSubjectCreatAt(String subjectCreatAt) {
+        this.subjectCreateAt = subjectCreatAt;
+    }
 
 }

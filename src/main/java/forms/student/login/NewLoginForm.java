@@ -7,8 +7,6 @@ package forms.student.login;
 import dialog.InfoDialog;
 import forms.AdminMainForm;
 import forms.MainForm;
-import forms.admin.home.AdminHomeDocumentForm;
-import forms.admin.home.QuestionForAdmin;
 import forms.student.about.AboutForm;
 import forms.student.announce.AnnounceForm;
 import forms.student.home.NewHomeForm;
@@ -363,8 +361,8 @@ public class NewLoginForm extends javax.swing.JFrame {
                     AuthUser.setAuthUser(admin);
 
                     SwingUtilities.invokeLater(() -> {
-                        QuestionForAdmin questionForAdmin = new QuestionForAdmin();
-                        AdminHomeDocumentForm adminHomeForm = new AdminHomeDocumentForm();
+//                        QuestionForAdmin questionForAdmin = new QuestionForAdmin();
+//                        AdminHomeDocumentForm adminHomeForm = new AdminHomeDocumentForm();
 //                        AnnounceForm announceForm = new AnnounceForm();
                         AdminMainForm adminMainForm = new AdminMainForm();
 
@@ -372,14 +370,14 @@ public class NewLoginForm extends javax.swing.JFrame {
                         adminMainForm.setLocationRelativeTo(null);
                         adminMainForm.setVisible(true);
 
-                        FrameHelper.setLocationToCenter(adminHomeForm);
+//                        FrameHelper.setLocationToCenter(adminHomeForm);
 //                        FrameHelper.currentMainForm = adminMainForm;
 //
-                        adminMainForm.mainDesktopPane.add(questionForAdmin);
-                        adminMainForm.mainDesktopPane.add(adminHomeForm);
+//                        adminMainForm.mainDesktopPane.add(questionForAdmin);
+//                        adminMainForm.mainDesktopPane.add(adminHomeForm);
 //
-                        adminHomeForm.setVisible(true);
-                        questionForAdmin.setVisible(true);
+//                        adminHomeForm.setVisible(true);
+//                        questionForAdmin.setVisible(true);
                         this.setVisible(false);
                         this.dispose();
                     });

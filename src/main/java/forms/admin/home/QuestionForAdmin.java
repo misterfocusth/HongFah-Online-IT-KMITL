@@ -71,6 +71,7 @@ public class QuestionForAdmin extends javax.swing.JInternalFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        setClosable(true);
         setIconifiable(true);
 
         questionTable.setAutoCreateRowSorter(true);
