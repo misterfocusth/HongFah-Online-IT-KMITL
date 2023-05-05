@@ -10,8 +10,8 @@ package checkin;
  */
 public class CheckInSession {
 
-    private String checkInByStudenCode;
-    private String checkInByStudenName;
+    private String checkInByStudentCode;
+    private String checkInByStudentName;
     private String checkInAt;
     private String sessionCode;
     private String subjectCode;
@@ -106,20 +106,20 @@ public class CheckInSession {
         this.checkInAt = checkInAtl;
     }
 
-    public String getCheckInByStudenCode() {
-        return checkInByStudenCode;
+    public String getCheckInByStudentCode() {
+        return checkInByStudentCode;
     }
 
-    public void setCheckInByStudenCode(String checkInByStudenCode) {
-        this.checkInByStudenCode = checkInByStudenCode;
+    public void setCheckInByStudentCode(String checkInByStudentCode) {
+        this.checkInByStudentCode = checkInByStudentCode;
     }
 
-    public String getCheckInByStudenName() {
-        return checkInByStudenName;
+    public String getCheckInByStudentName() {
+        return checkInByStudentName;
     }
 
-    public void setCheckInByStudenName(String checkInByStudenName) {
-        this.checkInByStudenName = checkInByStudenName;
+    public void setCheckInByStudentName(String checkInByStudentName) {
+        this.checkInByStudentName = checkInByStudentName;
     }
     
 

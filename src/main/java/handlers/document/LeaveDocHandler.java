@@ -33,7 +33,7 @@ public class LeaveDocHandler extends DocumentHandler {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         HashMap<String, HashMap<String, Object>> result = null;
         try {
-            Callable<HashMap<String, HashMap<String, Object>>> callable = () -> new LeaveDocumentDatabase().getAllLeaveDoc();
+            Callable<HashMap<String, HashMap<String, Object>>> callable = () -> new LeaveDocumentDatabase().getAllDocuments();
             Future<HashMap<String, HashMap<String, Object>>> future = executorService.submit(callable);
             while (!future.isDone() && !future.isCancelled()) {
                 Thread.sleep(1000);
@@ -69,7 +69,7 @@ public class LeaveDocHandler extends DocumentHandler {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         HashMap<String, Object> result = null;
         try {
-            Callable<HashMap<String, Object>> callable = () -> new GeneralDocumentDatabase().getDocumentByDocID(docId);
+            Callable<HashMap<String, Object>> callable = () -> new GeneralDocumentDatabase().getDocumentById(docId);
             Future<HashMap<String, Object>> future = executorService.submit(callable);
             while (!future.isDone() && !future.isCancelled()) {
                 Thread.sleep(1000);
@@ -136,7 +136,7 @@ public class LeaveDocHandler extends DocumentHandler {
         boolean result = false;
         try {
             Callable<Boolean> callable = () -> {
-                return LeaveDocumentDatabase.updateLeaveDocById(docId, docData);
+                return LeaveDocumentDatabase.updateDocumentById(docId, docData);
             };
             Future<Boolean> future = executorService.submit(callable);
             while (!future.isDone() && !future.isCancelled()) {

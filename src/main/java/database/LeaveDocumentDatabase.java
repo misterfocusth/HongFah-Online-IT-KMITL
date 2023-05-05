@@ -6,8 +6,7 @@ import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
-import static database.Database.DOCUMENT_COLLECTION;
-import static database.Database.db;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +31,7 @@ public class LeaveDocumentDatabase extends DocumentDatabase {
         return documents;
     }
 
-    public synchronized HashMap<String, HashMap<String, Object>> getAllLeaveDoc() throws ExecutionException, InterruptedException {
+    public synchronized HashMap<String, HashMap<String, Object>> getAllDocuments() throws ExecutionException, InterruptedException {
         HashMap<String, HashMap<String, Object>> docData = new HashMap<>();
         ApiFuture<QuerySnapshot> query = db.collection(DOCUMENT_COLLECTION).whereEqualTo("documentType", 2).get();
         QuerySnapshot querySnapshot = query.get();
@@ -47,7 +46,7 @@ public class LeaveDocumentDatabase extends DocumentDatabase {
         return docData;
     }
 
-    public synchronized HashMap<String, Object> getDocumentByDocID(String docId) throws InterruptedException, ExecutionException {
+    public synchronized HashMap<String, Object> getDocumentById(String docId) throws InterruptedException, ExecutionException {
         DocumentReference docRef = db.collection(DOCUMENT_COLLECTION).document(docId);
         ApiFuture<DocumentSnapshot> future = docRef.get();
         DocumentSnapshot document = future.get();
@@ -57,7 +56,7 @@ public class LeaveDocumentDatabase extends DocumentDatabase {
         return (HashMap<String, Object>) document.getData();
     }
 
-    public static synchronized boolean updateLeaveDocById(String docId, HashMap<String, Object> docData) {
+    public static synchronized boolean updateDocumentById(String docId, HashMap<String, Object> docData) {
         DocumentReference docRef = db.collection("documents").document(docId);
         Map<String, Object> data = new HashMap<>();
         data.put("documentId", docData.get("documentId"));
