@@ -7,6 +7,7 @@ import dialog.OptionDialog;
 import forms.admin.announce.AdminAnnounceForm;
 import forms.admin.home.AdminHomeDocumentForm;
 import forms.admin.home.QuestionForAdmin;
+import forms.admin.subject.SubForms;
 import forms.student.about.AboutForm;
 import forms.student.login.NewLoginForm;
 import helper.FrameHelper;
@@ -186,8 +187,10 @@ public class AdminMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_docMenuMouseClicked
 
     private void studentCheckInMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentCheckInMenuMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_studentCheckInMenuMouseClicked
+        SubForms subForms = new SubForms();
+        FrameHelper.setLocationToCenter(subForms);
+        AdminMainForm.mainDesktopPane.add(subForms);
+        subForms.setVisible(true);    }//GEN-LAST:event_studentCheckInMenuMouseClicked
 
     /**
      * @param args the command line arguments

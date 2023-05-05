@@ -46,6 +46,9 @@ public class CheckForms extends javax.swing.JInternalFrame {
         finalDetail = new javax.swing.JLabel();
         finalCode = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+
         studentCheckTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -276,7 +279,6 @@ public class CheckForms extends javax.swing.JInternalFrame {
     private void teacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_teacherActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FinalTime;

@@ -17,7 +17,9 @@ import java.util.Map;
  * @author WINDOWS 10
  */
 public class SubForms extends javax.swing.JInternalFrame {
-private Map<String, Object> checkInData = new HashMap<>();
+
+    private Map<String, Object> checkInData = new HashMap<>();
+
     /**
      * Creates new form SubForms
      */
@@ -61,6 +63,9 @@ private Map<String, Object> checkInData = new HashMap<>();
         procedures = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         procedureInfo = new javax.swing.JTextArea();
+
+        setClosable(true);
+        setIconifiable(true);
 
         status.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Activate", "Deactivate" }));
@@ -374,7 +379,7 @@ private Map<String, Object> checkInData = new HashMap<>();
 
         String SubjectID = SubjectIDTextField.getText();
         String SubjectName = SubjectNameTextField.getText();
-        String classTime= durationTextField.getText();
+        String classTime = durationTextField.getText();
         String classroom = classroomTextField.getText();
         String teacherName = teacherNameTextField.getText();
         String subjectInfo = subjectInfoTextField.getText();
