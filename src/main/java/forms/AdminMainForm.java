@@ -41,7 +41,7 @@ public class AdminMainForm extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         aboutMenu = new javax.swing.JMenu();
         answerMenu = new javax.swing.JMenu();
-        announceMenu1 = new javax.swing.JMenu();
+        studentCheckInMenu = new javax.swing.JMenu();
         docMenu = new javax.swing.JMenu();
         announceMenu = new javax.swing.JMenu();
         logoutMenu = new javax.swing.JMenu();
@@ -90,14 +90,14 @@ public class AdminMainForm extends javax.swing.JFrame {
         });
         jMenuBar1.add(answerMenu);
 
-        announceMenu1.setText("เช็คชื่อเข้าเรียน");
-        announceMenu1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        announceMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+        studentCheckInMenu.setText("เช็คชื่อเข้าเรียน");
+        studentCheckInMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        studentCheckInMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                announceMenu1MouseClicked(evt);
+                studentCheckInMenuMouseClicked(evt);
             }
         });
-        jMenuBar1.add(announceMenu1);
+        jMenuBar1.add(studentCheckInMenu);
 
         docMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-document-48.png"))); // NOI18N
         docMenu.setText("เอกสารทั้งหมด");
@@ -185,9 +185,9 @@ public class AdminMainForm extends javax.swing.JFrame {
         adminHomeDocumentForm.setVisible(true);
     }//GEN-LAST:event_docMenuMouseClicked
 
-    private void announceMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_announceMenu1MouseClicked
+    private void studentCheckInMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentCheckInMenuMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_announceMenu1MouseClicked
+    }//GEN-LAST:event_studentCheckInMenuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -235,7 +235,6 @@ public class AdminMainForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu aboutMenu;
     private javax.swing.JMenu announceMenu;
-    private javax.swing.JMenu announceMenu1;
     private javax.swing.JMenu answerMenu;
     private javax.swing.JMenu docMenu;
     private javax.swing.JMenuBar jMenuBar1;
@@ -244,6 +243,7 @@ public class AdminMainForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenu logoutMenu;
     public static javax.swing.JDesktopPane mainDesktopPane;
+    private javax.swing.JMenu studentCheckInMenu;
     // End of variables declaration//GEN-END:variables
 
 }
