@@ -5,7 +5,9 @@
 package forms.student.subject;
 
 import dialog.InfoDialog;
+import forms.MainForm;
 import handlers.CheckInHandler;
+import helper.FrameHelper;
 import helper.InputValidationHelper;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -137,13 +139,19 @@ public class CheckInForms extends javax.swing.JInternalFrame {
         }
 
         if (CheckInHandler.handleAddNewCheckIn(checkInData)) {
-            new InfoDialog("บันทึกคำถามเสร็จสิ้น", "ระบบได้บันทึกการเข้าห้องเรียนของท่านแล้ว! กรุณาตั้งใจเรียน").show();
+            CheckConfirmationForms checkConfirmationForms = new CheckConfirmationForms();
+            FrameHelper.setLocationToCenter(checkConfirmationForms);
+            MainForm.mainDesktopPane.add(checkConfirmationForms);
+            checkConfirmationForms.setVisible(true);
+
         }
     }//GEN-LAST:event_cheeckbtnMouseClicked
 
     private void cancelbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelbtnMouseClicked
         this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_cancelbtnMouseClicked
+
     private Map<String, Object> toCheckInDataMap() {
 
         String subjectCode = codeTextField.getText();
