@@ -355,7 +355,7 @@ public class SubForms extends javax.swing.JInternalFrame {
         }
 
         if (CheckInHandler.handleAddNewCheckIn(checkInData)) {
-            new InfoDialog("บันทึกคำถามเสร็จสิ้น", "ระบบได้บันทึกการเข้าห้องเรียนของท่านแล้ว! กรุณาตั้งใจเรียน").show();
+            new InfoDialog("บันทึกคำฟอร์มเสร็จสิ้น", "ระบบได้บันทึกแบบฟอร์มของท่านเรียบร้อยแล้ว").show();
         }
     }//GEN-LAST:event_addMouseClicked
 
@@ -364,7 +364,7 @@ public class SubForms extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_addActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        // TODO add your handling code here:
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_cancelActionPerformed
 
     private void durationTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_durationTextFieldActionPerformed
@@ -395,8 +395,8 @@ public class SubForms extends javax.swing.JInternalFrame {
 //        String answerAt = "ยังไม่มีการตอบกลับ";
 //        String answerBody = "ยังไม่มีการตอบกลับ (กำลังรอการตอบกลับจากเจ้าหน้าที่)";
 
-        checkInData.put("classroom", SubjectID);
-        checkInData.put("classTime", SubjectName);
+        checkInData.put("SubjectID", SubjectID);
+        checkInData.put("SubjectName", SubjectName);
         checkInData.put("subjectCreateAt", subjectCreateAt);
         checkInData.put("classTime", classTime);
         checkInData.put("classroom", classroom);
