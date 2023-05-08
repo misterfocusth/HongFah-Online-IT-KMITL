@@ -7,10 +7,12 @@ package forms.admin.subject;
 import dialog.InfoDialog;
 import handlers.CheckInHandler;
 import helper.InputValidationHelper;
+import java.awt.Font;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +20,7 @@ import java.util.Map;
  */
 public class SubForms extends javax.swing.JInternalFrame {
 
+//    private Map<String, HashMap<String, Object>> chekinHistory = new HashMap<>();
     private Map<String, Object> checkInData = new HashMap<>();
 
     /**
@@ -25,8 +28,22 @@ public class SubForms extends javax.swing.JInternalFrame {
      */
     public SubForms() {
         initComponents();
+//        getAllCheckInDocuments();
     }
 
+//    private void getAllCheckInDocuments() {
+//        DefaultTableModel model = (DefaultTableModel) checkClassinfo.getModel();
+//        checkClassinfo.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
+//        chekinHistory = CheckInHandler.handlegetAllCheckInSessions();
+//        chekinHistory.forEach((k, v) -> {
+////            String sessionCode = (String) v.get("sessionCode");
+//            String subjectCode = (String) v.get("subjectCode");
+//            String teacherName = (String) v.get("teacherName");
+//            String classTime = (String) v.get("classTime");
+////            boolean isActive = (boolean) v.get("isActive");
+//            model.addRow(new String[]{subjectCode, teacherName, classTime});
+//        });
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -104,6 +121,11 @@ public class SubForms extends javax.swing.JInternalFrame {
 
         cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cancel.setText("ยกเลิก");
+        cancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelMouseClicked(evt);
+            }
+        });
         cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelActionPerformed(evt);
@@ -364,7 +386,7 @@ public class SubForms extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_addActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
     }//GEN-LAST:event_cancelActionPerformed
 
     private void durationTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_durationTextFieldActionPerformed
@@ -374,6 +396,15 @@ public class SubForms extends javax.swing.JInternalFrame {
     private void classroomTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classroomTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_classroomTextFieldActionPerformed
+
+    private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
+        SubjectIDTextField.setText("");
+        SubjectNameTextField.setText("");
+        durationTextField.setText("");
+        classroomTextField.setText("");
+        teacherNameTextField.setText("");
+        subjectInfoTextField.setText("");
+    }//GEN-LAST:event_cancelMouseClicked
 
     private Map<String, Object> toCheckInDataMap() {
 
