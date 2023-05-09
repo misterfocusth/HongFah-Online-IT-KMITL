@@ -5,7 +5,9 @@
 package forms.student.subject;
 
 import dialog.InfoDialog;
+import forms.MainForm;
 import handlers.CheckInHandler;
+import helper.FrameHelper;
 import helper.InputValidationHelper;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -128,49 +130,17 @@ public class CheckInForms extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_codeTextFieldActionPerformed
 
     private void cheeckbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cheeckbtnMouseClicked
-        checkInData = toCheckInDataMap();
-
-        boolean isUserInputValid = InputValidationHelper.validateUserInput(checkInData);
-        if (!isUserInputValid) {
-            new InfoDialog("ข้อมูลไม่สมบูรณ์", "โปรดกรอกรหัสเข้าชั้นเรียน ก่อนดำเนินการต่อ").show();
-            return;
-        }
-
-        if (CheckInHandler.handleAddNewCheckIn(checkInData)) {
-            new InfoDialog("บันทึกคำถามเสร็จสิ้น", "ระบบได้บันทึกการเข้าห้องเรียนของท่านแล้ว! กรุณาตั้งใจเรียน").show();
+        if (codeTextField.getText().length() == 6) {
+            
+        } else if (codeTextField.getText().length() < 6) {
+            new InfoDialog("กรอกรหัสไม่ครบ", "โปรดกรอกรหัสเซคชั่นให้ครบ 6 หลัก").show();
         }
     }//GEN-LAST:event_cheeckbtnMouseClicked
 
     private void cancelbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelbtnMouseClicked
         this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_cancelbtnMouseClicked
-    private Map<String, Object> toCheckInDataMap() {
-
-        String subjectCode = codeTextField.getText();
-
-        Student student = (Student) AuthUser.getAuthUser();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-
-        String checkInByStudenCode = student.getStudentId();
-        String checkInByStudenFirstName = student.getThFirstName();
-        String checkInByStudenLastName = student.getThLastName();
-        String checkInAt = dtf.format(LocalDateTime.now());
-//        String questionResponse = "ยังไม่มีการตอบกลับ";
-//        String answerBy = "ยังไม่มีการตอบกลับ";
-//        String answerAt = "ยังไม่มีการตอบกลับ";
-//        String answerBody = "ยังไม่มีการตอบกลับ (กำลังรอการตอบกลับจากเจ้าหน้าที่)";
-
-        checkInData.put("checkInByStudenCode", checkInByStudenCode);
-        checkInData.put("checkInByStudenName", checkInByStudenFirstName);
-        checkInData.put("checkInByStudenName", checkInByStudenLastName);
-        checkInData.put("checkInAt", checkInAt);
-//        questionData.put("questionResponse", questionResponse);
-//        questionData.put("answerBy", answerBy);
-//        questionData.put("answerAt", answerAt);
-//        questionData.put("answerBody", answerBody);
-
-        return checkInData;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelbtn;

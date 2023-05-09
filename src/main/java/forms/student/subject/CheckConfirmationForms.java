@@ -19,7 +19,7 @@ import user.Student;
  * @author WINDOWS 10
  */
 public class CheckConfirmationForms extends javax.swing.JInternalFrame {
-
+    
     private Map<String, Object> checkInData = new HashMap<>();
 
     /**
@@ -51,6 +51,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         confirmbtn = new javax.swing.JButton();
         subIDdisplay = new javax.swing.JLabel();
+        confirmbtn1 = new javax.swing.JButton();
 
         subNamedisplay.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         subNamedisplay.setText("( ชื่อวิชา )");
@@ -115,7 +116,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
@@ -159,24 +160,43 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
         subIDdisplay.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         subIDdisplay.setText("( รหัสวิชา )");
 
+        confirmbtn1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        confirmbtn1.setText("Cancel Check-in");
+        confirmbtn1.setActionCommand("Cancel Check-in");
+        confirmbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                confirmbtn1MouseClicked(evt);
+            }
+        });
+        confirmbtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmbtn1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(158, 158, 158)
+                                .addComponent(subIDdisplay)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(subNamedisplay))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(93, 93, 93)
+                                .addComponent(confirmbtn)
+                                .addGap(30, 30, 30)
+                                .addComponent(confirmbtn1)))
+                        .addGap(0, 104, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(confirmbtn)
-                .addGap(190, 190, 190))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(subIDdisplay)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(subNamedisplay)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +208,9 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(confirmbtn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(confirmbtn)
+                    .addComponent(confirmbtn1))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -198,38 +220,47 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
     private void classTimeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classTimeTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_classTimeTextFieldActionPerformed
-
+    
     private void classroomTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classroomTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_classroomTextFieldActionPerformed
-
+    
     private void teacherTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_teacherTextFieldActionPerformed
-
+    
     private void confirmbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_confirmbtnActionPerformed
-
+    
     private void confirmbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmbtnMouseClicked
         checkInData = toCheckInDataMap();
-
+        
         boolean isUserInputValid = InputValidationHelper.validateUserInput(checkInData);
         if (!isUserInputValid) {
             new InfoDialog("ข้อมูลไม่สมบูรณ์", "โปรดกรอกข้อมูลให้ครบทุกช่อง ก่อนดำเนินการต่อ").show();
             return;
         }
-
+        
         if (CheckInHandler.handleAddNewCheckIn(checkInData)) {
             new InfoDialog("บันทึกคำถามเสร็จสิ้น", "ระบบได้บันทึกการเข้าห้องเรียนของท่านแล้ว! กรุณาตั้งใจเรียน").show();
         }
     }//GEN-LAST:event_confirmbtnMouseClicked
-
+    
+    private void confirmbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmbtn1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confirmbtn1MouseClicked
+    
+    private void confirmbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmbtn1ActionPerformed
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_confirmbtn1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField classTimeTextField;
     private javax.swing.JTextField classroomTextField;
     private javax.swing.JButton confirmbtn;
+    private javax.swing.JButton confirmbtn1;
     private javax.swing.JTextArea coursedetailTextField;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -243,15 +274,15 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private Map<String, Object> toCheckInDataMap() {
-
+        
         String classroom = classroomTextField.getText();
         String classTime = classTimeTextField.getText();
         String teacher = teacherTextField.getText();
         String coursedetail = coursedetailTextField.getText();
-
+        
         Student student = (Student) AuthUser.getAuthUser();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-
+        
         String checkInByStudenCode = student.getStudentId();
         String checkInByStudenName = student.getThFirstName();
         String checkInAt = dtf.format(LocalDateTime.now());

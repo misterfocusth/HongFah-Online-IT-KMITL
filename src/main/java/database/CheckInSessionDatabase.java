@@ -29,8 +29,8 @@ public class CheckInSessionDatabase extends Database {
         return true;
     }
 
-    public synchronized HashMap<String, Object> getCheckInSessionByCode(String subjectCode) throws ExecutionException, InterruptedException {
-        DocumentReference docRef = db.collection(CHECKIN_COLLECTION).document(subjectCode);
+    public synchronized HashMap<String, Object> getCheckInSessionByCode(String sessionCode) throws ExecutionException, InterruptedException {
+        DocumentReference docRef = db.collection(CHECKIN_COLLECTION).document(sessionCode);
         ApiFuture<DocumentSnapshot> future = docRef.get();
         DocumentSnapshot document = future.get();
         if (!document.exists()) {
@@ -54,6 +54,16 @@ public class CheckInSessionDatabase extends Database {
         return checkinSessionData;
     }
 
+    public synchronized HashMap<String, Object> getChekInByChekInID(String chekinID) throws InterruptedException, ExecutionException {
+        DocumentReference docRef = db.collection(CHECKIN_COLLECTION).document(chekinID);
+        ApiFuture<DocumentSnapshot> future = docRef.get();
+        DocumentSnapshot document = future.get();
+        if (!document.exists()) {
+            return null;
+        }
+        return (HashMap<String, Object>) document.getData();
+    }
+    
     private HashMap<String, Object> toCheckInDataMap(QueryDocumentSnapshot document) {
         HashMap<String, Object> currentDocument = new HashMap<>();
         try {
@@ -70,7 +80,7 @@ public class CheckInSessionDatabase extends Database {
             String sessionNote = document.getString("sessionNote");
             boolean isActive = document.getBoolean("isActive");
 
-            currentDocument.put("documentId", sessionCode);
+            currentDocument.put("sessionCode", sessionCode);
             currentDocument.put("checkInByStudenCode ", checkInByStudenCode );
             currentDocument.put("checkInByStudenName ", checkInByStudenName );
             currentDocument.put("subjectCreateAt ", subjectCreateAt );

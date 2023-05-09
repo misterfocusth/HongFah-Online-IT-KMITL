@@ -5,18 +5,29 @@
 package forms.admin.subject;
 
 import dialog.InfoDialog;
+import forms.AdminMainForm;
+import forms.admin.home.QuestionAndAnswerAdmin;
 import handlers.CheckInHandler;
+import handlers.CheckInHandler;
+import handlers.StudentInfoHandler;
+import helper.FrameHelper;
 import helper.InputValidationHelper;
+import java.awt.Font;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import checkin.CheckInSession;
+import user.Student;
 
 /**
  *
  * @author WINDOWS 10
  */
 public class SubForms extends javax.swing.JInternalFrame {
+
 
     private Map<String, Object> checkInData = new HashMap<>();
 
@@ -25,8 +36,23 @@ public class SubForms extends javax.swing.JInternalFrame {
      */
     public SubForms() {
         initComponents();
+        getAllCheckInDocuments();
     }
 
+    private void getAllCheckInDocuments() {
+        DefaultTableModel model = (DefaultTableModel) checkClassinfo.getModel();
+         Map<String, HashMap<String, Object>> chekinHistory = new HashMap<>();
+        checkClassinfo.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
+        chekinHistory = CheckInHandler.handlegetAllCheckInSessions();
+        chekinHistory.forEach((k, v) -> {
+            String sessionCode = (String) v.get("sessionCode");
+            String subjectCode = (String) v.get("subjectCode");
+            String teacherName = (String) v.get("teacherName");
+            String classTime = (String) v.get("classTime");
+            boolean isActive = (boolean) v.get("isActive");
+            model.addRow(new String[]{sessionCode, subjectCode, teacherName, classTime, String.valueOf(isIcon)});
+        });
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -104,6 +130,11 @@ public class SubForms extends javax.swing.JInternalFrame {
 
         cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cancel.setText("ยกเลิก");
+        cancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelMouseClicked(evt);
+            }
+        });
         cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelActionPerformed(evt);
@@ -259,6 +290,11 @@ public class SubForms extends javax.swing.JInternalFrame {
             }
         });
         checkClassinfo.setPreferredSize(new java.awt.Dimension(300, 170));
+        checkClassinfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkClassinfoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(checkClassinfo);
 
         procedures.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -355,7 +391,8 @@ public class SubForms extends javax.swing.JInternalFrame {
         }
 
         if (CheckInHandler.handleAddNewCheckIn(checkInData)) {
-            new InfoDialog("บันทึกคำถามเสร็จสิ้น", "ระบบได้บันทึกการเข้าห้องเรียนของท่านแล้ว! กรุณาตั้งใจเรียน").show();
+            new InfoDialog("บันทึกคำฟอร์มเสร็จสิ้น", "ระบบได้บันทึกแบบฟอร์มของท่านเรียบร้อยแล้ว").show();
+            
         }
     }//GEN-LAST:event_addMouseClicked
 
@@ -364,7 +401,7 @@ public class SubForms extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_addActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_cancelActionPerformed
 
     private void durationTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_durationTextFieldActionPerformed
@@ -375,9 +412,33 @@ public class SubForms extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_classroomTextFieldActionPerformed
 
+    private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
+        SubjectIDTextField.setText("");
+        SubjectNameTextField.setText("");
+        durationTextField.setText("");
+        classroomTextField.setText("");
+        teacherNameTextField.setText("");
+        subjectInfoTextField.setText("");
+    }//GEN-LAST:event_cancelMouseClicked
+
+    private void checkClassinfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkClassinfoMouseClicked
+    JTable target = (JTable) evt.getSource();
+        int selectedRow = target.getSelectedRow();
+        String selectedSessionId = (String) checkClassinfo.getValueAt(selectedRow, 0);
+        CheckInSession selectedChekInData = CheckInHandler.handleGetCheckInBySessionCode(selectedSessionId);
+        System.out.println(selectedRow);
+        System.out.println(selectedChekInData);
+//        Student student = new StudentInfoHandler().handleGetNameStudentByStudentId(selectedChekInData.getCheckInByStudenCode());
+
+        CheckForms chekinDetailForm = new CheckForms();
+        FrameHelper.setLocationToCenter(chekinDetailForm);
+        AdminMainForm.mainDesktopPane.add(chekinDetailForm);
+        chekinDetailForm.setVisible(true);
+    }//GEN-LAST:event_checkClassinfoMouseClicked
+
     private Map<String, Object> toCheckInDataMap() {
 
-        String SubjectID = SubjectIDTextField.getText();
+        String subjectCode = SubjectIDTextField.getText();
         String SubjectName = SubjectNameTextField.getText();
         String classTime = durationTextField.getText();
         String classroom = classroomTextField.getText();
@@ -386,22 +447,21 @@ public class SubForms extends javax.swing.JInternalFrame {
 
 //        Student student = (Student) AuthUser.getAuthUser();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-
+        String subjectCreateAt = dtf.format(LocalDateTime.now());
 //        String checkInByStudenCode = student.getStudentId();
 //        String checkInByStudenName = student.getThFirstName();
-        String subjectCreateAt = dtf.format(LocalDateTime.now());
 //        String questionResponse = "ยังไม่มีการตอบกลับ";
 //        String answerBy = "ยังไม่มีการตอบกลับ";
 //        String answerAt = "ยังไม่มีการตอบกลับ";
 //        String answerBody = "ยังไม่มีการตอบกลับ (กำลังรอการตอบกลับจากเจ้าหน้าที่)";
-
-        checkInData.put("classroom", SubjectID);
-        checkInData.put("classTime", SubjectName);
+        checkInData.put("subjectCode", subjectCode);
+        checkInData.put("SubjectName", SubjectName);
         checkInData.put("subjectCreateAt", subjectCreateAt);
         checkInData.put("classTime", classTime);
         checkInData.put("classroom", classroom);
         checkInData.put("teacherName", teacherName);
         checkInData.put("sessionNote", subjectInfo);
+        checkInData.put("isActive", true);
 //        questionData.put("questionResponse", questionResponse);
 //        questionData.put("answerBy", answerBy);
 //        questionData.put("answerAt", answerAt);
