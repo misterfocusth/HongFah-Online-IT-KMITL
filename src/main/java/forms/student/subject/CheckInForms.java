@@ -131,9 +131,9 @@ public class CheckInForms extends javax.swing.JInternalFrame {
 
     private void cheeckbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cheeckbtnMouseClicked
         if (codeTextField.getText().length() == 6) {
-
+            
         } else if (codeTextField.getText().length() < 6) {
-            new InfoDialog("กรอกรหัสไม่ครบ", "โปรดกรอกรหัสเข้าเช็คชื่อให้ครบ 6 หลัก").show();
+            new InfoDialog("กรอกรหัสไม่ครบ", "โปรดกรอกรหัสเซคชั่นให้ครบ 6 หลัก").show();
         }
     }//GEN-LAST:event_cheeckbtnMouseClicked
 

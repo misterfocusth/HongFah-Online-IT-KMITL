@@ -70,7 +70,7 @@ public class CheckInSessionDatabase extends Database {
             String sessionNote = document.getString("sessionNote");
             boolean isActive = document.getBoolean("isActive");
 
-            currentDocument.put("documentId", sessionCode);
+            currentDocument.put("sessionCode", sessionCode);
             currentDocument.put("checkInByStudenCode ", checkInByStudenCode );
             currentDocument.put("checkInByStudenName ", checkInByStudenName );
             currentDocument.put("subjectCreateAt ", subjectCreateAt );
