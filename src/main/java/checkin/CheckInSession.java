@@ -10,11 +10,11 @@ package checkin;
  */
 public class CheckInSession {
 
+    private String sessionCode;
     private String checkInByStudenCode;
     private String checkInByStudenName;
     private String subjectCreateAt;
     private String checkInAt;
-    private String sessionCode;
     private String subjectCode;
     private String subjectName;
     private String teacherName;
@@ -23,7 +23,21 @@ public class CheckInSession {
     private String sessionNote;
     private boolean isActive;
 
-    public CheckInSession(String sessionCode, String subjectCode, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive) {
+//    public CheckInSession(String sessionCode, String subjectCode, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive) {
+//        this.sessionCode = sessionCode;
+//        this.subjectCode = subjectCode;
+//        this.subjectName = subjectName;
+//        this.teacherName = teacherName;
+//        this.classTime = classTime;
+//        this.classroom = classroom;
+//        this.sessionNote = sessionNote;
+//        this.isActive = isActive;
+//    }
+    public CheckInSession(String checkInByStudenCode, String checkInByStudenName, String subjectCreateAt, String checkInAt, String sessionCode, String subjectCode, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive) {
+        this.checkInByStudenCode = checkInByStudenCode;
+        this.checkInByStudenName = checkInByStudenName;
+        this.subjectCreateAt = subjectCreateAt;
+        this.checkInAt = checkInAt;
         this.sessionCode = sessionCode;
         this.subjectCode = subjectCode;
         this.subjectName = subjectName;

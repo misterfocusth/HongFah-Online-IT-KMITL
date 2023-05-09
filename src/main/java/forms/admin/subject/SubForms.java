@@ -5,14 +5,22 @@
 package forms.admin.subject;
 
 import dialog.InfoDialog;
+import forms.AdminMainForm;
+import forms.admin.home.QuestionAndAnswerAdmin;
 import handlers.CheckInHandler;
+import handlers.CheckInHandler;
+import handlers.StudentInfoHandler;
+import helper.FrameHelper;
 import helper.InputValidationHelper;
 import java.awt.Font;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import checkin.CheckInSession;
+import user.Student;
 
 /**
  *
@@ -42,7 +50,7 @@ public class SubForms extends javax.swing.JInternalFrame {
             String teacherName = (String) v.get("teacherName");
             String classTime = (String) v.get("classTime");
             boolean isActive = (boolean) v.get("isActive");
-            model.addRow(new String[]{sessionCode, subjectCode, teacherName, classTime, String.valueOf(isActive)});
+            model.addRow(new String[]{sessionCode, subjectCode, teacherName, classTime, String.valueOf(isIcon)});
         });
     }
     /**
@@ -282,6 +290,11 @@ public class SubForms extends javax.swing.JInternalFrame {
             }
         });
         checkClassinfo.setPreferredSize(new java.awt.Dimension(300, 170));
+        checkClassinfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkClassinfoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(checkClassinfo);
 
         procedures.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -407,6 +420,21 @@ public class SubForms extends javax.swing.JInternalFrame {
         teacherNameTextField.setText("");
         subjectInfoTextField.setText("");
     }//GEN-LAST:event_cancelMouseClicked
+
+    private void checkClassinfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkClassinfoMouseClicked
+    JTable target = (JTable) evt.getSource();
+        int selectedRow = target.getSelectedRow();
+        String selectedSessionId = (String) checkClassinfo.getValueAt(selectedRow, 0);
+        CheckInSession selectedChekInData = CheckInHandler.handleGetCheckInBySessionCode(selectedSessionId);
+        System.out.println(selectedRow);
+        System.out.println(selectedChekInData);
+//        Student student = new StudentInfoHandler().handleGetNameStudentByStudentId(selectedChekInData.getCheckInByStudenCode());
+
+        CheckForms chekinDetailForm = new CheckForms();
+        FrameHelper.setLocationToCenter(chekinDetailForm);
+        AdminMainForm.mainDesktopPane.add(chekinDetailForm);
+        chekinDetailForm.setVisible(true);
+    }//GEN-LAST:event_checkClassinfoMouseClicked
 
     private Map<String, Object> toCheckInDataMap() {
 
