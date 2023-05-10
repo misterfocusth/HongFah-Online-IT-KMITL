@@ -4,17 +4,33 @@
  */
 package forms.admin.subject;
 
+import checkin.CheckInSession;
+
 /**
  *
  * @author WINDOWS 10
  */
 public class CheckForms extends javax.swing.JInternalFrame {
 
+    private CheckInSession checkIn;
+
     /**
      * Creates new form CheckForms
      */
-    public CheckForms() {
+    public CheckForms(CheckInSession checkIn) {
         initComponents();
+        this.checkIn = checkIn;
+        showCheckInData();
+    }
+
+    private void showCheckInData() {
+        subjectID.setText(checkIn.getSubjectCode());
+        subjectName.setText(checkIn.getSubjectName());
+        classroom.setText(checkIn.getClassroom());
+        time.setText(checkIn.getClassTime());
+        teacher.setText(checkIn.getTeacherName());
+        courseDetail.setText(checkIn.getSessionNote());
+        classcode.setText(checkIn.getSessionCode());
     }
 
     /**

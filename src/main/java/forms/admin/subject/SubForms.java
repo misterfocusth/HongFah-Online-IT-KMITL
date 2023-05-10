@@ -4,14 +4,18 @@
  */
 package forms.admin.subject;
 
+import checkin.CheckInSession;
 import dialog.InfoDialog;
+import forms.AdminMainForm;
 import handlers.CheckInHandler;
+import helper.FrameHelper;
 import helper.InputValidationHelper;
 import java.awt.Font;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -216,8 +220,7 @@ public class SubForms extends javax.swing.JInternalFrame {
                                 .addGap(30, 30, 30)
                                 .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane3)
                             .addComponent(teacherNameTextField)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -342,6 +345,11 @@ public class SubForms extends javax.swing.JInternalFrame {
         checkClassinfo.setRowHeight(35);
         checkClassinfo.setShowGrid(true);
         checkClassinfo.getTableHeader().setReorderingAllowed(false);
+        checkClassinfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkClassinfoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(checkClassinfo);
         if (checkClassinfo.getColumnModel().getColumnCount() > 0) {
             checkClassinfo.getColumnModel().getColumn(0).setResizable(false);
@@ -459,6 +467,18 @@ public class SubForms extends javax.swing.JInternalFrame {
     private void refreshLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshLabelMouseClicked
         refreshHomeData();
     }//GEN-LAST:event_refreshLabelMouseClicked
+
+    private void checkClassinfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkClassinfoMouseClicked
+        JTable target = (JTable) evt.getSource();
+        int selectedRow = target.getSelectedRow();
+        String sessionCode = (String) checkClassinfo.getValueAt(selectedRow, 0);
+        CheckInSession seleCheckInSession = CheckInHandler.handleGetCheckInBySessionCode(sessionCode);
+
+        CheckForms checkForms = new CheckForms(seleCheckInSession);
+        FrameHelper.setLocationToCenter(checkForms);
+        AdminMainForm.mainDesktopPane.add(checkForms);
+        checkForms.setVisible(true);
+    }//GEN-LAST:event_checkClassinfoMouseClicked
 
     private void refreshHomeData() {
         DefaultTableModel model = (DefaultTableModel) checkClassinfo.getModel();

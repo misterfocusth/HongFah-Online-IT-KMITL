@@ -133,7 +133,6 @@
                                   <Component id="clear" min="-2" pref="100" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="cancel" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
                               <Component id="teacherNameTextField" alignment="0" max="32767" attributes="0"/>
@@ -506,6 +505,9 @@
               <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="checkClassinfoMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
