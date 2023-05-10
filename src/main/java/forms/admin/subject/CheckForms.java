@@ -45,11 +45,12 @@ public class CheckForms extends javax.swing.JInternalFrame {
         courseDetail = new javax.swing.JTextArea();
         finalDetail = new javax.swing.JLabel();
         finalCode = new javax.swing.JLabel();
-        deActivateB1 = new javax.swing.JButton();
+        close = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
 
+        studentCheckTable.setAutoCreateRowSorter(true);
         studentCheckTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -76,15 +77,16 @@ public class CheckForms extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        studentCheckTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(studentCheckTable);
+        if (studentCheckTable.getColumnModel().getColumnCount() > 0) {
+            studentCheckTable.getColumnModel().getColumn(0).setResizable(false);
+            studentCheckTable.getColumnModel().getColumn(1).setResizable(false);
+            studentCheckTable.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         deActivateB.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         deActivateB.setText("ปิดการเข้าเช็คชื่อ");
-        deActivateB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deActivateBActionPerformed(evt);
-            }
-        });
 
         classcode.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
         classcode.setText("123456");
@@ -92,11 +94,13 @@ public class CheckForms extends javax.swing.JInternalFrame {
         finalClassID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         finalClassID.setText("รหัสวิชา");
 
+        subjectName.setEditable(false);
         subjectName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         finalClassName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         finalClassName.setText("ชื่อวิชา");
 
+        subjectID.setEditable(false);
         subjectID.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         subjectID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +114,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
         finalClassroom.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         finalClassroom.setText("ห้องเรียน");
 
+        time.setEditable(false);
         time.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         time.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +125,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
         finalTeacher.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         finalTeacher.setText("ชื่ออาจารย์ผู้สอน");
 
+        classroom.setEditable(false);
         classroom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         classroom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,13 +133,10 @@ public class CheckForms extends javax.swing.JInternalFrame {
             }
         });
 
+        teacher.setEditable(false);
         teacher.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        teacher.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                teacherActionPerformed(evt);
-            }
-        });
 
+        courseDetail.setEditable(false);
         courseDetail.setColumns(20);
         courseDetail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         courseDetail.setRows(5);
@@ -215,14 +218,14 @@ public class CheckForms extends javax.swing.JInternalFrame {
         finalCode.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         finalCode.setText("CODE : ");
 
-        deActivateB1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        deActivateB1.setText("ออก");
-        deActivateB1.setMaximumSize(new java.awt.Dimension(156, 28));
-        deActivateB1.setMinimumSize(new java.awt.Dimension(156, 28));
-        deActivateB1.setPreferredSize(new java.awt.Dimension(156, 28));
-        deActivateB1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deActivateB1ActionPerformed(evt);
+        close.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        close.setText("ออก");
+        close.setMaximumSize(new java.awt.Dimension(156, 28));
+        close.setMinimumSize(new java.awt.Dimension(156, 28));
+        close.setPreferredSize(new java.awt.Dimension(156, 28));
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
             }
         });
 
@@ -232,7 +235,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(deActivateB1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(150, 150, 150)
                 .addComponent(deActivateB)
                 .addGap(186, 186, 186))
@@ -270,18 +273,12 @@ public class CheckForms extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(deActivateB)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(deActivateB1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addComponent(close, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void deActivateBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deActivateBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deActivateBActionPerformed
 
     private void subjectIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectIDActionPerformed
         // TODO add your handling code here:
@@ -295,21 +292,18 @@ public class CheckForms extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_classroomActionPerformed
 
-    private void teacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_teacherActionPerformed
-
-    private void deActivateB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deActivateB1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deActivateB1ActionPerformed
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_closeMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FinalTime;
     private javax.swing.JLabel classcode;
     private javax.swing.JTextField classroom;
+    private javax.swing.JButton close;
     private javax.swing.JTextArea courseDetail;
     private javax.swing.JButton deActivateB;
-    private javax.swing.JButton deActivateB1;
     private javax.swing.JPanel detailPanel;
     private javax.swing.JLabel finalClassID;
     private javax.swing.JLabel finalClassName;
