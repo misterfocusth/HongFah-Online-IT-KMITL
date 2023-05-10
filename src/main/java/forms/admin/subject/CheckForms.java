@@ -45,6 +45,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
         courseDetail = new javax.swing.JTextArea();
         finalDetail = new javax.swing.JLabel();
         finalCode = new javax.swing.JLabel();
+        deActivateB1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -214,14 +215,27 @@ public class CheckForms extends javax.swing.JInternalFrame {
         finalCode.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         finalCode.setText("CODE : ");
 
+        deActivateB1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        deActivateB1.setText("ออก");
+        deActivateB1.setMaximumSize(new java.awt.Dimension(156, 28));
+        deActivateB1.setMinimumSize(new java.awt.Dimension(156, 28));
+        deActivateB1.setPreferredSize(new java.awt.Dimension(156, 28));
+        deActivateB1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deActivateB1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(deActivateB1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150)
                 .addComponent(deActivateB)
-                .addGap(340, 340, 340))
+                .addGap(186, 186, 186))
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,7 +251,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
                         .addComponent(detailPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 2, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -254,7 +268,12 @@ public class CheckForms extends javax.swing.JInternalFrame {
                         .addGap(35, 35, 35)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(deActivateB))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deActivateB)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(deActivateB1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -280,12 +299,17 @@ public class CheckForms extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_teacherActionPerformed
 
+    private void deActivateB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deActivateB1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deActivateB1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FinalTime;
     private javax.swing.JLabel classcode;
     private javax.swing.JTextField classroom;
     private javax.swing.JTextArea courseDetail;
     private javax.swing.JButton deActivateB;
+    private javax.swing.JButton deActivateB1;
     private javax.swing.JPanel detailPanel;
     private javax.swing.JLabel finalClassID;
     private javax.swing.JLabel finalClassName;

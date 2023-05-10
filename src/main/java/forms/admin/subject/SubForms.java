@@ -5,29 +5,20 @@
 package forms.admin.subject;
 
 import dialog.InfoDialog;
-import forms.AdminMainForm;
-import forms.admin.home.QuestionAndAnswerAdmin;
 import handlers.CheckInHandler;
-import handlers.CheckInHandler;
-import handlers.StudentInfoHandler;
-import helper.FrameHelper;
 import helper.InputValidationHelper;
 import java.awt.Font;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import checkin.CheckInSession;
-import user.Student;
 
 /**
  *
  * @author WINDOWS 10
  */
 public class SubForms extends javax.swing.JInternalFrame {
-
 
     private Map<String, Object> checkInData = new HashMap<>();
 
@@ -41,7 +32,7 @@ public class SubForms extends javax.swing.JInternalFrame {
 
     private void getAllCheckInDocuments() {
         DefaultTableModel model = (DefaultTableModel) checkClassinfo.getModel();
-         Map<String, HashMap<String, Object>> chekinHistory = new HashMap<>();
+        Map<String, HashMap<String, Object>> chekinHistory = new HashMap<>();
         checkClassinfo.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
         chekinHistory = CheckInHandler.handlegetAllCheckInSessions();
         chekinHistory.forEach((k, v) -> {
@@ -53,6 +44,7 @@ public class SubForms extends javax.swing.JInternalFrame {
             model.addRow(new String[]{sessionCode, subjectCode, teacherName, classTime, String.valueOf(isIcon)});
         });
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -82,13 +74,15 @@ public class SubForms extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         subjectInfoTextField = new javax.swing.JTextArea();
+        clear = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        checkClassinfo = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         procedures = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         procedureInfo = new javax.swing.JTextArea();
+        refreshLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        checkClassinfo = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -188,16 +182,23 @@ public class SubForms extends javax.swing.JInternalFrame {
         subjectInfoTextField.setRows(5);
         jScrollPane3.setViewportView(subjectInfoTextField);
 
+        clear.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        clear.setText("ล้างข้อมูล");
+        clear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearMouseClicked(evt);
+            }
+        });
+        clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,8 +207,17 @@ public class SubForms extends javax.swing.JInternalFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel9))
                         .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jScrollPane3)
                             .addComponent(teacherNameTextField)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -218,7 +228,7 @@ public class SubForms extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel3))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(SubjectNameTextField)
+                                    .addComponent(SubjectNameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
                                     .addComponent(classroomTextField)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,9 +236,6 @@ public class SubForms extends javax.swing.JInternalFrame {
                                             .addComponent(jLabel6))
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,45 +264,17 @@ public class SubForms extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(add, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(cancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(12, 12, 12))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("เเสดงเฉพาะสถานะ :");
-
-        checkClassinfo.setFont(new java.awt.Font("TH Chakra Petch", 0, 14)); // NOI18N
-        checkClassinfo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "code", "sub", "teacher", "time", "status"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true, true, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        checkClassinfo.setPreferredSize(new java.awt.Dimension(300, 170));
-        checkClassinfo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                checkClassinfoMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(checkClassinfo);
 
         procedures.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         procedures.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -307,22 +286,70 @@ public class SubForms extends javax.swing.JInternalFrame {
         procedureInfo.setEnabled(false);
         jScrollPane2.setViewportView(procedureInfo);
 
+        refreshLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-reset-48.png"))); // NOI18N
+        refreshLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                refreshLabelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(procedures, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(procedures, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(refreshLabel))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(procedures)
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(procedures)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(refreshLabel)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        checkClassinfo.setAutoCreateRowSorter(true);
+        checkClassinfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        checkClassinfo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "รหัสเข้าชั้นเรียน", "ชื่อวิชา", "ชื่ออาจารย์", "วัน - เวลา", "สถานะ"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        checkClassinfo.setRowHeight(35);
+        checkClassinfo.setShowGrid(true);
+        checkClassinfo.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(checkClassinfo);
+        if (checkClassinfo.getColumnModel().getColumnCount() > 0) {
+            checkClassinfo.getColumnModel().getColumn(0).setResizable(false);
+            checkClassinfo.getColumnModel().getColumn(1).setResizable(false);
+            checkClassinfo.getColumnModel().getColumn(2).setResizable(false);
+            checkClassinfo.getColumnModel().getColumn(3).setResizable(false);
+            checkClassinfo.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -333,7 +360,7 @@ public class SubForms extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(searchSubjectinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(24, 24, 24)
                         .addComponent(search)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel10)
@@ -341,7 +368,7 @@ public class SubForms extends javax.swing.JInternalFrame {
                         .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 6, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addGap(24, 24, 24)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -354,14 +381,14 @@ public class SubForms extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchSubjectinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchSubjectinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(24, 24, 24))
         );
@@ -392,7 +419,7 @@ public class SubForms extends javax.swing.JInternalFrame {
 
         if (CheckInHandler.handleAddNewCheckIn(checkInData)) {
             new InfoDialog("บันทึกคำฟอร์มเสร็จสิ้น", "ระบบได้บันทึกแบบฟอร์มของท่านเรียบร้อยแล้ว").show();
-            
+
         }
     }//GEN-LAST:event_addMouseClicked
 
@@ -421,20 +448,25 @@ public class SubForms extends javax.swing.JInternalFrame {
         subjectInfoTextField.setText("");
     }//GEN-LAST:event_cancelMouseClicked
 
-    private void checkClassinfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkClassinfoMouseClicked
-    JTable target = (JTable) evt.getSource();
-        int selectedRow = target.getSelectedRow();
-        String selectedSessionId = (String) checkClassinfo.getValueAt(selectedRow, 0);
-        CheckInSession selectedChekInData = CheckInHandler.handleGetCheckInBySessionCode(selectedSessionId);
-        System.out.println(selectedRow);
-        System.out.println(selectedChekInData);
-//        Student student = new StudentInfoHandler().handleGetNameStudentByStudentId(selectedChekInData.getCheckInByStudenCode());
+    private void clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearMouseClicked
 
-        CheckForms chekinDetailForm = new CheckForms();
-        FrameHelper.setLocationToCenter(chekinDetailForm);
-        AdminMainForm.mainDesktopPane.add(chekinDetailForm);
-        chekinDetailForm.setVisible(true);
-    }//GEN-LAST:event_checkClassinfoMouseClicked
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearActionPerformed
+
+    private void refreshLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshLabelMouseClicked
+        refreshHomeData();
+    }//GEN-LAST:event_refreshLabelMouseClicked
+
+    private void refreshHomeData() {
+        DefaultTableModel model = (DefaultTableModel) checkClassinfo.getModel();
+        model.getDataVector().removeAllElements();
+        model.fireTableDataChanged(); // notifies the JTable that the model has changed
+
+        getAllCheckInDocuments();
+    }
 
     private Map<String, Object> toCheckInDataMap() {
 
@@ -477,6 +509,7 @@ public class SubForms extends javax.swing.JInternalFrame {
     private javax.swing.JButton cancel;
     private javax.swing.JTable checkClassinfo;
     private javax.swing.JTextField classroomTextField;
+    private javax.swing.JButton clear;
     private javax.swing.JTextField durationTextField;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -493,6 +526,7 @@ public class SubForms extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea procedureInfo;
     private javax.swing.JLabel procedures;
+    private javax.swing.JLabel refreshLabel;
     private javax.swing.JButton search;
     private javax.swing.JTextField searchSubjectinfo;
     private javax.swing.JComboBox<String> status;
