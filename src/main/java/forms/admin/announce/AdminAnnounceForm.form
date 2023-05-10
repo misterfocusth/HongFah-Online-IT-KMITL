@@ -221,7 +221,6 @@
             <Property name="text" type="java.lang.String" value="&#xe23;&#xe35;&#xe40;&#xe0b;&#xe47;&#xe15;&#xe1b;&#xe23;&#xe30;&#xe01;&#xe32;&#xe28;"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="resetAnnounceButtonMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetAnnounceButtonActionPerformed"/>
           </Events>
         </Component>
