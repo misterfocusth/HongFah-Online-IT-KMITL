@@ -10,8 +10,10 @@ package checkin;
  */
 public class CheckInSession {
 
-    private String checkInByStudentCode;
+    private String sessionCode;
+    private String checkInByStudentId;
     private String checkInByStudentName;
+    private String subjectCreateAt;
     private String checkInAt;
     private String subjectCode;
     private String subjectName;
@@ -21,7 +23,7 @@ public class CheckInSession {
     private String sessionNote;
     private boolean isActive;
 
-//    public CheckInSession(String sessionCode, String subjectCode, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive) {
+    //    public CheckInSession(String sessionCode, String subjectCode, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive) {
 //        this.sessionCode = sessionCode;
 //        this.subjectCode = subjectCode;
 //        this.subjectName = subjectName;
@@ -31,9 +33,9 @@ public class CheckInSession {
 //        this.sessionNote = sessionNote;
 //        this.isActive = isActive;
 //    }
-    public CheckInSession(String checkInByStudenCode, String checkInByStudenName, String subjectCreateAt, String checkInAt, String sessionCode, String subjectCode, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive) {
-        this.checkInByStudenCode = checkInByStudenCode;
-        this.checkInByStudenName = checkInByStudenName;
+    public CheckInSession(String checkInByStudentId, String checkInByStudentName, String subjectCreateAt, String checkInAt, String sessionCode, String subjectCode, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive) {
+        this.checkInByStudentId = checkInByStudentId;
+        this.checkInByStudentName = checkInByStudentName;
         this.subjectCreateAt = subjectCreateAt;
         this.checkInAt = checkInAt;
         this.sessionCode = sessionCode;
@@ -118,12 +120,12 @@ public class CheckInSession {
         this.checkInAt = checkInAtl;
     }
 
-    public String getCheckInByStudentCode() {
-        return checkInByStudentCode;
+    public String getCheckInByStudentId() {
+        return checkInByStudentId;
     }
 
-    public void setCheckInByStudentCode(String checkInByStudentCode) {
-        this.checkInByStudentCode = checkInByStudentCode;
+    public void setCheckInByStudentId(String checkInByStudentId) {
+        this.checkInByStudentId = checkInByStudentId;
     }
 
     public String getCheckInByStudentName() {
