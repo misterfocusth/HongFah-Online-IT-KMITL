@@ -9,6 +9,9 @@ import forms.MainForm;
 import handlers.CheckInHandler;
 import helper.FrameHelper;
 import helper.InputValidationHelper;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -20,15 +23,17 @@ import user.Student;
  *
  * @author WINDOWS 10
  */
-public class CheckInForms extends javax.swing.JInternalFrame {
+public class CheckInForms extends javax.swing.JInternalFrame  implements KeyListener {
 
     private Map<String, Object> checkInData = new HashMap<>();
+    private String prevCheckInCode = "";
 
     /**
      * Creates new form CheckinForms
      */
     public CheckInForms() {
         initComponents();
+        codeTextField.addKeyListener(this);
     }
 
     /**
@@ -141,6 +146,23 @@ public class CheckInForms extends javax.swing.JInternalFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_cancelbtnMouseClicked
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        if (codeTextField.getText().length() >= 6) {
+            e.consume();
+        }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelbtn;
