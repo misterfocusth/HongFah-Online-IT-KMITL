@@ -113,6 +113,11 @@ public class AdminAnnounceForm extends javax.swing.JInternalFrame {
         resetAnnounceButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         resetAnnounceButton.setForeground(new java.awt.Color(242, 103, 33));
         resetAnnounceButton.setText("รีเซ็ตประกาศ");
+        resetAnnounceButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resetAnnounceButtonMouseClicked(evt);
+            }
+        });
         resetAnnounceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetAnnounceButtonActionPerformed(evt);
@@ -212,6 +217,10 @@ public class AdminAnnounceForm extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_saveAnnounceButtonActionPerformed
+
+    private void resetAnnounceButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetAnnounceButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resetAnnounceButtonMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea announceBodyTextArea;
