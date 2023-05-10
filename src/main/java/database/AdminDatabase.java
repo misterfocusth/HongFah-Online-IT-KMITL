@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutionException;
 public class AdminDatabase extends Database {
 
     public static synchronized HashMap<String, Object> getAdminById(String username) throws ExecutionException, InterruptedException {
-        DocumentReference docRef = db.collection("students").document(username);
+        DocumentReference docRef = db.collection(STUDENT_COLLECTION).document(username);
         ApiFuture<DocumentSnapshot> future = docRef.get();
         DocumentSnapshot document = future.get();
         if (!document.exists()) {
