@@ -9,6 +9,7 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
+import com.google.cloud.firestore.WriteResult;
 import static database.Database.db;
 import java.util.HashMap;
 import java.util.List;
@@ -61,38 +62,47 @@ public class CheckInSessionDatabase extends Database {
         }
         return (HashMap<String, Object>) document.getData();
     }
+    
+    
 
     private HashMap<String, Object> toCheckInDataMap(QueryDocumentSnapshot document) {
         HashMap<String, Object> currentDocument = new HashMap<>();
         try {
-            String sessionCode = document.getId();
-            String checkInByStudenCode = document.getString("checkInByStudentCode");
-            String checkInByStudenName = document.getString("checkInByStudentName");
-            String subjectCreateAt = document.getString("subjectCreateAt ");
-            String checkInAt = document.getString("checkInAt");
-            String subjectCode = document.getString("subjectCode");
+            String sessionID = document.getId();
+            String subjectID = document.getString("subjectID");
             String subjectName = document.getString("subjectName");
             String teacherName = document.getString("teacherName");
             String classTime = document.getString("classTime");
-            String place = document.getString("place");
+            String classroom = document.getString("classroom");
             String sessionNote = document.getString("sessionNote");
             boolean isActive = document.getBoolean("isActive");
 
-            currentDocument.put("sessionCode", sessionCode);
-            currentDocument.put("checkInByStudenCode ", checkInByStudenCode);
-            currentDocument.put("checkInByStudenName ", checkInByStudenName);
-            currentDocument.put("subjectCreateAt ", subjectCreateAt);
-            currentDocument.put("checkInAt", checkInAt);
-            currentDocument.put("subjectCode", String.valueOf(subjectCode));
+            currentDocument.put("sessionCode", sessionID);
+            currentDocument.put("subjectID", subjectID);
             currentDocument.put("subjectName", subjectName);
             currentDocument.put("teacherName", teacherName);
             currentDocument.put("classTime", classTime);
-            currentDocument.put("place", place);
-            currentDocument.put("sessionNote", sessionNote);
+            currentDocument.put("classroom", classroom);
+            currentDocument.put("sessionNote", subjectName);
             currentDocument.put("isActive", isActive);
         } catch (NullPointerException ex) {
             ex.printStackTrace();
         }
         return currentDocument;
+    }
+    
+        public static synchronized boolean updateCheckinInfoById(String sessionID, HashMap<String, Object> checkInData) {
+        DocumentReference docRef = db.collection("checkin").document(sessionID);
+        Map<String, Object> data = new HashMap<>();
+        data.put("sessionID", checkInData.get("sessionID"));
+        data.put("subjectID", checkInData.get("subjectID"));
+        data.put("subjectName", checkInData.get("subjectName"));
+        data.put("teacherName", checkInData.get("teacherName"));
+        data.put("classTime", checkInData.get("classTime"));
+        data.put("classroom", checkInData.get("classroom"));
+        data.put("sessionNote", checkInData.get("sessionNote"));
+        data.put("isActive", checkInData.get("isActive"));
+        ApiFuture<WriteResult> result = docRef.update(data);
+        return true;
     }
 }

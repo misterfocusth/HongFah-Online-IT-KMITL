@@ -25,6 +25,7 @@ import javax.swing.table.DefaultTableModel;
 public class SubForms extends javax.swing.JInternalFrame {
 
     private Map<String, Object> checkInData = new HashMap<>();
+    private String isActiveBooleanToString = "";
 
     /**
      * Creates new form SubForms
@@ -35,17 +36,23 @@ public class SubForms extends javax.swing.JInternalFrame {
     }
 
     private void getAllCheckInDocuments() {
+
         DefaultTableModel model = (DefaultTableModel) checkClassinfo.getModel();
         Map<String, HashMap<String, Object>> chekinHistory = new HashMap<>();
         checkClassinfo.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
-        chekinHistory = CheckInHandler.handlegetAllCheckInSessions();
+        chekinHistory = CheckInHandler.handleGetAllCheckInSessions();
         chekinHistory.forEach((k, v) -> {
             String sessionCode = (String) v.get("sessionCode");
-            String subjectCode = (String) v.get("subjectCode");
+            String subjectName = (String) v.get("subjectName");
             String teacherName = (String) v.get("teacherName");
             String classTime = (String) v.get("classTime");
             boolean isActive = (boolean) v.get("isActive");
-            model.addRow(new String[]{sessionCode, subjectCode, teacherName, classTime, String.valueOf(isIcon)});
+            if (isActive == true) {
+                isActiveBooleanToString = "Active";
+            } else if (isActive == false) {
+                isActiveBooleanToString = "Deactive";
+            }
+            model.addRow(new String[]{sessionCode, subjectName, teacherName, classTime, isActiveBooleanToString});
         });
     }
 
@@ -448,16 +455,17 @@ public class SubForms extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_classroomTextFieldActionPerformed
 
     private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_cancelMouseClicked
+
+    private void clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseClicked
         SubjectIDTextField.setText("");
         SubjectNameTextField.setText("");
         durationTextField.setText("");
         classroomTextField.setText("");
         teacherNameTextField.setText("");
         subjectInfoTextField.setText("");
-    }//GEN-LAST:event_cancelMouseClicked
-
-    private void clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_clearMouseClicked
 
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
@@ -490,7 +498,7 @@ public class SubForms extends javax.swing.JInternalFrame {
 
     private Map<String, Object> toCheckInDataMap() {
 
-        String subjectCode = SubjectIDTextField.getText();
+        String subjectID = SubjectIDTextField.getText();
         String SubjectName = SubjectNameTextField.getText();
         String classTime = durationTextField.getText();
         String classroom = classroomTextField.getText();
@@ -498,17 +506,17 @@ public class SubForms extends javax.swing.JInternalFrame {
         String subjectInfo = subjectInfoTextField.getText();
 
 //        Student student = (Student) AuthUser.getAuthUser();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        String subjectCreateAt = dtf.format(LocalDateTime.now());
+//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+//        String subjectCreateAt = dtf.format(LocalDateTime.now());
 //        String checkInByStudenCode = student.getStudentId();
 //        String checkInByStudenName = student.getThFirstName();
 //        String questionResponse = "ยังไม่มีการตอบกลับ";
 //        String answerBy = "ยังไม่มีการตอบกลับ";
 //        String answerAt = "ยังไม่มีการตอบกลับ";
 //        String answerBody = "ยังไม่มีการตอบกลับ (กำลังรอการตอบกลับจากเจ้าหน้าที่)";
-        checkInData.put("subjectCode", subjectCode);
-        checkInData.put("SubjectName", SubjectName);
-        checkInData.put("subjectCreateAt", subjectCreateAt);
+        checkInData.put("subjectID", subjectID);
+        checkInData.put("subjectName", SubjectName);
+//        checkInData.put("subjectCreateAt", subjectCreateAt);
         checkInData.put("classTime", classTime);
         checkInData.put("classroom", classroom);
         checkInData.put("teacherName", teacherName);

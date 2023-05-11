@@ -133,6 +133,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&#xe1b;&#xe34;&#xe14;&#xe01;&#xe32;&#xe23;&#xe40;&#xe02;&#xe49;&#xe32;&#xe40;&#xe0a;&#xe47;&#xe04;&#xe0a;&#xe37;&#xe48;&#xe2d;"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="deActivateBMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="classcode">
       <Properties>

@@ -66,7 +66,7 @@ public class CheckInHandler implements UniqueAble {
         return result;
     }
 
-    public static HashMap<String, HashMap<String, Object>> handlegetAllCheckInSessions() {
+    public static HashMap<String, HashMap<String, Object>> handleGetAllCheckInSessions() {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         HashMap<String, HashMap<String, Object>> result = null;
         try {
@@ -101,11 +101,7 @@ public class CheckInHandler implements UniqueAble {
         }
         System.out.println(result);
         String sessionCode = sessionID;
-        String checkInByStudenCode = (String) result.get("checkInByStudenCode");
-        String checkInByStudenName = (String) result.get("checkInByStudenName");
-        String subjectCreateAt = (String) result.get("subjectCreateAt");
-        String checkInAt = (String) result.get("checkInAt");
-        String subjectCode = (String) result.get("subjectCode");
+        String subjectID = (String) result.get("subjectID");
         String subjectName = (String) result.get("subjectName");
         String teacherName = (String) result.get("teacherName");
         String classTime = (String) result.get("classTime");
@@ -114,17 +110,33 @@ public class CheckInHandler implements UniqueAble {
         boolean isActive = (boolean) result.get("isActive");
 
         return new CheckInSession(sessionCode,
-                checkInByStudenCode,
-                checkInByStudenName,
-                checkInAt,
-                subjectCreateAt,
-                subjectCode,
+                subjectID,
                 subjectName,
                 teacherName,
                 classTime,
                 classroom,
                 sessionNote,
                 isActive);
+    }
+    
+        public static boolean handleUpdateCheckInSession(String docId, HashMap<String, Object> docData) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        boolean result = false;
+        try {
+            Callable<Boolean> callable = () -> {
+                return CheckInSessionDatabase.updateCheckinInfoById(docId, docData);
+            };
+            Future<Boolean> future = executorService.submit(callable);
+            while (!future.isDone() && !future.isCancelled()) {
+                Thread.sleep(1000);
+            }
+            result = future.get();
+        } catch (InterruptedException | ExecutionException ex) {
+            ex.printStackTrace();
+        } finally {
+            executorService.shutdown();
+        }
+        return result;
     }
 
 }

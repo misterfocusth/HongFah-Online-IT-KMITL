@@ -4,6 +4,7 @@
  */
 package forms.student.subject;
 
+import checkin.CheckInSession;
 import dialog.InfoDialog;
 import forms.MainForm;
 import handlers.CheckInHandler;
@@ -23,10 +24,11 @@ import user.Student;
  *
  * @author WINDOWS 10
  */
-public class CheckInForms extends javax.swing.JInternalFrame  implements KeyListener {
+public class CheckInForms extends javax.swing.JInternalFrame implements KeyListener {
 
     private Map<String, Object> checkInData = new HashMap<>();
     private String prevCheckInCode = "";
+    private CheckInSession selectedData;
 
     /**
      * Creates new form CheckinForms
@@ -136,7 +138,12 @@ public class CheckInForms extends javax.swing.JInternalFrame  implements KeyList
 
     private void cheeckbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cheeckbtnMouseClicked
         if (codeTextField.getText().length() == 6) {
-            
+            if (codeTextField.getText() == selectedData.getSessionID()) {
+                new InfoDialog("ไม่มีรหัสในระบบ", "ถูกต้อง!").show();
+            } else {
+                new InfoDialog("ไม่มีรหัสในระบบ", "ไม่มีรหัสเซคชั่นนี้อยู่ในระบบ!").show();
+                codeTextField.setText("");
+            }
         } else if (codeTextField.getText().length() < 6) {
             new InfoDialog("กรอกรหัสไม่ครบ", "โปรดกรอกรหัสเซคชั่นให้ครบ 6 หลัก").show();
         }

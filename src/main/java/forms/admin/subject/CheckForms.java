@@ -4,33 +4,38 @@
  */
 package forms.admin.subject;
 
+import dialog.InfoDialog;
 import checkin.CheckInSession;
+import handlers.CheckInHandler;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
  * @author WINDOWS 10
  */
 public class CheckForms extends javax.swing.JInternalFrame {
-
-    private CheckInSession checkIn;
+    
+    private CheckInSession selectedData;
+    private Map<String, Object> checkInData = new HashMap<>();
 
     /**
      * Creates new form CheckForms
      */
     public CheckForms(CheckInSession checkIn) {
         initComponents();
-        this.checkIn = checkIn;
+        this.selectedData = checkIn;
         showCheckInData();
     }
-
+    
     private void showCheckInData() {
-        subjectID.setText(checkIn.getSubjectCode());
-        subjectName.setText(checkIn.getSubjectName());
-        classroom.setText(checkIn.getClassroom());
-        time.setText(checkIn.getClassTime());
-        teacher.setText(checkIn.getTeacherName());
-        courseDetail.setText(checkIn.getSessionNote());
-        classcode.setText(checkIn.getSessionCode());
+        subjectID.setText(selectedData.getSubjectID());
+        subjectName.setText(selectedData.getSubjectName());
+        classroom.setText(selectedData.getClassroom());
+        time.setText(selectedData.getClassTime());
+        teacher.setText(selectedData.getTeacherName());
+        courseDetail.setText(selectedData.getSessionNote());
+        classcode.setText(selectedData.getSessionID());
     }
 
     /**
@@ -103,6 +108,11 @@ public class CheckForms extends javax.swing.JInternalFrame {
 
         deActivateB.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         deActivateB.setText("ปิดการเข้าเช็คชื่อ");
+        deActivateB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deActivateBMouseClicked(evt);
+            }
+        });
 
         classcode.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
         classcode.setText("123456");
@@ -313,6 +323,17 @@ public class CheckForms extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_closeMouseClicked
 
+    private void deActivateBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deActivateBMouseClicked
+        checkInData = toCheckInDataMap();
+        
+        if (CheckInHandler.handleUpdateCheckInSession(selectedData.getSessionID(), (HashMap<String, Object>) checkInData)) {
+            new InfoDialog("บันทึกคำตอบเสร็จสิ้น", "ปิดการลงชื่อเข้าชั้นเรียนเรียบร้อยแล้ว!").show();
+            this.setVisible(false);
+            this.dispose();
+        }
+//        deActivateB.setEnabled(false);
+    }//GEN-LAST:event_deActivateBMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FinalTime;
     private javax.swing.JLabel classcode;
@@ -335,4 +356,27 @@ public class CheckForms extends javax.swing.JInternalFrame {
     private javax.swing.JTextField teacher;
     private javax.swing.JTextField time;
     // End of variables declaration//GEN-END:variables
+
+    private Map<String, Object> toCheckInDataMap() {
+        
+        String sessionID = selectedData.getSessionID();
+        String subjectID = selectedData.getSubjectID();
+        String subjectName = selectedData.getSubjectName();
+        String classTime = selectedData.getClassTime();
+        String classroom = selectedData.getClassroom();
+        String teacherName = selectedData.getTeacherName();
+        String sessionNote = selectedData.getSessionNote();
+        boolean isActive = selectedData.isIsActive();
+        
+        checkInData.put("sessionID", sessionID);
+        checkInData.put("subjectID", subjectID);
+        checkInData.put("subjectName", subjectName);
+        checkInData.put("classTime", classTime);
+        checkInData.put("classroom", classroom);
+        checkInData.put("teacherName", teacherName);
+        checkInData.put("sessionNote", sessionNote);
+        checkInData.put("isActive", false);
+        
+        return checkInData;
+    }
 }
