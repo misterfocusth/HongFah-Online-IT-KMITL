@@ -4,6 +4,7 @@
  */
 package forms.student.subject;
 
+import checkin.CheckInSession;
 import dialog.InfoDialog;
 import handlers.CheckInHandler;
 import helper.InputValidationHelper;
@@ -19,14 +20,26 @@ import user.Student;
  * @author WINDOWS 10
  */
 public class CheckConfirmationForms extends javax.swing.JInternalFrame {
-    
+
+    private CheckInSession selectedData;
     private Map<String, Object> checkInData = new HashMap<>();
 
     /**
      * Creates new form CheckinSuccessForms
      */
-    public CheckConfirmationForms() {
+    public CheckConfirmationForms(CheckInSession checkIn) {
         initComponents();
+        this.selectedData = checkIn;
+        showCheckInData();
+    }
+
+    private void showCheckInData() {
+        subIDdisplay.setText(selectedData.getSubjectID());
+        subNamedisplay.setText(selectedData.getSubjectName());
+        classroomTextField.setText(selectedData.getClassroom());
+        classTimeTextField.setText(selectedData.getClassTime());
+        teacherTextField.setText(selectedData.getTeacherName());
+        coursedetailTextField.setText(selectedData.getSessionNote());
     }
 
     /**
@@ -51,7 +64,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         confirmbtn = new javax.swing.JButton();
         subIDdisplay = new javax.swing.JLabel();
-        confirmbtn1 = new javax.swing.JButton();
+        cancelbtn = new javax.swing.JButton();
 
         subNamedisplay.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         subNamedisplay.setText("( ชื่อวิชา )");
@@ -62,6 +75,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("ห้องเรียน");
 
+        classTimeTextField.setEditable(false);
         classTimeTextField.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         classTimeTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +86,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("ชื่ออาจารย์ผู้สอน");
 
+        classroomTextField.setEditable(false);
         classroomTextField.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         classroomTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +94,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
             }
         });
 
+        teacherTextField.setEditable(false);
         teacherTextField.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         teacherTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +102,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
             }
         });
 
+        coursedetailTextField.setEditable(false);
         coursedetailTextField.setColumns(20);
         coursedetailTextField.setRows(5);
         jScrollPane2.setViewportView(coursedetailTextField);
@@ -160,17 +177,16 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
         subIDdisplay.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         subIDdisplay.setText("( รหัสวิชา )");
 
-        confirmbtn1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        confirmbtn1.setText("Cancel Check-in");
-        confirmbtn1.setActionCommand("Cancel Check-in");
-        confirmbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+        cancelbtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cancelbtn.setText("Cancel Check-in");
+        cancelbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                confirmbtn1MouseClicked(evt);
+                cancelbtnMouseClicked(evt);
             }
         });
-        confirmbtn1.addActionListener(new java.awt.event.ActionListener() {
+        cancelbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmbtn1ActionPerformed(evt);
+                cancelbtnActionPerformed(evt);
             }
         });
 
@@ -194,7 +210,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
                                 .addGap(93, 93, 93)
                                 .addComponent(confirmbtn)
                                 .addGap(30, 30, 30)
-                                .addComponent(confirmbtn1)))
+                                .addComponent(cancelbtn)))
                         .addGap(0, 104, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -210,7 +226,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirmbtn)
-                    .addComponent(confirmbtn1))
+                    .addComponent(cancelbtn))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -220,47 +236,37 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
     private void classTimeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classTimeTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_classTimeTextFieldActionPerformed
-    
+
     private void classroomTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classroomTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_classroomTextFieldActionPerformed
-    
+
     private void teacherTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_teacherTextFieldActionPerformed
-    
+
     private void confirmbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_confirmbtnActionPerformed
-    
+
     private void confirmbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmbtnMouseClicked
-        checkInData = toCheckInDataMap();
-        
-        boolean isUserInputValid = InputValidationHelper.validateUserInput(checkInData);
-        if (!isUserInputValid) {
-            new InfoDialog("ข้อมูลไม่สมบูรณ์", "โปรดกรอกข้อมูลให้ครบทุกช่อง ก่อนดำเนินการต่อ").show();
-            return;
-        }
-        
-        if (CheckInHandler.handleAddNewCheckIn(checkInData)) {
-            new InfoDialog("บันทึกคำถามเสร็จสิ้น", "ระบบได้บันทึกการเข้าห้องเรียนของท่านแล้ว! กรุณาตั้งใจเรียน").show();
-        }
+
     }//GEN-LAST:event_confirmbtnMouseClicked
-    
-    private void confirmbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmbtn1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_confirmbtn1MouseClicked
-    
-    private void confirmbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmbtn1ActionPerformed
+
+    private void cancelbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelbtnMouseClicked
         this.setVisible(false);
         this.dispose();
-    }//GEN-LAST:event_confirmbtn1ActionPerformed
+    }//GEN-LAST:event_cancelbtnMouseClicked
+
+    private void cancelbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelbtnActionPerformed
+
+    }//GEN-LAST:event_cancelbtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancelbtn;
     private javax.swing.JTextField classTimeTextField;
     private javax.swing.JTextField classroomTextField;
     private javax.swing.JButton confirmbtn;
-    private javax.swing.JButton confirmbtn1;
     private javax.swing.JTextArea coursedetailTextField;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -274,15 +280,15 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private Map<String, Object> toCheckInDataMap() {
-        
+
         String classroom = classroomTextField.getText();
         String classTime = classTimeTextField.getText();
         String teacher = teacherTextField.getText();
         String coursedetail = coursedetailTextField.getText();
-        
+
         Student student = (Student) AuthUser.getAuthUser();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        
+
         String checkInByStudenCode = student.getStudentId();
         String checkInByStudenName = student.getThFirstName();
         String checkInAt = dtf.format(LocalDateTime.now());
