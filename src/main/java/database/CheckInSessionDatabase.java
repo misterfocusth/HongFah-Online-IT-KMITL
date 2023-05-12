@@ -28,8 +28,8 @@ public class CheckInSessionDatabase extends Database {
         return true;
     }
 
-    public synchronized HashMap<String, Object> getCheckInSessionByCode(String sessionCode) throws ExecutionException, InterruptedException {
-        DocumentReference docRef = db.collection(CHECKIN_COLLECTION).document(sessionCode);
+    public synchronized HashMap<String, Object> getCheckInSessionByCode(String sessionID) throws ExecutionException, InterruptedException {
+        DocumentReference docRef = db.collection(CHECKIN_COLLECTION).document(sessionID);
         ApiFuture<DocumentSnapshot> future = docRef.get();
         DocumentSnapshot document = future.get();
         if (!document.exists()) {
@@ -77,7 +77,7 @@ public class CheckInSessionDatabase extends Database {
             String sessionNote = document.getString("sessionNote");
             boolean isActive = document.getBoolean("isActive");
 
-            currentDocument.put("sessionCode", sessionID);
+            currentDocument.put("sessionID", sessionID);
             currentDocument.put("subjectID", subjectID);
             currentDocument.put("subjectName", subjectName);
             currentDocument.put("teacherName", teacherName);

@@ -100,7 +100,7 @@ public class CheckInHandler implements UniqueAble {
             executorService.shutdown();
         }
         System.out.println(result);
-        String sessionCode = sessionID;
+        String sessionId = sessionID;
         String subjectID = (String) result.get("subjectID");
         String subjectName = (String) result.get("subjectName");
         String teacherName = (String) result.get("teacherName");
@@ -109,7 +109,7 @@ public class CheckInHandler implements UniqueAble {
         String sessionNote = (String) result.get("sessionNote");
         boolean isActive = (boolean) result.get("isActive");
 
-        return new CheckInSession(sessionCode,
+        return new CheckInSession(sessionId,
                 subjectID,
                 subjectName,
                 teacherName,

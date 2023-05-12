@@ -42,7 +42,7 @@ public class SubForms extends javax.swing.JInternalFrame {
         checkClassinfo.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
         chekinHistory = CheckInHandler.handleGetAllCheckInSessions();
         chekinHistory.forEach((k, v) -> {
-            String sessionCode = (String) v.get("sessionCode");
+            String sessionID = (String) v.get("sessionID");
             String subjectName = (String) v.get("subjectName");
             String teacherName = (String) v.get("teacherName");
             String classTime = (String) v.get("classTime");
@@ -52,7 +52,7 @@ public class SubForms extends javax.swing.JInternalFrame {
             } else if (isActive == false) {
                 isActiveBooleanToString = "Deactive";
             }
-            model.addRow(new String[]{sessionCode, subjectName, teacherName, classTime, isActiveBooleanToString});
+            model.addRow(new String[]{sessionID, subjectName, teacherName, classTime, isActiveBooleanToString});
         });
     }
 
