@@ -13,6 +13,9 @@ import java.util.Map;
 import user.AuthUser;
 import user.Student;
 
+import handlers.CheckInHandler;
+import dialog.InfoDialog;
+
 /**
  *
  * @author WINDOWS 10
