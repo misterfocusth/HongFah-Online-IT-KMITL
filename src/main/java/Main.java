@@ -11,10 +11,6 @@ import firebase.Firebase;
 import forms.student.login.NewLoginForm;
 
 import javax.swing.*;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Main {
 

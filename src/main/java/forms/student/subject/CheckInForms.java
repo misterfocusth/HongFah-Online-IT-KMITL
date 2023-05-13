@@ -172,6 +172,8 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
     public void keyTyped(KeyEvent e) {
         if (codeTextField.getText().length() >= 6) {
             e.consume();
+        } else {
+            codeTextField.getText().toUpperCase();
         }
     }
 
