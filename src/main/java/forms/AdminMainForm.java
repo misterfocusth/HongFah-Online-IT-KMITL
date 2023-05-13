@@ -44,8 +44,8 @@ public class AdminMainForm extends javax.swing.JFrame {
         answerMenu = new javax.swing.JMenu();
         studentCheckInMenu = new javax.swing.JMenu();
         docMenu = new javax.swing.JMenu();
-        announceMenu = new javax.swing.JMenu();
         logoutMenu = new javax.swing.JMenu();
+        announceMenu = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -81,7 +81,7 @@ public class AdminMainForm extends javax.swing.JFrame {
         });
         jMenuBar1.add(aboutMenu);
 
-        answerMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_48x48/icons8-composing-mail-48.png"))); // NOI18N
+        answerMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-faq-28.png"))); // NOI18N
         answerMenu.setText("คำถามทั้งหมด");
         answerMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         answerMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -91,6 +91,7 @@ public class AdminMainForm extends javax.swing.JFrame {
         });
         jMenuBar1.add(answerMenu);
 
+        studentCheckInMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-today-28.png"))); // NOI18N
         studentCheckInMenu.setText("เช็คชื่อเข้าเรียน");
         studentCheckInMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         studentCheckInMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -100,7 +101,7 @@ public class AdminMainForm extends javax.swing.JFrame {
         });
         jMenuBar1.add(studentCheckInMenu);
 
-        docMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-document-48.png"))); // NOI18N
+        docMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-documents-28.png"))); // NOI18N
         docMenu.setText("เอกสารทั้งหมด");
         docMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         docMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -109,15 +110,6 @@ public class AdminMainForm extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(docMenu);
-
-        announceMenu.setText("จัดการประกาศ / ประชาสัมพันธ์");
-        announceMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        announceMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                announceMenuMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(announceMenu);
 
         logoutMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-logout-28.png"))); // NOI18N
         logoutMenu.setText("ออกจากระบบ");
@@ -128,6 +120,15 @@ public class AdminMainForm extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(logoutMenu);
+
+        announceMenu.setText("จัดการประกาศ / ประชาสัมพันธ์");
+        announceMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        announceMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                announceMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(announceMenu);
 
         setJMenuBar(jMenuBar1);
 
