@@ -11,6 +11,7 @@ import handlers.CheckInHandler;
 import helper.FrameHelper;
 import helper.InputValidationHelper;
 import java.awt.Font;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JTable;
@@ -497,11 +498,24 @@ public class SubForms extends javax.swing.JInternalFrame {
     private Map<String, Object> toCheckInDataMap() {
 
         String subjectID = SubjectIDTextField.getText();
-        String SubjectName = SubjectNameTextField.getText();
+        String subjectName = SubjectNameTextField.getText();
         String classTime = durationTextField.getText();
         String classroom = classroomTextField.getText();
         String teacherName = teacherNameTextField.getText();
         String subjectInfo = subjectInfoTextField.getText();
+
+        Map<String, Object> checkInData = new HashMap<>();
+
+        ArrayList<String> studentCheckIn = new ArrayList<>();
+
+        checkInData.put("subjectID", subjectID);
+        checkInData.put("subjectName", subjectName);
+        checkInData.put("classTime", classTime);
+        checkInData.put("classroom", classroom);
+        checkInData.put("teacherName", teacherName);
+        checkInData.put("sessionNote", subjectInfo);
+        checkInData.put("isActive", true);
+        checkInData.put("studentCheckIn", studentCheckIn);
 
 //        Student student = (Student) AuthUser.getAuthUser();
 //        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
@@ -512,19 +526,11 @@ public class SubForms extends javax.swing.JInternalFrame {
 //        String answerBy = "ยังไม่มีการตอบกลับ";
 //        String answerAt = "ยังไม่มีการตอบกลับ";
 //        String answerBody = "ยังไม่มีการตอบกลับ (กำลังรอการตอบกลับจากเจ้าหน้าที่)";
-        checkInData.put("subjectID", subjectID);
-        checkInData.put("subjectName", SubjectName);
 //        checkInData.put("subjectCreateAt", subjectCreateAt);
-        checkInData.put("classTime", classTime);
-        checkInData.put("classroom", classroom);
-        checkInData.put("teacherName", teacherName);
-        checkInData.put("sessionNote", subjectInfo);
-        checkInData.put("isActive", true);
 //        questionData.put("questionResponse", questionResponse);
 //        questionData.put("answerBy", answerBy);
 //        questionData.put("answerAt", answerAt);
 //        questionData.put("answerBody", answerBody);
-
         return checkInData;
     }
 

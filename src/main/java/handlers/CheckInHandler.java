@@ -7,6 +7,7 @@ package handlers;
 import checkin.CheckInSession;
 import database.CheckInSessionDatabase;
 import interfaces.UniqueAble;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -108,6 +109,7 @@ public class CheckInHandler implements UniqueAble {
         String classroom = (String) result.get("classroom");
         String sessionNote = (String) result.get("sessionNote");
         boolean isActive = (boolean) result.get("isActive");
+        ArrayList< String> studentCheckIn = (ArrayList< String>) result.get("studentCheckIn");
 
         return new CheckInSession(sessionId,
                 subjectID,
@@ -116,10 +118,11 @@ public class CheckInHandler implements UniqueAble {
                 classTime,
                 classroom,
                 sessionNote,
-                isActive);
+                isActive,
+                studentCheckIn);
     }
-    
-        public static boolean handleUpdateCheckInSession(String docId, HashMap<String, Object> docData) {
+
+    public static boolean handleUpdateCheckInSession(String docId, HashMap<String, Object> docData) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         boolean result = false;
         try {

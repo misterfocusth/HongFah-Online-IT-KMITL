@@ -10,6 +10,7 @@ import handlers.CheckInHandler;
 import helper.InputValidationHelper;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import user.AuthUser;
@@ -250,7 +251,12 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_confirmbtnActionPerformed
 
     private void confirmbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmbtnMouseClicked
-
+        checkInData = toCheckInDataMap();
+        if (CheckInHandler.handleUpdateCheckInSession(selectedData.getSessionID(), (HashMap<String, Object>) checkInData)) {
+            new InfoDialog("บันทึกคำตอบเสร็จสิ้น", "ระบบได้บันทึกคำตอบของท่านแล้ว!").show();
+            this.setVisible(false);
+            this.dispose();
+        }
     }//GEN-LAST:event_confirmbtnMouseClicked
 
     private void cancelbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelbtnMouseClicked
@@ -281,35 +287,44 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
 
     private Map<String, Object> toCheckInDataMap() {
 
-        String classroom = classroomTextField.getText();
-        String classTime = classTimeTextField.getText();
-        String teacher = teacherTextField.getText();
-        String coursedetail = coursedetailTextField.getText();
+        String sessionID = selectedData.getSessionID();
+        String subjectID = selectedData.getSubjectID();
+        String subjectName = selectedData.getSubjectName();
+        String classTime = selectedData.getClassTime();
+        String classroom = selectedData.getClassroom();
+        String teacherName = selectedData.getTeacherName();
+        String sessionNote = selectedData.getSessionNote();
+        boolean isActive = selectedData.isIsActive();
 
         Student student = (Student) AuthUser.getAuthUser();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
         String checkInByStudenCode = student.getStudentId();
-        String checkInByStudenName = student.getThFirstName();
+        String checkInByStudenFirstName = student.getThFirstName();
+        String checkInByStudenLastName = student.getThLastName();
         String checkInAt = dtf.format(LocalDateTime.now());
-//        String questionResponse = "ยังไม่มีการตอบกลับ";
-//        String answerBy = "ยังไม่มีการตอบกลับ";
-//        String answerAt = "ยังไม่มีการตอบกลับ";
-//        String answerBody = "ยังไม่มีการตอบกลับ (กำลังรอการตอบกลับจากเจ้าหน้าที่)";
 
-        checkInData.put("checkInByStudenCode", checkInByStudenCode);
-        checkInData.put("checkInByStudenName", checkInByStudenName);
-        checkInData.put("checkInAt", checkInAt);
-        checkInData.put("classroom", classroom);
+        Map<String, Object> checkInData = new HashMap<>();
+
+        ArrayList<String> studentCheckIn = new ArrayList<>();
+        studentCheckIn.add(checkInByStudenCode);
+        studentCheckIn.add(checkInByStudenFirstName);
+        studentCheckIn.add(checkInByStudenLastName);
+
+        checkInData.put("sessionID", sessionID);
+        checkInData.put("subjectID", subjectID);
+        checkInData.put("subjectName", subjectName);
         checkInData.put("classTime", classTime);
-        checkInData.put("teacherName", teacher);
-        checkInData.put("sessionNote", coursedetail);
-        checkInData.put("sessionNote", coursedetail);
+        checkInData.put("classroom", classroom);
+        checkInData.put("teacherName", teacherName);
+        checkInData.put("sessionNote", sessionNote);
+        checkInData.put("isActive", isActive);
+        checkInData.put("studentCheckIn", studentCheckIn);
+
 //        questionData.put("questionResponse", questionResponse);
 //        questionData.put("answerBy", answerBy);
 //        questionData.put("answerAt", answerAt);
 //        questionData.put("answerBody", answerBody);
-
         return checkInData;
     }
 }

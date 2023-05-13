@@ -4,6 +4,8 @@
  */
 package checkin;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author User
@@ -18,6 +20,8 @@ public class CheckInSession {
     private String classroom;
     private String sessionNote;
     private boolean isActive;
+
+    private ArrayList<String> studentCheckIn;
 //    private String checkInByStudentId;
 //    private String checkInByStudentName;
 //    private String subjectCreateAt;
@@ -47,7 +51,16 @@ public class CheckInSession {
 //        this.sessionNote = sessionNote;
 //        this.isActive = isActive;
 //    }
-    public CheckInSession(String sessionID, String subjectID, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive) {
+//    public CheckInSession(String sessionID, String subjectID, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive) {
+//        this.sessionID = sessionID;
+//        this.subjectID = subjectID;
+//        this.subjectName = subjectName;
+//        this.teacherName = teacherName;
+//        this.classTime = classTime;
+//        this.classroom = classroom;
+//        this.sessionNote = sessionNote;
+//        this.isActive = isActive;
+    public CheckInSession(String sessionID, String subjectID, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive, ArrayList<String> studentCheckIn) {
         this.sessionID = sessionID;
         this.subjectID = subjectID;
         this.subjectName = subjectName;
@@ -56,8 +69,10 @@ public class CheckInSession {
         this.classroom = classroom;
         this.sessionNote = sessionNote;
         this.isActive = isActive;
+        this.studentCheckIn = studentCheckIn;
     }
 
+//    }
     public String getSessionID() {
         return sessionID;
     }
@@ -120,6 +135,14 @@ public class CheckInSession {
 
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
+    }
+
+    public ArrayList<String> getStudentCheckIn() {
+        return studentCheckIn;
+    }
+
+    public void setStudentCheckIn(ArrayList<String> student) {
+        this.studentCheckIn = student;
     }
 
 }

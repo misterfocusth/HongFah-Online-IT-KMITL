@@ -7,6 +7,7 @@ package forms.admin.subject;
 import dialog.InfoDialog;
 import checkin.CheckInSession;
 import handlers.CheckInHandler;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -368,6 +369,10 @@ public class CheckForms extends javax.swing.JInternalFrame {
         String sessionNote = selectedData.getSessionNote();
         boolean isActive = selectedData.isIsActive();
         
+        Map<String, Object> checkInData = new HashMap<>();
+        
+        ArrayList<String> studentCheckIn = new ArrayList<>();
+        
         checkInData.put("sessionID", sessionID);
         checkInData.put("subjectID", subjectID);
         checkInData.put("subjectName", subjectName);
@@ -376,6 +381,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
         checkInData.put("teacherName", teacherName);
         checkInData.put("sessionNote", sessionNote);
         checkInData.put("isActive", false);
+        checkInData.put("studentCheckIn", studentCheckIn);
         
         return checkInData;
     }

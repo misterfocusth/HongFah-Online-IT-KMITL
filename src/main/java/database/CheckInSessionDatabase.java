@@ -11,6 +11,7 @@ import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
 import static database.Database.db;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,6 +77,8 @@ public class CheckInSessionDatabase extends Database {
             String classroom = document.getString("classroom");
             String sessionNote = document.getString("sessionNote");
             boolean isActive = document.getBoolean("isActive");
+            
+            ArrayList<String>studentCheckIn = (ArrayList<String>) document.get("studentCheckIn");
 
             currentDocument.put("sessionID", sessionID);
             currentDocument.put("subjectID", subjectID);
@@ -85,6 +88,7 @@ public class CheckInSessionDatabase extends Database {
             currentDocument.put("classroom", classroom);
             currentDocument.put("sessionNote", subjectName);
             currentDocument.put("isActive", isActive);
+            currentDocument.put("studentCheckIn", studentCheckIn);
         } catch (NullPointerException ex) {
             ex.printStackTrace();
         }
@@ -102,6 +106,7 @@ public class CheckInSessionDatabase extends Database {
         data.put("classroom", checkInData.get("classroom"));
         data.put("sessionNote", checkInData.get("sessionNote"));
         data.put("isActive", checkInData.get("isActive"));
+        data.put("studentCheckIn", checkInData.get("studentCheckIn"));
         ApiFuture<WriteResult> result = docRef.update(data);
         return true;
     }
