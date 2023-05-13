@@ -65,8 +65,8 @@
               <Component id="jScrollPane1" min="-2" pref="229" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="close" pref="30" max="32767" attributes="0"/>
-                  <Component id="deActivateB" pref="30" max="32767" attributes="0"/>
+                  <Component id="close" max="32767" attributes="0"/>
+                  <Component id="deActivateB" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
           </Group>
