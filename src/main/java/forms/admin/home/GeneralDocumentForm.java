@@ -748,7 +748,7 @@ public class GeneralDocumentForm extends javax.swing.JInternalFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 255));
-        jLabel3.setText("รายละเอียดการยื่นเอกสารลาเรียนสำหรับนักศึกษา");
+        jLabel3.setText("รายละเอียดการยื่นเอกสารคำร้องทั่วไป");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("ข้อมูลเอกสารคำร้องทั่วไป ความคิดเห็น เเละสถานะการตอบกลับจากเจ้าหน้าที่");

@@ -109,6 +109,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
 
         deActivateB.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         deActivateB.setText("ปิดการเข้าเช็คชื่อ");
+        deActivateB.setPreferredSize(new java.awt.Dimension(200, 35));
         deActivateB.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 deActivateBMouseClicked(evt);
@@ -116,6 +117,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
         });
 
         classcode.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
+        classcode.setForeground(new java.awt.Color(41, 121, 255));
         classcode.setText("123456");
 
         finalClassID.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -166,6 +168,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
         courseDetail.setEditable(false);
         courseDetail.setColumns(20);
         courseDetail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        courseDetail.setLineWrap(true);
         courseDetail.setRows(5);
         jScrollPane2.setViewportView(courseDetail);
 
@@ -230,14 +233,14 @@ public class CheckForms extends javax.swing.JInternalFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        finalCode.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        finalCode.setText("CODE");
+        finalCode.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        finalCode.setText("รหัสเซคชั่น");
 
         close.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         close.setText("ออก");
         close.setMaximumSize(new java.awt.Dimension(156, 28));
         close.setMinimumSize(new java.awt.Dimension(156, 28));
-        close.setPreferredSize(new java.awt.Dimension(156, 28));
+        close.setPreferredSize(new java.awt.Dimension(200, 35));
         close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeMouseClicked(evt);
@@ -249,24 +252,22 @@ public class CheckForms extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(250, 250, 250)
+                .addGap(200, 200, 200)
                 .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(150, 150, 150)
-                .addComponent(deActivateB)
-                .addGap(250, 250, 250))
+                .addComponent(deActivateB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(200, 200, 200))
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 915, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 915, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(classcode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(finalCode, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
-                        .addComponent(detailPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(24, 24, 24))))
+                        .addComponent(detailPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,7 +280,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
                         .addComponent(finalCode)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(classcode)
-                        .addGap(48, 48, 48)))
+                        .addGap(56, 56, 56)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
