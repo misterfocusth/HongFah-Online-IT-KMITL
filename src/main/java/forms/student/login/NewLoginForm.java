@@ -17,6 +17,10 @@ import helper.FrameHelper;
 import helper.PasswordHelper;
 import java.util.HashMap;
 import javax.swing.*;
+
+import interfaces.AdminAuth;
+import interfaces.AuthAble;
+import interfaces.StudentAuth;
 import user.Admin;
 import user.AuthUser;
 import user.Student;
@@ -359,27 +363,11 @@ public class NewLoginForm extends javax.swing.JFrame {
                 } else {
                     HashMap<String, HashMap<String, Object>> documents = DocumentHandler.handleGetAllDocumentsByStudentId(username);
                     AuthUser.setAuthUser(admin);
-
-                    SwingUtilities.invokeLater(() -> {
-//                        QuestionForAdmin questionForAdmin = new QuestionForAdmin();
-//                        AdminHomeDocumentForm adminHomeForm = new AdminHomeDocumentForm();
-//                        AnnounceForm announceForm = new AnnounceForm();
-                        AdminMainForm adminMainForm = new AdminMainForm();
-
-                        adminMainForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                        adminMainForm.setLocationRelativeTo(null);
-                        adminMainForm.setVisible(true);
-
-//                        FrameHelper.setLocationToCenter(adminHomeForm);
-//                        FrameHelper.currentMainForm = adminMainForm;
-//
-//                        adminMainForm.mainDesktopPane.add(questionForAdmin);
-//                        adminMainForm.mainDesktopPane.add(adminHomeForm);
-//
-//                        adminHomeForm.setVisible(true);
-//                        questionForAdmin.setVisible(true);
-                        this.setVisible(false);
-                        this.dispose();
+                    launchApp(new AdminAuth() {
+                        @Override
+                        public void launchApp() {
+                            AdminAuth.super.launchApp();
+                        }
                     });
                 }
             } else {
@@ -390,28 +378,11 @@ public class NewLoginForm extends javax.swing.JFrame {
                     HashMap<String, HashMap<String, Object>> documents = DocumentHandler.handleGetAllDocumentsByStudentId(username);
                     student.setDocuments(documents);
                     AuthUser.setAuthUser(student);
-
-                    SwingUtilities.invokeLater(() -> {
-                        // HomeForm homeForm = new HomeForm();
-                        NewHomeForm homeForm = new NewHomeForm();
-                        AnnounceForm announceForm = new AnnounceForm();
-                        MainForm mainForm = new MainForm();
-
-                        mainForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                        mainForm.setLocationRelativeTo(null);
-                        mainForm.setVisible(true);
-
-                        FrameHelper.setLocationToCenter(homeForm);
-                        FrameHelper.currentMainForm = mainForm;
-
-                        mainForm.getMainDesktopPane().add(announceForm);
-                        mainForm.getMainDesktopPane().add(homeForm);
-
-                        announceForm.setVisible(true);
-                        homeForm.setVisible(true);
-
-                        this.setVisible(false);
-                        this.dispose();
+                    launchApp(new StudentAuth() {
+                        @Override
+                        public void launchApp() {
+                            StudentAuth.super.launchApp();
+                        }
                     });
 
                 }
@@ -420,9 +391,14 @@ public class NewLoginForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    public void addInternalFrame(JInternalFrame frame) {
-        FrameHelper.setLocationToCenter(frame);
-
+    private void launchApp(AuthAble authInterface) {
+        if (AuthUser.getAuthUser() instanceof Student) {
+            ((StudentAuth) authInterface).launchApp();
+        } else if (AuthUser.getAuthUser() instanceof Admin) {
+            ((AdminAuth) authInterface).launchApp();
+        }
+        this.setVisible(false);
+        this.dispose();
     }
 
     private void aboutLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutLabelMouseClicked

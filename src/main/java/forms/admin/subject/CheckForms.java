@@ -4,8 +4,8 @@
  */
 package forms.admin.subject;
 
-import dialog.InfoDialog;
 import checkin.CheckInSession;
+import dialog.InfoDialog;
 import handlers.CheckInHandler;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +15,7 @@ import java.util.Map;
  * @author WINDOWS 10
  */
 public class CheckForms extends javax.swing.JInternalFrame {
-    
+
     private CheckInSession selectedData;
     private Map<String, Object> checkInData = new HashMap<>();
 
@@ -27,7 +27,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
         this.selectedData = checkIn;
         showCheckInData();
     }
-    
+
     private void showCheckInData() {
         subjectID.setText(selectedData.getSubjectID());
         subjectName.setText(selectedData.getSubjectName());
@@ -72,6 +72,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
         setIconifiable(true);
 
         studentCheckTable.setAutoCreateRowSorter(true);
+        studentCheckTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         studentCheckTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -80,7 +81,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
                 {null, null, null}
             },
             new String [] {
-                "Student ID", "Name", "Chech-in"
+                "รหัสนักศึกษา", "ชื่อนักศึกษา", "เวลาเช็คชื่อ"
             }
         ) {
             Class[] types = new Class [] {
@@ -106,7 +107,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
             studentCheckTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        deActivateB.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        deActivateB.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         deActivateB.setText("ปิดการเข้าเช็คชื่อ");
         deActivateB.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -117,42 +118,42 @@ public class CheckForms extends javax.swing.JInternalFrame {
         classcode.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
         classcode.setText("123456");
 
-        finalClassID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        finalClassID.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         finalClassID.setText("รหัสวิชา");
 
         subjectName.setEditable(false);
-        subjectName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        subjectName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        finalClassName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        finalClassName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         finalClassName.setText("ชื่อวิชา");
 
         subjectID.setEditable(false);
-        subjectID.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        subjectID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         subjectID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 subjectIDActionPerformed(evt);
             }
         });
 
-        FinalTime.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        FinalTime.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         FinalTime.setText("วัน - เวลาเรียน");
 
-        finalClassroom.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        finalClassroom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         finalClassroom.setText("ห้องเรียน");
 
         time.setEditable(false);
-        time.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        time.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         time.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 timeActionPerformed(evt);
             }
         });
 
-        finalTeacher.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        finalTeacher.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         finalTeacher.setText("ชื่ออาจารย์ผู้สอน");
 
         classroom.setEditable(false);
-        classroom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        classroom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         classroom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 classroomActionPerformed(evt);
@@ -160,15 +161,15 @@ public class CheckForms extends javax.swing.JInternalFrame {
         });
 
         teacher.setEditable(false);
-        teacher.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        teacher.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         courseDetail.setEditable(false);
         courseDetail.setColumns(20);
-        courseDetail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        courseDetail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         courseDetail.setRows(5);
         jScrollPane2.setViewportView(courseDetail);
 
-        finalDetail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        finalDetail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         finalDetail.setText("รายละเอียดวิชา");
 
         javax.swing.GroupLayout detailPanelLayout = new javax.swing.GroupLayout(detailPanel);
@@ -177,39 +178,27 @@ public class CheckForms extends javax.swing.JInternalFrame {
             detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(detailPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(detailPanelLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(finalClassroom)
-                        .addGap(64, 64, 64)
-                        .addComponent(FinalTime))
-                    .addGroup(detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, detailPanelLayout.createSequentialGroup()
-                            .addComponent(classroom, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(time))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, detailPanelLayout.createSequentialGroup()
-                            .addComponent(subjectID, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(subjectName, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(detailPanelLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(finalClassID)
-                        .addGap(71, 71, 71)
-                        .addComponent(finalClassName))
-                    .addGroup(detailPanelLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(finalTeacher))
-                    .addComponent(teacher, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(detailPanelLayout.createSequentialGroup()
+                        .addComponent(classroom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2)
-                        .addContainerGap())
+                        .addComponent(time))
                     .addGroup(detailPanelLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(finalDetail)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(subjectID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(finalClassroom, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(FinalTime)
+                            .addComponent(subjectName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(finalClassName)))
+                    .addComponent(finalClassID, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(finalTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(teacher))
+                .addGap(24, 24, 24)
+                .addGroup(detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(finalDetail)))
         );
         detailPanelLayout.setVerticalGroup(
             detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,28 +212,28 @@ public class CheckForms extends javax.swing.JInternalFrame {
                 .addGroup(detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(detailPanelLayout.createSequentialGroup()
                         .addGroup(detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(subjectName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(subjectID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(subjectName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(subjectID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(finalClassroom)
                             .addComponent(FinalTime))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(classroom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(classroom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(finalTeacher)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(teacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(teacher, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
         finalCode.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        finalCode.setText("CODE : ");
+        finalCode.setText("CODE");
 
-        close.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        close.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         close.setText("ออก");
         close.setMaximumSize(new java.awt.Dimension(156, 28));
         close.setMinimumSize(new java.awt.Dimension(156, 28));
@@ -260,47 +249,43 @@ public class CheckForms extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(250, 250, 250)
                 .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(150, 150, 150)
                 .addComponent(deActivateB)
-                .addGap(186, 186, 186))
+                .addGap(250, 250, 250))
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(classcode)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(finalCode)
-                                .addGap(49, 49, 49)))
-                        .addComponent(detailPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 915, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(classcode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(finalCode, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addComponent(detailPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(24, 24, 24))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(detailPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(finalCode)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(classcode)
-                        .addGap(35, 35, 35)))
+                        .addGap(48, 48, 48)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(deActivateB)
-                    .addComponent(close, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(close, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(deActivateB, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -325,7 +310,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
 
     private void deActivateBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deActivateBMouseClicked
         checkInData = toCheckInDataMap();
-        
+
         if (CheckInHandler.handleUpdateCheckInSession(selectedData.getSessionID(), (HashMap<String, Object>) checkInData)) {
             new InfoDialog("บันทึกคำตอบเสร็จสิ้น", "ปิดการลงชื่อเข้าชั้นเรียนเรียบร้อยแล้ว!").show();
             this.setVisible(false);
@@ -358,7 +343,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private Map<String, Object> toCheckInDataMap() {
-        
+
         String sessionID = selectedData.getSessionID();
         String subjectID = selectedData.getSubjectID();
         String subjectName = selectedData.getSubjectName();
@@ -367,7 +352,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
         String teacherName = selectedData.getTeacherName();
         String sessionNote = selectedData.getSessionNote();
         boolean isActive = selectedData.isIsActive();
-        
+
         checkInData.put("sessionID", sessionID);
         checkInData.put("subjectID", subjectID);
         checkInData.put("subjectName", subjectName);
@@ -376,7 +361,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
         checkInData.put("teacherName", teacherName);
         checkInData.put("sessionNote", sessionNote);
         checkInData.put("isActive", false);
-        
+
         return checkInData;
     }
 }
