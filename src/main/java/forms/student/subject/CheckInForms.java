@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JTable;
 import user.AuthUser;
 import user.Student;
 
@@ -26,9 +27,9 @@ import user.Student;
  */
 public class CheckInForms extends javax.swing.JInternalFrame implements KeyListener {
 
+    private CheckInSession selectedData;
     private Map<String, Object> checkInData = new HashMap<>();
     private String prevCheckInCode = "";
-    private CheckInSession selectedData;
 
     /**
      * Creates new form CheckinForms
@@ -137,16 +138,29 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
     }//GEN-LAST:event_codeTextFieldActionPerformed
 
     private void cheeckbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cheeckbtnMouseClicked
+//        checkInData = toCheckInDataMap();
+//      String sessionID = (String) codeTextField.getText();
+//      chekinHistory = CheckInHandler.handleGetAllCheckInSessions();
+
         if (codeTextField.getText().length() == 6) {
-            if (codeTextField.getText() == selectedData.getSessionID()) {
-                new InfoDialog("ไม่มีรหัสในระบบ", "ถูกต้อง!").show();
-            } else {
-                new InfoDialog("ไม่มีรหัสในระบบ", "ไม่มีรหัสเซคชั่นนี้อยู่ในระบบ!").show();
+            try {
+                String sessionID = (String) codeTextField.getText();
+                CheckInSession seleCheckInSession = CheckInHandler.handleGetCheckInBySessionID(sessionID);
+                CheckConfirmationForms checkConfirmationForms = new CheckConfirmationForms(seleCheckInSession);
+                FrameHelper.setLocationToCenter(checkConfirmationForms);
+                MainForm.mainDesktopPane.add(checkConfirmationForms);
+                checkConfirmationForms.setVisible(true);
+                this.setVisible(false);
+                this.dispose();
+            } catch (Exception e) {
+                new InfoDialog("กรอกรหัสไม่ครบ", "รหัสเซคชั่นไม่ถูกต้อง!").show();
                 codeTextField.setText("");
             }
         } else if (codeTextField.getText().length() < 6) {
             new InfoDialog("กรอกรหัสไม่ครบ", "โปรดกรอกรหัสเซคชั่นให้ครบ 6 หลัก").show();
+            codeTextField.setText("");
         }
+
     }//GEN-LAST:event_cheeckbtnMouseClicked
 
     private void cancelbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelbtnMouseClicked
@@ -173,6 +187,28 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
 
     }
 
+//    private Map<String, Object> toCheckInDataMap() {
+//
+//        String sessionID = selectedData.getSessionID();
+//        String subjectID = selectedData.getSubjectID();
+//        String subjectName = selectedData.getSubjectName();
+//        String classTime = selectedData.getClassTime();
+//        String classroom = selectedData.getClassroom();
+//        String teacherName = selectedData.getTeacherName();
+//        String sessionNote = selectedData.getSessionNote();
+//        boolean isActive = selectedData.isIsActive();
+//
+//        checkInData.put("sessionID", sessionID);
+//        checkInData.put("subjectID", subjectID);
+//        checkInData.put("subjectName", subjectName);
+//        checkInData.put("classTime", classTime);
+//        checkInData.put("classroom", classroom);
+//        checkInData.put("teacherName", teacherName);
+//        checkInData.put("sessionNote", sessionNote);
+//        checkInData.put("isActive", true);
+//
+//        return checkInData;
+//    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelbtn;
     private javax.swing.JButton cheeckbtn;

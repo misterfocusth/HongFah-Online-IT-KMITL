@@ -11,8 +11,6 @@ import handlers.CheckInHandler;
 import helper.FrameHelper;
 import helper.InputValidationHelper;
 import java.awt.Font;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JTable;
@@ -479,8 +477,8 @@ public class SubForms extends javax.swing.JInternalFrame {
     private void checkClassinfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkClassinfoMouseClicked
         JTable target = (JTable) evt.getSource();
         int selectedRow = target.getSelectedRow();
-        String sessionCode = (String) checkClassinfo.getValueAt(selectedRow, 0);
-        CheckInSession seleCheckInSession = CheckInHandler.handleGetCheckInBySessionCode(sessionCode);
+        String sessionID = (String) checkClassinfo.getValueAt(selectedRow, 0);
+        CheckInSession seleCheckInSession = CheckInHandler.handleGetCheckInBySessionID(sessionID);
 
         CheckForms checkForms = new CheckForms(seleCheckInSession);
         FrameHelper.setLocationToCenter(checkForms);

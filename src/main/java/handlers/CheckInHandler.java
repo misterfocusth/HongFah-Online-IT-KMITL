@@ -48,11 +48,11 @@ public class CheckInHandler implements UniqueAble {
         return result;
     }
 
-    public static HashMap<String, Object> handleGetCheckInSessionByCode(String subjectCode) {
+    public static HashMap<String, Object> handleGetCheckInSessionByCode(String sessionID) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         HashMap<String, Object> result = null;
         try {
-            Callable<HashMap<String, Object>> callable = () -> new CheckInSessionDatabase().getCheckInSessionByCode(subjectCode);
+            Callable<HashMap<String, Object>> callable = () -> new CheckInSessionDatabase().getCheckInSessionByCode(sessionID);
             Future<HashMap<String, Object>> future = executorService.submit(callable);
             while (!future.isDone() && !future.isCancelled()) {
                 Thread.sleep(1000);
@@ -84,7 +84,7 @@ public class CheckInHandler implements UniqueAble {
         return result;
     }
 
-    public static CheckInSession handleGetCheckInBySessionCode(String sessionID) {
+    public static CheckInSession handleGetCheckInBySessionID(String sessionID) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         HashMap<String, Object> result = null;
         try {
