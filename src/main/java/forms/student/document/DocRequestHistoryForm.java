@@ -26,9 +26,7 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
 
     private final String studentId = AuthUser.getAuthUser().getUsername();
     private HashMap<String, HashMap<String, Object>> requestedGeneralDocuments = new HashMap<>();
-    private HashMap<String, HashMap<String, Object>> filteredRequestedGeneralDocuments = new HashMap<>();
     private HashMap<String, HashMap<String, Object>> requestedLeaveDocuments = new HashMap<>();
-    private HashMap<String, HashMap<String, Object>> filteredRequestedLeaveDocuments = new HashMap<>();
 
     /**
      * Creates new form DocRequestHistoryForm
