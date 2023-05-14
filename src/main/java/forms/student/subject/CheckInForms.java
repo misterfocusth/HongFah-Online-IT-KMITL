@@ -9,7 +9,6 @@ import dialog.InfoDialog;
 import forms.MainForm;
 import handlers.CheckInHandler;
 import helper.FrameHelper;
-
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashMap;
@@ -42,13 +41,45 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cheeckbtn = new javax.swing.JButton();
-        cancelbtn = new javax.swing.JButton();
         codeTextField = new javax.swing.JTextField();
         finalLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        finalLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        cheeckbtn = new javax.swing.JButton();
+        cancelbtn = new javax.swing.JButton();
 
-        cheeckbtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        cheeckbtn.setText("Check-in");
+        codeTextField.setFont(new java.awt.Font("Tahoma", 0, 60)); // NOI18N
+        codeTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        codeTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codeTextFieldActionPerformed(evt);
+            }
+        });
+
+        finalLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        finalLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        finalLabel.setText("(รอรหัสเซคชั่นเช็คชื่อจากอาจารย์ผู้สอน เพื่อดำเนินการต่อ)");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(41, 121, 255));
+        jLabel1.setText("ระบบเช็คชื่อเข้าชั้นเรียน HongFah Check-In");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("เช็คชื่อเข้าชั้นเรียนผ่านระบบสารสนเทศนักศึกษา ห้องฟ้าออนไลน์ (HongFah Online)");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-today-48.png"))); // NOI18N
+
+        finalLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        finalLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        finalLabel1.setText("โปรดกรอกรหัสเซตชั่นเช็คชื่อ");
+
+        cheeckbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cheeckbtn.setForeground(new java.awt.Color(41, 121, 255));
+        cheeckbtn.setText("เช็คชื่อเข้าชั้นเรียน");
+        cheeckbtn.setPreferredSize(new java.awt.Dimension(200, 35));
         cheeckbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cheeckbtnMouseClicked(evt);
@@ -59,9 +90,12 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
                 cheeckbtnActionPerformed(evt);
             }
         });
+        jPanel1.add(cheeckbtn);
 
-        cancelbtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        cancelbtn.setText("Cancel");
+        cancelbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cancelbtn.setText("ยกเลิก / ปิด");
+        cancelbtn.setToolTipText("");
+        cancelbtn.setPreferredSize(new java.awt.Dimension(200, 35));
         cancelbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cancelbtnMouseClicked(evt);
@@ -72,48 +106,50 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
                 cancelbtnActionPerformed(evt);
             }
         });
-
-        codeTextField.setFont(new java.awt.Font("Tahoma", 0, 60)); // NOI18N
-        codeTextField.setText("123456");
-        codeTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codeTextFieldActionPerformed(evt);
-            }
-        });
-
-        finalLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        finalLabel.setText("กรุณากรอกรหัส");
+        jPanel1.add(cancelbtn);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(finalLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(finalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(codeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cheeckbtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cancelbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(23, 23, 23)))
-                .addContainerGap(103, Short.MAX_VALUE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(finalLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(125, 125, 125)
+                .addComponent(codeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel3))
+                .addGap(24, 24, 24)
+                .addComponent(finalLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(finalLabel)
-                .addGap(32, 32, 32)
+                .addGap(24, 24, 24)
                 .addComponent(codeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cheeckbtn)
-                    .addComponent(cancelbtn))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -182,5 +218,10 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
     private javax.swing.JButton cheeckbtn;
     private javax.swing.JTextField codeTextField;
     private javax.swing.JLabel finalLabel;
+    private javax.swing.JLabel finalLabel1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

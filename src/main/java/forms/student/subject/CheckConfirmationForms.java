@@ -5,6 +5,8 @@
 package forms.student.subject;
 
 import checkin.CheckInSession;
+import dialog.InfoDialog;
+import handlers.CheckInHandler;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -12,9 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 import user.AuthUser;
 import user.Student;
-
-import handlers.CheckInHandler;
-import dialog.InfoDialog;
 
 /**
  *
@@ -70,6 +69,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
         confirmbtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         cancelbtn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         subNamedisplay.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         subNamedisplay.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -147,7 +147,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
+                .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel5)
@@ -163,7 +163,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(teacherTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(8, 8, 8))
+                .addGap(0, 0, 0))
         );
 
         subIDdisplay.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -175,7 +175,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
         jLabel1.setText("ยืนยันการเช็คชื่อเข้าชั้นเรียน");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("โปรดตรวจสอบข้อมูลเเละรายละเอียดเกี้ยวกับเช็คชั่นเช็คชื่อเข้าเรียน");
+        jLabel2.setText("โปรดตรวจสอบข้อมูลเเละรายละเอียดเกี่ยวกับเช็คชั่นเช็คชื่อเข้าเรียน");
 
         confirmbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         confirmbtn.setForeground(new java.awt.Color(41, 121, 255));
@@ -223,6 +223,8 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
         });
         jPanel2.add(cancelbtn);
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-today-48.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -231,20 +233,27 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(subNamedisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(subIDdisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel3))
                 .addGap(30, 30, 30)
                 .addComponent(subNamedisplay)
                 .addGap(12, 12, 12)
@@ -307,6 +316,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea coursedetailTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
