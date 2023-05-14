@@ -41,7 +41,6 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         DefaultTableModel model = (DefaultTableModel) generalDocHistoryTable.getModel();
         generalDocHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
         requestedGeneralDocuments = GeneralDocHandler.handleGetAllDocumentsByStudentId(studentId);
-        filteredRequestedGeneralDocuments = requestedGeneralDocuments;
         requestedGeneralDocuments.forEach((k, v) -> {
             String documentId = (String) v.get("documentId");
             String requestedAtDay = (String) v.get("requestedAtDay");
@@ -58,7 +57,6 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         DefaultTableModel model = (DefaultTableModel) leaveDocHistoryTable.getModel();
         leaveDocHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
         requestedLeaveDocuments = LeaveDocHandler.handleGetAllDocumentsByStudentId(studentId);
-        filteredRequestedLeaveDocuments = requestedLeaveDocuments;
         requestedLeaveDocuments.forEach((k, v) -> {
             String documentId = (String) v.get("documentId");
             String requestedAtDay = (String) v.get("requestedAtDay");
