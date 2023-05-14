@@ -199,8 +199,6 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
     public void keyTyped(KeyEvent e) {
         if (codeTextField.getText().length() >= 6) {
             e.consume();
-        } else {
-            codeTextField.getText().toUpperCase();
         }
     }
 
@@ -211,7 +209,8 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        String upperCaseText = codeTextField.getText().toUpperCase();
+        codeTextField.setText(upperCaseText);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelbtn;
