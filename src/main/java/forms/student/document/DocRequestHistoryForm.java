@@ -455,24 +455,15 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         contactStaffHomeForm.setVisible(true);
     }//GEN-LAST:event_contactStaffLabelMouseClicked
 
-    private void showGeneralDocumentsByStatus(String status) {
-        DefaultTableModel model = (DefaultTableModel) generalDocHistoryTable.getModel();
+    private void filterJTableByComboBoxStatus(JTable targetTable, JComboBox<String> selectedComboBox) {
+        DefaultTableModel model = (DefaultTableModel) targetTable.getModel();
+        String currentSelectedStatus = (String) selectedComboBox.getSelectedItem();
         model.setRowCount(0);
-        if (status.equalsIgnoreCase("ดูรายการเอกสารทั้งหมด")) {
-            requestedGeneralDocuments.forEach((k, v) -> {
-                String requestStatus = (String) v.get("requestStatus");
-                String documentId = (String) v.get("documentId");
-                String requestedAtDay = (String) v.get("requestedAtDay");
-                String requestedAtMonth = (String) v.get("requestedAtMonth");
-                String requestedAtYear = (String) v.get("requestedAtYear");
-                String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
-                String otherLeaveTitle = (String) v.get("otherLeaveTitle");
-                model.addRow(new String[]{documentId.toUpperCase(), requestedDate, otherLeaveTitle, requestStatus});
-            });
-        } else {
-            requestedGeneralDocuments.forEach((k, v) -> {
-                String requestStatus = (String) v.get("requestStatus");
-                if (requestStatus.equalsIgnoreCase(status)) {
+
+        if (targetTable.equals(generalDocHistoryTable)) {
+            if (currentSelectedStatus.equalsIgnoreCase("ดูรายการเอกสารทั้งหมด")) {
+                requestedGeneralDocuments.forEach((k, v) -> {
+                    String requestStatus = (String) v.get("requestStatus");
                     String documentId = (String) v.get("documentId");
                     String requestedAtDay = (String) v.get("requestedAtDay");
                     String requestedAtMonth = (String) v.get("requestedAtMonth");
@@ -480,18 +471,59 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
                     String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
                     String otherLeaveTitle = (String) v.get("otherLeaveTitle");
                     model.addRow(new String[]{documentId.toUpperCase(), requestedDate, otherLeaveTitle, requestStatus});
-                }
-            });
+                });
+            } else {
+                requestedGeneralDocuments.forEach((k, v) -> {
+                    String requestStatus = (String) v.get("requestStatus");
+                    if (requestStatus.equalsIgnoreCase(currentSelectedStatus)) {
+                        String documentId = (String) v.get("documentId");
+                        String requestedAtDay = (String) v.get("requestedAtDay");
+                        String requestedAtMonth = (String) v.get("requestedAtMonth");
+                        String requestedAtYear = (String) v.get("requestedAtYear");
+                        String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
+                        String otherLeaveTitle = (String) v.get("otherLeaveTitle");
+                        model.addRow(new String[]{documentId.toUpperCase(), requestedDate, otherLeaveTitle, requestStatus});
+                    }
+                });
+            }
+        } else if (targetTable.equals(leaveDocHistoryTable)) {
+            if (currentSelectedStatus.equalsIgnoreCase("ดูรายการเอกสารทั้งหมด")) {
+                requestedLeaveDocuments.forEach((k, v) -> {
+                    String documentId = (String) v.get("documentId");
+                    String requestedAtDay = (String) v.get("requestedAtDay");
+                    String requestedAtMonth = (String) v.get("requestedAtMonth");
+                    String requestedAtYear = (String) v.get("requestedAtYear");
+                    String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
+                    String otherLeaveTitle = (String) v.get("otherLeaveTitle");
+                    String requestStatus = (String) v.get("requestStatus");
+                    model.addRow(new String[]{documentId.toUpperCase(), requestedDate, otherLeaveTitle, requestStatus});
+                });
+            } else {
+                requestedLeaveDocuments.forEach((k, v) -> {
+                    String requestStatus = (String) v.get("requestStatus");
+                    if (requestStatus.equalsIgnoreCase(currentSelectedStatus)) {
+                        String documentId = (String) v.get("documentId");
+                        String requestedAtDay = (String) v.get("requestedAtDay");
+                        String requestedAtMonth = (String) v.get("requestedAtMonth");
+                        String requestedAtYear = (String) v.get("requestedAtYear");
+                        String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
+                        String otherLeaveTitle = (String) v.get("otherLeaveTitle");
+                        model.addRow(new String[]{documentId.toUpperCase(), requestedDate, otherLeaveTitle, requestStatus});
+                    }
+                });
+            }
         }
+
     }
 
     private void genDocStatusComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_genDocStatusComboBoxItemStateChanged
-        String currentSelectedStatus = (String) ((JComboBox<?>) evt.getSource()).getSelectedItem();
-        showGeneralDocumentsByStatus(currentSelectedStatus);
+        JComboBox<String> selectedComboBox = (JComboBox<String>) evt.getSource();
+        filterJTableByComboBoxStatus(generalDocHistoryTable, selectedComboBox);
     }//GEN-LAST:event_genDocStatusComboBoxItemStateChanged
 
     private void leaveDocStatusComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_leaveDocStatusComboBoxItemStateChanged
-        // TODO add your handling code here:
+        JComboBox<String> selectedComboBox = (JComboBox<String>) evt.getSource();
+        filterJTableByComboBoxStatus(leaveDocHistoryTable, selectedComboBox);
     }//GEN-LAST:event_leaveDocStatusComboBoxItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
