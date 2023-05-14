@@ -4,6 +4,7 @@
  */
 package forms.admin.home;
 
+import dialog.InfoDialog;
 import document.GeneralRequestDocument;
 import document.LeaveRequestDocument;
 import forms.AdminMainForm;
@@ -37,6 +38,7 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
 
     private void setGeneralDocTableData() {
         DefaultTableModel model = (DefaultTableModel) generalDocHistoryTable.getModel();
+        model.setRowCount(0);
         generalDocHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
         requestedGeneralDocuments = GeneralDocHandler.handleGetAllGeneralDoc();
         requestedGeneralDocuments.forEach((k, v) -> {
@@ -50,6 +52,7 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
 
     private void setLeaveDocTableData() {
         DefaultTableModel model = (DefaultTableModel) leaveDocHistoryTable.getModel();
+        model.setRowCount(0);
         leaveDocHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
         requestedLeaveDocuments = LeaveDocHandler.handleGetAllLeaveDoc();
         requestedLeaveDocuments.forEach((k, v) -> {
@@ -372,33 +375,35 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
         leaveDocumentForm.setVisible(true);    }//GEN-LAST:event_leaveDocHistoryTableMouseClicked
 
     private void refreshLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshLabelMouseClicked
-        DefaultTableModel model = (DefaultTableModel) generalDocHistoryTable.getModel();
-        model.getDataVector().removeAllElements();
-        model.fireTableDataChanged(); // notifies the JTable that the model has changed
+        DefaultTableModel genDocTableModel = (DefaultTableModel) generalDocHistoryTable.getModel();
+        genDocTableModel.setRowCount(0);
 
         generalDocHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
         requestedGeneralDocuments = GeneralDocHandler.handleGetAllGeneralDoc();
         requestedGeneralDocuments.forEach((k, v) -> {
             String docID = (String) v.get("documentId");
             String requestTitle = (String) v.get("requestTitle");
-            String dateDoc = (String) v.get("requestedAtDay") + " " + (String) v.get("requestedAtMonth") + " " + (String) v.get("requestedAtYear");
+            String dateDoc = v.get("requestedAtDay") + " " + v.get("requestedAtMonth") + " " + v.get("requestedAtYear");
             String requestStatus = (String) v.get("requestStatus");
-            model.addRow(new String[]{docID.toUpperCase(), dateDoc, requestTitle, requestStatus});
+            genDocTableModel.addRow(new String[]{docID.toUpperCase(), dateDoc, requestTitle, requestStatus});
         });
 
-        DefaultTableModel newModel = (DefaultTableModel) leaveDocHistoryTable.getModel();
-        newModel.getDataVector().removeAllElements();
-        newModel.fireTableDataChanged(); // notifies the JTable that the model has changed
+        DefaultTableModel leaveDocTableModel = (DefaultTableModel) leaveDocHistoryTable.getModel();
+        leaveDocTableModel.setRowCount(0);
 
         leaveDocHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
         requestedLeaveDocuments = LeaveDocHandler.handleGetAllLeaveDoc();
         requestedLeaveDocuments.forEach((k, v) -> {
             String docID = (String) v.get("documentId");
             String requestTitle = (String) v.get("otherLeaveTitle");
-            String dateDoc = (String) v.get("requestedAtDay") + " " + (String) v.get("requestedAtMonth") + " " + (String) v.get("requestedAtYear");
+            String dateDoc = v.get("requestedAtDay") + " " + v.get("requestedAtMonth") + " " + v.get("requestedAtYear");
             String requestStatus = (String) v.get("requestStatus");
-            newModel.addRow(new String[]{docID.toUpperCase(), dateDoc, requestTitle, requestStatus});
+            leaveDocTableModel.addRow(new String[]{docID.toUpperCase(), dateDoc, requestTitle, requestStatus});
         });
+
+        genDocStatusComboBox.setSelectedIndex(0);
+        leaveDocStatusComboBox.setSelectedIndex(0);
+        searchByStudentIdTextField.setText("");
     }//GEN-LAST:event_refreshLabelMouseClicked
 
     private void filterJTableByComboBoxStatus(JTable targetTable, JComboBox<String> selectedComboBox) {
@@ -472,7 +477,17 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_leaveDocStatusComboBoxItemStateChanged
 
     private void searchByStudentIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByStudentIdButtonActionPerformed
-
+        String studentId = searchByStudentIdTextField.getText();
+        requestedGeneralDocuments.clear();
+        requestedLeaveDocuments.clear();
+        requestedGeneralDocuments = GeneralDocHandler.handleGetAllDocumentsByStudentId(studentId);
+        requestedLeaveDocuments = LeaveDocHandler.handleGetAllDocumentsByStudentId(studentId);
+        if (requestedGeneralDocuments.size() == 0 && requestedLeaveDocuments.size() == 0) {
+            new InfoDialog("ไม่พบข้อมูลรายการคำร้อง / เอกสาร", "ไม่พบข้อมูลเอกสารหรือคำร้องที่ถูกยื่นเข้ามาในระบบ โดยหมายเลขนักศึกษานี้").show();
+        } else {
+            setGeneralDocTableData();
+            setLeaveDocTableData();
+        }
     }//GEN-LAST:event_searchByStudentIdButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
