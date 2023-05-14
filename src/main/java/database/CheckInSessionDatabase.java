@@ -63,8 +63,6 @@ public class CheckInSessionDatabase extends Database {
         }
         return (HashMap<String, Object>) document.getData();
     }
-    
-    
 
     private HashMap<String, Object> toCheckInDataMap(QueryDocumentSnapshot document) {
         HashMap<String, Object> currentDocument = new HashMap<>();
@@ -77,8 +75,8 @@ public class CheckInSessionDatabase extends Database {
             String classroom = document.getString("classroom");
             String sessionNote = document.getString("sessionNote");
             boolean isActive = document.getBoolean("isActive");
-            
-            ArrayList<String>studentCheckIn = (ArrayList<String>) document.get("studentCheckIn");
+
+            ArrayList<String> studentCheckIn = (ArrayList<String>) document.get("studentCheckIn");
 
             currentDocument.put("sessionID", sessionID);
             currentDocument.put("subjectID", subjectID);
@@ -94,8 +92,8 @@ public class CheckInSessionDatabase extends Database {
         }
         return currentDocument;
     }
-    
-        public static synchronized boolean updateCheckinInfoById(String sessionID, HashMap<String, Object> checkInData) {
+
+    public static synchronized boolean updateCheckinInfoById(String sessionID, HashMap<String, Object> checkInData) {
         DocumentReference docRef = db.collection("checkin").document(sessionID);
         Map<String, Object> data = new HashMap<>();
         data.put("sessionID", checkInData.get("sessionID"));

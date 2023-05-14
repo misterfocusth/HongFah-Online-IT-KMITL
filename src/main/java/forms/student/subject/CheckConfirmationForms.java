@@ -277,8 +277,14 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
 
     private void confirmbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmbtnMouseClicked
         checkInData = toCheckInDataMap();
-        if (CheckInHandler.handleUpdateCheckInSession(selectedData.getSessionID(), (HashMap<String, Object>) checkInData)) {
-            new InfoDialog("บันทึกคำตอบเสร็จสิ้น", "ระบบได้บันทึกคำตอบของท่านแล้ว!").show();
+        if (selectedData.isIsActive() == true) {
+            if (CheckInHandler.handleUpdateCheckInSession(selectedData.getSessionID(), (HashMap<String, Object>) checkInData)) {
+                new InfoDialog("บันทึกคำตอบเสร็จสิ้น", "ระบบได้บันทึกคำตอบของท่านแล้ว!").show();
+                this.setVisible(false);
+                this.dispose();
+            }
+        } else if (selectedData.isIsActive() == false) {
+            new InfoDialog("บันทึกคำตอบเสร็จสิ้น", "ไม่สามารถเช็คชื่อเข้าชั้นเรียนได้ เนื่องจากปิดให้ลงทะเบียน").show();
             this.setVisible(false);
             this.dispose();
         }
@@ -328,17 +334,16 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
         Student student = (Student) AuthUser.getAuthUser();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
-        String checkInByStudenCode = student.getStudentId();
-        String checkInByStudenFirstName = student.getThFirstName();
-        String checkInByStudenLastName = student.getThLastName();
+        String checkInByStudentCode = student.getStudentId();
+        String checkInByStudentFirstName = student.getThFirstName();
+        String checkInByStudentLastName = student.getThLastName();
         String checkInAt = dtf.format(LocalDateTime.now());
 
         Map<String, Object> checkInData = new HashMap<>();
 
-        ArrayList<String> studentCheckIn = new ArrayList<>();
-        studentCheckIn.add(checkInByStudenCode);
-        studentCheckIn.add(checkInByStudenFirstName);
-        studentCheckIn.add(checkInByStudenLastName);
+        ArrayList<String> studentCheckIn = selectedData.getStudentCheckIn();
+        String studentInfo = checkInByStudentCode + "&" + checkInByStudentFirstName + " " + checkInByStudentLastName + "&" + checkInAt;
+        studentCheckIn.add(studentInfo);
 
         checkInData.put("sessionID", sessionID);
         checkInData.put("subjectID", subjectID);
@@ -350,10 +355,6 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
         checkInData.put("isActive", isActive);
         checkInData.put("studentCheckIn", studentCheckIn);
 
-//        questionData.put("questionResponse", questionResponse);
-//        questionData.put("answerBy", answerBy);
-//        questionData.put("answerAt", answerAt);
-//        questionData.put("answerBody", answerBody);
         return checkInData;
     }
 }

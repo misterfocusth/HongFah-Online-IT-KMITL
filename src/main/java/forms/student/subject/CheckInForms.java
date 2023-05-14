@@ -9,17 +9,11 @@ import dialog.InfoDialog;
 import forms.MainForm;
 import handlers.CheckInHandler;
 import helper.FrameHelper;
-import helper.InputValidationHelper;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
-import javax.swing.JTable;
-import user.AuthUser;
-import user.Student;
 
 /**
  *
@@ -138,9 +132,6 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
     }//GEN-LAST:event_codeTextFieldActionPerformed
 
     private void cheeckbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cheeckbtnMouseClicked
-//        checkInData = toCheckInDataMap();
-//      String sessionID = (String) codeTextField.getText();
-//      chekinHistory = CheckInHandler.handleGetAllCheckInSessions();
 
         if (codeTextField.getText().length() == 6) {
             try {
@@ -153,7 +144,7 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
                 this.setVisible(false);
                 this.dispose();
             } catch (Exception e) {
-                new InfoDialog("กรอกรหัสไม่ครบ", "รหัสเซคชั่นไม่ถูกต้อง!").show();
+                new InfoDialog("กรอกรหัสผิด", "รหัสเซคชั่นไม่ถูกต้อง!").show();
                 codeTextField.setText("");
             }
         } else if (codeTextField.getText().length() < 6) {
@@ -186,29 +177,6 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
     public void keyReleased(KeyEvent e) {
 
     }
-
-//    private Map<String, Object> toCheckInDataMap() {
-//
-//        String sessionID = selectedData.getSessionID();
-//        String subjectID = selectedData.getSubjectID();
-//        String subjectName = selectedData.getSubjectName();
-//        String classTime = selectedData.getClassTime();
-//        String classroom = selectedData.getClassroom();
-//        String teacherName = selectedData.getTeacherName();
-//        String sessionNote = selectedData.getSessionNote();
-//        boolean isActive = selectedData.isIsActive();
-//
-//        checkInData.put("sessionID", sessionID);
-//        checkInData.put("subjectID", subjectID);
-//        checkInData.put("subjectName", subjectName);
-//        checkInData.put("classTime", classTime);
-//        checkInData.put("classroom", classroom);
-//        checkInData.put("teacherName", teacherName);
-//        checkInData.put("sessionNote", sessionNote);
-//        checkInData.put("isActive", true);
-//
-//        return checkInData;
-//    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelbtn;
     private javax.swing.JButton cheeckbtn;

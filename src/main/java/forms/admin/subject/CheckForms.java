@@ -7,18 +7,21 @@ package forms.admin.subject;
 import checkin.CheckInSession;
 import dialog.InfoDialog;
 import handlers.CheckInHandler;
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author WINDOWS 10
  */
 public class CheckForms extends javax.swing.JInternalFrame {
-    
+
     private CheckInSession selectedData;
     private Map<String, Object> checkInData = new HashMap<>();
+    private DefaultTableModel model;
 
     /**
      * Creates new form CheckForms
@@ -26,10 +29,10 @@ public class CheckForms extends javax.swing.JInternalFrame {
     public CheckForms(CheckInSession checkIn) {
         initComponents();
         this.selectedData = checkIn;
-        showCheckInData();
+        getAllCheckInDocuments();
     }
-    
-    private void showCheckInData() {
+
+    private void getAllCheckInDocuments() {
         subjectID.setText(selectedData.getSubjectID());
         subjectName.setText(selectedData.getSubjectName());
         classroom.setText(selectedData.getClassroom());
@@ -40,6 +43,29 @@ public class CheckForms extends javax.swing.JInternalFrame {
         if (selectedData.isIsActive() == false) {
             deActivateB.setVisible(false);
         }
+
+        DefaultTableModel model = (DefaultTableModel) studentCheckTable.getModel();
+        Map<String, HashMap<String, Object>> chekinHistory = new HashMap<>();
+        studentCheckTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
+        chekinHistory = CheckInHandler.handleGetAllCheckInSessions();
+        chekinHistory.forEach((k, v) -> {
+            ArrayList studentCheckIn = (ArrayList) v.get("studentCheckIn");
+            for (int i = 0; i <= (studentCheckIn.size() - 1); i++) {
+                Object studentInfo = studentCheckIn.get(i);
+                String studentInfoString = studentInfo.toString();
+                String[] studentParts = studentInfoString.split("&", 3);
+                String StudentCode = studentParts[0];
+                String studnetStudentName = studentParts[1];
+                String studentcheckInAt = studentParts[2];
+                String[] studentAddInfo = new String[]{StudentCode, studnetStudentName, studentcheckInAt};
+                model.addRow(studentAddInfo);
+            }
+        }
+        );
+    }
+
+    public DefaultTableModel getModel() {
+        return model;
     }
 
     /**
@@ -299,23 +325,23 @@ public class CheckForms extends javax.swing.JInternalFrame {
     private void subjectIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_subjectIDActionPerformed
-    
+
     private void timeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_timeActionPerformed
-    
+
     private void classroomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classroomActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_classroomActionPerformed
-    
+
     private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_closeMouseClicked
-    
+
     private void deActivateBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deActivateBMouseClicked
         checkInData = toCheckInDataMap();
-        
+
         if (CheckInHandler.handleUpdateCheckInSession(selectedData.getSessionID(), (HashMap<String, Object>) checkInData)) {
             new InfoDialog("บันทึกคำตอบเสร็จสิ้น", "ปิดการลงชื่อเข้าชั้นเรียนเรียบร้อยแล้ว!").show();
             this.setVisible(false);
@@ -347,7 +373,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private Map<String, Object> toCheckInDataMap() {
-        
+
         String sessionID = selectedData.getSessionID();
         String subjectID = selectedData.getSubjectID();
         String subjectName = selectedData.getSubjectName();
@@ -356,11 +382,10 @@ public class CheckForms extends javax.swing.JInternalFrame {
         String teacherName = selectedData.getTeacherName();
         String sessionNote = selectedData.getSessionNote();
         boolean isActive = selectedData.isIsActive();
-        
+        ArrayList<String> studentCheckIn = selectedData.getStudentCheckIn();
+
         Map<String, Object> checkInData = new HashMap<>();
-        
-        ArrayList<String> studentCheckIn = new ArrayList<>();
-        
+
         checkInData.put("sessionID", sessionID);
         checkInData.put("subjectID", subjectID);
         checkInData.put("subjectName", subjectName);
@@ -370,7 +395,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
         checkInData.put("sessionNote", sessionNote);
         checkInData.put("isActive", false);
         checkInData.put("studentCheckIn", studentCheckIn);
-        
+
         return checkInData;
     }
 }
