@@ -108,13 +108,4 @@ public class CheckInSessionDatabase extends Database {
         ApiFuture<WriteResult> result = docRef.update(data);
         return true;
     }
-
-//    public static synchronized boolean addStudentCheckIn(String sessionID, HashMap<String, Object> checkInData) {
-//        DocumentReference docRef = db.collection("checkin").document(sessionID);
-//        Map<String, Object> data = new HashMap<>();
-//        data.put("studentCheckIn", checkInData.get("studentCheckIn"));
-//        ApiFuture<WriteResult> result = docRef.update(data);
-//
-//        return true;
-//    }
 }
