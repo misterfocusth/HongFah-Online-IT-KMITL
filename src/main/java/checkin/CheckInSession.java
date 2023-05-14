@@ -22,44 +22,7 @@ public class CheckInSession {
     private boolean isActive;
 
     private ArrayList<String> studentCheckIn;
-//    private String checkInByStudentId;
-//    private String checkInByStudentName;
-//    private String subjectCreateAt;
-//    private String checkInAt;
 
-    //    public CheckInSession(String sessionCode, String subjectCode, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive) {
-//        this.sessionCode = sessionCode;
-//        this.subjectCode = subjectCode;
-//        this.subjectName = subjectName;
-//        this.teacherName = teacherName;
-//        this.classTime = classTime;
-//        this.classroom = classroom;
-//        this.sessionNote = sessionNote;
-//        this.isActive = isActive;
-//    }
-//    public CheckInSession(String checkInByStudentId, String checkInByStudentName, String subjectCreateAt, String checkInAt, String sessionID, String subjectCode, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive) {
-////        this.checkInByStudentId = checkInByStudentId;
-////        this.checkInByStudentName = checkInByStudentName;
-////        this.subjectCreateAt = subjectCreateAt;
-////        this.checkInAt = checkInAt;
-//        this.sessionID = sessionID;
-//        this.subjectCode = subjectCode;
-//        this.subjectName = subjectName;
-//        this.teacherName = teacherName;
-//        this.classTime = classTime;
-//        this.classroom = classroom;
-//        this.sessionNote = sessionNote;
-//        this.isActive = isActive;
-//    }
-//    public CheckInSession(String sessionID, String subjectID, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive) {
-//        this.sessionID = sessionID;
-//        this.subjectID = subjectID;
-//        this.subjectName = subjectName;
-//        this.teacherName = teacherName;
-//        this.classTime = classTime;
-//        this.classroom = classroom;
-//        this.sessionNote = sessionNote;
-//        this.isActive = isActive;
     public CheckInSession(String sessionID, String subjectID, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive, ArrayList<String> studentCheckIn) {
         this.sessionID = sessionID;
         this.subjectID = subjectID;
