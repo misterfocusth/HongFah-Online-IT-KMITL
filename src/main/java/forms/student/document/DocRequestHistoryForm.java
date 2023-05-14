@@ -12,8 +12,9 @@ import handlers.document.GeneralDocHandler;
 import handlers.document.LeaveDocHandler;
 import helper.FrameHelper;
 import java.awt.*;
+import java.awt.event.ItemListener;
 import java.util.HashMap;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import user.AuthUser;
 
@@ -25,7 +26,9 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
 
     private final String studentId = AuthUser.getAuthUser().getUsername();
     private HashMap<String, HashMap<String, Object>> requestedGeneralDocuments = new HashMap<>();
+    private HashMap<String, HashMap<String, Object>> filteredRequestedGeneralDocuments = new HashMap<>();
     private HashMap<String, HashMap<String, Object>> requestedLeaveDocuments = new HashMap<>();
+    private HashMap<String, HashMap<String, Object>> filteredRequestedLeaveDocuments = new HashMap<>();
 
     /**
      * Creates new form DocRequestHistoryForm
@@ -40,6 +43,7 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         DefaultTableModel model = (DefaultTableModel) generalDocHistoryTable.getModel();
         generalDocHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
         requestedGeneralDocuments = GeneralDocHandler.handleGetAllDocumentsByStudentId(studentId);
+        filteredRequestedGeneralDocuments = requestedGeneralDocuments;
         requestedGeneralDocuments.forEach((k, v) -> {
             String documentId = (String) v.get("documentId");
             String requestedAtDay = (String) v.get("requestedAtDay");
@@ -56,6 +60,7 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         DefaultTableModel model = (DefaultTableModel) leaveDocHistoryTable.getModel();
         leaveDocHistoryTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
         requestedLeaveDocuments = LeaveDocHandler.handleGetAllDocumentsByStudentId(studentId);
+        filteredRequestedLeaveDocuments = requestedLeaveDocuments;
         requestedLeaveDocuments.forEach((k, v) -> {
             String documentId = (String) v.get("documentId");
             String requestedAtDay = (String) v.get("requestedAtDay");
@@ -86,9 +91,9 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        genDocStatusComboBox = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        leaveDocStatusComboBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -189,14 +194,24 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("เลือกดูตามสถานะของเอกสาร");
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ดูรายการเอกสารทั้งหมด", "ยื่นเอกสารแล้ว", "กำลังตรวจสอบเอกสาร", "อนุญาต / ผ่าน", "ไม่อนุญาต / ไม่ผ่าน" }));
+        genDocStatusComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        genDocStatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ดูรายการเอกสารทั้งหมด", "ยื่นเอกสารแล้ว", "กำลังตรวจสอบเอกสาร", "อนุญาต / ผ่าน", "ไม่อนุญาต / ไม่ผ่าน" }));
+        genDocStatusComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                genDocStatusComboBoxItemStateChanged(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("เลือกดูตามสถานะของเอกสาร");
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ดูรายการเอกสารทั้งหมด", "ยื่นเอกสารแล้ว", "กำลังตรวจสอบเอกสาร", "อนุญาตให้ลา", "ไม่อนุญาตให้ลา" }));
+        leaveDocStatusComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        leaveDocStatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ดูรายการเอกสารทั้งหมด", "ยื่นเอกสารแล้ว", "กำลังตรวจสอบเอกสาร", "อนุญาตให้ลา", "ไม่อนุญาตให้ลา" }));
+        leaveDocStatusComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                leaveDocStatusComboBoxItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -211,13 +226,13 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel5)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(genDocStatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel8)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(leaveDocStatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 106, Short.MAX_VALUE))
                     .addComponent(jScrollPane1)
                     .addComponent(jScrollPane2))
@@ -230,14 +245,14 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel5)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(genDocStatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(leaveDocStatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -416,8 +431,6 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         int selectedRow = target.getSelectedRow();
         String selectedDocId = (String) generalDocHistoryTable.getValueAt(selectedRow, 0);
         GeneralRequestDocument selectedDocData = GeneralDocHandler.handleGetDocumentById(selectedDocId);
-        System.out.println(selectedRow);
-        System.out.println(selectedDocId);
         GeneralDocDetailForm generalDocDetailForm = new GeneralDocDetailForm(selectedDocData);
         FrameHelper.setLocationToCenter(generalDocDetailForm);
         MainForm.mainDesktopPane.add(generalDocDetailForm);
@@ -429,8 +442,6 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         int selectedRow = target.getSelectedRow();
         String selectedDocId = (String) leaveDocHistoryTable.getValueAt(selectedRow, 0);
         LeaveRequestDocument selectedDocData = LeaveDocHandler.handleGetLeaveDocumentById(selectedDocId);
-        System.out.println(selectedRow);
-        System.out.println(selectedDocId);
         LeaveDocDetailForm leaveDocDetailForm = new LeaveDocDetailForm(selectedDocData);
         FrameHelper.setLocationToCenter(leaveDocDetailForm);
         MainForm.mainDesktopPane.add(leaveDocDetailForm);
@@ -444,12 +455,50 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
         contactStaffHomeForm.setVisible(true);
     }//GEN-LAST:event_contactStaffLabelMouseClicked
 
+    private void showGeneralDocumentsByStatus(String status) {
+        DefaultTableModel model = (DefaultTableModel) generalDocHistoryTable.getModel();
+        model.setRowCount(0);
+        if (status.equalsIgnoreCase("ดูรายการเอกสารทั้งหมด")) {
+            requestedGeneralDocuments.forEach((k, v) -> {
+                String requestStatus = (String) v.get("requestStatus");
+                String documentId = (String) v.get("documentId");
+                String requestedAtDay = (String) v.get("requestedAtDay");
+                String requestedAtMonth = (String) v.get("requestedAtMonth");
+                String requestedAtYear = (String) v.get("requestedAtYear");
+                String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
+                String otherLeaveTitle = (String) v.get("otherLeaveTitle");
+                model.addRow(new String[]{documentId.toUpperCase(), requestedDate, otherLeaveTitle, requestStatus});
+            });
+        } else {
+            requestedGeneralDocuments.forEach((k, v) -> {
+                String requestStatus = (String) v.get("requestStatus");
+                if (requestStatus.equalsIgnoreCase(status)) {
+                    String documentId = (String) v.get("documentId");
+                    String requestedAtDay = (String) v.get("requestedAtDay");
+                    String requestedAtMonth = (String) v.get("requestedAtMonth");
+                    String requestedAtYear = (String) v.get("requestedAtYear");
+                    String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
+                    String otherLeaveTitle = (String) v.get("otherLeaveTitle");
+                    model.addRow(new String[]{documentId.toUpperCase(), requestedDate, otherLeaveTitle, requestStatus});
+                }
+            });
+        }
+    }
+
+    private void genDocStatusComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_genDocStatusComboBoxItemStateChanged
+        String currentSelectedStatus = (String) ((JComboBox<?>) evt.getSource()).getSelectedItem();
+        showGeneralDocumentsByStatus(currentSelectedStatus);
+    }//GEN-LAST:event_genDocStatusComboBoxItemStateChanged
+
+    private void leaveDocStatusComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_leaveDocStatusComboBoxItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_leaveDocStatusComboBoxItemStateChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel contactStaffLabel;
+    private javax.swing.JComboBox<String> genDocStatusComboBox;
     private javax.swing.JPanel genReqFormMenu;
     private javax.swing.JTable generalDocHistoryTable;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -468,6 +517,7 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable leaveDocHistoryTable;
+    private javax.swing.JComboBox<String> leaveDocStatusComboBox;
     private javax.swing.JPanel leaveReqFormMenu;
     // End of variables declaration//GEN-END:variables
 }
