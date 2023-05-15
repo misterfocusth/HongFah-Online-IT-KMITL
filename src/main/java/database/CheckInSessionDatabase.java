@@ -23,10 +23,11 @@ import java.util.concurrent.ExecutionException;
  */
 public class CheckInSessionDatabase extends Database {
 
-    public synchronized boolean addNewCheckInSession(Map<String, Object> checkinData, String checkinId) {
+    public synchronized Map<String, Object> addNewCheckInSession(Map<String, Object> checkInData, String checkinId) {
         DocumentReference docRef = db.collection(CHECKIN_COLLECTION).document(checkinId);
-        docRef.set(checkinData);
-        return true;
+        docRef.set(checkInData);
+        checkInData.put("sessionID", checkinId);
+        return checkInData;
     }
 
     public synchronized HashMap<String, Object> getCheckInSessionByCode(String sessionID) throws ExecutionException, InterruptedException {

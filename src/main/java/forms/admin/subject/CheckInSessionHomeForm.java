@@ -21,35 +21,34 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author WINDOWS 10
  */
-public class SubForms extends javax.swing.JInternalFrame {
+public class CheckInSessionHomeForm extends javax.swing.JInternalFrame {
 
     private Map<String, Object> checkInData = new HashMap<>();
+    Map<String, HashMap<String, Object>> checkInHistory;
     private String isActiveBooleanToString = "";
 
     /**
      * Creates new form SubForms
      */
-    public SubForms() {
+    public CheckInSessionHomeForm() {
         initComponents();
-        getAllCheckInDocuments();
+        showAllCheckInSessions();
     }
 
-    private void getAllCheckInDocuments() {
-
+    private void showAllCheckInSessions() {
         DefaultTableModel model = (DefaultTableModel) checkClassinfo.getModel();
-        Map<String, HashMap<String, Object>> chekinHistory = new HashMap<>();
         checkClassinfo.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
-        chekinHistory = CheckInHandler.handleGetAllCheckInSessions();
-        chekinHistory.forEach((k, v) -> {
+        checkInHistory = CheckInHandler.handleGetAllCheckInSessions();
+        checkInHistory.forEach((k, v) -> {
             String sessionID = (String) v.get("sessionID");
             String subjectName = (String) v.get("subjectName");
             String teacherName = (String) v.get("teacherName");
             String classTime = (String) v.get("classTime");
             boolean isActive = (boolean) v.get("isActive");
             if (isActive == true) {
-                isActiveBooleanToString = "Active";
+                isActiveBooleanToString = "ยังเปิดให้เช็คชื่อ";
             } else if (isActive == false) {
-                isActiveBooleanToString = "Deactive";
+                isActiveBooleanToString = "ปิดการเช็คชื่อแล้ว";
             }
             model.addRow(new String[]{sessionID, subjectName, teacherName, classTime, isActiveBooleanToString});
         });
@@ -64,9 +63,9 @@ public class SubForms extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        status = new javax.swing.JComboBox<>();
-        searchSubjectinfo = new javax.swing.JTextField();
-        search = new javax.swing.JButton();
+        checkInSessionComboBox = new javax.swing.JComboBox<>();
+        searchCheckInSessionCodeTextField = new javax.swing.JTextField();
+        searchCheckInSessionButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         add = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
@@ -88,8 +87,13 @@ public class SubForms extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         procedures = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        procedureInfo = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         checkClassinfo = new javax.swing.JTable();
         refreshLabel = new javax.swing.JLabel();
@@ -97,25 +101,24 @@ public class SubForms extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
 
-        status.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Activate", "Deactivate" }));
-        status.addActionListener(new java.awt.event.ActionListener() {
+        checkInSessionComboBox.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        checkInSessionComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "แสดงทั้งหมด", "ยังเปิดให้เช็คชื่อ", "ปิดการเช็คชื่อแล้ว" }));
+        checkInSessionComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkInSessionComboBoxItemStateChanged(evt);
+            }
+        });
+        checkInSessionComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statusActionPerformed(evt);
+                checkInSessionComboBoxActionPerformed(evt);
             }
         });
 
-        searchSubjectinfo.addActionListener(new java.awt.event.ActionListener() {
+        searchCheckInSessionButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        searchCheckInSessionButton.setText("ค้นหาด้วยรหัสเช็คชื่อ");
+        searchCheckInSessionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchSubjectinfoActionPerformed(evt);
-            }
-        });
-
-        search.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        search.setText("ค้นหาด้วยรหัสเช็คชื่อ");
-        search.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchActionPerformed(evt);
+                searchCheckInSessionButtonActionPerformed(evt);
             }
         });
 
@@ -290,29 +293,69 @@ public class SubForms extends javax.swing.JInternalFrame {
         procedures.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         procedures.setText("ระเบียบปฎิบัติการใช้งาน เเละวิธีการใช้ระบบเช็คชื่อ");
 
-        procedureInfo.setColumns(20);
-        procedureInfo.setRows(5);
-        procedureInfo.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        procedureInfo.setEnabled(false);
-        jScrollPane2.setViewportView(procedureInfo);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("1. อาจารย์ผู้สอนกรอกรายละเอียดรายวิชาให้ครบ เพื่อทำการสร้างเซตชั่นเช็คชื่อ");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setText("2. แสดงรหัสเซคชั่นเช็คชื่อ เพื่อให้นักศึกษาเข้ามาเช็คชื่อ");
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel11.setText("3. ตรวจสอบข้อมูลนักศึกษา (รหัสนักศึกษา ชื่อ-นามสกุล เเละวัน-เวลาเช็คชื่อ)");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel12.setText("4. เมื่อเลยเวลาเช็คชื่อเเล้วอาจารย์ผู้สอนสามารถทำการปิดเซคชั่นเช็คชื่อได้");
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(41, 121, 255));
+        jLabel13.setText("ระบบเช็คชื่อเข้าชั้นเรียน HongFah Check-In");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setText("เช็คชื่อเข้าชั้นเรียนผ่านระบบสารสนเทศนักศึกษา ห้องฟ้าออนไลน์ (HongFah Online)");
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_form_icons/icons8-today-48.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(procedures, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
-                    .addComponent(procedures, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel14))
+                    .addComponent(jLabel15))
+                .addGap(24, 24, 24)
                 .addComponent(procedures)
                 .addGap(24, 24, 24)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12)
+                .addGap(6, 6, 6))
         );
 
         checkClassinfo.setAutoCreateRowSorter(true);
@@ -368,13 +411,13 @@ public class SubForms extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(searchSubjectinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
-                                .addComponent(search)
+                                .addComponent(searchCheckInSessionCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(searchCheckInSessionButton)
                                 .addGap(24, 24, 24)
                                 .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(checkInSessionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(refreshLabel))
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -392,16 +435,16 @@ public class SubForms extends javax.swing.JInternalFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
+                                .addGap(24, 24, 24)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(searchSubjectinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(searchCheckInSessionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(searchCheckInSessionCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(checkInSessionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel10)))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(refreshLabel)))
-                        .addGap(18, 18, 18)
+                        .addGap(24, 24, 24)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(24, 24, 24))
@@ -410,17 +453,31 @@ public class SubForms extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusActionPerformed
+    private void checkInSessionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInSessionComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_statusActionPerformed
+    }//GEN-LAST:event_checkInSessionComboBoxActionPerformed
 
-    private void searchSubjectinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchSubjectinfoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchSubjectinfoActionPerformed
-
-    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchActionPerformed
+    private void searchCheckInSessionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCheckInSessionButtonActionPerformed
+        String checkInSessionCode = searchCheckInSessionCodeTextField.getText().toUpperCase();
+        DefaultTableModel model = (DefaultTableModel) checkClassinfo.getModel();
+        model.setRowCount(0);
+        checkClassinfo.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
+        checkInHistory.forEach((k, v) -> {
+            String sessionID = (String) v.get("sessionID");
+            if (checkInSessionCode.contains(sessionID)) {
+                String subjectName = (String) v.get("subjectName");
+                String teacherName = (String) v.get("teacherName");
+                String classTime = (String) v.get("classTime");
+                boolean isActive = (boolean) v.get("isActive");
+                if (isActive == true) {
+                    isActiveBooleanToString = "ยังเปิดให้เช็คชื่อ";
+                } else if (isActive == false) {
+                    isActiveBooleanToString = "ปิดการเช็คชื่อแล้ว";
+                }
+                model.addRow(new String[]{sessionID, subjectName, teacherName, classTime, isActiveBooleanToString});
+            }
+        });
+    }//GEN-LAST:event_searchCheckInSessionButtonActionPerformed
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
         checkInData = toCheckInDataMap();
@@ -431,9 +488,14 @@ public class SubForms extends javax.swing.JInternalFrame {
             return;
         }
 
-        if (CheckInHandler.handleAddNewCheckIn(checkInData)) {
-            new InfoDialog("บันทึกคำฟอร์มเสร็จสิ้น", "ระบบได้บันทึกแบบฟอร์มของท่านเรียบร้อยแล้ว").show();
+        Map<String, Object> newCheckInData = CheckInHandler.handleAddNewCheckIn(checkInData);
 
+        if (newCheckInData != null) {
+            new InfoDialog("สร้างเซคชั่นเช็คชื่อสำเร็จ", "ระบบได้สร้างเซคชั่นเช็คชื่อของท่านแล้ว !").show();
+            CheckInSessionInfoForm checkForms = new CheckInSessionInfoForm(new CheckInSession(checkInData));
+            FrameHelper.setLocationToCenter(checkForms);
+            AdminMainForm.mainDesktopPane.add(checkForms);
+            checkForms.setVisible(true);
         }
     }//GEN-LAST:event_addMouseClicked
 
@@ -472,7 +534,7 @@ public class SubForms extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_clearActionPerformed
 
     private void refreshLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshLabelMouseClicked
-        refreshHomeData();
+        refreshCheckInTableData();
     }//GEN-LAST:event_refreshLabelMouseClicked
 
     private void checkClassinfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkClassinfoMouseClicked
@@ -480,23 +542,67 @@ public class SubForms extends javax.swing.JInternalFrame {
         int selectedRow = target.getSelectedRow();
         String sessionID = (String) checkClassinfo.getValueAt(selectedRow, 0);
         CheckInSession seleCheckInSession = CheckInHandler.handleGetCheckInBySessionID(sessionID);
-
-        CheckForms checkForms = new CheckForms(seleCheckInSession);
+        CheckInSessionInfoForm checkForms = new CheckInSessionInfoForm(seleCheckInSession);
         FrameHelper.setLocationToCenter(checkForms);
         AdminMainForm.mainDesktopPane.add(checkForms);
         checkForms.setVisible(true);
     }//GEN-LAST:event_checkClassinfoMouseClicked
 
-    private void refreshHomeData() {
+    private void checkInSessionComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkInSessionComboBoxItemStateChanged
+        String selectedCheckInStatus = (String) checkInSessionComboBox.getSelectedItem();
+        DefaultTableModel model = (DefaultTableModel) checkClassinfo.getModel();
+        model.setRowCount(0);
+        if (selectedCheckInStatus.equalsIgnoreCase("แสดงทั้งหมด")) {
+            checkInHistory.forEach((k, v) -> {
+                String sessionID = (String) v.get("sessionID");
+                String subjectName = (String) v.get("subjectName");
+                String teacherName = (String) v.get("teacherName");
+                String classTime = (String) v.get("classTime");
+                boolean isActive = (boolean) v.get("isActive");
+                if (isActive == true) {
+                    isActiveBooleanToString = "ยังเปิดให้เช็คชื่อ";
+                } else if (isActive == false) {
+                    isActiveBooleanToString = "ปิดการเช็คชื่อแล้ว";
+                }
+                model.addRow(new String[]{sessionID, subjectName, teacherName, classTime, isActiveBooleanToString});
+            });
+        } else {
+            boolean selectedActiveStatus;
+            if (selectedCheckInStatus.equalsIgnoreCase("ยังเปิดให้เช็คชื่อ")) {
+                selectedActiveStatus = true;
+            } else {
+                selectedActiveStatus = false;
+            }
+            checkClassinfo.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
+            checkInHistory.forEach((k, v) -> {
+                String sessionID = (String) v.get("sessionID");
+                boolean isActive = (boolean) v.get("isActive");
+                if (isActive == true) {
+                    isActiveBooleanToString = "ยังเปิดให้เช็คชื่อ";
+                } else if (isActive == false) {
+                    isActiveBooleanToString = "ปิดการเช็คชื่อแล้ว";
+                }
+                if (isActive == selectedActiveStatus) {
+                    String subjectName = (String) v.get("subjectName");
+                    String teacherName = (String) v.get("teacherName");
+                    String classTime = (String) v.get("classTime");
+                    model.addRow(new String[]{sessionID, subjectName, teacherName, classTime, isActiveBooleanToString});
+                }
+            });
+        }
+
+    }//GEN-LAST:event_checkInSessionComboBoxItemStateChanged
+
+    private void refreshCheckInTableData() {
         DefaultTableModel model = (DefaultTableModel) checkClassinfo.getModel();
         model.getDataVector().removeAllElements();
         model.fireTableDataChanged(); // notifies the JTable that the model has changed
-
-        getAllCheckInDocuments();
+        searchCheckInSessionCodeTextField.setText("");
+        showAllCheckInSessions();
+        checkInSessionComboBox.setSelectedIndex(0);
     }
 
     private Map<String, Object> toCheckInDataMap() {
-
         String subjectID = SubjectIDTextField.getText();
         String subjectName = SubjectNameTextField.getText();
         String classTime = durationTextField.getText();
@@ -505,7 +611,6 @@ public class SubForms extends javax.swing.JInternalFrame {
         String subjectInfo = subjectInfoTextField.getText();
 
         Map<String, Object> checkInData = new HashMap<>();
-
         ArrayList<String> studentCheckIn = new ArrayList<>();
 
         checkInData.put("subjectID", subjectID);
@@ -517,20 +622,6 @@ public class SubForms extends javax.swing.JInternalFrame {
         checkInData.put("isActive", true);
         checkInData.put("studentCheckIn", studentCheckIn);
 
-//        Student student = (Student) AuthUser.getAuthUser();
-//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-//        String subjectCreateAt = dtf.format(LocalDateTime.now());
-//        String checkInByStudenCode = student.getStudentId();
-//        String checkInByStudenName = student.getThFirstName();
-//        String questionResponse = "ยังไม่มีการตอบกลับ";
-//        String answerBy = "ยังไม่มีการตอบกลับ";
-//        String answerAt = "ยังไม่มีการตอบกลับ";
-//        String answerBody = "ยังไม่มีการตอบกลับ (กำลังรอการตอบกลับจากเจ้าหน้าที่)";
-//        checkInData.put("subjectCreateAt", subjectCreateAt);
-//        questionData.put("questionResponse", questionResponse);
-//        questionData.put("answerBy", answerBy);
-//        questionData.put("answerAt", answerAt);
-//        questionData.put("answerBody", answerBody);
         return checkInData;
     }
 
@@ -540,28 +631,33 @@ public class SubForms extends javax.swing.JInternalFrame {
     private javax.swing.JButton add;
     private javax.swing.JButton cancel;
     private javax.swing.JTable checkClassinfo;
+    private javax.swing.JComboBox<String> checkInSessionComboBox;
     private javax.swing.JTextField classroomTextField;
     private javax.swing.JButton clear;
     private javax.swing.JTextField durationTextField;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea procedureInfo;
     private javax.swing.JLabel procedures;
     private javax.swing.JLabel refreshLabel;
-    private javax.swing.JButton search;
-    private javax.swing.JTextField searchSubjectinfo;
-    private javax.swing.JComboBox<String> status;
+    private javax.swing.JButton searchCheckInSessionButton;
+    private javax.swing.JTextField searchCheckInSessionCodeTextField;
     private javax.swing.JTextArea subjectInfoTextField;
     private javax.swing.JTextField teacherNameTextField;
     // End of variables declaration//GEN-END:variables

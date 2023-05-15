@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author WINDOWS 10
  */
-public class CheckForms extends javax.swing.JInternalFrame {
+public class CheckInSessionInfoForm extends javax.swing.JInternalFrame {
 
     private CheckInSession selectedData;
     private Map<String, Object> checkInData = new HashMap<>();
@@ -26,7 +26,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
     /**
      * Creates new form CheckForms
      */
-    public CheckForms(CheckInSession checkIn) {
+    public CheckInSessionInfoForm(CheckInSession checkIn) {
         initComponents();
         this.selectedData = checkIn;
         getAllCheckInDocuments();

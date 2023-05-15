@@ -30,13 +30,13 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="searchSubjectinfo" min="-2" pref="230" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="search" min="-2" max="-2" attributes="0"/>
+                              <Component id="searchCheckInSessionCodeTextField" min="-2" pref="230" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="searchCheckInSessionButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="status" min="-2" pref="148" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="checkInSessionComboBox" min="-2" pref="148" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="refreshLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -60,11 +60,11 @@
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="search" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="searchSubjectinfo" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="status" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="searchCheckInSessionButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="searchCheckInSessionCodeTextField" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="checkInSessionComboBox" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -73,7 +73,7 @@
                               <Component id="refreshLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jPanel1" max="32767" attributes="0"/>
@@ -84,32 +84,30 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JComboBox" name="status">
+    <Component class="javax.swing.JComboBox" name="checkInSessionComboBox">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-            <StringItem index="0" value="All"/>
-            <StringItem index="1" value="Activate"/>
-            <StringItem index="2" value="Deactivate"/>
+            <StringItem index="0" value="&#xe41;&#xe2a;&#xe14;&#xe07;&#xe17;&#xe31;&#xe49;&#xe07;&#xe2b;&#xe21;&#xe14;"/>
+            <StringItem index="1" value="&#xe22;&#xe31;&#xe07;&#xe40;&#xe1b;&#xe34;&#xe14;&#xe43;&#xe2b;&#xe49;&#xe40;&#xe0a;&#xe47;&#xe04;&#xe0a;&#xe37;&#xe48;&#xe2d;"/>
+            <StringItem index="2" value="&#xe1b;&#xe34;&#xe14;&#xe01;&#xe32;&#xe23;&#xe40;&#xe0a;&#xe47;&#xe04;&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe41;&#xe25;&#xe49;&#xe27;"/>
           </StringArray>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="statusActionPerformed"/>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkInSessionComboBoxItemStateChanged"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkInSessionComboBoxActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="searchSubjectinfo">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchSubjectinfoActionPerformed"/>
-      </Events>
+    <Component class="javax.swing.JTextField" name="searchCheckInSessionCodeTextField">
     </Component>
-    <Component class="javax.swing.JButton" name="search">
+    <Component class="javax.swing.JButton" name="searchCheckInSessionButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
@@ -117,7 +115,7 @@
         <Property name="text" type="java.lang.String" value="&#xe04;&#xe49;&#xe19;&#xe2b;&#xe32;&#xe14;&#xe49;&#xe27;&#xe22;&#xe23;&#xe2b;&#xe31;&#xe2a;&#xe40;&#xe0a;&#xe47;&#xe04;&#xe0a;&#xe37;&#xe48;&#xe2d;"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchCheckInSessionButtonActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">
@@ -389,22 +387,51 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jScrollPane2" pref="795" max="32767" attributes="0"/>
-                      <Component id="procedures" max="32767" attributes="0"/>
+              <Component id="procedures" alignment="0" min="-2" pref="795" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel13" alignment="0" min="-2" pref="387" max="-2" attributes="0"/>
+                              <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel11" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel12" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Component id="procedures" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="185" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -419,25 +446,64 @@
             <Property name="text" type="java.lang.String" value="&#xe23;&#xe30;&#xe40;&#xe1a;&#xe35;&#xe22;&#xe1a;&#xe1b;&#xe0e;&#xe34;&#xe1a;&#xe31;&#xe15;&#xe34;&#xe01;&#xe32;&#xe23;&#xe43;&#xe0a;&#xe49;&#xe07;&#xe32;&#xe19; &#xe40;&#xe40;&#xe25;&#xe30;&#xe27;&#xe34;&#xe18;&#xe35;&#xe01;&#xe32;&#xe23;&#xe43;&#xe0a;&#xe49;&#xe23;&#xe30;&#xe1a;&#xe1a;&#xe40;&#xe0a;&#xe47;&#xe04;&#xe0a;&#xe37;&#xe48;&#xe2d;"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTextArea" name="procedureInfo">
-              <Properties>
-                <Property name="columns" type="int" value="20"/>
-                <Property name="rows" type="int" value="5"/>
-                <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="1. &#xe2d;&#xe32;&#xe08;&#xe32;&#xe23;&#xe22;&#xe4c;&#xe1c;&#xe39;&#xe49;&#xe2a;&#xe2d;&#xe19;&#xe01;&#xe23;&#xe2d;&#xe01;&#xe23;&#xe32;&#xe22;&#xe25;&#xe30;&#xe40;&#xe2d;&#xe35;&#xe22;&#xe14;&#xe23;&#xe32;&#xe22;&#xe27;&#xe34;&#xe0a;&#xe32;&#xe43;&#xe2b;&#xe49;&#xe04;&#xe23;&#xe1a; &#xe40;&#xe1e;&#xe37;&#xe48;&#xe2d;&#xe17;&#xe33;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe40;&#xe0b;&#xe15;&#xe0a;&#xe31;&#xe48;&#xe19;&#xe40;&#xe0a;&#xe47;&#xe04;&#xe0a;&#xe37;&#xe48;&#xe2d;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel8">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="2. &#xe41;&#xe2a;&#xe14;&#xe07;&#xe23;&#xe2b;&#xe31;&#xe2a;&#xe40;&#xe0b;&#xe04;&#xe0a;&#xe31;&#xe48;&#xe19;&#xe40;&#xe0a;&#xe47;&#xe04;&#xe0a;&#xe37;&#xe48;&#xe2d; &#xe40;&#xe1e;&#xe37;&#xe48;&#xe2d;&#xe43;&#xe2b;&#xe49;&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32;&#xe40;&#xe02;&#xe49;&#xe32;&#xe21;&#xe32;&#xe40;&#xe0a;&#xe47;&#xe04;&#xe0a;&#xe37;&#xe48;&#xe2d;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel11">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="3. &#xe15;&#xe23;&#xe27;&#xe08;&#xe2a;&#xe2d;&#xe1a;&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32; (&#xe23;&#xe2b;&#xe31;&#xe2a;&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32; &#xe0a;&#xe37;&#xe48;&#xe2d;-&#xe19;&#xe32;&#xe21;&#xe2a;&#xe01;&#xe38;&#xe25; &#xe40;&#xe40;&#xe25;&#xe30;&#xe27;&#xe31;&#xe19;-&#xe40;&#xe27;&#xe25;&#xe32;&#xe40;&#xe0a;&#xe47;&#xe04;&#xe0a;&#xe37;&#xe48;&#xe2d;)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel12">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="4. &#xe40;&#xe21;&#xe37;&#xe48;&#xe2d;&#xe40;&#xe25;&#xe22;&#xe40;&#xe27;&#xe25;&#xe32;&#xe40;&#xe0a;&#xe47;&#xe04;&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe40;&#xe40;&#xe25;&#xe49;&#xe27;&#xe2d;&#xe32;&#xe08;&#xe32;&#xe23;&#xe22;&#xe4c;&#xe1c;&#xe39;&#xe49;&#xe2a;&#xe2d;&#xe19;&#xe2a;&#xe32;&#xe21;&#xe32;&#xe23;&#xe16;&#xe17;&#xe33;&#xe01;&#xe32;&#xe23;&#xe1b;&#xe34;&#xe14;&#xe40;&#xe0b;&#xe04;&#xe0a;&#xe31;&#xe48;&#xe19;&#xe40;&#xe0a;&#xe47;&#xe04;&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe44;&#xe14;&#xe49;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel13">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="79" red="29" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#xe23;&#xe30;&#xe1a;&#xe1a;&#xe40;&#xe0a;&#xe47;&#xe04;&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe40;&#xe02;&#xe49;&#xe32;&#xe0a;&#xe31;&#xe49;&#xe19;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19; HongFah Check-In"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel14">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#xe40;&#xe0a;&#xe47;&#xe04;&#xe0a;&#xe37;&#xe48;&#xe2d;&#xe40;&#xe02;&#xe49;&#xe32;&#xe0a;&#xe31;&#xe49;&#xe19;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;&#xe1c;&#xe48;&#xe32;&#xe19;&#xe23;&#xe30;&#xe1a;&#xe1a;&#xe2a;&#xe32;&#xe23;&#xe2a;&#xe19;&#xe40;&#xe17;&#xe28;&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32; &#xe2b;&#xe49;&#xe2d;&#xe07;&#xe1f;&#xe49;&#xe32;&#xe2d;&#xe2d;&#xe19;&#xe44;&#xe25;&#xe19;&#xe4c; (HongFah Online)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel15">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/home_form_icons/icons8-today-48.png"/>
+            </Property>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

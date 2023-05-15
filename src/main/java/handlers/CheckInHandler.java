@@ -29,14 +29,13 @@ public class CheckInHandler implements UniqueAble {
         return (allRandomizedChar.substring(0, 6).toUpperCase());
     }
 
-    public static boolean handleAddNewCheckIn(Map<String, Object> checkInData) {
+    public static Map<String, Object> handleAddNewCheckIn(Map<String, Object> checkInData) {
         String newCheckInSessionID = new CheckInHandler().randomID();
-        System.out.println(newCheckInSessionID);
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-        boolean result = false;
+        Map<String, Object> result = null;
         try {
-            Callable<Boolean> callable = () -> new CheckInSessionDatabase().addNewCheckInSession(checkInData, newCheckInSessionID);
-            Future<Boolean> future = executorService.submit(callable);
+            Callable<Map<String, Object>> callable = () -> new CheckInSessionDatabase().addNewCheckInSession(checkInData, newCheckInSessionID);
+            Future<Map<String, Object>> future = executorService.submit(callable);
             while (!future.isDone() && !future.isCancelled()) {
                 Thread.sleep(1000);
             }

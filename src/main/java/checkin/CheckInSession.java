@@ -5,6 +5,7 @@
 package checkin;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  *
@@ -20,7 +21,6 @@ public class CheckInSession {
     private String classroom;
     private String sessionNote;
     private boolean isActive;
-
     private ArrayList<String> studentCheckIn;
 
     public CheckInSession(String sessionID, String subjectID, String subjectName, String teacherName, String classTime, String classroom, String sessionNote, boolean isActive, ArrayList<String> studentCheckIn) {
@@ -33,6 +33,18 @@ public class CheckInSession {
         this.sessionNote = sessionNote;
         this.isActive = isActive;
         this.studentCheckIn = studentCheckIn;
+    }
+
+    public CheckInSession(Map<String, Object> checkInSessionData) {
+        this.sessionID = (String) checkInSessionData.get("sessionID");
+        this.subjectID = (String) checkInSessionData.get("subjectID");
+        this.subjectName = (String) checkInSessionData.get("subjectName");
+        this.classTime = (String) checkInSessionData.get("classTime");
+        this.classroom = (String) checkInSessionData.get("classroom");
+        this.teacherName = (String) checkInSessionData.get("teacherName");
+        this.sessionNote = (String) checkInSessionData.get("sessionNote");
+        this.isActive = (boolean) checkInSessionData.get("isActive");
+        this.studentCheckIn = (ArrayList<String>) checkInSessionData.get("studentCheckIn");
     }
 
 //    }
