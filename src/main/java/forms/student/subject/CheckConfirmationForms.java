@@ -340,12 +340,13 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
         String checkInByStudentCode = student.getStudentId();
         String checkInByStudentFirstName = student.getThFirstName();
         String checkInByStudentLastName = student.getThLastName();
+        String checkInByStudentTitle = student.getThNameTitle();
         String checkInAt = dtf.format(LocalDateTime.now());
 
         Map<String, Object> checkInData = new HashMap<>();
 
         ArrayList<String> studentCheckIn = selectedData.getStudentCheckIn();
-        String studentInfo = checkInByStudentCode + "&" + checkInByStudentFirstName + " " + checkInByStudentLastName + "&" + checkInAt;
+        String studentInfo = checkInByStudentCode + "&" + checkInByStudentTitle + " " + checkInByStudentFirstName + " " + checkInByStudentLastName + "&" + checkInAt;
         studentCheckIn.add(studentInfo);
 
         checkInData.put("sessionID", sessionID);
