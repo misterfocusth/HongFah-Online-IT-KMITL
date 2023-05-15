@@ -45,23 +45,18 @@ public class CheckForms extends javax.swing.JInternalFrame {
         }
 
         DefaultTableModel model = (DefaultTableModel) studentCheckTable.getModel();
-        Map<String, HashMap<String, Object>> chekinHistory = new HashMap<>();
         studentCheckTable.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 16));
-        chekinHistory = CheckInHandler.handleGetAllCheckInSessions();
-        chekinHistory.forEach((k, v) -> {
-            ArrayList studentCheckIn = (ArrayList) v.get("studentCheckIn");
-            for (int i = 0; i <= (studentCheckIn.size() - 1); i++) {
-                Object studentInfo = studentCheckIn.get(i);
-                String studentInfoString = studentInfo.toString();
-                String[] studentParts = studentInfoString.split("&", 3);
-                String StudentCode = studentParts[0];
-                String studnetStudentName = studentParts[1];
-                String studentcheckInAt = studentParts[2];
-                String[] studentAddInfo = new String[]{StudentCode, studnetStudentName, studentcheckInAt};
-                model.addRow(studentAddInfo);
-            }
+        ArrayList studentCheckIn = selectedData.getStudentCheckIn();
+        for (int i = 0; i <= (studentCheckIn.size() - 1); i++) {
+            Object studentInfo = studentCheckIn.get(i);
+            String studentInfoString = studentInfo.toString();
+            String[] studentParts = studentInfoString.split("&", 3);
+            String StudentCode = studentParts[0];
+            String studnetStudentName = studentParts[1];
+            String studentcheckInAt = studentParts[2];
+            String[] studentAddInfo = new String[]{StudentCode, studnetStudentName, studentcheckInAt};
+            model.addRow(studentAddInfo);
         }
-        );
     }
 
     public DefaultTableModel getModel() {
@@ -105,17 +100,14 @@ public class CheckForms extends javax.swing.JInternalFrame {
         studentCheckTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         studentCheckTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "รหัสนักศึกษา", "ชื่อนักศึกษา", "เวลาเช็คชื่อ"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false
@@ -129,6 +121,8 @@ public class CheckForms extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        studentCheckTable.setRowHeight(35);
+        studentCheckTable.setShowGrid(true);
         studentCheckTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(studentCheckTable);
         if (studentCheckTable.getColumnModel().getColumnCount() > 0) {
