@@ -100,26 +100,31 @@ public class CheckInHandler implements UniqueAble {
         } finally {
             executorService.shutdown();
         }
-        System.out.println(result);
-        String sessionId = sessionID;
-        String subjectID = (String) result.get("subjectID");
-        String subjectName = (String) result.get("subjectName");
-        String teacherName = (String) result.get("teacherName");
-        String classTime = (String) result.get("classTime");
-        String classroom = (String) result.get("classroom");
-        String sessionNote = (String) result.get("sessionNote");
-        boolean isActive = (boolean) result.get("isActive");
-        ArrayList< String> studentCheckIn = (ArrayList< String>) result.get("studentCheckIn");
 
-        return new CheckInSession(sessionId,
-                subjectID,
-                subjectName,
-                teacherName,
-                classTime,
-                classroom,
-                sessionNote,
-                isActive,
-                studentCheckIn);
+        if (result != null) {
+            String sessionId = sessionID;
+            String subjectID = (String) result.get("subjectID");
+            String subjectName = (String) result.get("subjectName");
+            String teacherName = (String) result.get("teacherName");
+            String classTime = (String) result.get("classTime");
+            String classroom = (String) result.get("classroom");
+            String sessionNote = (String) result.get("sessionNote");
+            boolean isActive = (boolean) result.get("isActive");
+            ArrayList< String> studentCheckIn = (ArrayList< String>) result.get("studentCheckIn");
+
+            return new CheckInSession(sessionId,
+                    subjectID,
+                    subjectName,
+                    teacherName,
+                    classTime,
+                    classroom,
+                    sessionNote,
+                    isActive,
+                    studentCheckIn);
+        } else {
+            return null;
+        }
+
     }
 
     public static boolean handleUpdateCheckInSession(String docId, HashMap<String, Object> docData) {

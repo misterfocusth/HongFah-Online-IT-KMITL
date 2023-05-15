@@ -105,10 +105,7 @@ public class CheckForms extends javax.swing.JInternalFrame {
         studentCheckTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         studentCheckTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "รหัสนักศึกษา", "ชื่อนักศึกษา", "เวลาเช็คชื่อ"

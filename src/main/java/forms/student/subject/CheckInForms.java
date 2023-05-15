@@ -9,6 +9,8 @@ import dialog.InfoDialog;
 import forms.MainForm;
 import handlers.CheckInHandler;
 import helper.FrameHelper;
+
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashMap;
@@ -156,11 +158,11 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
     }// </editor-fold>//GEN-END:initComponents
 
     private void cheeckbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheeckbtnActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_cheeckbtnActionPerformed
 
     private void cancelbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelbtnActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_cancelbtnActionPerformed
 
     private void codeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codeTextFieldActionPerformed
@@ -169,24 +171,37 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
 
     private void cheeckbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cheeckbtnMouseClicked
 
-        if (codeTextField.getText().length() == 6) {
-            try {
-                String sessionID = (String) codeTextField.getText();
-                CheckInSession seleCheckInSession = CheckInHandler.handleGetCheckInBySessionID(sessionID);
-                CheckConfirmationForms checkConfirmationForms = new CheckConfirmationForms(seleCheckInSession);
-                FrameHelper.setLocationToCenter(checkConfirmationForms);
-                MainForm.mainDesktopPane.add(checkConfirmationForms);
-                checkConfirmationForms.setVisible(true);
-                this.setVisible(false);
-                this.dispose();
-            } catch (Exception e) {
-                new InfoDialog("กรอกรหัสผิด", "รหัสเซคชั่นไม่ถูกต้อง!").show();
-                codeTextField.setText("");
-            }
-        } else if (codeTextField.getText().length() < 6) {
-            new InfoDialog("กรอกรหัสไม่ครบ", "โปรดกรอกรหัสเซคชั่นให้ครบ 6 หลัก").show();
-            codeTextField.setText("");
+//        if (codeTextField.getText().length() == 6) {
+//            try {
+//                String sessionID = (String) codeTextField.getText();
+//                CheckInSession seleCheckInSession = CheckInHandler.handleGetCheckInBySessionID(sessionID);
+//                CheckConfirmationForms checkConfirmationForms = new CheckConfirmationForms(seleCheckInSession);
+//                FrameHelper.setLocationToCenter(checkConfirmationForms);
+//                MainForm.mainDesktopPane.add(checkConfirmationForms);
+//                checkConfirmationForms.setVisible(true);
+//                this.setVisible(false);
+//                this.dispose();
+//            } catch (Exception e) {
+//                new InfoDialog("กรอกรหัสผิด", "รหัสเซคชั่นไม่ถูกต้อง!").show();
+//                codeTextField.setText("");
+//            }
+//        } else if (codeTextField.getText().length() < 6) {
+//            new InfoDialog("กรอกรหัสไม่ครบ", "โปรดกรอกรหัสเซคชั่นให้ครบ 6 หลัก").show();
+//            codeTextField.setText("");
+//        }
+
+        String checkInSessionCode = codeTextField.getText();
+        CheckInSession checkInFormsData = CheckInHandler.handleGetCheckInBySessionID(checkInSessionCode);
+
+        if (checkInFormsData == null) {
+            new InfoDialog("ไม่พบเซ็คชั่นเช็คชื่อเข้าเรียน", "ไม่พบเซ็คชั่นเข้าเรียนนี้ โปรดตรวจสอบรหัสใหม่อีกครั้ง").show();
+            return;
         }
+
+        CheckConfirmationForms checkConfirmationForms = new CheckConfirmationForms(checkInFormsData);
+        FrameHelper.setLocationToCenter(checkConfirmationForms);
+        MainForm.mainDesktopPane.add(checkConfirmationForms);
+        checkConfirmationForms.setVisible(true);
 
     }//GEN-LAST:event_cheeckbtnMouseClicked
 
