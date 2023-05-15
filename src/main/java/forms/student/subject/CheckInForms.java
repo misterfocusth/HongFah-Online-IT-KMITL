@@ -9,10 +9,13 @@ import dialog.InfoDialog;
 import forms.MainForm;
 import handlers.CheckInHandler;
 import helper.FrameHelper;
+import user.AuthUser;
+import user.Student;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -195,6 +198,25 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
 
         if (checkInFormsData == null) {
             new InfoDialog("ไม่พบเซ็คชั่นเช็คชื่อเข้าเรียน", "ไม่พบเซ็คชั่นเข้าเรียนนี้ โปรดตรวจสอบรหัสใหม่อีกครั้ง").show();
+            return;
+        } else if (!checkInFormsData.isIsActive()) {
+            new InfoDialog("เซคชั่นนี้ปิดการเช็คชื่อไปแล้ว", "ไม่สามารถเช็คชื่อได้ เนื่องจากปิดการเช็คชื่อแล้ว");
+            return;
+        }
+
+        boolean isCurrentStudentCheckedIn = false;
+        String currentStudentId = ((Student) AuthUser.getAuthUser()).getStudentId();
+        ArrayList<String> checkInStudents = checkInFormsData.getStudentCheckIn();
+        for (int x = 0; x <= (checkInStudents.size() - 1); x++) {
+            String[] checkInStudentData = checkInStudents.get(x).split("&");
+            if (checkInStudentData[0].equalsIgnoreCase(currentStudentId)) {
+                isCurrentStudentCheckedIn = true;
+                break;
+            }
+        }
+
+        if (isCurrentStudentCheckedIn) {
+            new InfoDialog("นักศึกษาได้เช็คชื่อในเซคชั่นนี้ไปแล้ว", "นักศึกษาทำการเช้คชื่อในเซคชั่นนี้ไปเรียบร้อยแล้ว !").show();
             return;
         }
 

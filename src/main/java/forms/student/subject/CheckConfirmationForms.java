@@ -286,15 +286,8 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
 
     private void confirmbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmbtnMouseClicked
         checkInData = toCheckInDataMap();
-        if (selectedData.isIsActive() == true) {
-            if (CheckInHandler.handleUpdateCheckInSession(selectedData.getSessionID(), (HashMap<String, Object>) checkInData)) {
-                new InfoDialog("บันทึกคำตอบเสร็จสิ้น", "ระบบได้บันทึกคำตอบของท่านแล้ว!").show();
-                this.setVisible(false);
-                this.dispose();
-            }
-        } else if (selectedData.isIsActive() == false) {
-            new InfoDialog("บันทึกคำตอบเสร็จสิ้น", "ไม่สามารถเช็คชื่อเข้าชั้นเรียนได้ เนื่องจากปิดให้ลงทะเบียน").show();
-            this.setVisible(false);
+        if (CheckInHandler.handleUpdateCheckInSession(selectedData.getSessionID(), (HashMap<String, Object>) checkInData)) {
+            new InfoDialog("เช็คชื่อเข้าชั้นเรียนสำเร็จ", "นักศึกษาทำการเช็คชื่อเข้าชั้นเรียน เรียบร้อยแล้ว !").show();
             this.dispose();
         }
     }//GEN-LAST:event_confirmbtnMouseClicked
