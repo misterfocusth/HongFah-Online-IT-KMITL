@@ -7,27 +7,17 @@ package handlers;
 import checkin.CheckInSession;
 import database.CheckInSessionDatabase;
 import interfaces.UniqueAble;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 /**
- *
  * @author WINDOWS 10
  */
 public class CheckInHandler implements UniqueAble {
-
-    @Override
-    public String randomID() {
-        String allRandomizedChar = UUID.randomUUID().toString().replace("-", "");
-        return (allRandomizedChar.substring(0, 6).toUpperCase());
-    }
 
     public static Map<String, Object> handleAddNewCheckIn(Map<String, Object> checkInData) {
         String newCheckInSessionID = new CheckInHandler().randomID();
@@ -109,7 +99,7 @@ public class CheckInHandler implements UniqueAble {
             String classroom = (String) result.get("classroom");
             String sessionNote = (String) result.get("sessionNote");
             boolean isActive = (boolean) result.get("isActive");
-            ArrayList< String> studentCheckIn = (ArrayList< String>) result.get("studentCheckIn");
+            ArrayList<String> studentCheckIn = (ArrayList<String>) result.get("studentCheckIn");
 
             return new CheckInSession(sessionId,
                     subjectID,
@@ -144,6 +134,12 @@ public class CheckInHandler implements UniqueAble {
             executorService.shutdown();
         }
         return result;
+    }
+
+    @Override
+    public String randomID() {
+        String allRandomizedChar = UUID.randomUUID().toString().replace("-", "");
+        return (allRandomizedChar.substring(0, 6).toUpperCase());
     }
 
 

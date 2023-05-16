@@ -1,7 +1,7 @@
 package interfaces;
 
 public interface EncodeAble {
-    public static String encode() {
+    static String encode() {
         return null;
     }
 }

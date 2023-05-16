@@ -2,9 +2,10 @@ package handlers;
 
 import database.StudentDatabase;
 import helper.StudentDataHelper;
+import user.Student;
+
 import java.util.HashMap;
 import java.util.concurrent.*;
-import user.Student;
 
 public class StudentInfoHandler {
 

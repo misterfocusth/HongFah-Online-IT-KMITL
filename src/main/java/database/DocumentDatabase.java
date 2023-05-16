@@ -1,8 +1,14 @@
 package database;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.*;
-import java.util.*;
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class DocumentDatabase extends Database {

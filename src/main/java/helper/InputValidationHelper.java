@@ -32,10 +32,6 @@ public class InputValidationHelper {
     public static boolean validateUserPasswordChange(String oldPwd, String newPwd, String confirmNewPwd) {
         if (oldPwd.length() == 0) {
             return false;
-        } else if (newPwd.length() == 0 && confirmNewPwd.length() == 0) {
-            return false;
-        } else {
-            return true;
-        }
+        } else return newPwd.length() != 0 || confirmNewPwd.length() != 0;
     }
 }

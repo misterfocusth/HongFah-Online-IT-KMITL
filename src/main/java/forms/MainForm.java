@@ -14,19 +14,82 @@ import forms.student.info.EditStudentInfoForm;
 import forms.student.info.StudentInfoForm;
 import forms.student.login.NewLoginForm;
 import helper.FrameHelper;
-import javax.swing.*;
 import user.AuthUser;
+
+import javax.swing.*;
 
 /**
  * @author misterfocusth
  */
 public class MainForm extends javax.swing.JFrame {
 
+    public static javax.swing.JDesktopPane mainDesktopPane;
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu aboutProgrameMenu;
+    private javax.swing.JMenu contactStaffMenu;
+    private javax.swing.JMenu docRequestMenu;
+    private javax.swing.JMenuItem editStudentInfoMenu;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialog2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu9;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JMenu logoutMenu;
+    private javax.swing.JMenuItem studentInfoMenu;
     /**
      * Creates new form MainForm
      */
     public MainForm() {
         initComponents();
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainForm().setVisible(true);
+            }
+        });
+
     }
 
     /**
@@ -66,23 +129,23 @@ public class MainForm extends javax.swing.JFrame {
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
         jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+                jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 400, Short.MAX_VALUE)
         );
         jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+                jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 300, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
         jDialog2.getContentPane().setLayout(jDialog2Layout);
         jDialog2Layout.setHorizontalGroup(
-            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+                jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 400, Short.MAX_VALUE)
         );
         jDialog2Layout.setVerticalGroup(
-            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+                jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 300, Short.MAX_VALUE)
         );
 
         jRadioButtonMenuItem1.setSelected(true);
@@ -108,12 +171,12 @@ public class MainForm extends javax.swing.JFrame {
         javax.swing.GroupLayout mainDesktopPaneLayout = new javax.swing.GroupLayout(mainDesktopPane);
         mainDesktopPane.setLayout(mainDesktopPaneLayout);
         mainDesktopPaneLayout.setHorizontalGroup(
-            mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1003, Short.MAX_VALUE)
+                mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 1003, Short.MAX_VALUE)
         );
         mainDesktopPaneLayout.setVerticalGroup(
-            mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 765, Short.MAX_VALUE)
+                mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 765, Short.MAX_VALUE)
         );
 
         jMenuBar2.setPreferredSize(new java.awt.Dimension(690, 35));
@@ -218,12 +281,12 @@ public class MainForm extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainDesktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(mainDesktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainDesktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(mainDesktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -239,12 +302,12 @@ public class MainForm extends javax.swing.JFrame {
             newLoginForm.setVisible(true);
             this.setVisible(false);
             this.dispose();
-            
+
             MainForm.mainDesktopPane.removeAll();
             MainForm.mainDesktopPane.updateUI();
         }
     }//GEN-LAST:event_logoutMenuMouseClicked
-    
+
     private void studentInfoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentInfoMenuActionPerformed
         // TODO add your handling code here:
         StudentInfoForm homeForm = new StudentInfoForm();
@@ -252,14 +315,14 @@ public class MainForm extends javax.swing.JFrame {
         MainForm.mainDesktopPane.add(homeForm);
         homeForm.setVisible(true);
     }//GEN-LAST:event_studentInfoMenuActionPerformed
-    
+
     private void aboutProgrameMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutProgrameMenuMouseClicked
         // TODO add your handling code here:
         AboutForm aboutForm = new AboutForm();
         aboutForm.setLocationRelativeTo(null);
         aboutForm.setVisible(true);
     }//GEN-LAST:event_aboutProgrameMenuMouseClicked
-    
+
     private void editStudentInfoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editStudentInfoMenuActionPerformed
         // TODO add your handling code here:
         EditStudentInfoForm editStudentInfoForm = new EditStudentInfoForm();
@@ -267,28 +330,28 @@ public class MainForm extends javax.swing.JFrame {
         MainForm.mainDesktopPane.add(editStudentInfoForm);
         editStudentInfoForm.setVisible(true);
     }//GEN-LAST:event_editStudentInfoMenuActionPerformed
-    
+
     private void contactStaffMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactStaffMenuMouseClicked
         ContactStaffHomeForm contactStaffHomeForm = new ContactStaffHomeForm();
         FrameHelper.setLocationToCenter(contactStaffHomeForm);
         MainForm.mainDesktopPane.add(contactStaffHomeForm);
         contactStaffHomeForm.setVisible(true);
     }//GEN-LAST:event_contactStaffMenuMouseClicked
-    
+
     private void genDocClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genDocClickActionPerformed
         GeneralDocRequestForm gendoc = new GeneralDocRequestForm();
         FrameHelper.setLocationToCenter(gendoc);
         MainForm.mainDesktopPane.add(gendoc);
         gendoc.setVisible(true);
     }//GEN-LAST:event_genDocClickActionPerformed
-    
+
     private void leaveDocClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaveDocClickActionPerformed
         LeaveDocRequestForm leaveDoc = new LeaveDocRequestForm();
         FrameHelper.setLocationToCenter(leaveDoc);
         MainForm.mainDesktopPane.add(leaveDoc);
         leaveDoc.setVisible(true);
     }//GEN-LAST:event_leaveDocClickActionPerformed
-    
+
     private void historyDocClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyDocClickActionPerformed
         DocRequestHistoryForm hisDoc = new DocRequestHistoryForm();
         FrameHelper.setLocationToCenter(hisDoc);
@@ -296,71 +359,8 @@ public class MainForm extends javax.swing.JFrame {
         hisDoc.setVisible(true);
     }//GEN-LAST:event_historyDocClickActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainForm().setVisible(true);
-            }
-        });
-        
-    }
-    
     public JDesktopPane getMainDesktopPane() {
         return mainDesktopPane;
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu aboutProgrameMenu;
-    private javax.swing.JMenu contactStaffMenu;
-    private javax.swing.JMenu docRequestMenu;
-    private javax.swing.JMenuItem editStudentInfoMenu;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
-    private javax.swing.JDialog jDialog1;
-    private javax.swing.JDialog jDialog2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu9;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JPopupMenu.Separator jSeparator3;
-    private javax.swing.JMenu logoutMenu;
-    public static javax.swing.JDesktopPane mainDesktopPane;
-    private javax.swing.JMenuItem studentInfoMenu;
     // End of variables declaration//GEN-END:variables
 }

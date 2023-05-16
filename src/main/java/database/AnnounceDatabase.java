@@ -1,13 +1,10 @@
 package database;
 
 import announce.Announce;
-import com.google.api.client.util.Data;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
-import helper.StudentDataHelper;
 
 import java.util.HashMap;
 import java.util.Map;

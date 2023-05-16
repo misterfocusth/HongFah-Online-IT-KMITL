@@ -4,10 +4,9 @@
  */
 package helper;
 
-import javax.swing.JInternalFrame;
+import javax.swing.*;
 
 /**
- *
  * @author misterfocusth
  */
 public class DimensionHelper {

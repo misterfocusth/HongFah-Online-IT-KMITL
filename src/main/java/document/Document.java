@@ -55,10 +55,6 @@ public abstract class Document {
         this.documentId = documentId;
     }
 
-    public void setWrittenAt(String writtenAt) {
-        this.writtenAt = writtenAt;
-    }
-
     public String getRespondedAt() {
         return respondedAt;
     }
@@ -77,6 +73,10 @@ public abstract class Document {
 
     public String getWrittenAt() {
         return writtenAt;
+    }
+
+    public void setWrittenAt(String writtenAt) {
+        this.writtenAt = writtenAt;
     }
 
     public String getRequestedAtDay() {

@@ -4,8 +4,6 @@
  */
 package dialog;
 
-import interfaces.AlertDialog;
-
 import javax.swing.*;
 import java.awt.*;
 

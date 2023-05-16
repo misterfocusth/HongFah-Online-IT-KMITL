@@ -5,27 +5,17 @@ package handlers;
 
 import database.QuestionDatabase;
 import interfaces.UniqueAble;
+import question.Question;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import question.Question;
+import java.util.concurrent.*;
 
 /**
- *
  * @author BNKT
  */
 public class QuestionHandler implements UniqueAble {
-
-    public String randomID() {
-        String result = "QUES-";
-        String allRandomizedChar = UUID.randomUUID().toString().replace("-", "");
-        return (result + allRandomizedChar.substring(0, 7).toUpperCase());
-    }
 
     public static boolean handleAddNewQuestion(Map<String, Object> questionData) {
         String newQuestionID = new QuestionHandler().randomID();
@@ -138,5 +128,11 @@ public class QuestionHandler implements UniqueAble {
                 answerBy,
                 answerAt,
                 answerBody);
+    }
+
+    public String randomID() {
+        String result = "QUES-";
+        String allRandomizedChar = UUID.randomUUID().toString().replace("-", "");
+        return (result + allRandomizedChar.substring(0, 7).toUpperCase());
     }
 }

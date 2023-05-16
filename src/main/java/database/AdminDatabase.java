@@ -6,12 +6,11 @@ package database;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
-import static database.Database.db;
+
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 /**
- *
  * @author BNKT
  */
 public class AdminDatabase extends Database {

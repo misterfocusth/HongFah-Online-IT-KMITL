@@ -6,7 +6,6 @@ package announce;
  */
 
 /**
- *
  * @author misterfocusth
  */
 public class Announce {

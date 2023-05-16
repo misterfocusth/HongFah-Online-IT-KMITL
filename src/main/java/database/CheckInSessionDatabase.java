@@ -5,12 +5,8 @@
 package database;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.cloud.firestore.QuerySnapshot;
-import com.google.cloud.firestore.WriteResult;
-import static database.Database.db;
+import com.google.cloud.firestore.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,10 +14,25 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 /**
- *
  * @author User
  */
 public class CheckInSessionDatabase extends Database {
+
+    public static synchronized boolean updateCheckinInfoById(String sessionID, HashMap<String, Object> checkInData) {
+        DocumentReference docRef = db.collection("checkin").document(sessionID);
+        Map<String, Object> data = new HashMap<>();
+        data.put("sessionID", checkInData.get("sessionID"));
+        data.put("subjectID", checkInData.get("subjectID"));
+        data.put("subjectName", checkInData.get("subjectName"));
+        data.put("teacherName", checkInData.get("teacherName"));
+        data.put("classTime", checkInData.get("classTime"));
+        data.put("classroom", checkInData.get("classroom"));
+        data.put("sessionNote", checkInData.get("sessionNote"));
+        data.put("isActive", checkInData.get("isActive"));
+        data.put("studentCheckIn", checkInData.get("studentCheckIn"));
+        ApiFuture<WriteResult> result = docRef.update(data);
+        return true;
+    }
 
     public synchronized Map<String, Object> addNewCheckInSession(Map<String, Object> checkInData, String checkinId) {
         DocumentReference docRef = db.collection(CHECKIN_COLLECTION).document(checkinId);
@@ -92,21 +103,5 @@ public class CheckInSessionDatabase extends Database {
             ex.printStackTrace();
         }
         return currentDocument;
-    }
-
-    public static synchronized boolean updateCheckinInfoById(String sessionID, HashMap<String, Object> checkInData) {
-        DocumentReference docRef = db.collection("checkin").document(sessionID);
-        Map<String, Object> data = new HashMap<>();
-        data.put("sessionID", checkInData.get("sessionID"));
-        data.put("subjectID", checkInData.get("subjectID"));
-        data.put("subjectName", checkInData.get("subjectName"));
-        data.put("teacherName", checkInData.get("teacherName"));
-        data.put("classTime", checkInData.get("classTime"));
-        data.put("classroom", checkInData.get("classroom"));
-        data.put("sessionNote", checkInData.get("sessionNote"));
-        data.put("isActive", checkInData.get("isActive"));
-        data.put("studentCheckIn", checkInData.get("studentCheckIn"));
-        ApiFuture<WriteResult> result = docRef.update(data);
-        return true;
     }
 }

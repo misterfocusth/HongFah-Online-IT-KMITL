@@ -4,7 +4,6 @@
 package question;
 
 /**
- *
  * @author BNKT
  */
 public class Question {
@@ -46,60 +45,60 @@ public class Question {
         return answerAt;
     }
 
-    public String getAnswerBody() {
-        return answerBody;
-    }
-
-    public String getAnswerBy() {
-        return answerBy;
-    }
-
-    public String getQuestionAt() {
-        return questionAt;
-    }
-
-    public String getQuestionBody() {
-        return questionBody;
-    }
-
-    public String getQuestionBy() {
-        return questionBy;
-    }
-
-    public String getQuestionResponse() {
-        return questionResponse;
-    }
-
-    public String getQuestionTitle() {
-        return questionTItle;
-    }
-
     public void setAnswerAt(String answerAt) {
         this.answerAt = answerAt;
+    }
+
+    public String getAnswerBody() {
+        return answerBody;
     }
 
     public void setAnswerBody(String answerBody) {
         this.answerBody = answerBody;
     }
 
+    public String getAnswerBy() {
+        return answerBy;
+    }
+
     public void setAnswerBy(String answerBy) {
         this.answerBy = answerBy;
+    }
+
+    public String getQuestionAt() {
+        return questionAt;
     }
 
     public void setQuestionAt(String questionAt) {
         this.questionAt = questionAt;
     }
 
+    public String getQuestionBody() {
+        return questionBody;
+    }
+
     public void setQuestionBody(String questionBody) {
         this.questionBody = questionBody;
+    }
+
+    public String getQuestionBy() {
+        return questionBy;
     }
 
     public void setQuestionBy(String questionBy) {
         this.questionBy = questionBy;
     }
 
+    public String getQuestionResponse() {
+        return questionResponse;
+    }
+
     public void setQuestionResponse(String questionResponse) {
         this.questionResponse = questionResponse;
+    }
+
+    public String getQuestionTitle() {
+        return questionTItle;
     }
 
     public void setQuestionTitle(String questionTItle) {

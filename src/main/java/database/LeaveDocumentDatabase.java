@@ -1,11 +1,7 @@
 package database;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.cloud.firestore.QuerySnapshot;
-import com.google.cloud.firestore.WriteResult;
+import com.google.cloud.firestore.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +10,38 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class LeaveDocumentDatabase extends DocumentDatabase {
+
+    public static synchronized boolean updateDocumentById(String docId, HashMap<String, Object> docData) {
+        DocumentReference docRef = db.collection("documents").document(docId);
+        Map<String, Object> data = new HashMap<>();
+        data.put("documentId", docData.get("documentId"));
+        data.put("documentType", docData.get("documentType"));
+        data.put("contactAddress", docData.get("contactAddress"));
+        data.put("requestBody", docData.get("requestBody"));
+        data.put("requestBy", docData.get("requestBy"));
+        data.put("requestResponses", docData.get("requestResponses"));
+        data.put("requestStatus", docData.get("requestStatus"));
+        data.put("requestTitle", docData.get("requestTitle"));
+        data.put("requestTo", docData.get("requestTo"));
+        data.put("requestedAtDay", docData.get("requestedAtDay"));
+        data.put("requestedAtMonth", docData.get("requestedAtMonth"));
+        data.put("requestedAtYear", docData.get("requestedAtYear"));
+        data.put("respondedAt", docData.get("respondedAt"));
+        data.put("respondedBy", docData.get("respondedBy"));
+        data.put("writtenAt", docData.get("writtenAt"));
+        data.put("causeOfLeave", docData.get("causeOfLeave"));
+        data.put("leaveTitle", docData.get("leaveTitle"));
+        data.put("otherLeaveTitle", docData.get("otherLeaveTitle"));
+        data.put("requestRemark", docData.get("requestRemark"));
+        data.put("selectedLeaveFromDay", docData.get("selectedLeaveFromDay"));
+        data.put("selectedLeaveFromMonth", docData.get("selectedLeaveFromMonth"));
+        data.put("selectedLeaveFromYear", docData.get("selectedLeaveFromYear"));
+        data.put("selectedLeaveUntilDay", docData.get("selectedLeaveUntilDay"));
+        data.put("selectedLeaveUntilMonth", docData.get("selectedLeaveUntilMonth"));
+        data.put("selectedLeaveUntilYear", docData.get("selectedLeaveUntilYear"));
+        ApiFuture<WriteResult> result = docRef.update(data);
+        return true;
+    }
 
     public HashMap<String, HashMap<String, Object>> getAllDocumentsByStudentId(String studentId) throws ExecutionException, InterruptedException {
         HashMap<String, HashMap<String, Object>> documents = new HashMap<>();
@@ -54,38 +82,6 @@ public class LeaveDocumentDatabase extends DocumentDatabase {
             return null;
         }
         return (HashMap<String, Object>) document.getData();
-    }
-
-    public static synchronized boolean updateDocumentById(String docId, HashMap<String, Object> docData) {
-        DocumentReference docRef = db.collection("documents").document(docId);
-        Map<String, Object> data = new HashMap<>();
-        data.put("documentId", docData.get("documentId"));
-        data.put("documentType", docData.get("documentType"));
-        data.put("contactAddress", docData.get("contactAddress"));
-        data.put("requestBody", docData.get("requestBody"));
-        data.put("requestBy", docData.get("requestBy"));
-        data.put("requestResponses", docData.get("requestResponses"));
-        data.put("requestStatus", docData.get("requestStatus"));
-        data.put("requestTitle", docData.get("requestTitle"));
-        data.put("requestTo", docData.get("requestTo"));
-        data.put("requestedAtDay", docData.get("requestedAtDay"));
-        data.put("requestedAtMonth", docData.get("requestedAtMonth"));
-        data.put("requestedAtYear", docData.get("requestedAtYear"));
-        data.put("respondedAt", docData.get("respondedAt"));
-        data.put("respondedBy", docData.get("respondedBy"));
-        data.put("writtenAt", docData.get("writtenAt"));
-        data.put("causeOfLeave", docData.get("causeOfLeave"));
-        data.put("leaveTitle", docData.get("leaveTitle"));
-        data.put("otherLeaveTitle", docData.get("otherLeaveTitle"));
-        data.put("requestRemark", docData.get("requestRemark"));
-        data.put("selectedLeaveFromDay", docData.get("selectedLeaveFromDay"));
-        data.put("selectedLeaveFromMonth", docData.get("selectedLeaveFromMonth"));
-        data.put("selectedLeaveFromYear", docData.get("selectedLeaveFromYear"));
-        data.put("selectedLeaveUntilDay", docData.get("selectedLeaveUntilDay"));
-        data.put("selectedLeaveUntilMonth", docData.get("selectedLeaveUntilMonth"));
-        data.put("selectedLeaveUntilYear", docData.get("selectedLeaveUntilYear"));
-        ApiFuture<WriteResult> result = docRef.update(data);
-        return true;
     }
 
     public HashMap<String, Object> toDocDataMap(QueryDocumentSnapshot document) {

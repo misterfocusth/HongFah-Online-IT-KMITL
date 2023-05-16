@@ -10,7 +10,6 @@ import database.AnnounceDatabase;
 import java.util.concurrent.*;
 
 /**
- *
  * @author misterfocusth
  */
 public class AnnounceHandler {
@@ -37,7 +36,7 @@ public class AnnounceHandler {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         boolean result = false;
         try {
-            Callable<Boolean> callable = () -> new AnnounceDatabase().updateAnnouncement(announceTitle,announceBody);
+            Callable<Boolean> callable = () -> new AnnounceDatabase().updateAnnouncement(announceTitle, announceBody);
             Future<Boolean> future = executorService.submit(callable);
             while (!future.isDone() && !future.isCancelled()) {
                 Thread.sleep(1000);

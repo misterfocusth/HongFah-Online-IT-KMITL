@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Map;
 
 /**
- *
  * @author User
  */
 public class CheckInSession {
@@ -47,7 +46,7 @@ public class CheckInSession {
         this.studentCheckIn = (ArrayList<String>) checkInSessionData.get("studentCheckIn");
     }
 
-//    }
+    //    }
     public String getSessionID() {
         return sessionID;
     }

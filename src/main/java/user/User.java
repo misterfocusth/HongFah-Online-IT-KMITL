@@ -19,7 +19,7 @@ public abstract class User {
     private String gender;
 
     public User() {
-        
+
     }
 
     public User(String username, String thNameTitle, String enNameTitle, String thFirstName, String thLastName, String enFirstName, String enLastName, String identificationNumber, String email, String phoneNumber, String contactAddress, String dobDate, String dobMonth, String dobYear, String gender) {

@@ -1,15 +1,13 @@
 package dialog;
 
-import interfaces.AlertDialog;
-
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 public abstract class Dialog {
 
+    private final Font font;
     private JLabel message;
     private String dialogTitle;
-    private final Font font;
     private Component parentComponent;
 
     public Dialog(Component parentComponent, String dialogTitle, String message) {

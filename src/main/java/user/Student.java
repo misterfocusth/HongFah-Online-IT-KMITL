@@ -4,7 +4,6 @@
  */
 package user;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -20,7 +19,7 @@ public class Student extends User {
     private String programName;
     private String studentId;
     private HashMap<String, HashMap<String, Object>> documents;
-    
+
     public Student(String username, String thNameTitle, String enNameTitle, String thFirstName, String thLastName, String enFirstName, String enLastName, String identificationNumber, String email, String phoneNumber, String contactAddress, String dobDate, String dobMonth, String dobYear, String gender, String classYear, String generation, String schoolName, String campusName, String majorName, String programName, String studentId) {
         super(
                 username,

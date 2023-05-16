@@ -2,6 +2,7 @@ package handlers.document;
 
 import database.GeneralDocumentDatabase;
 import document.GeneralRequestDocument;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -82,7 +83,7 @@ public class GeneralDocHandler extends DocumentHandler {
             executorService.shutdown();
         }
         System.out.println(result);
-        String documentId = (String) docId;
+        String documentId = docId;
         String writtenAt = (String) result.get("writtenAt");
         String requestedAtDay = (String) result.get("requestedAtDay");
         String requestedAtMonth = (String) result.get("requestedAtMonth");
@@ -95,7 +96,7 @@ public class GeneralDocHandler extends DocumentHandler {
         String respondedBy = (String) result.get("respondedBy");
         String contactAddress = (String) result.get("contactAddress");
         String requestBody = (String) result.get("requestBody");
-        ArrayList< String> requestResponses = (ArrayList< String>) result.get("requestResponses");
+        ArrayList<String> requestResponses = (ArrayList<String>) result.get("requestResponses");
 
         return new GeneralRequestDocument(documentId,
                 writtenAt,

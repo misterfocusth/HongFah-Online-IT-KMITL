@@ -2,18 +2,12 @@ package handlers.document;
 
 import database.DocumentDatabase;
 import interfaces.UniqueAble;
+
 import java.util.HashMap;
 import java.util.UUID;
 import java.util.concurrent.*;
 
 public class DocumentHandler implements UniqueAble {
-
-    @Override
-    public String randomID() {
-        String result = "DOC-";
-        String allRandomizedChar = UUID.randomUUID().toString().replace("-", "");
-        return (result + allRandomizedChar.substring(0, 7).toUpperCase());
-    }
 
     public static HashMap<String, HashMap<String, Object>> handleGetAllDocumentsByStudentId(String studentId) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
@@ -32,5 +26,12 @@ public class DocumentHandler implements UniqueAble {
         }
         System.out.println(result);
         return result;
+    }
+
+    @Override
+    public String randomID() {
+        String result = "DOC-";
+        String allRandomizedChar = UUID.randomUUID().toString().replace("-", "");
+        return (result + allRandomizedChar.substring(0, 7).toUpperCase());
     }
 }

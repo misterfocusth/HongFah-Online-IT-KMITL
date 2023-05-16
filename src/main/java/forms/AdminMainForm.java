@@ -14,16 +14,70 @@ import helper.FrameHelper;
 import user.AuthUser;
 
 /**
- *
  * @author USER
  */
 public class AdminMainForm extends javax.swing.JFrame {
 
+    public static javax.swing.JDesktopPane mainDesktopPane;
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu aboutMenu;
+    private javax.swing.JMenu announceMenu;
+    private javax.swing.JMenu answerMenu;
+    private javax.swing.JMenu docMenu;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenu logoutMenu;
+    private javax.swing.JMenu studentCheckInMenu;
     /**
      * Creates new form AdminMainForm
      */
     public AdminMainForm() {
         initComponents();
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AdminMainForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AdminMainForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AdminMainForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AdminMainForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AdminMainForm().setVisible(true);
+            }
+        });
     }
 
     /**
@@ -61,12 +115,12 @@ public class AdminMainForm extends javax.swing.JFrame {
         javax.swing.GroupLayout mainDesktopPaneLayout = new javax.swing.GroupLayout(mainDesktopPane);
         mainDesktopPane.setLayout(mainDesktopPaneLayout);
         mainDesktopPaneLayout.setHorizontalGroup(
-            mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1003, Short.MAX_VALUE)
+                mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 1003, Short.MAX_VALUE)
         );
         mainDesktopPaneLayout.setVerticalGroup(
-            mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 765, Short.MAX_VALUE)
+                mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 765, Short.MAX_VALUE)
         );
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(690, 35));
@@ -136,12 +190,12 @@ public class AdminMainForm extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainDesktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(mainDesktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainDesktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(mainDesktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -192,63 +246,8 @@ public class AdminMainForm extends javax.swing.JFrame {
         CheckInSessionHomeForm hongFahCheckInHome = new CheckInSessionHomeForm();
         FrameHelper.setLocationToCenter(hongFahCheckInHome);
         AdminMainForm.mainDesktopPane.add(hongFahCheckInHome);
-        hongFahCheckInHome.setVisible(true);    }//GEN-LAST:event_studentCheckInMenuMouseClicked
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminMainForm.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminMainForm.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminMainForm.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminMainForm.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminMainForm().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu aboutMenu;
-    private javax.swing.JMenu announceMenu;
-    private javax.swing.JMenu answerMenu;
-    private javax.swing.JMenu docMenu;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenu logoutMenu;
-    public static javax.swing.JDesktopPane mainDesktopPane;
-    private javax.swing.JMenu studentCheckInMenu;
+        hongFahCheckInHome.setVisible(true);
+    }//GEN-LAST:event_studentCheckInMenuMouseClicked
     // End of variables declaration//GEN-END:variables
 
 }

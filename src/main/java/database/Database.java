@@ -4,13 +4,9 @@
  */
 package database;
 
-import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.Firestore;
-import firebase.Firebase;
 
 /**
- *
  * @author misterfocusth
  */
 public abstract class Database {

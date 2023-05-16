@@ -4,27 +4,17 @@
 package database;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.cloud.firestore.QuerySnapshot;
-import com.google.cloud.firestore.WriteResult;
+import com.google.cloud.firestore.*;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 /**
- *
  * @author BNKT
  */
 public class QuestionDatabase extends Database {
-
-    public synchronized boolean addNewQuestion(Map<String, Object> questionData, String questionId) {
-        DocumentReference docRef = db.collection(QUESTION_COLLECTION).document(questionId);
-        docRef.set(questionData);
-        return true;
-    }
 
     public static synchronized boolean updateQuestionInfoById(String questionID, HashMap<String, Object> questionData) {
         DocumentReference docRef = db.collection("question").document(questionID);
@@ -39,6 +29,12 @@ public class QuestionDatabase extends Database {
         data.put("answerAt", questionData.get("answerAt"));
         data.put("answerBody", questionData.get("answerBody"));
         ApiFuture<WriteResult> result = docRef.update(data);
+        return true;
+    }
+
+    public synchronized boolean addNewQuestion(Map<String, Object> questionData, String questionId) {
+        DocumentReference docRef = db.collection(QUESTION_COLLECTION).document(questionId);
+        docRef.set(questionData);
         return true;
     }
 
@@ -59,7 +55,7 @@ public class QuestionDatabase extends Database {
 
     public synchronized HashMap<String, HashMap<String, Object>> getAllQuestion() throws ExecutionException, InterruptedException {
         HashMap<String, HashMap<String, Object>> questionData = new HashMap<>();
-        ApiFuture<QuerySnapshot> query = (ApiFuture<QuerySnapshot>) db.collection(QUESTION_COLLECTION).get();
+        ApiFuture<QuerySnapshot> query = db.collection(QUESTION_COLLECTION).get();
         QuerySnapshot querySnapshot = query.get();
         List<QueryDocumentSnapshot> queryDocuments = querySnapshot.getDocuments();
         try {

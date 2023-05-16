@@ -21,7 +21,68 @@ import java.util.HashMap;
 public class EditStudentInfoForm extends javax.swing.JInternalFrame {
 
     private HashMap<String, String> studentData = new HashMap<>();
-
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea addressTextArea;
+    private javax.swing.JTextField birthYearTextField;
+    private javax.swing.JComboBox<String> campusBox;
+    private javax.swing.JPasswordField confirmPasswordField;
+    private javax.swing.JTextField emailTextField;
+    private javax.swing.JTextField enFirstNameTextField;
+    private javax.swing.JTextField enLastNameTextField;
+    private javax.swing.JTextField identificationNumTextField;
+    private javax.swing.JTextField itGenerationTextField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField majorTextField;
+    private javax.swing.JPasswordField newPasswordField;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JTextField phoneNumberTextField;
+    private javax.swing.JButton processUpdateButton;
+    private javax.swing.JComboBox<String> selectedBirthDayBox;
+    private javax.swing.JComboBox<String> selectedBirthMonthBox;
+    private javax.swing.JComboBox<String> selectedEnNameTitleBox;
+    private javax.swing.JComboBox<String> selectedGenderBox;
+    private javax.swing.JComboBox<String> selectedProgramBox;
+    private javax.swing.JComboBox<String> selectedSchoolNameBox;
+    private javax.swing.JComboBox<String> selectedStudentYearBox;
+    private javax.swing.JComboBox<String> selectedThNameTitleBox;
+    private javax.swing.JTextField studentIdTextField;
+    private javax.swing.JTextField thFirstNameTextField;
+    private javax.swing.JTextField thLastNameTextField;
     /**
      * Creates new form EditStudentInfoForm
      */
@@ -666,68 +727,5 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
 
 
     }//GEN-LAST:event_processUpdateButtonActionPerformed
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea addressTextArea;
-    private javax.swing.JTextField birthYearTextField;
-    private javax.swing.JComboBox<String> campusBox;
-    private javax.swing.JPasswordField confirmPasswordField;
-    private javax.swing.JTextField emailTextField;
-    private javax.swing.JTextField enFirstNameTextField;
-    private javax.swing.JTextField enLastNameTextField;
-    private javax.swing.JTextField identificationNumTextField;
-    private javax.swing.JTextField itGenerationTextField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField majorTextField;
-    private javax.swing.JPasswordField newPasswordField;
-    private javax.swing.JPasswordField passwordField;
-    private javax.swing.JTextField phoneNumberTextField;
-    private javax.swing.JButton processUpdateButton;
-    private javax.swing.JComboBox<String> selectedBirthDayBox;
-    private javax.swing.JComboBox<String> selectedBirthMonthBox;
-    private javax.swing.JComboBox<String> selectedEnNameTitleBox;
-    private javax.swing.JComboBox<String> selectedGenderBox;
-    private javax.swing.JComboBox<String> selectedProgramBox;
-    private javax.swing.JComboBox<String> selectedSchoolNameBox;
-    private javax.swing.JComboBox<String> selectedStudentYearBox;
-    private javax.swing.JComboBox<String> selectedThNameTitleBox;
-    private javax.swing.JTextField studentIdTextField;
-    private javax.swing.JTextField thFirstNameTextField;
-    private javax.swing.JTextField thLastNameTextField;
     // End of variables declaration//GEN-END:variables
 }

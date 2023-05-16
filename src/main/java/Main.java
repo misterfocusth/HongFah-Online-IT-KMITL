@@ -22,7 +22,7 @@ public class Main {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        
+
         NewLoginForm newLoginForm = new NewLoginForm();
         newLoginForm.setLocationRelativeTo(null);
         newLoginForm.setVisible(true);
