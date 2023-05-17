@@ -485,8 +485,24 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
         if (requestedGeneralDocuments.size() == 0 && requestedLeaveDocuments.size() == 0) {
             new InfoDialog("ไม่พบข้อมูลรายการคำร้อง / เอกสาร", "ไม่พบข้อมูลเอกสารหรือคำร้องที่ถูกยื่นเข้ามาในระบบ โดยหมายเลขนักศึกษานี้").show();
         } else {
-            setGeneralDocTableData();
-            setLeaveDocTableData();
+            DefaultTableModel generalDocTableModel = (DefaultTableModel) generalDocHistoryTable.getModel();
+            generalDocTableModel.setRowCount(0);
+            requestedGeneralDocuments.forEach((k, v) -> {
+                String docID = (String) v.get("documentId");
+                String requestTitle = (String) v.get("requestTitle");
+                String dateDoc = (String) v.get("requestedAtDay") + " " + (String) v.get("requestedAtMonth") + " " + (String) v.get("requestedAtYear");
+                String requestStatus = (String) v.get("requestStatus");
+                generalDocTableModel.addRow(new String[]{docID.toUpperCase(), dateDoc, requestTitle, requestStatus});
+            });
+            DefaultTableModel leaveDocTableModel = (DefaultTableModel) leaveDocHistoryTable.getModel();
+            leaveDocTableModel.setRowCount(0);
+            requestedLeaveDocuments.forEach((k, v) -> {
+                String docID = (String) v.get("documentId");
+                String requestTitle = (String) v.get("otherLeaveTitle");
+                String dateDoc = v.get("requestedAtDay") + " " + v.get("requestedAtMonth") + " " + v.get("requestedAtYear");
+                String requestStatus = (String) v.get("requestStatus");
+                leaveDocTableModel.addRow(new String[]{docID.toUpperCase(), dateDoc, requestTitle, requestStatus});
+            });
         }
     }//GEN-LAST:event_searchByStudentIdButtonActionPerformed
 
