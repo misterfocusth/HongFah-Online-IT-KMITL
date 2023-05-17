@@ -108,11 +108,6 @@ public class CheckInSessionHomeForm extends javax.swing.JInternalFrame {
                 checkInSessionComboBoxItemStateChanged(evt);
             }
         });
-        checkInSessionComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkInSessionComboBoxActionPerformed(evt);
-            }
-        });
 
         searchCheckInSessionButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         searchCheckInSessionButton.setText("ค้นหาด้วยรหัสเช็คชื่อ");
@@ -130,22 +125,12 @@ public class CheckInSessionHomeForm extends javax.swing.JInternalFrame {
                 addMouseClicked(evt);
             }
         });
-        add.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addActionPerformed(evt);
-            }
-        });
 
         cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cancel.setText("ยกเลิก");
+        cancel.setText("ปิด");
         cancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cancelMouseClicked(evt);
-            }
-        });
-        cancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelActionPerformed(evt);
             }
         });
 
@@ -170,11 +155,6 @@ public class CheckInSessionHomeForm extends javax.swing.JInternalFrame {
         jLabel6.setText("ห้องเรียน");
 
         durationTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        durationTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                durationTextFieldActionPerformed(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("ชื่ออาจารย์ผู้สอน");
@@ -182,11 +162,6 @@ public class CheckInSessionHomeForm extends javax.swing.JInternalFrame {
         teacherNameTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         classroomTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        classroomTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                classroomTextFieldActionPerformed(evt);
-            }
-        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("รายละเอียดวิชา");
@@ -202,11 +177,6 @@ public class CheckInSessionHomeForm extends javax.swing.JInternalFrame {
         clear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clearMouseClicked(evt);
-            }
-        });
-        clear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearActionPerformed(evt);
             }
         });
 
@@ -453,10 +423,6 @@ public class CheckInSessionHomeForm extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void checkInSessionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInSessionComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkInSessionComboBoxActionPerformed
-
     private void searchCheckInSessionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCheckInSessionButtonActionPerformed
         String checkInSessionCode = searchCheckInSessionCodeTextField.getText().toUpperCase();
         DefaultTableModel model = (DefaultTableModel) checkClassinfo.getModel();
@@ -499,22 +465,6 @@ public class CheckInSessionHomeForm extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_addMouseClicked
 
-    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addActionPerformed
-
-    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-
-    }//GEN-LAST:event_cancelActionPerformed
-
-    private void durationTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_durationTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_durationTextFieldActionPerformed
-
-    private void classroomTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classroomTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_classroomTextFieldActionPerformed
-
     private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
         this.setVisible(false);
         this.dispose();
@@ -528,10 +478,6 @@ public class CheckInSessionHomeForm extends javax.swing.JInternalFrame {
         teacherNameTextField.setText("");
         subjectInfoTextField.setText("");
     }//GEN-LAST:event_clearMouseClicked
-
-    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clearActionPerformed
 
     private void refreshLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshLabelMouseClicked
         refreshCheckInTableData();

@@ -9,25 +9,17 @@ import dialog.InfoDialog;
 import forms.MainForm;
 import handlers.CheckInHandler;
 import helper.FrameHelper;
-import user.AuthUser;
-import user.Student;
-
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import user.AuthUser;
+import user.Student;
 
 /**
  *
  * @author WINDOWS 10
  */
 public class CheckInForms extends javax.swing.JInternalFrame implements KeyListener {
-
-    private CheckInSession selectedData;
-    private Map<String, Object> checkInData = new HashMap<>();
-    private String prevCheckInCode = "";
 
     /**
      * Creates new form CheckinForms
@@ -58,11 +50,6 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
 
         codeTextField.setFont(new java.awt.Font("Tahoma", 0, 60)); // NOI18N
         codeTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        codeTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codeTextFieldActionPerformed(evt);
-            }
-        });
 
         finalLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         finalLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -88,11 +75,6 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
         cheeckbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cheeckbtnMouseClicked(evt);
-            }
-        });
-        cheeckbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cheeckbtnActionPerformed(evt);
             }
         });
         jPanel1.add(cheeckbtn);
@@ -160,39 +142,11 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cheeckbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheeckbtnActionPerformed
-
-    }//GEN-LAST:event_cheeckbtnActionPerformed
-
     private void cancelbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelbtnActionPerformed
         this.dispose();
     }//GEN-LAST:event_cancelbtnActionPerformed
 
-    private void codeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codeTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_codeTextFieldActionPerformed
-
     private void cheeckbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cheeckbtnMouseClicked
-
-//        if (codeTextField.getText().length() == 6) {
-//            try {
-//                String sessionID = (String) codeTextField.getText();
-//                CheckInSession seleCheckInSession = CheckInHandler.handleGetCheckInBySessionID(sessionID);
-//                CheckConfirmationForms checkConfirmationForms = new CheckConfirmationForms(seleCheckInSession);
-//                FrameHelper.setLocationToCenter(checkConfirmationForms);
-//                MainForm.mainDesktopPane.add(checkConfirmationForms);
-//                checkConfirmationForms.setVisible(true);
-//                this.setVisible(false);
-//                this.dispose();
-//            } catch (Exception e) {
-//                new InfoDialog("กรอกรหัสผิด", "รหัสเซคชั่นไม่ถูกต้อง!").show();
-//                codeTextField.setText("");
-//            }
-//        } else if (codeTextField.getText().length() < 6) {
-//            new InfoDialog("กรอกรหัสไม่ครบ", "โปรดกรอกรหัสเซคชั่นให้ครบ 6 หลัก").show();
-//            codeTextField.setText("");
-//        }
-
         String checkInSessionCode = codeTextField.getText();
         CheckInSession checkInFormsData = CheckInHandler.handleGetCheckInBySessionID(checkInSessionCode);
 

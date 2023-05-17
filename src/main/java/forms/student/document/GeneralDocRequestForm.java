@@ -407,21 +407,6 @@ public class GeneralDocRequestForm extends javax.swing.JInternalFrame {
         docData.put("respondedBy", respondedBy);
         docData.put("requestResponses", requestResponses);
 
-//        GeneralRequestDocument docData = new GeneralRequestDocument(
-//                writtenAt,
-//                requestedAtDay,
-//                requestedAtMonth,
-//                requestedAtYear,
-//                requestTitle,
-//                requestTo,
-//                requestBy,
-//                requestStatus,
-//                respondedAt,
-//                respondedBy,
-//                contactAddress,
-//                requestBody,
-//                requestResponses
-//        );
         return docData;
     }
 

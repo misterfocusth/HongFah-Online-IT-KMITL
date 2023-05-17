@@ -155,11 +155,6 @@ public class CheckInSessionInfoForm extends javax.swing.JInternalFrame {
 
         subjectID.setEditable(false);
         subjectID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        subjectID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                subjectIDActionPerformed(evt);
-            }
-        });
 
         FinalTime.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         FinalTime.setText("วัน - เวลาเรียน");
@@ -169,22 +164,12 @@ public class CheckInSessionInfoForm extends javax.swing.JInternalFrame {
 
         time.setEditable(false);
         time.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        time.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                timeActionPerformed(evt);
-            }
-        });
 
         finalTeacher.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         finalTeacher.setText("ชื่ออาจารย์ผู้สอน");
 
         classroom.setEditable(false);
         classroom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        classroom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                classroomActionPerformed(evt);
-            }
-        });
 
         teacher.setEditable(false);
         teacher.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -315,18 +300,6 @@ public class CheckInSessionInfoForm extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void subjectIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_subjectIDActionPerformed
-
-    private void timeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_timeActionPerformed
-
-    private void classroomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classroomActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_classroomActionPerformed
 
     private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
         this.setVisible(false);

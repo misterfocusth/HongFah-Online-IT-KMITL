@@ -287,11 +287,6 @@ public class QuestionAndAnswerAdmin extends javax.swing.JInternalFrame {
                 AnswerButtonMouseClicked(evt);
             }
         });
-        AnswerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AnswerButtonActionPerformed(evt);
-            }
-        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("ตอบคำถาม :");
@@ -389,10 +384,6 @@ public class QuestionAndAnswerAdmin extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_AnswerButtonMouseClicked
-
-    private void AnswerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnswerButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AnswerButtonActionPerformed
 
     private Map<String, Object> toQuestionDataMap() {
 

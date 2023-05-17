@@ -254,9 +254,6 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="subjectIDActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="FinalTime">
           <Properties>
@@ -281,9 +278,6 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="timeActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="finalTeacher">
           <Properties>
@@ -300,9 +294,6 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="classroomActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="teacher">
           <Properties>
