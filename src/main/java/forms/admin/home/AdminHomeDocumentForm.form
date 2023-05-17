@@ -386,7 +386,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&#xe40;&#xe40;&#xe2a;&#xe14;&#xe07;&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe42;&#xe14;&#xe22;&#xe43;&#xe0a;&#xe49;&#xe23;&#xe2b;&#xe31;&#xe2a;&#xe40;&#xe25;&#xe02;&#xe17;&#xe35;&#xe48;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23; / &#xe42;&#xe2b;&#xe25;&#xe14;&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;&#xe43;&#xe2b;&#xe21;&#xe48; &gt;&gt;"/>
+        <Property name="text" type="java.lang.String" value="&#xe40;&#xe40;&#xe2a;&#xe14;&#xe07;&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe42;&#xe14;&#xe22;&#xe43;&#xe0a;&#xe49;&#xe23;&#xe2b;&#xe31;&#xe2a;&#xe19;&#xe31;&#xe01;&#xe28;&#xe36;&#xe01;&#xe29;&#xe32; / &#xe42;&#xe2b;&#xe25;&#xe14;&#xe02;&#xe49;&#xe2d;&#xe21;&#xe39;&#xe25;&#xe40;&#xe2d;&#xe01;&#xe2a;&#xe32;&#xe23;&#xe43;&#xe2b;&#xe21;&#xe48; &gt;&gt;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="searchByStudentIdButton">

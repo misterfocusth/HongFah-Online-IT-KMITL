@@ -251,7 +251,7 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
         searchByStudentIdTextField.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("เเสดงข้อมูลโดยใช้รหัสเลขที่เอกสาร / โหลดข้อมูลเอกสารใหม่ >>");
+        jLabel1.setText("เเสดงข้อมูลโดยใช้รหัสนักศึกษา / โหลดข้อมูลเอกสารใหม่ >>");
 
         searchByStudentIdButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         searchByStudentIdButton.setText("ค้นหา");
@@ -420,8 +420,8 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
                     String requestedAtMonth = (String) v.get("requestedAtMonth");
                     String requestedAtYear = (String) v.get("requestedAtYear");
                     String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
-                    String otherLeaveTitle = (String) v.get("otherLeaveTitle");
-                    model.addRow(new String[]{documentId.toUpperCase(), requestedDate, otherLeaveTitle, requestStatus});
+                    String requestTitle = (String) v.get("requestTitle");
+                    model.addRow(new String[]{documentId.toUpperCase(), requestedDate, requestTitle, requestStatus});
                 });
             } else {
                 requestedGeneralDocuments.forEach((k, v) -> {
@@ -432,8 +432,8 @@ public class AdminHomeDocumentForm extends javax.swing.JInternalFrame {
                         String requestedAtMonth = (String) v.get("requestedAtMonth");
                         String requestedAtYear = (String) v.get("requestedAtYear");
                         String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
-                        String otherLeaveTitle = (String) v.get("otherLeaveTitle");
-                        model.addRow(new String[]{documentId.toUpperCase(), requestedDate, otherLeaveTitle, requestStatus});
+                        String requestTitle = (String) v.get("requestTitle");
+                        model.addRow(new String[]{documentId.toUpperCase(), requestedDate, requestTitle, requestStatus});
                     }
                 });
             }

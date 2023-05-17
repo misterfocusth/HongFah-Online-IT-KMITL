@@ -12,7 +12,6 @@ import handlers.document.GeneralDocHandler;
 import handlers.document.LeaveDocHandler;
 import helper.FrameHelper;
 import java.awt.*;
-import java.awt.event.ItemListener;
 import java.util.HashMap;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -465,8 +464,8 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
                     String requestedAtMonth = (String) v.get("requestedAtMonth");
                     String requestedAtYear = (String) v.get("requestedAtYear");
                     String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
-                    String otherLeaveTitle = (String) v.get("otherLeaveTitle");
-                    model.addRow(new String[]{documentId.toUpperCase(), requestedDate, otherLeaveTitle, requestStatus});
+                    String requestTitle = (String) v.get("requestTitle");
+                    model.addRow(new String[]{documentId.toUpperCase(), requestedDate, requestTitle, requestStatus});
                 });
             } else {
                 requestedGeneralDocuments.forEach((k, v) -> {
@@ -477,8 +476,8 @@ public class DocRequestHistoryForm extends javax.swing.JInternalFrame {
                         String requestedAtMonth = (String) v.get("requestedAtMonth");
                         String requestedAtYear = (String) v.get("requestedAtYear");
                         String requestedDate = requestedAtDay + " " + requestedAtMonth + " " + requestedAtYear;
-                        String otherLeaveTitle = (String) v.get("otherLeaveTitle");
-                        model.addRow(new String[]{documentId.toUpperCase(), requestedDate, otherLeaveTitle, requestStatus});
+                        String requestTitle = (String) v.get("requestTitle");
+                        model.addRow(new String[]{documentId.toUpperCase(), requestedDate, requestTitle, requestStatus});
                     }
                 });
             }
