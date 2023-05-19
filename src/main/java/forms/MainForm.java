@@ -13,6 +13,7 @@ import forms.student.document.LeaveDocRequestForm;
 import forms.student.info.EditStudentInfoForm;
 import forms.student.info.StudentInfoForm;
 import forms.student.login.NewLoginForm;
+import forms.student.subject.CheckInForms;
 import helper.FrameHelper;
 import javax.swing.*;
 import user.AuthUser;
@@ -60,7 +61,7 @@ public class MainForm extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenuItem4 = new javax.swing.JMenuItem();
         contactStaffMenu = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
+        checkInMenu = new javax.swing.JMenu();
         logoutMenu = new javax.swing.JMenu();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -198,10 +199,15 @@ public class MainForm extends javax.swing.JFrame {
         });
         jMenuBar2.add(contactStaffMenu);
 
-        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-today-28.png"))); // NOI18N
-        jMenu9.setText("เช็คชื่อเข้าชั้นเรียน");
-        jMenu9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jMenuBar2.add(jMenu9);
+        checkInMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-today-28.png"))); // NOI18N
+        checkInMenu.setText("เช็คชื่อเข้าชั้นเรียน");
+        checkInMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        checkInMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkInMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar2.add(checkInMenu);
 
         logoutMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-logout-28.png"))); // NOI18N
         logoutMenu.setText("ออกจากระบบ");
@@ -239,12 +245,12 @@ public class MainForm extends javax.swing.JFrame {
             newLoginForm.setVisible(true);
             this.setVisible(false);
             this.dispose();
-            
+
             MainForm.mainDesktopPane.removeAll();
             MainForm.mainDesktopPane.updateUI();
         }
     }//GEN-LAST:event_logoutMenuMouseClicked
-    
+
     private void studentInfoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentInfoMenuActionPerformed
         // TODO add your handling code here:
         StudentInfoForm homeForm = new StudentInfoForm();
@@ -252,14 +258,14 @@ public class MainForm extends javax.swing.JFrame {
         MainForm.mainDesktopPane.add(homeForm);
         homeForm.setVisible(true);
     }//GEN-LAST:event_studentInfoMenuActionPerformed
-    
+
     private void aboutProgrameMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutProgrameMenuMouseClicked
         // TODO add your handling code here:
         AboutForm aboutForm = new AboutForm();
         aboutForm.setLocationRelativeTo(null);
         aboutForm.setVisible(true);
     }//GEN-LAST:event_aboutProgrameMenuMouseClicked
-    
+
     private void editStudentInfoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editStudentInfoMenuActionPerformed
         // TODO add your handling code here:
         EditStudentInfoForm editStudentInfoForm = new EditStudentInfoForm();
@@ -267,34 +273,41 @@ public class MainForm extends javax.swing.JFrame {
         MainForm.mainDesktopPane.add(editStudentInfoForm);
         editStudentInfoForm.setVisible(true);
     }//GEN-LAST:event_editStudentInfoMenuActionPerformed
-    
+
     private void contactStaffMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactStaffMenuMouseClicked
         ContactStaffHomeForm contactStaffHomeForm = new ContactStaffHomeForm();
         FrameHelper.setLocationToCenter(contactStaffHomeForm);
         MainForm.mainDesktopPane.add(contactStaffHomeForm);
         contactStaffHomeForm.setVisible(true);
     }//GEN-LAST:event_contactStaffMenuMouseClicked
-    
+
     private void genDocClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genDocClickActionPerformed
         GeneralDocRequestForm gendoc = new GeneralDocRequestForm();
         FrameHelper.setLocationToCenter(gendoc);
         MainForm.mainDesktopPane.add(gendoc);
         gendoc.setVisible(true);
     }//GEN-LAST:event_genDocClickActionPerformed
-    
+
     private void leaveDocClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaveDocClickActionPerformed
         LeaveDocRequestForm leaveDoc = new LeaveDocRequestForm();
         FrameHelper.setLocationToCenter(leaveDoc);
         MainForm.mainDesktopPane.add(leaveDoc);
         leaveDoc.setVisible(true);
     }//GEN-LAST:event_leaveDocClickActionPerformed
-    
+
     private void historyDocClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyDocClickActionPerformed
         DocRequestHistoryForm hisDoc = new DocRequestHistoryForm();
         FrameHelper.setLocationToCenter(hisDoc);
         MainForm.mainDesktopPane.add(hisDoc);
         hisDoc.setVisible(true);
     }//GEN-LAST:event_historyDocClickActionPerformed
+
+    private void checkInMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkInMenuMouseClicked
+        CheckInForms checkInForms = new CheckInForms();
+        FrameHelper.setLocationToCenter(checkInForms);
+        MainForm.mainDesktopPane.add(checkInForms);
+        checkInForms.setVisible(true);
+    }//GEN-LAST:event_checkInMenuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -330,15 +343,16 @@ public class MainForm extends javax.swing.JFrame {
                 new MainForm().setVisible(true);
             }
         });
-        
+
     }
-    
+
     public JDesktopPane getMainDesktopPane() {
         return mainDesktopPane;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu aboutProgrameMenu;
+    private javax.swing.JMenu checkInMenu;
     private javax.swing.JMenu contactStaffMenu;
     private javax.swing.JMenu docRequestMenu;
     private javax.swing.JMenuItem editStudentInfoMenu;
@@ -349,7 +363,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
