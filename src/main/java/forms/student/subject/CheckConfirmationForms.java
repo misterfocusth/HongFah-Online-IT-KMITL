@@ -113,6 +113,7 @@ public class CheckConfirmationForms extends javax.swing.JInternalFrame {
 
         coursedetailTextField.setEditable(false);
         coursedetailTextField.setColumns(20);
+        coursedetailTextField.setLineWrap(true);
         coursedetailTextField.setRows(5);
         coursedetailTextField.setText("สอบ Quiz ตึง ๆ");
         jScrollPane2.setViewportView(coursedetailTextField);
