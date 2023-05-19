@@ -4,17 +4,29 @@
  */
 package forms.student.announce;
 
+import announce.Announce;
+import handlers.AnnounceHandler;
+
 /**
  *
  * @author misterfocusth
  */
 public class AnnounceForm extends javax.swing.JInternalFrame {
 
+    private Announce announce = null;
+
     /**
      * Creates new form AnnounceForm
      */
     public AnnounceForm() {
         initComponents();
+        showAnnouncement();
+    }
+
+    private void showAnnouncement() {
+        announce = AnnounceHandler.handlerGetCurrentAnnouncement();
+        announceTitleTextField.setText(announce.getAnnounceTitle());
+        announceBodyTextArea.setText(announce.getAnnounceBody());
     }
 
     /**
@@ -26,69 +38,92 @@ public class AnnounceForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        announceTitleTextField = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        announceBodyTextArea = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
-        announceTitle = new javax.swing.JLabel();
-        announceLine1 = new javax.swing.JLabel();
-        announceLine2 = new javax.swing.JLabel();
-        announceLin3 = new javax.swing.JLabel();
-        announceLine4 = new javax.swing.JLabel();
-        announceLine5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setIconifiable(true);
         setTitle("ข่าวประกาศ / ประชาสัมพันธ์");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/announce/icons8-email-send-48.png"))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ข่าวประกาศล่าสุด / ปัจจุบัน", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("ข่าวประกาศ / ประชาสัมพันธ์");
+        announceTitleTextField.setEditable(false);
+        announceTitleTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("หัวเรื่องประกาศ");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("เนื้อเรื่องประกาศ");
+
+        announceBodyTextArea.setEditable(false);
+        announceBodyTextArea.setColumns(20);
+        announceBodyTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        announceBodyTextArea.setRows(5);
+        jScrollPane1.setViewportView(announceBodyTextArea);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(announceTitleTextField, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(12, 12, 12))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(announceTitleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addGap(6, 6, 6)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
+        );
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("สำหรับนักศึกษาคณะเทคโนโลยีสารสนเทศ");
 
-        announceTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        announceTitle.setText("หัวเรื่องประกาศ");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("ข่าวประกาศ / ประชาสัมพันธ์");
 
-        announceLine1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        announceLine1.setText("ประกาศบรรทัดที่ 1     ประกาศบรรทัดที่ 1     ประกาศบรรทัดที่ 1    ");
-
-        announceLine2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        announceLine2.setText("ประกาศบรรทัดที่ 2     ประกาศบรรทัดที่ 2     ประกาศบรรทัดที่ 2");
-
-        announceLin3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        announceLin3.setText("ประกาศบรรทัดที่ 3     ประกาศบรรทัดที่ 3     ประกาศบรรทัดที่ 3");
-
-        announceLine4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        announceLine4.setText("ประกาศบรรทัดที่ 4     ประกาศบรรทัดที่ 4     ประกาศบรรทัดที่ 4");
-
-        announceLine5.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        announceLine5.setText("ประกาศบรรทัดที่ 5     ประกาศบรรทัดที่ 5     ประกาศบรรทัดที่ 5");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/announce/icons8-email-send-48.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(announceTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)))))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(announceLine2, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
-                            .addComponent(announceLin3, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
-                            .addComponent(announceLine4, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
-                            .addComponent(announceLine5, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
-                            .addComponent(announceLine1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(0, 366, Short.MAX_VALUE)))
                 .addGap(12, 12, 12))
         );
         layout.setVerticalGroup(
@@ -102,32 +137,22 @@ public class AnnounceForm extends javax.swing.JInternalFrame {
                         .addComponent(jLabel3))
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addComponent(announceTitle)
-                .addGap(18, 18, 18)
-                .addComponent(announceLine1)
-                .addGap(12, 12, 12)
-                .addComponent(announceLine2)
-                .addGap(12, 12, 12)
-                .addComponent(announceLin3)
-                .addGap(12, 12, 12)
-                .addComponent(announceLine4)
-                .addGap(12, 12, 12)
-                .addComponent(announceLine5)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel announceLin3;
-    private javax.swing.JLabel announceLine1;
-    private javax.swing.JLabel announceLine2;
-    private javax.swing.JLabel announceLine4;
-    private javax.swing.JLabel announceLine5;
-    private javax.swing.JLabel announceTitle;
+    private javax.swing.JTextArea announceBodyTextArea;
+    private javax.swing.JTextField announceTitleTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

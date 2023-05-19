@@ -107,37 +107,37 @@ public class AboutForm extends javax.swing.JFrame {
         jLabel14.setText("ผู้พัฒนาคนที่ 1");
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel15.setText("นายศิลา          ภักดีวงษ์          รหัสนักศึกษา 65070219");
+        jLabel15.setText("นายกิตติภณ          ทัศนเปรมสิน              รหัสนักศึกษา 65070021");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel16.setText("นายศิลา          ภักดีวงษ์          รหัสนักศึกษา 65070219");
+        jLabel16.setText("นางสาวนภสร        ศรีวิโรจน์                   รหัสนักศึกษา 65070115");
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel17.setText("ผู้พัฒนาคนที่ 1");
+        jLabel17.setText("ผู้พัฒนาคนที่ 2");
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel18.setText("นายศิลา          ภักดีวงษ์          รหัสนักศึกษา 65070219");
+        jLabel18.setText("นางสาวปภาดา      รุกขรังษี                     รหัสนักศึกษา 65070128");
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel19.setText("ผู้พัฒนาคนที่ 1");
+        jLabel19.setText("ผู้พัฒนาคนที่ 3");
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel20.setText("ผู้พัฒนาคนที่ 1");
+        jLabel20.setText("ผู้พัฒนาคนที่ 4");
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel21.setText("นายศิลา          ภักดีวงษ์          รหัสนักศึกษา 65070219");
+        jLabel21.setText("นางสาวพรพัฒน์     ธนทัตธาดา               รหัสนักศึกษา 65070144");
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel22.setText("นายศิลา          ภักดีวงษ์          รหัสนักศึกษา 65070219");
+        jLabel22.setText("นายพิศลย์             อุจตาลกาญจนา         รหัสนักศึกษา 65070158");
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel23.setText("ผู้พัฒนาคนที่ 1");
+        jLabel23.setText("ผู้พัฒนาคนที่ 5");
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel24.setText("นายศิลา          ภักดีวงษ์          รหัสนักศึกษา 65070219");
+        jLabel24.setText("นายศิลา               ภักดีวงษ์                    รหัสนักศึกษา 65070219");
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel25.setText("ผู้พัฒนาคนที่ 1");
+        jLabel25.setText("ผู้พัฒนาคนที่ 6");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

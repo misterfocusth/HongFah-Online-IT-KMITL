@@ -5,10 +5,11 @@
 package firebase;
 
 import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.firestore.Firestore;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
+import database.Database;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -23,16 +24,14 @@ import java.net.URL;
  */
 public class Firebase {
 
-    public static Firestore db = null;
-
-    public static void initFirebase() throws FileNotFoundException, IOException, URISyntaxException {
+    public static void initFirebase() throws IOException, URISyntaxException {
         InputStream serviceAccount = new FileInputStream(new Firebase().getServiceAccount());
         GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(credentials)
                 .build();
         FirebaseApp.initializeApp(options);
-        Firebase.db = FirestoreClient.getFirestore();
+        Database.setDb(FirestoreClient.getFirestore());
     }
 
     public File getServiceAccount() throws URISyntaxException {

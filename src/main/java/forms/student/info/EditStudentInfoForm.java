@@ -6,7 +6,7 @@ package forms.student.info;
 
 import dialog.InfoDialog;
 import forms.student.login.NewLoginForm;
-import handlers.EditStudentInfoHandler;
+import handlers.StudentInfoHandler;
 import helper.FrameHelper;
 import helper.InputValidationHelper;
 import helper.PasswordHelper;
@@ -650,7 +650,7 @@ public class EditStudentInfoForm extends javax.swing.JInternalFrame {
         processUpdateButton.setText("กำลังอัพเดทข้อมูล...");
         processUpdateButton.setEnabled(false);
 
-        if (EditStudentInfoHandler.handleEditStudentInfo(studentData.get("studentId"), studentData)) {
+        if (StudentInfoHandler.handleEditStudentInfo(studentData.get("studentId"), studentData)) {
             new InfoDialog("อัพเดทข้อมูลทะเบียนประวัตินักศึกษาสำเร็จ !", "โปรดดำเนินการเข้าสู่ระบบ ใหม่เพื่อนดำเนินการต่อ...").show();
             AuthUser.setAuthUser(null);
             AuthUser.setEncodedPassword("");

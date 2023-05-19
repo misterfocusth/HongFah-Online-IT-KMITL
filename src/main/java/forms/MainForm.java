@@ -6,13 +6,17 @@ package forms;
 
 import dialog.OptionDialog;
 import forms.student.about.AboutForm;
+import forms.student.contact.ContactStaffHomeForm;
+import forms.student.document.DocRequestHistoryForm;
+import forms.student.document.GeneralDocRequestForm;
+import forms.student.document.LeaveDocRequestForm;
 import forms.student.info.EditStudentInfoForm;
 import forms.student.info.StudentInfoForm;
 import forms.student.login.NewLoginForm;
+import forms.student.subject.CheckInForms;
 import helper.FrameHelper;
-import user.AuthUser;
-
 import javax.swing.*;
+import user.AuthUser;
 
 /**
  * @author misterfocusth
@@ -43,37 +47,43 @@ public class MainForm extends javax.swing.JFrame {
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        mainDesktopPane = new javax.swing.JDesktopPane();
         jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu4 = new javax.swing.JMenu();
+        aboutProgrameMenu = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        studentInfoMenu = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        editStudentInfoMenu = new javax.swing.JMenuItem();
+        docRequestMenu = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
+        contactStaffMenu = new javax.swing.JMenu();
+        checkInMenu = new javax.swing.JMenu();
+        logoutMenu = new javax.swing.JMenu();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
         jDialog1Layout.setHorizontalGroup(
-                jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 400, Short.MAX_VALUE)
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         jDialog1Layout.setVerticalGroup(
-                jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 300, Short.MAX_VALUE)
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
         jDialog2.getContentPane().setLayout(jDialog2Layout);
         jDialog2Layout.setHorizontalGroup(
-                jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 400, Short.MAX_VALUE)
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         jDialog2Layout.setVerticalGroup(
-                jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 300, Short.MAX_VALUE)
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         jRadioButtonMenuItem1.setSelected(true);
@@ -99,95 +109,135 @@ public class MainForm extends javax.swing.JFrame {
         javax.swing.GroupLayout mainDesktopPaneLayout = new javax.swing.GroupLayout(mainDesktopPane);
         mainDesktopPane.setLayout(mainDesktopPaneLayout);
         mainDesktopPaneLayout.setHorizontalGroup(
-                mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1003, Short.MAX_VALUE)
+            mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1003, Short.MAX_VALUE)
         );
         mainDesktopPaneLayout.setVerticalGroup(
-                mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 765, Short.MAX_VALUE)
+            mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 765, Short.MAX_VALUE)
         );
 
         jMenuBar2.setPreferredSize(new java.awt.Dimension(690, 35));
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-info-28.png"))); // NOI18N
-        jMenu4.setText("เกี่ยวกับโปรเเกรม");
-        jMenu4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+        aboutProgrameMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-info-28.png"))); // NOI18N
+        aboutProgrameMenu.setText("เกี่ยวกับโปรเเกรม");
+        aboutProgrameMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        aboutProgrameMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
+                aboutProgrameMenuMouseClicked(evt);
             }
         });
-        jMenuBar2.add(jMenu4);
+        jMenuBar2.add(aboutProgrameMenu);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-male-user-28.png"))); // NOI18N
         jMenu5.setText("ข้อมูลนักศึกษา");
         jMenu5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
 
-        jMenuItem1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jMenuItem1.setText("ข้อมูลนึกศึกษา");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        studentInfoMenu.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        studentInfoMenu.setText("ข้อมูลนักศึกษา");
+        studentInfoMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                studentInfoMenuActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem1);
+        jMenu5.add(studentInfoMenu);
         jMenu5.add(jSeparator1);
 
-        jMenuItem4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jMenuItem4.setText("เเก้ไขข้อมูลส่วนตัว");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        editStudentInfoMenu.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        editStudentInfoMenu.setText("เเก้ไขข้อมูลส่วนตัว");
+        editStudentInfoMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                editStudentInfoMenuActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem4);
+        jMenu5.add(editStudentInfoMenu);
 
         jMenuBar2.add(jMenu5);
 
-        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-documents-28.png"))); // NOI18N
-        jMenu6.setText("เอกสารเเละคำร้องทางการศึกษา");
-        jMenu6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jMenuBar2.add(jMenu6);
+        docRequestMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-documents-28.png"))); // NOI18N
+        docRequestMenu.setText("เอกสารเเละคำร้องทางการศึกษา");
+        docRequestMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
 
-        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-faq-28.png"))); // NOI18N
-        jMenu7.setText("ถามตอบห้องฟ้า");
-        jMenu7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jMenuBar2.add(jMenu7);
-
-        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-today-28.png"))); // NOI18N
-        jMenu9.setText("เช็คชื่อเข้าชั้นเรียน");
-        jMenu9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jMenuBar2.add(jMenu9);
-
-        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-logout-28.png"))); // NOI18N
-        jMenu8.setText("ออกจากระบบ");
-        jMenu8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu8MouseClicked(evt);
+        jMenuItem1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jMenuItem1.setText("แบบฟอร์มคำร้องทั่วไป");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                genDocClickActionPerformed(evt);
             }
         });
-        jMenuBar2.add(jMenu8);
+        docRequestMenu.add(jMenuItem1);
+        docRequestMenu.add(jSeparator2);
+
+        jMenuItem2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jMenuItem2.setText("แบบฟอร์มยื่นลาเรียน");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                leaveDocClickActionPerformed(evt);
+            }
+        });
+        docRequestMenu.add(jMenuItem2);
+        docRequestMenu.add(jSeparator3);
+
+        jMenuItem4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jMenuItem4.setText("ประวัติการยื่นคำร้องและเอกสาร");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                historyDocClickActionPerformed(evt);
+            }
+        });
+        docRequestMenu.add(jMenuItem4);
+
+        jMenuBar2.add(docRequestMenu);
+
+        contactStaffMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-faq-28.png"))); // NOI18N
+        contactStaffMenu.setText("ถามตอบห้องฟ้า");
+        contactStaffMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        contactStaffMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contactStaffMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar2.add(contactStaffMenu);
+
+        checkInMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-today-28.png"))); // NOI18N
+        checkInMenu.setText("เช็คชื่อเข้าชั้นเรียน");
+        checkInMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        checkInMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkInMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar2.add(checkInMenu);
+
+        logoutMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icons/icons8-logout-28.png"))); // NOI18N
+        logoutMenu.setText("ออกจากระบบ");
+        logoutMenu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        logoutMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar2.add(logoutMenu);
 
         setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(mainDesktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainDesktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(mainDesktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainDesktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
-        // TODO add your handling code here:
-        int selectedOpt = new OptionDialog("ออกจากระบบ", "ยืนยันที่จะออกจากระบบ หรือไม่ ?").showDialog();
+    private void logoutMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMenuMouseClicked
+        // ออกจากระบบ
+        int selectedOpt = new OptionDialog("ออกจากระบบ", "ยืนยันที่จะออกจากระบบ หรือไม่ ?").show();
         if (selectedOpt == 0) {
             AuthUser.setAuthUser(null);
             NewLoginForm newLoginForm = new NewLoginForm();
@@ -195,31 +245,69 @@ public class MainForm extends javax.swing.JFrame {
             newLoginForm.setVisible(true);
             this.setVisible(false);
             this.dispose();
-        }
-    }//GEN-LAST:event_jMenu8MouseClicked
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+            MainForm.mainDesktopPane.removeAll();
+            MainForm.mainDesktopPane.updateUI();
+        }
+    }//GEN-LAST:event_logoutMenuMouseClicked
+
+    private void studentInfoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentInfoMenuActionPerformed
         // TODO add your handling code here:
         StudentInfoForm homeForm = new StudentInfoForm();
         FrameHelper.setLocationToCenter(homeForm);
-        this.mainDesktopPane.add(homeForm);
+        MainForm.mainDesktopPane.add(homeForm);
         homeForm.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_studentInfoMenuActionPerformed
 
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+    private void aboutProgrameMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutProgrameMenuMouseClicked
         // TODO add your handling code here:
         AboutForm aboutForm = new AboutForm();
         aboutForm.setLocationRelativeTo(null);
         aboutForm.setVisible(true);
-    }//GEN-LAST:event_jMenu4MouseClicked
+    }//GEN-LAST:event_aboutProgrameMenuMouseClicked
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void editStudentInfoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editStudentInfoMenuActionPerformed
         // TODO add your handling code here:
         EditStudentInfoForm editStudentInfoForm = new EditStudentInfoForm();
         FrameHelper.setLocationToCenter(editStudentInfoForm);
         MainForm.mainDesktopPane.add(editStudentInfoForm);
         editStudentInfoForm.setVisible(true);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_editStudentInfoMenuActionPerformed
+
+    private void contactStaffMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactStaffMenuMouseClicked
+        ContactStaffHomeForm contactStaffHomeForm = new ContactStaffHomeForm();
+        FrameHelper.setLocationToCenter(contactStaffHomeForm);
+        MainForm.mainDesktopPane.add(contactStaffHomeForm);
+        contactStaffHomeForm.setVisible(true);
+    }//GEN-LAST:event_contactStaffMenuMouseClicked
+
+    private void genDocClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genDocClickActionPerformed
+        GeneralDocRequestForm gendoc = new GeneralDocRequestForm();
+        FrameHelper.setLocationToCenter(gendoc);
+        MainForm.mainDesktopPane.add(gendoc);
+        gendoc.setVisible(true);
+    }//GEN-LAST:event_genDocClickActionPerformed
+
+    private void leaveDocClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaveDocClickActionPerformed
+        LeaveDocRequestForm leaveDoc = new LeaveDocRequestForm();
+        FrameHelper.setLocationToCenter(leaveDoc);
+        MainForm.mainDesktopPane.add(leaveDoc);
+        leaveDoc.setVisible(true);
+    }//GEN-LAST:event_leaveDocClickActionPerformed
+
+    private void historyDocClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyDocClickActionPerformed
+        DocRequestHistoryForm hisDoc = new DocRequestHistoryForm();
+        FrameHelper.setLocationToCenter(hisDoc);
+        MainForm.mainDesktopPane.add(hisDoc);
+        hisDoc.setVisible(true);
+    }//GEN-LAST:event_historyDocClickActionPerformed
+
+    private void checkInMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkInMenuMouseClicked
+        CheckInForms checkInForms = new CheckInForms();
+        FrameHelper.setLocationToCenter(checkInForms);
+        MainForm.mainDesktopPane.add(checkInForms);
+        checkInForms.setVisible(true);
+    }//GEN-LAST:event_checkInMenuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -263,24 +351,29 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu aboutProgrameMenu;
+    private javax.swing.JMenu checkInMenu;
+    private javax.swing.JMenu contactStaffMenu;
+    private javax.swing.JMenu docRequestMenu;
+    private javax.swing.JMenuItem editStudentInfoMenu;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    public static javax.swing.JDesktopPane mainDesktopPane = new javax.swing.JDesktopPane();
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JMenu logoutMenu;
+    public static javax.swing.JDesktopPane mainDesktopPane;
+    private javax.swing.JMenuItem studentInfoMenu;
     // End of variables declaration//GEN-END:variables
 }

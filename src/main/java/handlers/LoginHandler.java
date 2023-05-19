@@ -1,15 +1,17 @@
 package handlers;
 
+import database.AdminDatabase;
 import database.StudentDatabase;
 import helper.PasswordHelper;
 import helper.StudentDataHelper;
+import java.util.HashMap;
+import java.util.concurrent.*;
+import user.Admin;
 import user.AuthUser;
 import user.Student;
 
-import java.util.HashMap;
-import java.util.concurrent.*;
-
 public class LoginHandler {
+
     public static Student handleLogin(String username, String password) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         HashMap<String, Object> studentData = null;
@@ -40,4 +42,29 @@ public class LoginHandler {
         }
     }
 
+    public static Admin handleAdminLogin(String username, String password) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        HashMap<String, Object> adminData = null;
+        try {
+            Callable<HashMap<String, Object>> callable = () -> AdminDatabase.getAdminById(username);
+            Future<HashMap<String, Object>> future = executorService.submit(callable);
+            while (!future.isDone() && !future.isCancelled()) {
+                Thread.sleep(1000);
+            }
+            adminData = future.get();
+        } catch (InterruptedException | ExecutionException ex) {
+            ex.printStackTrace();
+        } finally {
+            executorService.shutdown();
+        }
+        if (adminData == null) {
+            return null;
+        }
+        if (password.equals(adminData.get("password"))) {
+            AuthUser.setEncodedPassword((String) adminData.get("password"));
+            return new Admin(username, (String) adminData.get("role"));
+        } else {
+            return null;
+        }
+    }
 }

@@ -4,6 +4,7 @@
  */
 package helper;
 
+import interfaces.EncodeAble;
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ import javax.swing.*;
 /**
  * @author misterfocusth
  */
-public class PasswordHelper {
+public class PasswordHelper implements EncodeAble {
     private static final Argon2PasswordEncoder encoder = new Argon2PasswordEncoder(32, 64, 1, 15 * 1024, 2);
 
     public static String encode(String password) {

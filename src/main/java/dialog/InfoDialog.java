@@ -1,9 +1,11 @@
 package dialog;
 
+import interfaces.AlertDialog;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class InfoDialog extends Dialog {
+public class InfoDialog extends Dialog implements AlertDialog {
 
     public InfoDialog() {
 
@@ -17,7 +19,6 @@ public class InfoDialog extends Dialog {
         super(dialogTitle, message);
     }
 
-    @Override
     public void show() {
         JLabel message = this.getMessage();
         String dialogTitle = this.getDialogTitle();

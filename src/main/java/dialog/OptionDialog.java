@@ -4,13 +4,15 @@
  */
 package dialog;
 
+import interfaces.AlertDialog;
+
 import javax.swing.*;
 import java.awt.*;
 
 /**
  * @author misterfocusth
  */
-public class OptionDialog extends Dialog {
+public class OptionDialog extends Dialog implements interfaces.OptionDialog {
 
     public OptionDialog() {
 
@@ -25,11 +27,7 @@ public class OptionDialog extends Dialog {
     }
 
     @Override
-    public void show() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public int showDialog() {
+    public int show() {
         JLabel message = this.getMessage();
         String dialogTitle = this.getDialogTitle();
         Component parentComponent = this.getParentComponent();
