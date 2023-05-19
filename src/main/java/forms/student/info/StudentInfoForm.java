@@ -227,7 +227,7 @@ public class StudentInfoForm extends javax.swing.JInternalFrame {
         jLabel19.setText("สาขา / วิชาเอก");
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel28.setText("เเขวงวิชา");
+        jLabel28.setText("เเขนงวิชา");
 
         majorNameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         majorNameLabel.setText("NULL");

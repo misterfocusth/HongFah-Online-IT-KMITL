@@ -271,7 +271,7 @@ public class NewRegisterForm extends javax.swing.JFrame {
         jLabel26.setText("สาขา / วิชาเอก");
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel27.setText("เเขวงวิชา");
+        jLabel27.setText("เเขนงวิชา");
 
         majorTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 

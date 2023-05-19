@@ -381,7 +381,7 @@ public class LeaveDocumentForm extends javax.swing.JInternalFrame {
         jLabel33.setText("สาขา / วิชาเอก");
 
         jLabel34.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel34.setText("เเขวงวิชา");
+        jLabel34.setText("เเขนงวิชา");
 
         majorNameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         majorNameLabel.setText("NULL");
