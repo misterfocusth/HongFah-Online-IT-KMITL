@@ -154,7 +154,7 @@ public class CheckInForms extends javax.swing.JInternalFrame implements KeyListe
             new InfoDialog("ไม่พบเซ็คชั่นเช็คชื่อเข้าเรียน", "ไม่พบเซ็คชั่นเข้าเรียนนี้ โปรดตรวจสอบรหัสใหม่อีกครั้ง").show();
             return;
         } else if (!checkInFormsData.isIsActive()) {
-            new InfoDialog("เซคชั่นนี้ปิดการเช็คชื่อไปแล้ว", "ไม่สามารถเช็คชื่อได้ เนื่องจากปิดการเช็คชื่อแล้ว");
+            new InfoDialog("เซคชั่นนี้ปิดการเช็คชื่อไปแล้ว", "ไม่สามารถเช็คชื่อได้ เนื่องจากปิดการเช็คชื่อแล้ว").show();
             return;
         }
 
