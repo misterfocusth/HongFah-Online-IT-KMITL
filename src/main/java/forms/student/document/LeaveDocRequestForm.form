@@ -1145,6 +1145,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&#xe15;&#xe34;&#xe14;&#xe15;&#xe48;&#xe2d;&#xe2b;&#xe49;&#xe2d;&#xe07;&#xe1f;&#xe49;&#xe32;"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="contactStaffLabel1MouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

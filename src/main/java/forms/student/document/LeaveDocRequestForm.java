@@ -566,6 +566,11 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
         contactStaffLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         contactStaffLabel1.setForeground(new java.awt.Color(0, 102, 255));
         contactStaffLabel1.setText("ติดต่อห้องฟ้า");
+        contactStaffLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contactStaffLabel1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -719,6 +724,13 @@ public class LeaveDocRequestForm extends javax.swing.JInternalFrame {
         MainForm.mainDesktopPane.add(contactStaffHomeForm);
         contactStaffHomeForm.setVisible(true);
     }//GEN-LAST:event_contactStaffLabelMouseClicked
+
+    private void contactStaffLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactStaffLabel1MouseClicked
+        ContactStaffHomeForm contactStaffHomeForm = new ContactStaffHomeForm();
+        FrameHelper.setLocationToCenter(contactStaffHomeForm);
+        MainForm.mainDesktopPane.add(contactStaffHomeForm);
+        contactStaffHomeForm.setVisible(true);
+    }//GEN-LAST:event_contactStaffLabel1MouseClicked
 
     private Map<String, Object> toDocDataMap() {
         String writtenAt = writtenAtTextArea.getText();
